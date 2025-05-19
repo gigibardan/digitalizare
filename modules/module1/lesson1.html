@@ -4,9 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lecția 1: Ce înseamnă digitalizarea în educație | TechMinds Academy</title>
-    <meta name="description" content="Lecția 1 din Modulul Introducere în digitalizare: concepte, tendințe și impactul digitalizării în educație.">
+    <meta name="description" content="Descoperă conceptele fundamentale, tendințele actuale și impactul digitalizării asupra sistemului educațional.">
     <link rel="stylesheet" href="/css/main.css">
     <link rel="stylesheet" href="/css/responsive.css">
+    <link rel="stylesheet" href="/css/module.css">
+    <link rel="stylesheet" href="/css/lesson.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
 </head>
@@ -14,10 +16,10 @@
     <!-- Header placeholder -->
     <div id="header-placeholder"></div>
     
-    <!-- Lesson header -->
-    <section class="module-header">
+    <!-- Header lecție -->
+    <section class="lesson-header">
         <div class="container">
-            <div class="breadcrumbs">
+            <div class="lesson-breadcrumbs">
                 <a href="/index.html">Acasă</a>
                 <span class="separator">/</span>
                 <a href="/modules/module1/index.html">Modul 1: Introducere în digitalizare</a>
@@ -25,191 +27,252 @@
                 <span>Lecția 1: Ce înseamnă digitalizarea în educație</span>
             </div>
             <h1>Lecția 1: Ce înseamnă digitalizarea în educație</h1>
-            <p>Concepte, tendințe și impactul digitalizării asupra procesului educațional</p>
+            <p>Concepte fundamentale, tendințe actuale și impactul digitalizării asupra sistemului educațional</p>
         </div>
     </section>
     
-    <!-- Lesson content -->
-    <section class="section">
+    <!-- Conținut principal lecție -->
+    <section class="lesson-layout">
         <div class="container">
-            <div class="lesson-wrapper">
+            <div class="lesson-layout">
+                <!-- Sidebar -->
                 <aside class="lesson-sidebar">
-                    <div class="module-progress">
-                        <div class="progress-text">
-                            <span>Progres Modul 1</span>
-                            <span>1/2</span>
+                    <!-- Progres modul -->
+                    <div class="sidebar-card">
+                        <div class="sidebar-card-header">
+                            Progres Modul 1
                         </div>
-                        <div class="progress-bar">
-                            <div class="progress-fill" style="width: 50%;"></div>
-                        </div>
-                    </div>
-                    
-                    <nav class="lesson-nav-sidebar">
-                        <h3>Lecții în acest modul</h3>
-                        <ul>
-                            <li class="active">
-                                <a href="/modules/module1/lesson1.html">
-                                    <span class="lesson-number">1</span>
-                                    <span class="lesson-title">Ce înseamnă digitalizarea în educație</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="/modules/module1/lesson2.html">
-                                    <span class="lesson-number">2</span>
-                                    <span class="lesson-title">Competențe digitale pentru cadrele didactice</span>
-                                </a>
-                            </li>
-                        </ul>
-                    </nav>
-                    
-                    <div class="lesson-resources">
-                        <h3>Resurse lecție</h3>
-                        <ul>
-                            <li>
-                                <a href="/assets/docs/lectia1-prezentare.pdf" download>
-                                    <i class="fas fa-file-pdf"></i>
-                                    <span>Prezentare Lecția 1 (PDF)</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="/assets/docs/digitalizare-fisa-lucru.pdf" download>
-                                    <i class="fas fa-file-alt"></i>
-                                    <span>Fișă de lucru</span>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                </aside>
-                
-                <main class="lesson-content">
-                    <div class="video-container">
-                        <iframe src="https://www.youtube.com/embed/placeholder" title="Ce înseamnă digitalizarea în educație" allowfullscreen></iframe>
-                    </div>
-                    
-                    <div class="content-section">
-                        <h2>Concepte fundamentale ale digitalizării</h2>
-                        <p>Digitalizarea în educație reprezintă procesul de integrare a tehnologiei în activitățile educaționale, transformând metodele tradiționale de predare, învățare și evaluare. Aceasta nu presupune doar înlocuirea instrumentelor clasice cu echivalente digitale, ci o regândire a întregului proces educațional.</p>
-                        
-                        <div class="info-box">
-                            <h3>Termeni cheie</h3>
-                            <ul>
-                                <li><strong>E-learning</strong> - Învățare facilitată și susținută prin utilizarea tehnologiei informației și comunicațiilor</li>
-                                <li><strong>Blended learning</strong> - Abordare educațională care combină materiale online cu metode tradiționale în clasă</li>
-                                <li><strong>Tehnologii educaționale</strong> - Instrumente, platforme și resurse digitale utilizate în procesul de învățare</li>
+                        <div class="sidebar-card-content">
+                            <div class="module-progress">
+                                <div class="progress-text">
+                                    <span>Lecția 1 din 4</span>
+                                    <span>25%</span>
+                                </div>
+                                <div class="progress-bar">
+                                    <div class="progress-fill" style="width: 25%;"></div>
+                                </div>
+                            </div>
+                            
+                            <ul class="module-lessons-list">
+                                <li class="active">
+                                    <a href="/modules/module1/lesson1.html">
+                                        <div class="lesson-number-indicator">1</div>
+                                        <div class="lesson-title-text">Ce înseamnă digitalizarea în educație</div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="/modules/module1/lesson2.html">
+                                        <div class="lesson-number-indicator">2</div>
+                                        <div class="lesson-title-text">Avantajele și provocările digitalizării</div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="/modules/module1/lesson3.html">
+                                        <div class="lesson-number-indicator">3</div>
+                                        <div class="lesson-title-text">Competențe digitale de bază</div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="/modules/module1/lesson4.html">
+                                        <div class="lesson-number-indicator">4</div>
+                                        <div class="lesson-title-text">Ecosistemul digital în școala modernă</div>
+                                    </a>
+                                </li>
                             </ul>
                         </div>
                     </div>
                     
-                    <div class="content-section">
-                        <h2>Tendințe actuale în digitalizarea educației</h2>
-                        <p>Peisajul educațional actual este în continuă transformare, impulsionat de evoluția rapidă a tehnologiei și de nevoile în schimbare ale elevilor și societății. Iată principalele tendințe care modelează viitorul educației digitale:</p>
-                        
-                        <div class="interactive-image">
-                            <img src="/assets/images/tendinte-digitalizare.jpg" alt="Tendințe în digitalizarea educației">
-                            <div class="hotspot" style="top: 25%; left: 30%;" data-target="hotspot1"></div>
-                            <div class="hotspot" style="top: 45%; left: 60%;" data-target="hotspot2"></div>
-                            <div class="hotspot" style="top: 70%; left: 35%;" data-target="hotspot3"></div>
-                            <div class="hotspot-content" id="hotspot1">
-                                <h4>Inteligența Artificială în educație</h4>
-                                <p>Sisteme adaptative de învățare care personalizează experiența educațională pentru fiecare elev.</p>
-                            </div>
-                            <div class="hotspot-content" id="hotspot2">
-                                <h4>Realitate Virtuală și Augmentată</h4>
-                                <p>Experiențe imersive care permit elevilor să exploreze concepte complexe într-un mod interactiv.</p>
-                            </div>
-                            <div class="hotspot-content" id="hotspot3">
-                                <h4>Învățare bazată pe proiecte digitale</h4>
-                                <p>Abordare colaborativă orientată spre rezolvarea problemelor din lumea reală folosind tehnologia.</p>
-                            </div>
+                    <!-- Resurse lecție -->
+                    <div class="sidebar-card">
+                        <div class="sidebar-card-header">
+                            Resurse lecție
+                        </div>
+                        <div class="sidebar-card-content">
+                            <ul class="lesson-resources-list">
+                                <li>
+                                    <a href="/assets/docs/lectia1_digitalizare_educatie.pdf" download>
+                                        <i class="fas fa-file-pdf"></i>
+                                        <span>Fișă de lucru: Digitalizare în educație</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="/assets/docs/infografic_tendinte_digitale.pdf" download>
+                                        <i class="fas fa-chart-pie"></i>
+                                        <span>Infografic: Tendințe în educația digitală</span>
+                                    </a>
+                                </li>
+                            </ul>
                         </div>
                     </div>
-                    
-                    <div class="content-section">
-                        <h2>Impactul digitalizării asupra procesului educațional</h2>
-                        <p>Digitalizarea transformă fundamentul educației, aducând atât oportunități, cât și provocări. Principalele domenii de impact includ:</p>
-                        
-                        <div class="impact-grid">
-                            <div class="impact-item">
-                                <div class="impact-icon positive">
-                                    <i class="fas fa-check-circle"></i>
-                                </div>
-                                <div class="impact-content">
-                                    <h4>Personalizarea învățării</h4>
-                                    <p>Adaptarea conținutului și ritmului de învățare la nevoile și stilul fiecărui elev</p>
-                                </div>
+                </aside>
+                
+                <!-- Conținut principal -->
+                <main class="lesson-main-content">
+                    <div class="lesson-content">
+                        <!-- Introducere -->
+                        <div class="lesson-section">
+                            <h2 class="lesson-section-title">Introducere în digitalizarea educației</h2>
+                            <div class="lesson-text">
+                                <p>Digitalizarea reprezintă procesul de transformare a informațiilor și proceselor tradiționale în formate digitale, iar în contextul educației, acest fenomen redefinește fundamental modul în care predăm, învățăm și evaluăm. Nu este vorba doar despre înlocuirea manualelor cu tableta sau a tablei cu un ecran, ci despre o schimbare profundă a paradigmei educaționale.</p>
+                                
+                                <p>În era digitală, educația transcende limitele tradiționale ale sălii de clasă și devine un proces dinamic, personalizat și centrat pe elev. Profesorii moderni nu mai sunt doar furnizori de informații, ci facilitatori ai procesului de învățare, ghidând elevii în explorarea vastului univers informațional disponibil online.</p>
                             </div>
                             
-                            <div class="impact-item">
-                                <div class="impact-icon positive">
-                                    <i class="fas fa-check-circle"></i>
+                            <div class="info-box">
+                                <div class="box-title">
+                                    <i class="fas fa-info-circle"></i> 
+                                    Știați că?
                                 </div>
-                                <div class="impact-content">
-                                    <h4>Accesibilitate îmbunătățită</h4>
-                                    <p>Eliminarea barierelor geografice și temporale, permițând accesul la educație de calitate pentru mai mulți elevi</p>
-                                </div>
-                            </div>
-                            
-                            <div class="impact-item">
-                                <div class="impact-icon positive">
-                                    <i class="fas fa-check-circle"></i>
-                                </div>
-                                <div class="impact-content">
-                                    <h4>Dezvoltarea competențelor digitale</h4>
-                                    <p>Pregătirea elevilor pentru piața muncii digitalizată și cetățenia digitală responsabilă</p>
-                                </div>
-                            </div>
-                            
-                            <div class="impact-item">
-                                <div class="impact-icon negative">
-                                    <i class="fas fa-exclamation-triangle"></i>
-                                </div>
-                                <div class="impact-content">
-                                    <h4>Decalajul digital</h4>
-                                    <p>Riscul de a adânci inegalitățile existente între elevii cu acces și fără acces la tehnologie</p>
-                                </div>
-                            </div>
-                            
-                            <div class="impact-item">
-                                <div class="impact-icon negative">
-                                    <i class="fas fa-exclamation-triangle"></i>
-                                </div>
-                                <div class="impact-content">
-                                    <h4>Supraîncărcarea informațională</h4>
-                                    <p>Provocări legate de gestionarea volumului mare de informații și menținerea focusului</p>
-                                </div>
+                                <p>Conform studiilor recente, peste 90% dintre joburile viitorului vor necesita competențe digitale, iar sistemele educaționale din întreaga lume se adaptează pentru a pregăti elevii pentru această realitate.</p>
                             </div>
                         </div>
-                    </div>
-                    
-                    <div class="content-section">
-                        <h2>Exercițiu practic</h2>
-                        <div class="exercise-box">
-                            <h3>Analiza ecosistemului digital al școlii</h3>
-                            <p>Completează următorul chestionar pentru a evalua nivelul actual de digitalizare din școala ta. Acest exercițiu te va ajuta să identifici zonele de potențial și nevoile specifice de dezvoltare.</p>
-                            <a href="/assets/docs/exercitiu-ecosistem-digital.pdf" class="btn" download>Descarcă fișa de lucru</a>
-                            
-                            <div class="task-description">
-                                <h4>Sarcină de lucru:</h4>
+                        
+                        <!-- Concepte fundamentale -->
+                        <div class="lesson-section">
+                            <h2 class="lesson-section-title">Concepte fundamentale ale digitalizării în educație</h2>
+                            <div class="lesson-text">
+                                <p>Pentru a înțelege mai bine digitalizarea în educație, este important să definim câțiva termeni cheie:</p>
+                                
+                                <ul>
+                                    <li><strong>E-learning</strong> - Procesul de învățare facilitat și susținut prin utilizarea tehnologiilor informației și comunicațiilor. Acesta poate fi sincron (în timp real) sau asincron (în ritmul propriu al cursantului).</li>
+                                    
+                                    <li><strong>Blended learning (învățare mixtă)</strong> - Abordare educațională care combină predarea tradițională față în față cu activități de învățare online. Această metodă valorifică beneficiile ambelor medii de învățare.</li>
+                                    
+                                    <li><strong>Flipped classroom (clasa inversată)</strong> - Model pedagogic în care elevii studiază conținutul teoretic acasă, prin materiale digitale, iar timpul din clasă este dedicat activităților practice, discuțiilor și clarificărilor.</li>
+                                    
+                                    <li><strong>Conținut educațional digital</strong> - Materiale de învățare în format digital, care pot include texte, imagini, animații, simulări, jocuri educative, teste interactive etc.</li>
+                                    
+                                    <li><strong>Platformă educațională</strong> - Sistem software care permite gestionarea procesului educațional, de la distribuirea materialelor până la evaluare și feedback.</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <!-- Tendințe actuale -->
+                        <div class="lesson-section">
+                            <h2 class="lesson-section-title">Tendințe actuale în digitalizarea educației</h2>
+                            <div class="lesson-text">
+                                <p>Peisajul educațional digital este într-o continuă evoluție. Iată principalele tendințe care modelează viitorul educației:</p>
+                                
                                 <ol>
-                                    <li>Identifică și listează toate instrumentele digitale utilizate în școala ta (hardware și software)</li>
-                                    <li>Evaluează frecvența și eficiența utilizării acestora</li>
-                                    <li>Identifică 3 nevoi specifice de digitalizare pentru școala ta</li>
-                                    <li>Propune 3 soluții concrete pentru îmbunătățirea ecosistemului digital</li>
+                                    <li>
+                                        <strong>Inteligența Artificială în educație</strong>
+                                        <p>Sistemele de învățare adaptivă bazate pe IA analizează performanța elevilor și ajustează conținutul, ritmul și dificultatea pentru a se potrivi nevoilor individuale. Asistenții virtuali pot răspunde la întrebări și ghida procesul de învățare.</p>
+                                    </li>
+                                    
+                                    <li>
+                                        <strong>Realitatea Virtuală (VR) și Realitatea Augmentată (AR)</strong>
+                                        <p>Aceste tehnologii imersive permit elevilor să exploreze locuri îndepărtate, perioade istorice sau concepte abstracte într-un mod practic și captivant. De exemplu, o lecție despre Sistemul Solar poate deveni o călătorie virtuală prin spațiu.</p>
+                                    </li>
+                                    
+                                    <li>
+                                        <strong>Gamificarea</strong>
+                                        <p>Integrarea elementelor specifice jocurilor (puncte, niveluri, provocări, recompense) în procesul educațional pentru a crește motivația și angajamentul elevilor.</p>
+                                    </li>
+                                    
+                                    <li>
+                                        <strong>Învățarea bazată pe proiecte digitale</strong>
+                                        <p>Elevii lucrează colaborativ pentru a rezolva probleme din lumea reală folosind instrumente digitale, dezvoltând atât competențe tehnice, cât și abilități de gândire critică și colaborare.</p>
+                                    </li>
+                                    
+                                    <li>
+                                        <strong>Micro-învățarea</strong>
+                                        <p>Fragmentarea conținutului educațional în unități mici, care pot fi parcurse în 5-10 minute, adaptate atenției de scurtă durată și învățării mobile.</p>
+                                    </li>
                                 </ol>
-                                <p>La următoarea ședință online vom discuta rezultatele acestui exercițiu.</p>
+                            </div>
+                            
+                            <div class="lesson-image">
+                                <img src="/assets/images/digital-education-trends.jpg" alt="Tendințe în educația digitală">
+                                <div class="image-caption">Fig. 1: Principalele tendințe în educația digitală pentru 2023-2025</div>
                             </div>
                         </div>
-                    </div>
-                    
-                    <div class="lesson-navigation">
-                        <a href="/modules/module1/index.html" class="nav-btn prev">
-                            <i class="fas fa-arrow-left"></i>
-                            Înapoi la Modulul 1
-                        </a>
-                        <a href="/modules/module1/lesson2.html" class="nav-btn next">
-                            Continuă cu Lecția 2
-                            <i class="fas fa-arrow-right"></i>
-                        </a>
+                        
+                        <!-- Impactul digitalizării -->
+                        <div class="lesson-section">
+                            <h2 class="lesson-section-title">Impactul digitalizării asupra procesului educațional</h2>
+                            <div class="lesson-text">
+                                <p>Digitalizarea transformă fundamental educația, aducând atât oportunități remarcabile, cât și provocări semnificative. Înțelegerea acestui impact este esențială pentru a valorifica potențialul tehnologiei în beneficiul tuturor participanților la procesul educațional.</p>
+                                
+                                <h3>Principalele domenii de impact:</h3>
+                                
+                                <div class="impact-item positive">
+                                    <h4>Personalizarea învățării</h4>
+                                    <p>Tehnologia permite adaptarea conținutului și ritmului de învățare la nevoile, interesele și stilul fiecărui elev. Un elev poate aprofunda subiecte care îl interesează sau poate primi suport suplimentar pentru conceptele pe care le găsește dificile.</p>
+                                </div>
+                                
+                                <div class="impact-item positive">
+                                    <h4>Accesibilitate îmbunătățită</h4>
+                                    <p>Barierele geografice și temporale sunt diminuate, permițând accesul la educație de calitate pentru elevii din zone izolate sau cu program atipic. Resurse de la universități de prestigiu sunt acum disponibile pentru oricine are o conexiune la internet.</p>
+                                </div>
+                                
+                                <div class="impact-item positive">
+                                    <h4>Dezvoltarea competențelor digitale</h4>
+                                    <p>Elevii dobândesc abilități esențiale pentru piața muncii digitalizată și pentru cetățenia digitală responsabilă. Aceștia învață să evalueze critic informațiile online, să colaboreze virtual și să utilizeze diverse instrumente digitale.</p>
+                                </div>
+                                
+                                <div class="impact-item negative">
+                                    <h4>Decalajul digital</h4>
+                                    <p>Există riscul de a adânci inegalitățile existente între elevii cu acces și fără acces la tehnologie. Factori precum situația economică, zona geografică sau nevoile speciale pot limita accesul unor elevi la educația digitală.</p>
+                                </div>
+                                
+                                <div class="impact-item negative">
+                                    <h4>Supraîncărcarea informațională</h4>
+                                    <p>Volumul masiv de informații disponibile online poate crea provocări legate de selecția resurselor relevante și menținerea focusului. Elevii trebuie să învețe să filtreze informația și să evite distragerile.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="example-box">
+                                <div class="box-title">
+                                    <i class="fas fa-lightbulb"></i>
+                                    Exemplu practic
+                                </div>
+                                <p>O profesoară de biologie utilizează o aplicație de realitate augmentată care permite elevilor să vizualizeze organele corpului uman în 3D. Elevii pot "diseca" virtual corpul uman, pot observa funcționarea sistemelor și pot face conexiuni între diferite organe, toate acestea într-un mod interactiv și sigur. Această abordare face învățarea mai captivantă și mai eficientă decât studierea diagramelor statice din manual.</p>
+                            </div>
+                        </div>
+                        
+                        <!-- Reflecții și aplicații -->
+                        <div class="lesson-section">
+                            <h2 class="lesson-section-title">Reflecții și aplicații</h2>
+                            <div class="lesson-text">
+                                <p>Digitalizarea educației nu este un obiectiv în sine, ci un mijloc de a îmbunătăți procesul educațional. Tehnologia trebuie să fie văzută ca un instrument în serviciul pedagogiei, nu ca un substitut pentru relația profesor-elev sau pentru metodele tradiționale care și-au dovedit eficiența.</p>
+                                
+                                <p>Pentru implementarea cu succes a digitalizării în educație, este esențial să:</p>
+                                <ul>
+                                    <li>Avem o abordare echilibrată, care valorifică atât beneficiile tehnologiei, cât și ale interacțiunii umane directe.</li>
+                                    <li>Adaptăm instrumentele digitale la obiectivele pedagogice, nu invers.</li>
+                                    <li>Investim în formarea continuă a cadrelor didactice pentru dezvoltarea competențelor digitale.</li>
+                                    <li>Asigurăm acces echitabil la tehnologie pentru toți elevii.</li>
+                                    <li>Promovăm utilizarea etică, sigură și responsabilă a tehnologiei în educație.</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="activity-box">
+                                <div class="box-title">
+                                    <i class="fas fa-tasks"></i>
+                                    Activitate de reflecție
+                                </div>
+                                <p>Gândiți-vă la propria experiență educațională și identificați:</p>
+                                <ol>
+                                    <li>O situație în care tehnologia a îmbunătățit semnificativ procesul de învățare.</li>
+                                    <li>O situație în care utilizarea tehnologiei a fost ineficientă sau contraproductivă.</li>
+                                    <li>Trei modalități concrete prin care ați putea integra tehnologia în predarea disciplinei dumneavoastră pentru a îmbunătăți experiența de învățare a elevilor.</li>
+                                </ol>
+                                <p>Notați aceste reflecții pentru a le discuta în cadrul următoarei sesiuni online și pentru a vă ghida în dezvoltarea strategiei personale de integrare a tehnologiei în predare.</p>
+                            </div>
+                        </div>
+                        
+                        <!-- Navigare între lecții -->
+                        <div class="lesson-navigation">
+                            <div class="nav-prev lesson-nav-empty">
+                            </div>
+                            
+                            <div class="nav-next">
+                                <a href="/modules/module1/lesson2.html" class="lesson-nav-button next">
+                                    Continuă cu Lecția 2
+                                    <i class="fas fa-arrow-right"></i>
+                                </a>
+                            </div>
+                        </div>
                     </div>
                 </main>
             </div>
@@ -220,6 +283,5 @@
     <div id="footer-placeholder"></div>
     
     <script src="/js/main.js"></script>
-    <script src="/js/modules.js"></script>
 </body>
 </html>

@@ -1,0 +1,801 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lecția 2: Interfața și funcțiile de bază ale tablei interactive | TechMinds Academy</title>
+    <meta name="description" content="Explorarea funcționalităților esențiale ale tablei interactive: scriere, desen, salvare, import/export și organizarea materialelor didactice.">
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/responsive.css">
+    <link rel="stylesheet" href="/css/module.css">
+    <link rel="stylesheet" href="/css/lesson.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header placeholder -->
+    <div id="header-placeholder"></div>
+    
+    <!-- Header lecție -->
+    <section class="lesson-header">
+        <div class="container">
+            <div class="lesson-breadcrumbs">
+                <a href="/index.html">Acasă</a>
+                <span class="separator">/</span>
+                <a href="/modules/module3/index.html">Modul 3: Primii pași: utilizarea tablei interactive</a>
+                <span class="separator">/</span>
+                <span>Lecția 2: Interfața și funcțiile de bază ale tablei interactive</span>
+            </div>
+            <h1>Lecția 2: Interfața și funcțiile de bază ale tablei interactive</h1>
+            <p>Explorarea funcționalităților esențiale ale tablei interactive: scriere, desen, salvare, import/export și organizarea materialelor didactice.</p>
+        </div>
+    </section>
+    
+    <!-- Conținut principal lecție -->
+    <section class="lesson-layout">
+        <div class="container">
+            <div class="lesson-layout">
+                <!-- Sidebar -->
+                <aside class="lesson-sidebar">
+                    <!-- Progres modul -->
+                    <div class="sidebar-card">
+                        <div class="sidebar-card-header">
+                            Progres Modul 3
+                        </div>
+                        <div class="sidebar-card-content">
+                            <div class="module-progress">
+                                <div class="progress-text">
+                                    <span>Lecția 2 din 4</span>
+                                    <span>50%</span>
+                                </div>
+                                <div class="progress-bar">
+                                    <div class="progress-fill" style="width: 50%;"></div>
+                                </div>
+                            </div>
+                            
+                            <ul class="module-lessons-list">
+                                <li class="completed">
+                                    <a href="/modules/module3/lesson1.html">
+                                        <div class="lesson-number-indicator">1</div>
+                                        <div class="lesson-title-text">Pornirea și configurarea tablei interactive</div>
+                                        <div class="lesson-completed-indicator">
+                                            <i class="fas fa-check"></i>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li class="active">
+                                    <a href="/modules/module3/lesson2.html">
+                                        <div class="lesson-number-indicator">2</div>
+                                        <div class="lesson-title-text">Interfața și funcțiile de bază</div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="/modules/module3/lesson3.html">
+                                        <div class="lesson-number-indicator">3</div>
+                                        <div class="lesson-title-text">Integrarea cu alte dispozitive</div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="/modules/module3/lesson4.html">
+                                        <div class="lesson-number-indicator">4</div>
+                                        <div class="lesson-title-text">Crearea primei lecții</div>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <!-- Resurse lecție -->
+                    <div class="sidebar-card">
+                        <div class="sidebar-card-header">
+                            Resurse lecție
+                        </div>
+                        <div class="sidebar-card-content">
+                            <ul class="lesson-resources-list">
+                                <li>
+                                    <a href="/assets/docs/ghid_functii_tabla_interactiva.pdf" download>
+                                        <i class="fas fa-file-pdf"></i>
+                                        <span>Ghid complet al funcțiilor</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="/assets/docs/scurtaturi_tastatura_tabla.pdf" download>
+                                        <i class="fas fa-keyboard"></i>
+                                        <span>Scurtături tastatură pentru eficiență</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="/assets/docs/tutorial_interfata_software.pdf" download>
+                                        <i class="fas fa-graduation-cap"></i>
+                                        <span>Tutorial interactiv software</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </aside>
+                
+                <!-- Conținut principal -->
+                <main class="lesson-main-contentt">
+                    <div class="lesson-content">
+                        <!-- Introducere -->
+                        <div class="lesson-section">
+                            <h2 class="lesson-section-title">Introducere în interfața tablei interactive</h2>
+                            <div class="lesson-text">
+                                <p>După ce am instalat și configurat tabla interactivă în lecția anterioară, în această lecție vom explora interfața și funcționalitățile de bază pentru utilizarea efectivă în sala de clasă. Înțelegerea acestor funcții fundamentale este esențială pentru a putea crea și livra lecții interactive de calitate.</p>
+                                
+                                <p>Deși există diferențe între software-urile specifice diverselor mărci de table interactive (SMART Notebook, ActivInspire, MimioStudio etc.), majoritatea împărtășesc un set comun de funcționalități de bază. În această lecție, vom acoperi aceste elemente esențiale prezente în majoritatea software-urilor pentru table interactive.</p>
+                                
+                                <div class="info-box">
+                                    <div class="box-title">
+                                        <i class="fas fa-info-circle"></i>
+                                        Notă importantă
+                                    </div>
+                                    <p>Exemplele vizuale din această lecție sunt bazate pe SMART Notebook și ActivInspire, două dintre cele mai populare software-uri pentru table interactive. Funcționalitățile prezentate se regăsesc, posibil sub denumiri ușor diferite, în majoritatea software-urilor pentru table interactive. Principiile de utilizare rămân similare, indiferent de software-ul specific utilizat.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="lesson-image">
+                                <img src="/assets/images/module3/software_comparison.jpg" alt="Comparație între interfețele SMART Notebook și ActivInspire">
+                                <div class="image-caption">Fig. 1: Comparație între interfețele SMART Notebook (stânga) și ActivInspire (dreapta)</div>
+                            </div>
+                        </div>
+                        
+                        <!-- Componentele principale ale interfeței -->
+                        <div class="lesson-section">
+                            <h2 class="lesson-section-title">Componentele principale ale interfeței</h2>
+                            <div class="lesson-text">
+                                <p>Indiferent de software-ul utilizat, interfața unei table interactive conține câteva componente esențiale care facilitează crearea și prezentarea conținutului educațional.</p>
+                                
+                                <h3>Anatomia interfeței software-ului pentru tabla interactivă</h3>
+                                
+                                <div class="interface-components">
+                                    <div class="component-description">
+                                        <h4>1. Bara de meniuri și instrumente</h4>
+                                        <p>Situată de obicei în partea superioară a ecranului, această bară conține meniurile principale (Fișier, Editare, Vizualizare etc.) și instrumente frecvent utilizate.</p>
+                                        <p><strong>Funcționalități tipice:</strong></p>
+                                        <ul>
+                                            <li>Deschidere/salvare fișiere</li>
+                                            <li>Unelte de selecție și editare</li>
+                                            <li>Opțiuni de vizualizare</li>
+                                            <li>Acces la setări și preferințe</li>
+                                        </ul>
+                                    </div>
+                                    
+                                    <div class="component-description">
+                                        <h4>2. Panou de instrumente</h4>
+                                        <p>Un set de instrumente esențiale, adesea afișat într-o bară laterală sau flotantă, care oferă acces rapid la funcțiile utilizate frecvent.</p>
+                                        <p><strong>Instrumente comune:</strong></p>
+                                        <ul>
+                                            <li>Stilou/marker pentru scriere</li>
+                                            <li>Gumă de șters</li>
+                                            <li>Selector pentru manipularea obiectelor</li>
+                                            <li>Forme și linii</li>
+                                            <li>Text și inserare imagini</li>
+                                        </ul>
+                                    </div>
+                                    
+                                    <div class="component-description">
+                                        <h4>3. Spațiul de lucru (canvas)</h4>
+                                        <p>Zona principală unde se creează și se afișează conținutul. Funcționează ca o tablă virtuală cu dimensiuni potențial infinite.</p>
+                                        <p><strong>Caracteristici:</strong></p>
+                                        <ul>
+                                            <li>Organizat în pagini sau slide-uri</li>
+                                            <li>Poate conține straturi multiple</li>
+                                            <li>Suportă elemente interactive</li>
+                                            <li>Permite adnotări peste orice conținut</li>
+                                        </ul>
+                                    </div>
+                                    
+                                    <div class="component-description">
+                                        <h4>4. Navigatorul de pagini</h4>
+                                        <p>Afișează miniaturi ale tuturor paginilor din documentul curent și permite navigarea rapidă între acestea.</p>
+                                        <p><strong>Funcționalități:</strong></p>
+                                        <ul>
+                                            <li>Vizualizarea tuturor paginilor</li>
+                                            <li>Reordonarea paginilor prin drag-and-drop</li>
+                                            <li>Adăugarea sau ștergerea paginilor</li>
+                                            <li>Clonarea paginilor existente</li>
+                                        </ul>
+                                    </div>
+                                    
+                                    <div class="component-description">
+                                        <h4>5. Galeria de resurse</h4>
+                                        <p>O bibliotecă de resurse educaționale pregătite: imagini, fundal-uri, activități interactive, șabloane etc.</p>
+                                        <p><strong>Conținut tipic:</strong></p>
+                                        <ul>
+                                            <li>Imagini tematice organizate pe categorii</li>
+                                            <li>Șabloane pentru diverse activități</li>
+                                            <li>Obiecte interactive și widget-uri</li>
+                                            <li>Fonduri și fundaluri tematice</li>
+                                        </ul>
+                                    </div>
+                                    
+                                    <div class="component-description">
+                                        <h4>6. Panouri de proprietăți</h4>
+                                        <p>Afișează și permite modificarea proprietăților elementului selectat (culoare, dimensiune, font, transparență etc.).</p>
+                                        <p><strong>Setări comune:</strong></p>
+                                        <ul>
+                                            <li>Stilizarea textului și a liniilor</li>
+                                            <li>Transparență și efecte</li>
+                                            <li>Acțiuni și animații</li>
+                                            <li>Blocarea și gruparea obiectelor</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                
+                                <div class="info-box">
+                                    <div class="box-title">
+                                        <i class="fas fa-lightbulb"></i>
+                                        Sfat practic
+                                    </div>
+                                    <p>Multe programe pentru table interactive permit personalizarea interfeței. Puteți configura bara de instrumente pentru a include doar funcțiile pe care le utilizați frecvent, simplificând astfel interfața și făcând-o mai intuitivă pentru nevoile dumneavoastră specifice.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="lesson-image">
+                                <img src="/assets/images/module3/interface_anatomy.jpg" alt="Componentele principale ale interfeței unui software pentru tabla interactivă">
+                                <div class="image-caption">Fig. 2: Componentele principale ale interfeței unui software pentru tabla interactivă</div>
+                            </div>
+                        </div>
+                        
+                        <!-- Funcții de bază pentru scriere și desen -->
+                        <div class="lesson-section">
+                            <h2 class="lesson-section-title">Funcții de bază pentru scriere și desen</h2>
+                            <div class="lesson-text">
+                                <p>Funcțiile de scriere și desen reprezintă nucleul interacțiunii cu tabla. Acestea vă permit să notați informații, să creați diagrame și să evidențiați elemente importante pe parcursul predării.</p>
+                                
+                                <h3>Instrumente de scriere</h3>
+                                
+                                <div class="tools-grid">
+                                    <div class="tool-card">
+                                        <div class="tool-icon">
+                                            <i class="fas fa-pen"></i>
+                                        </div>
+                                        <div class="tool-content">
+                                            <h4>Stilou digital</h4>
+                                            <p><strong>Utilizare:</strong> Pentru scriere de mână și adnotări precise.</p>
+                                            <p><strong>Caracteristici:</strong></p>
+                                            <ul>
+                                                <li>Diferite grosimi și culori</li>
+                                                <li>Opțiuni pentru stiluri de linie (continuă, punctată)</li>
+                                                <li>Transparență ajustabilă</li>
+                                                <li>Sensibilitate la presiune (la modelele avansate)</li>
+                                            </ul>
+                                            <p><strong>Sfat:</strong> Folosiți culori contrastante pentru elementele importante. Un stilou roșu sau verde se evidențiază pe un fundal alb, făcând notele mai vizibile pentru toți elevii.</p>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="tool-card">
+                                        <div class="tool-icon">
+                                            <i class="fas fa-highlighter"></i>
+                                        </div>
+                                        <div class="tool-content">
+                                            <h4>Marker/Highlighter</h4>
+                                            <p><strong>Utilizare:</strong> Pentru evidențierea conținutului existent și crearea de zone colorate semitransparente.</p>
+                                            <p><strong>Caracteristici:</strong></p>
+                                            <ul>
+                                                <li>Efect semitransparent</li>
+                                                <li>Diferite lățimi pentru acoperirea textului sau a zonelor mai mari</li>
+                                                <li>Culori vibrante pentru evidențiere</li>
+                                            </ul>
+                                            <p><strong>Sfat:</strong> Utilizați evidențiatorul pentru a sublinia concepte-cheie sau pentru a grupa elemente conexe cu aceeași culoare, creând astfel asocieri vizuale pentru elevi.</p>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="tool-card">
+                                        <div class="tool-icon">
+                                            <i class="fas fa-shapes"></i>
+                                        </div>
+                                        <div class="tool-content">
+                                            <h4>Forme și linii</h4>
+                                            <p><strong>Utilizare:</strong> Pentru crearea diagramelor structurate, graficelor și organizarea vizuală a informațiilor.</p>
+                                            <p><strong>Caracteristici:</strong></p>
+                                            <ul>
+                                                <li>Forme geometrice predefinite (cercuri, pătrate, triunghiuri)</li>
+                                                <li>Linii drepte și săgeți</li>
+                                                <li>Opțiuni de umplere și contur</li>
+                                                <li>Forme speciale (stele, bule de dialog)</li>
+                                            </ul>
+                                            <p><strong>Sfat:</strong> Utilizați forme cu contururi diferite sau culori diferite pentru a categoriza informațiile. De exemplu, folosiți pătrate pentru fapte și cercuri pentru opinii într-o analiză de text.</p>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="tool-card">
+                                        <div class="tool-icon">
+                                            <i class="fas fa-eraser"></i>
+                                        </div>
+                                        <div class="tool-content">
+                                            <h4>Guma de șters</h4>
+                                            <p><strong>Utilizare:</strong> Pentru corectarea și ștergerea conținutului.</p>
+                                            <p><strong>Caracteristici:</strong></p>
+                                            <ul>
+                                                <li>Ștergere precisă (porțiuni specifice)</li>
+                                                <li>Ștergere obiect (elimină întregul obiect atins)</li>
+                                                <li>Dimensiuni ajustabile</li>
+                                                <li>Funcția "Curățare pagină" pentru resetare rapidă</li>
+                                            </ul>
+                                            <p><strong>Sfat:</strong> La majoritatea software-urilor pentru table interactive, puteți utiliza gestul de "ștergere cu palma" - folosiți palma pentru a șterge notele scrise cu stiloul, simulând experiența de pe o tablă tradițională.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <h3>Recunoașterea scrisului de mână și a formelor</h3>
+                                <p>Majoritatea software-urilor moderne pentru table interactive includ capabilități de recunoaștere:</p>
+                                
+                                <div class="recognition-features">
+                                    <div class="recognition-feature">
+                                        <h4>Recunoașterea scrisului de mână</h4>
+                                        <p>Permite conversia textului scris de mână în text digital editabil.</p>
+                                        <p><strong>Cum se utilizează:</strong></p>
+                                        <ol>
+                                            <li>Activați instrumentul de recunoaștere a scrisului</li>
+                                            <li>Scrieți textul cu stiloul pe tabla interactivă</li>
+                                            <li>Software-ul va analiza și converti scrisul în text tipărit</li>
+                                            <li>Acceptați sau corectați sugestiile oferite</li>
+                                        </ol>
+                                        <p><strong>Avantaje:</strong> Text mai lizibil, posibilitatea editării ulterioare, accesibilitate îmbunătățită pentru elevi.</p>
+                                    </div>
+                                    
+                                    <div class="recognition-feature">
+                                        <h4>Recunoașterea formelor</h4>
+                                        <p>Transformă formele desenate manual în forme geometrice precise.</p>
+                                        <p><strong>Cum se utilizează:</strong></p>
+                                        <ol>
+                                            <li>Activați instrumentul de recunoaștere a formelor</li>
+                                            <li>Desenați aproximativ forma dorită (cerc, pătrat, săgeată)</li>
+                                            <li>Software-ul va converti automat în forma geometrică corespunzătoare</li>
+                                        </ol>
+                                        <p><strong>Avantaje:</strong> Diagrame și scheme mai profesionale, economisirea timpului pentru crearea formelor precise.</p>
+                                    </div>
+                                </div>
+                                
+                                <div class="example-box">
+                                    <div class="box-title">
+                                        <i class="fas fa-lightbulb"></i>
+                                        Exemplu practic
+                                    </div>
+                                    <p>La o lecție de geometrie, puteți desena rapid un triunghi cu mâna liberă utilizând recunoașterea formelor. Software-ul îl va transforma într-un triunghi perfect. Apoi, puteți adăuga măsuri de unghiuri scriind de mână valorile (ex: "35°"). Cu recunoașterea scrisului, aceste valori vor fi transformate în text digital clar, iar elevii vor putea apoi calcula suma unghiurilor pentru a verifica teorema.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="lesson-image">
+                                <img src="/assets/images/module3/handwriting_recognition.jpg" alt="Exemplu de recunoaștere a scrisului de mână pe tabla interactivă">
+                                <div class="image-caption">Fig. 3: Exemplu de recunoaștere a scrisului de mână și a formelor pe tabla interactivă</div>
+                            </div>
+                        </div>
+                        
+                        <!-- Lucrul cu text, imagini și media -->
+                        <div class="lesson-section">
+                            <h2 class="lesson-section-title">Lucrul cu text, imagini și media</h2>
+                            <div class="lesson-text">
+                                <p>Pe lângă scriere și desen, tabla interactivă vă permite să lucrați cu diverse tipuri de conținut digital, integrând text formatat, imagini, fișiere audio și video, pentru a crea lecții multimedia captivante.</p>
+                                
+                                <h3>Inserarea și editarea textului</h3>
+                                <ul>
+                                    <li>
+                                        <strong>Instrumentul text:</strong> Permite adăugarea de text tipărit direct pe tabla interactivă.
+                                        <ul>
+                                            <li>Puteți schimba fontul, dimensiunea, culoarea și stilizarea (bold, italic, subliniere)</li>
+                                            <li>Opțiuni pentru aliniere (stânga, centru, dreapta, justify)</li>
+                                            <li>Crearea de liste cu marcatori sau numerotate</li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <strong>Casete de text:</strong> Creează zone dedicate pentru text care pot fi mutate și redimensionate.
+                                        <ul>
+                                            <li>Utile pentru etichete, definiții sau explicații</li>
+                                            <li>Pot fi personalizate cu fundaluri colorate sau borduri</li>
+                                            <li>Se pot roti pentru poziționare flexibilă</li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <strong>Importul textului:</strong> Posibilitatea de a copia și lipi text din alte aplicații sau de a importa documente text.
+                                    </li>
+                                </ul>
+                                
+                                <h3>Lucrul cu imagini și grafice</h3>
+                                <ul>
+                                    <li>
+                                        <strong>Inserarea imaginilor:</strong> Adăugați imagini din diverse surse:
+                                        <ul>
+                                            <li>Din galeria software-ului (bibliotecă de imagini predefinite)</li>
+                                            <li>De pe computer (fișiere JPG, PNG, GIF etc.)</li>
+                                            <li>Direct de pe internet (în unele software-uri)</li>
+                                            <li>Prin captură de ecran a conținutului curent</li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <strong>Manipularea imaginilor:</strong> Odată inserate, imaginile pot fi:
+                                        <ul>
+                                            <li>Redimensionate (cu sau fără păstrarea proporțiilor)</li>
+                                            <li>Rotite sau răsturnate (orizontal/vertical)</li>
+                                            <li>Decupate pentru a evidenția anumite porțiuni</li>
+                                            <li>Ajustate pentru luminozitate, contrast sau transparență</li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <strong>Interacțiunea cu imaginile:</strong> Utilizarea imaginilor în mod interactiv:
+                                        <ul>
+                                            <li>Adnotarea peste imagini (de exemplu, etichetarea părților unei celule în biologie)</li>
+                                            <li>Utilizarea imaginilor ca fundal pentru activități</li>
+                                            <li>Clonarea imaginilor pentru exerciții de sortare sau potrivire</li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                                
+                                <h3>Integrarea conținutului multimedia</h3>
+                                <ul>
+                                    <li>
+                                        <strong>Fișiere audio:</strong> Adăugați sunet în lecțiile dumneavoastră:
+                                        <ul>
+                                            <li>Înregistrare audio directă (pentru explicații sau instrucțiuni)</li>
+                                            <li>Importul fișierelor audio (muzică, sunete, înregistrări)</li>
+                                            <li>Asocierea sunetelor cu obiecte sau acțiuni (feedback sonor)</li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <strong>Conținut video:</strong> Integrarea materialelor video în lecții:
+                                        <ul>
+                                            <li>Încorporarea fișierelor video locale</li>
+                                            <li>Legarea la resurse video online (YouTube, Khan Academy, etc.)</li>
+                                            <li>Posibilitatea de a adnota direct peste videoclipuri în timpul redării</li>
+                                            <li>Capturi de momente-cheie din videoclipuri pentru analiză</li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <strong>Obiecte Flash și HTML5:</strong> În funcție de software, puteți integra:
+                                        <ul>
+                                            <li>Simulări interactive</li>
+                                            <li>Jocuri educaționale</li>
+                                            <li>Activități interactive din resurse online</li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                                
+                                <div class="warning-box">
+                                    <div class="box-title">
+                                        <i class="fas fa-exclamation-triangle"></i>
+                                        Atenție
+                                    </div>
+                                    <p>Asigurați-vă că utilizați doar imagini și conținut multimedia pentru care aveți drepturi de utilizare. Multe resurse educaționale sunt disponibile sub licențe deschise (Creative Commons) sau în domeniul public. Pentru lecții, multe țări au excepții pentru utilizarea educațională a materialelor protejate de drepturi de autor, dar este întotdeauna mai sigur să utilizați resurse cu licență adecvată.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="lesson-image">
+                                <img src="/assets/images/module3/multimedia_example.jpg" alt="Exemplu de integrare a textului, imaginilor și conținutului multimedia pe tabla interactivă">
+                                <div class="image-caption">Fig. 4: Exemplu de lecție cu text, imagini și conținut multimedia integrat</div>
+                            </div>
+                        </div>
+                        
+                        <!-- Salvarea, importul și exportul materialelor -->
+                        <div class="lesson-section">
+                            <h2 class="lesson-section-title">Salvarea, importul și exportul materialelor</h2>
+                            <div class="lesson-text">
+                                <p>Un aspect esențial al lucrului cu tabla interactivă este gestionarea materialelor create - de la salvarea în timpul procesului de creare până la exportul în formate ce pot fi distribuite și utilizate în diverse contexte.</p>
+                                
+                                <h3>Salvarea materialelor</h3>
+                                <ul>
+                                    <li>
+                                        <strong>Formatele native:</strong> Fiecare software pentru table interactive are propriul format de fișier:
+                                        <ul>
+                                            <li>SMART Notebook: fișiere .notebook</li>
+                                            <li>ActivInspire: fișiere .flipchart</li>
+                                            <li>MimioStudio: fișiere .ink</li>
+                                            <li>OpenBoard: fișiere .ubz</li>
+                                        </ul>
+                                        <p>Aceste formate native păstrează toate funcționalitățile interactive și posibilitatea de editare ulterioară.</p>
+                                    </li>
+                                    <li>
+                                        <strong>Salvarea automată:</strong> Configurați opțiunile de salvare automată pentru a preveni pierderea materialelor:
+                                        <ul>
+                                            <li>Interval de salvare (de exemplu, la fiecare 5-10 minute)</li>
+                                            <li>Locația fișierelor de backup</li>
+                                            <li>Numărul de versiuni păstrate</li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <strong>Sisteme de organizare:</strong> Dezvoltați un sistem coerent pentru organizarea materialelor:
+                                        <ul>
+                                            <li>Structură de foldere pe materii/clase/unități</li>
+                                            <li>Convenții de denumire clare (dată, clasă, subiect)</li>
+                                            <li>Utilizarea metadatelor și tag-urilor (dacă sunt suportate)</li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                                
+                                <h3>Importul conținutului</h3>
+                                <p>Software-urile pentru table interactive permit importul conținutului din diverse surse:</p>
+                                <ul>
+                                    <li>
+                                        <strong>Documente Office:</strong> Import direct din:
+                                        <ul>
+                                            <li>PowerPoint (.pptx) - fiecare slide devine o pagină</li>
+                                            <li>Word (.docx) - textul și imaginile sunt transferate</li>
+                                            <li>Excel (.xlsx) - tabele și grafice</li>
+                                            <li>PDF (.pdf) - păstrează formatarea și imaginile</li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <strong>Conținut din alte programe pentru table interactive:</strong> Multe software-uri oferă compatibilitate pentru importul:
+                                        <ul>
+                                            <li>Conversia între formate (de exemplu, .notebook în .flipchart)</li>
+                                            <li>Compatibilitate cu formate comune (de exemplu, Common File Format .iwb)</li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <strong>Conținut web:</strong> Importul resurselor online:
+                                        <ul>
+                                            <li>Pagini web (prin captură sau link direct)</li>
+                                            <li>Resurse educaționale online</li>
+                                            <li>Conținut din platforme de partajare (pentru profesori)</li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                                
+                                <h3>Exportul materialelor</h3>
+                                <p>Pentru a partaja materialele create sau a le utiliza în alte contexte, puteți exporta în mai multe formate:</p>
+                                <ul>
+                                    <li>
+                                        <strong>Formate pentru prezentare și distribuție:</strong>
+                                        <ul>
+                                            <li>PDF - ideal pentru imprimare sau distribuire digitală</li>
+                                            <li>PowerPoint - pentru prezentări pe alte dispozitive</li>
+                                            <li>Imagini (JPEG, PNG) - pentru capturi de ecran ale paginilor</li>
+                                            <li>HTML - pentru publicare online (anumite software-uri)</li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <strong>Formate pentru elevi:</strong>
+                                        <ul>
+                                            <li>Fișe de lucru în format PDF sau Word</li>
+                                            <li>Versiuni interactive pentru studiu individual</li>
+                                            <li>Template-uri parțial completate pentru activități</li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                                
+                                <div class="example-box">
+                                    <div class="box-title">
+                                        <i class="fas fa-lightbulb"></i>
+                                        Exemplu practic: Fluxul complet de lucru cu materiale
+                                    </div>
+                                    <ol>
+                                        <li><strong>Pregătire:</strong> Importați un document PowerPoint existent cu concepte de bază pentru lecție.</li>
+                                        <li><strong>Adaptare:</strong> Adăugați elemente interactive, adnotări și resurse multimedia.</li>
+                                        <li><strong>Predare:</strong> Utilizați materialul la clasă, permițând modificări în timp real bazate pe feedback.</li>
+                                        <li><strong>Salvare:</strong> Salvați versiunea finală, inclusiv adnotările și contribuțiile elevilor.</li>
+                                        <li><strong>Export:</strong> Creați o versiune PDF pentru distribuire către elevi și încărcați materialul pe platforma școlii.</li>
+                                        <li><strong>Arhivare:</strong> Organizați materialul în biblioteca dumneavoastră digitală pentru reutilizare viitoare.</li>
+                                    </ol>
+                                </div>
+                                
+                                <h3>Partajarea materialelor în cloud</h3>
+                                <p>Multe software-uri moderne pentru table interactive oferă opțiuni de integrare cu servicii cloud:</p>
+                                <ul>
+                                    <li>
+                                        <strong>Platforme dedicate:</strong>
+                                        <ul>
+                                            <li>SMART Exchange pentru Notebook</li>
+                                            <li>ClassFlow pentru ActivInspire</li>
+                                            <li>Platforme educaționale specializate</li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <strong>Servicii generale de stocare:</strong>
+                                        <ul>
+                                            <li>Google Drive</li>
+                                            <li>Microsoft OneDrive</li>
+                                            <li>Dropbox</li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <strong>Avantaje ale partajării în cloud:</strong>
+                                        <ul>
+                                            <li>Accesibilitate de pe orice dispozitiv</li>
+                                            <li>Colaborare cu alți profesori</li>
+                                            <li>Backup automat și versionare</li>
+                                            <li>Tranziție facilă între învățarea în clasă și la distanță</li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </div>
+                            
+                            <div class="lesson-image">
+                                <img src="/assets/images/module3/save_export_options.jpg" alt="Opțiuni de salvare și export în software-ul pentru tabla interactivă">
+                                <div class="image-caption">Fig. 5: Exemple de opțiuni de salvare, import și export în software-ul pentru tabla interactivă</div>
+                            </div>
+                        </div>
+                        
+                        <!-- Funcții avansate esențiale -->
+                        <div class="lesson-section">
+                            <h2 class="lesson-section-title">Funcții avansate esențiale</h2>
+                            <div class="lesson-text">
+                                <p>Deși ne-am concentrat pe funcțiile de bază, există câteva funcționalități avansate care merită menționate, întrucât pot îmbunătăți semnificativ experiența educațională.</p>
+                                
+                                <div class="advanced-features">
+                                    <div class="advanced-feature">
+                                        <h3>Stratificarea și ordonarea obiectelor</h3>
+                                        <p>Manipularea ordinii obiectelor pe tabla interactivă vă permite să creați efecte vizuale complexe și activități interactive:</p>
+                                        <ul>
+                                            <li><strong>Straturi (layere):</strong> Organizarea conținutului pe straturi separate</li>
+                                            <li><strong>Aducerea în față/trimiterea în spate:</strong> Controlul suprapunerii obiectelor</li>
+                                            <li><strong>Blocare/deblocare:</strong> Previne modificarea accidentală a elementelor de fundal</li>
+                                            <li><strong>Gruparea:</strong> Combinarea mai multor obiecte într-unul singur pentru manipulare facilă</li>
+                                        </ul>
+                                    </div>
+                                    
+                                    <div class="advanced-feature">
+                                        <h3>Captură de ecran și adnotări</h3>
+                                        <p>Funcții care vă permit să capturați conținut din alte aplicații și să îl adnotați pe tabla interactivă:</p>
+                                        <ul>
+                                            <li><strong>Captura de ecran:</strong> Preluarea imaginii din orice aplicație deschisă</li>
+                                            <li><strong>Adnotare peste desktop:</strong> Scriere și desen peste orice conținut afișat pe ecran</li>
+                                            <li><strong>Adnotare pentru documente PDF:</strong> Comentarea documentelor fără modificarea originalului</li>
+                                            <li><strong>Înregistrare ecran:</strong> Captura video a activității pentru revizuire ulterioară</li>
+                                        </ul>
+                                    </div>
+                                    
+                                    <div class="advanced-feature">
+                                        <h3>Obiecte interactive și animații</h3>
+                                        <p>Elemente care adaugă dinamism și interactivitate lecțiilor:</p>
+                                        <ul>
+                                            <li><strong>Obiecte cu restricții de mișcare:</strong> Elemente care pot fi mutate doar pe anumite traiectorii</li>
+                                            <li><strong>Contenitoare și grupuri:</strong> Obiecte care acceptă sau resping alte obiecte (pentru exerciții de sortare)</li>
+                                            <li><strong>Obiecte cu acțiuni:</strong> Elemente care declanșează evenimente când sunt atinse (sunet, animație, navigare)</li>
+                                            <li><strong>Tranzițiile între pagini:</strong> Efecte vizuale pentru schimbarea paginilor</li>
+                                            <li><strong>Revelatoare și perdele:</strong> Instrumente pentru dezvăluirea graduală a conținutului</li>
+                                        </ul>
+                                    </div>
+                                    
+                                    <div class="advanced-feature">
+                                        <h3>Instrumente matematice și științifice</h3>
+                                        <p>Funcții specializate pentru discipline specifice:</p>
+                                        <ul>
+                                            <li><strong>Instrumente matematice:</strong> Rigla, raportorul, compasul digital</li>
+                                            <li><strong>Grafice și diagrame:</strong> Crearea și manipularea reprezentărilor vizuale ale datelor</li>
+                                            <li><strong>Formule și ecuații:</strong> Editoare pentru conținut matematic</li>
+                                            <li><strong>Instrumente pentru științe:</strong> Simulări de experimente, modele moleculare, etc.</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                
+                                <div class="info-box">
+                                    <div class="box-title">
+                                        <i class="fas fa-info-circle"></i>
+                                        Sfat profesional
+                                    </div>
+                                    <p>Nu încercați să stăpâniți toate funcțiile avansate deodată. Începeți cu câteva care sunt cele mai relevante pentru disciplina dumneavoastră și integrați-le treptat în lecții pe măsură ce vă simțiți confortabil cu ele. Funcționalitatea avansată este utilă doar când servește unui scop pedagogic clar și nu devine o distragere de la obiectivele de învățare.</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Personalizarea mediului de lucru -->
+                        <div class="lesson-section">
+                            <h2 class="lesson-section-title">Personalizarea mediului de lucru</h2>
+                            <div class="lesson-text">
+                                <p>Pentru a maximiza eficiența utilizării tablei interactive, este esențial să personalizați mediul de lucru conform propriilor preferințe și nevoi specifice.</p>
+                                
+                                <h3>Configurări personalizate</h3>
+                                <ul>
+                                    <li>
+                                        <strong>Personalizarea barei de instrumente:</strong>
+                                        <ul>
+                                            <li>Adăugarea instrumentelor frecvent utilizate</li>
+                                            <li>Eliminarea funcțiilor care nu sunt necesare</li>
+                                            <li>Reorganizarea ordinii instrumentelor pentru acces rapid</li>
+                                            <li>Crearea de bare de instrumente specializate pentru diferite discipline</li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <strong>Preferințe de afișare:</strong>
+                                        <ul>
+                                            <li>Dimensiunea implicită a paginii și orientarea (portret/landscape)</li>
+                                            <li>Fundalurile implicite pentru pagini noi</li>
+                                            <li>Stiluri de grilă și linii de ghidare</li>
+                                            <li>Poziționarea panourilor și dimensiunea lor</li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <strong>Setări pentru instrumente:</strong>
+                                        <ul>
+                                            <li>Stiluri predefinite pentru stilouri și markere</li>
+                                            <li>Palete de culori personalizate</li>
+                                            <li>Setări pentru recunoașterea scrisului și a formelor</li>
+                                            <li>Locații implicite pentru salvare și export</li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                                
+                                <h3>Crearea profilurilor de utilizator</h3>
+                                <p>Multe software-uri pentru table interactive permit crearea profilurilor personalizate:</p>
+                                <ul>
+                                    <li>
+                                        <strong>Avantajele profilurilor multiple:</strong>
+                                        <ul>
+                                            <li>Setări diferite pentru fiecare profesor</li>
+                                            <li>Configurații specifice pentru diverse discipline sau niveluri de clasă</li>
+                                            <li>Separarea resurselor și materialelor personale</li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <strong>Configurarea profilurilor:</strong>
+                                        <ul>
+                                            <li>Crearea profilului din meniul de setări/preferințe</li>
+                                            <li>Salvarea tuturor personalizărilor în profil</li>
+                                            <li>Comutarea între profiluri la începutul sesiunii</li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                                
+                                <div class="example-box">
+                                    <div class="box-title">
+                                        <i class="fas fa-lightbulb"></i>
+                                        Exemplu: Profiluri specializate
+                                    </div>
+                                    <p>Un profesor care predă atât matematică cât și științe ar putea configura două profiluri diferite:</p>
+                                    <ul>
+                                        <li><strong>Profilul pentru matematică:</strong> Cu instrumente de geometrie rapide, calculator, funcții grafice și modele de coordonate disponibile imediat.</li>
+                                        <li><strong>Profilul pentru științe:</strong> Cu instrumentare pentru experimente virtuale, modele moleculare, diagrame de etichetare și acces la simulări științifice.</li>
+                                    </ul>
+                                    <p>Acest lucru permite trecerea rapidă între configurații optimizate pentru fiecare disciplină, economisind timp și îmbunătățind experiența de predare.</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Concluzie și exerciții practice -->
+                        <div class="lesson-section">
+                            <h2 class="lesson-section-title">Concluzie și exerciții practice</h2>
+                            <div class="lesson-text">
+                                <p>În această lecție, am explorat interfața și funcțiile de bază ale software-ului pentru table interactive. Am acoperit instrumentele de scriere și desen, lucrul cu text și imagini, gestionarea materialelor, precum și câteva funcții avansate esențiale. Stăpânirea acestor funcționalități fundamentale vă va permite să creați și să livrați lecții interactive captivante.</p>
+                                
+                                <p>Rețineți că învățarea efectivă a acestor funcții vine prin practică regulată. Alocați timp pentru a experimenta cu diverse instrumente și pentru a explora posibilitățile oferite de software-ul specific tablei dumneavoastră interactive.</p>
+                                
+                                <div class="activity-box">
+                                    <div class="box-title">
+                                        <i class="fas fa-tasks"></i>
+                                        Exerciții practice recomandate
+                                    </div>
+                                    <p>Încercați următoarele activități pentru a vă familiariza cu interfața și funcțiile de bază:</p>
+                                    <ol>
+                                        <li><strong>Exercițiu de scriere și desen:</strong> Creați o pagină cu titlu, text scris de mână, forme geometrice și adnotări colorate. Experimentați cu diferite stilouri, culori și grosimi.</li>
+                                        <li><strong>Exercițiu cu text și imagini:</strong> Inserați un text formatat, adăugați o imagine relevantă și adnotați peste imaginea respectivă pentru a evidenția elementele importante.</li>
+                                        <li><strong>Exercițiu de salvare și export:</strong> Salvați documentul creat în format nativ, apoi exportați-l ca PDF și ca imagini separate pentru fiecare pagină.</li>
+                                        <li><strong>Exercițiu cu straturi și ordine:</strong> Creați o compoziție cu multiple obiecte suprapuse, apoi experimentați cu ordinea lor (aducere în față, trimitere în spate).</li>
+                                        <li><strong>Exercițiu de personalizare:</strong> Configurați bara de instrumente pentru a include funcțiile pe care le utilizați cel mai frecvent și salvați această configurație ca profil personalizat.</li>
+                                    </ol>
+                                </div>
+                                
+                                <p>În lecția următoare, vom explora cum să integrăm tabla interactivă cu alte dispozitive și resurse digitale, extinzând astfel posibilitățile de utilizare în sala de clasă.</p>
+                            </div>
+                        </div>
+                        
+                        <!-- Navigare între lecții -->
+                        <div class="lesson-navigation">
+                            <div class="nav-prev">
+                                <a href="/modules/module3/lesson1.html" class="lesson-nav-button prev">
+                                    <i class="fas fa-arrow-left"></i>
+                                    Înapoi la Lecția 1
+                                </a>
+                            </div>
+                            
+                            <div class="nav-next">
+                                <a href="/modules/module3/lesson3.html" class="lesson-nav-button next">
+                                    Continuă cu Lecția 3
+                                    <i class="fas fa-arrow-right"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </main>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer placeholder -->
+    <div id="footer-placeholder"></div>
+    
+    <script src="/js/main.js"></script>
+    <script src="/js/modules.js"></script>
+</body>
+</html>

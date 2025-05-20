@@ -1,0 +1,823 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lecția 2: Crearea de materiale interactive | TechMinds Academy</title>
+    <meta name="description" content="Învață cum să creezi prezentări interactive, exerciții, quiz-uri și sondaje pentru tabla interactivă, care stimulează participarea și învățarea activă.">
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/responsive.css">
+    <link rel="stylesheet" href="/css/module.css">
+    <link rel="stylesheet" href="/css/lesson.css">
+    <link rel="stylesheet" href="/css/activity-styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header placeholder -->
+    <div id="header-placeholder"></div>
+    
+    <!-- Header lecție -->
+    <section class="lesson-header">
+        <div class="container">
+            <div class="lesson-breadcrumbs">
+                <a href="/index.html">Acasă</a>
+                <span class="separator">/</span>
+                <a href="/modules/module4/index.html">Modul 4: Tehnici de predare digitală cu tabla interactivă</a>
+                <span class="separator">/</span>
+                <span>Lecția 2: Crearea de materiale interactive</span>
+            </div>
+            <h1>Lecția 2: Crearea de materiale interactive: prezentări, exerciții, quiz-uri, sondaje</h1>
+            <p>Descoperă procesul de creare a materialelor interactive care transformă elevii din spectatori în participanți activi la procesul de învățare.</p>
+        </div>
+    </section>
+    
+    <!-- Conținut principal lecție -->
+    <section class="lesson-layout">
+        <div class="container">
+            <div class="lesson-layout">
+                <!-- Sidebar -->
+                <aside class="lesson-sidebar">
+                    <!-- Progres modul -->
+                    <div class="sidebar-card">
+                        <div class="sidebar-card-header">
+                            Progres Modul 4
+                        </div>
+                        <div class="sidebar-card-content">
+                            <div class="module-progress">
+                                <div class="progress-text">
+                                    <span>Lecția 2 din 4</span>
+                                    <span>50%</span>
+                                </div>
+                                <div class="progress-bar">
+                                    <div class="progress-fill" style="width: 50%;"></div>
+                                </div>
+                            </div>
+                            
+                            <ul class="module-lessons-list">
+                                <li class="completed">
+                                    <a href="/modules/module4/lesson1.html">
+                                        <div class="lesson-number-indicator">1</div>
+                                        <div class="lesson-title-text">Metode digitale în predare</div>
+                                        <div class="lesson-completed-indicator">
+                                            <i class="fas fa-check"></i>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li class="active">
+                                    <a href="/modules/module4/lesson2.html">
+                                        <div class="lesson-number-indicator">2</div>
+                                        <div class="lesson-title-text">Crearea de materiale interactive</div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="/modules/module4/lesson3.html">
+                                        <div class="lesson-number-indicator">3</div>
+                                        <div class="lesson-title-text">Utilizarea aplicațiilor educaționale</div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="/modules/module4/lesson4.html">
+                                        <div class="lesson-number-indicator">4</div>
+                                        <div class="lesson-title-text">Colaborare și lucru în echipă</div>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <!-- Resurse lecție -->
+                    <div class="sidebar-card">
+                        <div class="sidebar-card-header">
+                            Resurse lecție
+                        </div>
+                        <div class="sidebar-card-content">
+                            <ul class="lesson-resources-list">
+                                
+                                <li>
+                                    <a href="/assets/docs/exercitii_interactive_template.pdf" download>
+                                        <i class="fas fa-file-alt"></i>
+                                        <span>Template exerciții interactive</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="/assets/docs/ghid_creare_quizuri.pdf" download>
+                                        <i class="fas fa-file-pdf"></i>
+                                        <span>Ghid pentru crearea quiz-urilor</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="/assets/docs/sondaje_exemple.pdf" download>
+                                        <i class="fas fa-file-archive"></i>
+                                        <span>Colecție exemple de sondaje</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </aside>
+                
+                <!-- Conținut principal -->
+                <main class="lesson-main-contentt">
+                    <div class="lesson-content">
+                        <!-- Introducere -->
+                        <div class="lesson-section">
+                            <h2 class="lesson-section-title">Introducere în crearea materialelor interactive</h2>
+                            <div class="lesson-text">
+                                <p>Materialele interactive reprezintă un element esențial în valorificarea potențialului tablei interactive. Acestea transformă învățarea dintr-un proces pasiv într-o experiență activă, în care elevii manipulează conținutul, rezolvă probleme, răspund la întrebări și primesc feedback imediat.</p>
+                                
+                                <p>În această lecție, ne vom concentra pe patru tipuri principale de materiale interactive care pot fi create și utilizate cu tabla interactivă:</p>
+                                
+                                <div class="cards-grid">
+                                    <div class="card">
+                                        <img src="/assets/images/prezentari-interactive.jpg" alt="Prezentări interactive" class="card-img">
+                                        <div class="card-content">
+                                            <h3 class="card-title">Prezentări interactive</h3>
+                                            <p class="card-text">Prezentări dinamice care permit navigare neliniară, manipularea conținutului și integrarea elementelor multimedia.</p>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="card">
+                                        <img src="/assets/images/exercitii-interactive.png" alt="Exerciții interactive" class="card-img">
+                                        <div class="card-content">
+                                            <h3 class="card-title">Exerciții interactive</h3>
+                                            <p class="card-text">Activități practice care implică sortare, potrivire, clasificare și alte tipuri de manipulare a elementelor.</p>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="card">
+                                        <img src="/assets/images/quizuri-interactive.jpg" alt="Quiz-uri interactive" class="card-img">
+                                        <div class="card-content">
+                                            <h3 class="card-title">Quiz-uri interactive</h3>
+                                            <p class="card-text">Evaluări formative cu feedback imediat, în formate variate și atractive pentru diferite stiluri de învățare.</p>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="card">
+                                        <img src="/assets/images/sondaje-interactive.jpg" alt="Sondaje interactive" class="card-img">
+                                        <div class="card-content">
+                                            <h3 class="card-title">Sondaje interactive</h3>
+                                            <p class="card-text">Instrumente pentru colectarea rapidă a opiniilor, cunoștințelor și feedback-ului de la întreaga clasă.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="info-box">
+                                    <div class="box-title">
+                                        <i class="fas fa-info-circle"></i>
+                                        Principii pentru materiale interactive eficiente
+                                    </div>
+                                    <ul>
+                                        <li><strong>Scop pedagogic clar</strong> - Fiecare material trebuie să servească unui obiectiv specific de învățare</li>
+                                        <li><strong>Interfață intuitivă</strong> - Elevii trebuie să poată utiliza materialul cu instrucțiuni minime</li>
+                                        <li><strong>Feedback imediat</strong> - Elevii trebuie să primească validare sau îndrumări imediat după interacțiune</li>
+                                        <li><strong>Niveluri de dificultate adecvate</strong> - Materialele trebuie să fie provocatoare, dar realizabile</li>
+                                        <li><strong>Elemente de stimulare a reflecției</strong> - Provocări care necesită gândire critică, nu doar memorare</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Prezentări interactive -->
+                        <div class="lesson-section">
+                            <h2 class="lesson-section-title">Prezentări interactive: dincolo de slide-uri statice</h2>
+                            <div class="lesson-text">
+                                <p>Prezentările interactive reprezintă o evoluție a prezentărilor tradiționale, oferind posibilitatea de navigare flexibilă, interacțiune cu conținutul și adaptare în timp real la nevoile audienței. Acestea transformă prezentarea dintr-un monolog într-o experiență colaborativă.</p>
+                                
+                                <h3>Elemente care transformă o prezentare în una interactivă</h3>
+                                
+                                <div class="strategy-card">
+                                    <div class="strategy-icon">
+                                        <i class="fas fa-sitemap"></i>
+                                    </div>
+                                    <div class="strategy-content">
+                                        <h3>Structură non-liniară</h3>
+                                        <div class="strategy-details">
+                                            <p>Spre deosebire de prezentările tradiționale, cele interactive permit navigarea flexibilă între slide-uri, urmând diverse trasee în funcție de interesele și nevoile audienței.</p>
+                                            <p><strong>Implementare:</strong></p>
+                                            <ul>
+                                                <li>Creați un slide de "cuprins" cu butoane sau zone interactive care permit accesul direct la diferite secțiuni</li>
+                                                <li>Adăugați butoane de navigare în fiecare slide pentru a permite trecerea la teme conexe</li>
+                                                <li>Utilizați hyperlink-uri pentru a conecta informații înrudite din diferite părți ale prezentării</li>
+                                                <li>Includeți "drumuri" alternative pentru nivele diferite de aprofundare a subiectului</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="strategy-card">
+                                    <div class="strategy-icon">
+                                        <i class="fas fa-hand-pointer"></i>
+                                    </div>
+                                    <div class="strategy-content">
+                                        <h3>Elemente manipulabile</h3>
+                                        <div class="strategy-details">
+                                            <p>Transformați conținutul static în obiecte care pot fi mutate, rotite, redimensionate sau modificate de către elevi sau profesor, permițând demonstrații și explorări active.</p>
+                                            <p><strong>Implementare:</strong></p>
+                                            <ul>
+                                                <li>Creați obiecte "drag and drop" care pot fi sortate, grupate sau poziționate</li>
+                                                <li>Adăugați elemente care pot fi răsucite pentru a dezvălui informații suplimentare</li>
+                                                <li>Implementați cursoare (sliders) pentru a modifica parametri și observa efectele</li>
+                                                <li>Utilizați "perdele" sau "revelatoare" care pot fi trase pentru a dezvălui conținut ascuns</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="strategy-card">
+                                    <div class="strategy-icon">
+                                        <i class="fas fa-layer-group"></i>
+                                    </div>
+                                    <div class="strategy-content">
+                                        <h3>Straturi de conținut</h3>
+                                        <div class="strategy-details">
+                                            <p>Organizați informațiile pe nivele sau straturi care pot fi afișate sau ascunse după necesități, permițând controlul asupra complexității și a ritmului de prezentare.</p>
+                                            <p><strong>Implementare:</strong></p>
+                                            <ul>
+                                                <li>Utilizați animații de apariție secvențială pentru a construi gradual informația complexă</li>
+                                                <li>Creați butoane pentru afișarea/ascunderea detaliilor suplimentare</li>
+                                                <li>Implementați "lupă digitală" care permite vizualizarea detaliată a anumitor zone</li>
+                                                <li>Adăugați note sau comentarii ascunse care pot fi afișate la cerere</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="strategy-card">
+                                    <div class="strategy-icon">
+                                        <i class="fas fa-comments"></i>
+                                    </div>
+                                    <div class="strategy-content">
+                                        <h3>Puncte de interacțiune</h3>
+                                        <div class="strategy-details">
+                                            <p>Integrați momente planificate pentru interacțiunea cu audiența, sub forma întrebărilor, provocărilor, sondajelor rapide sau activităților practice.</p>
+                                            <p><strong>Implementare:</strong></p>
+                                            <ul>
+                                                <li>Inserați întrebări de verificare a înțelegerii la finalul fiecărei secțiuni importante</li>
+                                                <li>Adăugați provocări de tipul "ce s-ar întâmpla dacă..." pentru stimularea gândirii</li>
+                                                <li>Încorporați mini-sondaje pentru a colecta rapid opinii sau cunoștințe</li>
+                                                <li>Integrați zone de adnotare unde elevii pot adăuga propriile idei sau observații</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <h3>Instrumente pentru crearea prezentărilor interactive</h3>
+                                
+                                <div class="comparison-table">
+                                    <table>
+                                        <tr>
+                                            <th>Aplicație</th>
+                                            <th>Caracteristici interactive</th>
+                                            <th>Integrare cu tabla</th>
+                                            <th>Nivel de complexitate</th>
+                                        </tr>
+                                        <tr>
+                                            <td>Software-ul nativ al tablei (SMART Notebook, ActivInspire)</td>
+                                            <td>Obiecte manipulabile, straturi, revelatoare, animații, hyperlink-uri</td>
+                                            <td>Integrare nativă, funcționare optimă</td>
+                                            <td>Mediu (necesită învățarea instrumentelor specifice)</td>
+                                        </tr>
+                                        <tr>
+                                            <td>PowerPoint cu add-on-uri interactive</td>
+                                            <td>Trigger-uri, hiperlinkuri, animații, macro-uri, elemente ActiveX</td>
+                                            <td>Bună pentru modele bazice de table</td>
+                                            <td>Scăzut-Mediu (familiar pentru majoritatea profesorilor)</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Prezi</td>
+                                            <td>Navigare non-liniară, zoom, rotire, animații de tranzit</td>
+                                            <td>Medie, funcționează prin browser</td>
+                                            <td>Mediu (interfață unică, dar intuitivă)</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Nearpod</td>
+                                            <td>Interactivitate bogată, integrare cu dispozitive mobile, quiz-uri și sondaje încorporate</td>
+                                            <td>Bună, sincronizare cu dispozitivele elevilor</td>
+                                            <td>Mediu (platformă dedicată educației)</td>
+                                        </tr>
+                                        <tr>
+                                            <td>H5P (integrabil în site-uri web)</td>
+                                            <td>Multe tipuri de conținut interactiv, incluzând timeline, quiz-uri, hotspot-uri</td>
+                                            <td>Prin browser, accesibil pe tabla interactivă</td>
+                                            <td>Mediu-Ridicat (necesită cunoștințe web)</td>
+                                        </tr>
+                                    </table>
+                                </div>
+                                
+                                <div class="example-box">
+                                    <div class="box-title">
+                                        <i class="fas fa-lightbulb"></i>
+                                        Exemplu: Prezentare interactivă despre sistemul solar
+                                    </div>
+                                    <p><strong>Descriere:</strong> O prezentare pentru clasa a IV-a care permite explorarea interactivă a planetelor și a caracteristicilor lor.</p>
+                                    <p><strong>Elemente interactive:</strong></p>
+                                    <ul>
+                                        <li><strong>Cuprins vizual</strong> - O reprezentare a sistemului solar unde fiecare planetă este un buton către slide-ul dedicat</li>
+                                        <li><strong>Slider pentru compararea dimensiunilor</strong> - Cursor care permite vizualizarea relativă a dimensiunilor planetelor</li>
+                                        <li><strong>Straturi de informații</strong> - Fiecare planetă are butoane pentru afișarea informațiilor despre atmosferă, suprafață, sateliți, etc.</li>
+                                        <li><strong>Quiz-uri încorporate</strong> - Întrebări scurte la finalul fiecărei secțiuni pentru verificarea înțelegerii</li>
+                                        <li><strong>Simulare rotație</strong> - Planetele pot fi rotite pentru a observa diferite fațete</li>
+                                        <li><strong>Zonă de adnotare</strong> - Spațiu pentru notițe și observații personale ale elevilor</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Exerciții interactive -->
+                        <div class="lesson-section">
+                            <h2 class="lesson-section-title">Exerciții interactive: învățare prin manipulare directă</h2>
+                            <div class="lesson-text">
+                                <p>Exercițiile interactive permit elevilor să manipuleze direct conceptele, să exploreze relații și să rezolve probleme într-un mod tactil și vizual. Acestea sunt deosebit de eficiente pentru consolidarea cunoștințelor și dezvoltarea abilităților practice.</p>
+                                
+                                <h3>Tipuri de exerciții interactive pentru tabla smart</h3>
+                                
+                                <div class="cards-grid">
+                                    <div class="card">
+                                        <div class="card-content">
+                                            <h3 class="card-title">Sortare și clasificare</h3>
+                                            <p class="card-text">Elevii organizează elementele în categorii sau grupuri pe baza caracteristicilor comune.</p>
+                                            <div class="card-meta">
+                                                <span><i class="fas fa-check-circle"></i> Identificarea criteriilor</span>
+                                                <span><i class="fas fa-check-circle"></i> Recunoașterea tiparelor</span>
+                                            </div>
+                                            <p class="card-text"><strong>Exemplu:</strong> Sortarea animalelor după habitat, a cuvintelor după părți de vorbire, a substanțelor după proprietăți.</p>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="card">
+                                        <div class="card-content">
+                                            <h3 class="card-title">Potrivire și asociere</h3>
+                                            <p class="card-text">Elevii conectează elemente corelate, cum ar fi termeni și definiții, cauze și efecte, imagini și etichete.</p>
+                                            <div class="card-meta">
+                                                <span><i class="fas fa-check-circle"></i> Consolidarea vocabularului</span>
+                                                <span><i class="fas fa-check-circle"></i> Înțelegerea relațiilor</span>
+                                            </div>
+                                            <p class="card-text"><strong>Exemplu:</strong> Conectarea țărilor cu capitalele lor, a simbolurilor chimice cu elementele, a termenilor literari cu exemple.</p>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="card">
+                                        <div class="card-content">
+                                            <h3 class="card-title">Secvențializare</h3>
+                                            <p class="card-text">Elevii aranjează elemente în ordinea corectă, dezvoltând înțelegerea proceselor și a relațiilor temporale.</p>
+                                            <div class="card-meta">
+                                                <span><i class="fas fa-check-circle"></i> Recunoașterea etapelor</span>
+                                                <span><i class="fas fa-check-circle"></i> Înțelegerea cauzalității</span>
+                                            </div>
+                                            <p class="card-text"><strong>Exemplu:</strong> Ordonarea evenimentelor istorice, a etapelor unui experiment, a fazelor unui ciclu natural.</p>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="card">
+                                        <div class="card-content">
+                                            <h3 class="card-title">Etichetare și identificare</h3>
+                                            <p class="card-text">Elevii identifică și etichetează corect părțile componente ale unui întreg, dezvoltând vocabular specific.</p>
+                                            <div class="card-meta">
+                                                <span><i class="fas fa-check-circle"></i> Vocabular de specialitate</span>
+                                                <span><i class="fas fa-check-circle"></i> Recunoașterea structurilor</span>
+                                            </div>
+                                            <p class="card-text"><strong>Exemplu:</strong> Etichetarea părților unei plante, a organelor corpului uman, a elementelor unei hărți.</p>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="card">
+                                        <div class="card-content">
+                                            <h3 class="card-title">Completare</h3>
+                                            <p class="card-text">Elevii completează informațiile lipsă în texte, diagrame, ecuații sau alte contexte.</p>
+                                            <div class="card-meta">
+                                                <span><i class="fas fa-check-circle"></i> Testarea cunoștințelor</span>
+                                                <span><i class="fas fa-check-circle"></i> Înțelegerea contextului</span>
+                                            </div>
+                                            <p class="card-text"><strong>Exemplu:</strong> Completarea cuvintelor lipsă într-un text, a numerelor în șiruri, a elementelor în reacții chimice.</p>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="card">
+                                        <div class="card-content">
+                                            <h3 class="card-title">Puzzle-uri interactive</h3>
+                                            <p class="card-text">Elevii asamblează piese pentru a forma un întreg, dezvoltând înțelegerea despre relații spațiale și structuri.</p>
+                                            <div class="card-meta">
+                                                <span><i class="fas fa-check-circle"></i> Gândire spațială</span>
+                                                <span><i class="fas fa-check-circle"></i> Recunoașterea tiparelor</span>
+                                            </div>
+                                            <p class="card-text"><strong>Exemplu:</strong> Asamblarea unei hărți, a unui circuit electric, a unei scheme conceptuale.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <h3>Pași pentru crearea exercițiilor interactive eficiente</h3>
+                                
+                                <div class="activity-card">
+                                    <div class="activity-header">
+                                        <h3>Proces de dezvoltare a exercițiilor interactive</h3>
+                                    </div>
+                                    <div class="activity-content">
+                                        <div class="activity-implementation">
+                                            <ol>
+                                                <li><strong>Identificarea obiectivului de învățare:</strong> Stabiliți ce anume doriți să învețe sau să exerseze elevii prin acest exercițiu (concepte, relații, proceduri).</li>
+                                                <li><strong>Selectarea tipului de exercițiu potrivit:</strong> Alegeți formatul de exercițiu care se potrivește cel mai bine obiectivului (sortare, potrivire, secvențializare, etc.).</li>
+                                                <li><strong>Pregătirea conținutului:</strong> Creați elementele exercițiului (imagini, texte, etichete) într-un format clar și vizibil. Asigurați-vă că elementele sunt suficient de mari pentru a fi manipulate cu ușurință pe tabla interactivă.</li>
+                                                <li><strong>Programarea comportamentului interactiv:</strong> Utilizând software-ul tablei interactive, setați proprietățile elementelor pentru a permite acțiunile dorite (tragere, rotire, clonare, etc.) și pentru a defini răspunsurile corecte.</li>
+                                                <li><strong>Configurarea feedback-ului:</strong> Implementați mecanisme de feedback imediat care să indice elevilor dacă soluțiile lor sunt corecte (sunete, animații, mesaje text, culori).</li>
+                                                <li><strong>Testarea funcționalității:</strong> Asigurați-vă că toate elementele interactive funcționează corect, că instrumentele de tragere și plasare sunt responsive și că feedback-ul este adecvat.</li>
+                                                <li><strong>Adăugarea instrucțiunilor:</strong> Includeți instrucțiuni clare și concise pentru elevi, eventual cu un exemplu demonstrativ.</li>
+                                                <li><strong>Crearea variațiilor de nivel:</strong> Dacă este posibil, dezvoltați versiuni ale aceluiași exercițiu cu niveluri diferite de dificultate pentru a permite diferențierea.</li>
+                                            </ol>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="tip-box">
+                                    <div class="box-title">
+                                        <i class="fas fa-lightbulb"></i> Sfaturi practice
+                                    </div>
+                                    <ul>
+                                        <li><strong>Utilizați bibliotecile de resurse</strong> incluse în software-ul tablei pentru a economisi timp. Acestea conțin adesea șabloane, imagini și obiecte interactive gata de utilizare.</li>
+                                        <li><strong>Salvați exercițiile create</strong> într-o bibliotecă personală pentru reutilizare și adaptare. Construiți treptat o colecție de resurse personalizate.</li>
+                                        <li><strong>Testați pe tabla interactivă</strong>, nu doar pe calculator. Ceea ce funcționează cu mouse-ul poate fi mai dificil de manipulat pe tabla tactilă.</li>
+                                        <li><strong>Creați duplicate</strong> ale elementelor pentru activități de grup. Permiteți mai multor elevi să lucreze simultan cu obiecte identice.</li>
+                                        <li><strong>Implementați "undo"</strong> și opțiuni de resetare pentru a permite experimentarea fără frică de greșeli.</li>
+                                    </ul>
+                                </div>
+                                
+                                <div class="example-box">
+                                    <div class="box-title">
+                                        <i class="fas fa-lightbulb"></i>
+                                        Exemplu: Exercițiu de potrivire pentru învățarea vocabularului în limba engleză
+                                    </div>
+                                    <p><strong>Obiectiv:</strong> Elevii vor asocia cuvinte în limba engleză cu imagini reprezentative, consolidând vocabularul legat de casă și mobilier.</p>
+                                    <p><strong>Implementare:</strong></p>
+                                    <ol>
+<li><strong>Setup:</strong> Pe partea stângă a tablei sunt afișate 10 cuvinte în limba engleză (chair, table, door, window, sofa, bed, kitchen, bathroom, bedroom, garden). Pe partea dreaptă sunt plasate imaginile corespunzătoare, aranjate aleatoriu.</li>
+                                       <li><strong>Interacțiune:</strong> Elevii vin pe rând la tablă și trag cuvintele lângă imaginile potrivite. Cuvintele "se lipesc" de imagine când sunt plasate corect și "revin" la poziția inițială când asocierea este greșită.</li>
+                                       <li><strong>Feedback:</strong> Când un cuvânt este plasat corect, se aude un sunet de confirmare și apare un chenar verde în jurul perechii. La final, toate perechile corecte sunt animate și se aude pronunția fiecărui cuvânt.</li>
+                                       <li><strong>Extensie:</strong> După completarea exercițiului, elevii pot apăsa pe fiecare pereche pentru a vedea cuvântul folosit într-o propoziție simplă și pot înregistra propria pronunție pentru comparație.</li>
+                                   </ol>
+                               </div>
+                           </div>
+                       </div>
+                       
+                       <!-- Quiz-uri interactive -->
+                       <div class="lesson-section">
+                           <h2 class="lesson-section-title">Quiz-uri interactive: evaluare captivantă cu feedback imediat</h2>
+                           <div class="lesson-text">
+                               <p>Quiz-urile interactive reprezintă instrumente versatile de evaluare formativă care oferă feedback imediat și transformă procesul de verificare a cunoștințelor într-o experiență captivantă și motivantă. Utilizate cu tabla interactivă, acestea permit participarea simultană a tuturor elevilor și vizualizarea colectivă a rezultatelor.</p>
+                               
+                               <h3>Formate de quiz-uri pentru tabla interactivă</h3>
+                               
+                               <div class="strategy-card">
+                                   <div class="strategy-icon">
+                                       <i class="fas fa-tasks"></i>
+                                   </div>
+                                   <div class="strategy-content">
+                                       <h3>Quiz-uri cu alegere multiplă</h3>
+                                       <div class="strategy-details">
+                                           <p>Întrebările clasice cu variante de răspuns, din care elevii selectează opțiunea corectă. Pot include imagini, diagrame sau alte elemente vizuale.</p>
+                                           <p><strong>Avantaje și utilizări:</strong></p>
+                                           <ul>
+                                               <li>Verificare rapidă a cunoștințelor factuale și conceptuale</li>
+                                               <li>Ușor de creat și implementat în diverse platforme</li>
+                                               <li>Permit evaluarea simultană a întregii clase</li>
+                                               <li>Pot include opțiuni parțial corecte pentru a evidenția nuanțe</li>
+                                           </ul>
+                                           <p><strong>Exemple:</strong> Întrebări Kahoot, Quizizz, testele din Google Forms sau Microsoft Forms, întrebări încorporate în prezentări PowerPoint.</p>
+                                       </div>
+                                   </div>
+                               </div>
+                               
+                               <div class="strategy-card">
+                                   <div class="strategy-icon">
+                                       <i class="fas fa-images"></i>
+                                   </div>
+                                   <div class="strategy-content">
+                                       <h3>Quiz-uri bazate pe imagini</h3>
+                                       <div class="strategy-details">
+                                           <p>Întrebări care utilizează imagini ca stimuli sau ca răspunsuri, solicitând identificarea, recunoașterea sau interpretarea elementelor vizuale.</p>
+                                           <p><strong>Avantaje și utilizări:</strong></p>
+                                           <ul>
+                                               <li>Dezvoltarea alfabetizării vizuale și a abilităților de observație</li>
+                                               <li>Eficiente pentru discipline cu conținut vizual (științe, geografie, artă)</li>
+                                               <li>Accesibile pentru elevii cu diverse stiluri de învățare</li>
+                                               <li>Stimulează memorarea vizuală a conceptelor</li>
+                                           </ul>
+                                           <p><strong>Exemple:</strong> Identificarea elementelor pe o hartă, recunoașterea microscopică a țesuturilor, identificarea stilurilor artistice, quiz-uri de tip "găsește greșeala" în imagini.</p>
+                                       </div>
+                                   </div>
+                               </div>
+                               
+                               <div class="strategy-card">
+                                   <div class="strategy-icon">
+                                       <i class="fas fa-th-large"></i>
+                                   </div>
+                                   <div class="strategy-content">
+                                       <h3>Quiz-uri de tip matrice</h3>
+                                       <div class="strategy-details">
+                                           <p>Întrebări organizate într-o grilă sau matrice, unde elevii trebuie să completeze celulele conform unor criterii logice sau conceptuale.</p>
+                                           <p><strong>Avantaje și utilizări:</strong></p>
+                                           <ul>
+                                               <li>Evaluarea capacității de a identifica relații și tipare</li>
+                                               <li>Eficiente pentru clasificări și comparații între concepte</li>
+                                               <li>Pot evidenția înțelegerea holistică a unui domeniu</li>
+                                               <li>Permit vizualizarea structurată a informațiilor</li>
+                                           </ul>
+                                           <p><strong>Exemple:</strong> Tabele de clasificare a organismelor, matrice pentru proprietățile materialelor, grile de comparație între perioade istorice.</p>
+                                       </div>
+                                   </div>
+                               </div>
+                               
+                               <div class="strategy-card">
+                                   <div class="strategy-icon">
+                                       <i class="fas fa-gamepad"></i>
+                                   </div>
+                                   <div class="strategy-content">
+                                       <h3>Quiz-uri gamificate</h3>
+                                       <div class="strategy-details">
+                                           <p>Evaluări cu elemente de joc precum punctaje, clasamente, provocări contra cronometru, niveluri și recompense virtuale.</p>
+                                           <p><strong>Avantaje și utilizări:</strong></p>
+                                           <ul>
+                                               <li>Creșterea motivației și a angajamentului elevilor</li>
+                                               <li>Reducerea anxietății asociate evaluării tradiționale</li>
+                                               <li>Stimularea competiției constructive și a colaborării</li>
+                                               <li>Oferirea unui context ludic pentru consolidarea cunoștințelor</li>
+                                           </ul>
+                                           <p><strong>Exemple:</strong> Quiz-uri de tip "Cine vrea să fie milionar", "Jeopardy", curse virtuale în care răspunsurile corecte avansează personaje, "evadare din cameră" educațională.</p>
+                                       </div>
+                                   </div>
+                               </div>
+                               
+                               <h3>Platforme și instrumente pentru crearea quiz-urilor interactive</h3>
+                               
+                               <div class="comparison-table">
+                                   <table>
+                                       <tr>
+                                           <th>Platformă</th>
+                                           <th>Tipuri de întrebări</th>
+                                           <th>Caracteristici speciale</th>
+                                           <th>Integrare cu tabla</th>
+                                       </tr>
+                                       <tr>
+                                           <td>Kahoot!</td>
+                                           <td>Alegere multiplă, Adevărat/Fals, Completare, Puzzle</td>
+                                           <td>Format competitiv, muzică, clasamente, temporizator</td>
+                                           <td>Excelentă - tabla afișează întrebările, elevii răspund pe dispozitive</td>
+                                       </tr>
+                                       <tr>
+                                           <td>Quizizz</td>
+                                           <td>Alegere multiplă, Completare, Sondaj, Deschis</td>
+                                           <td>Memuri, ritm individual, teme, rapoarte detaliate</td>
+                                           <td>Bună - funcționează prin browser, sincronizare cu dispozitive</td>
+                                       </tr>
+                                       <tr>
+                                           <td>Mentimeter</td>
+                                           <td>Alegere multiplă, Scală, Răspuns deschis, Clasament</td>
+                                           <td>Vizualizări dinamice, word clouds, grafice animate</td>
+                                           <td>Foarte bună - focus pe afișarea colectivă a rezultatelor</td>
+                                       </tr>
+                                       <tr>
+                                           <td>Plickers</td>
+                                           <td>Alegere multiplă, Adevărat/Fals</td>
+                                           <td>Nu necesită dispozitive pentru elevi (folosește carduri scanate)</td>
+                                           <td>Bună - profesorul scanează cu telefonul, rezultate pe tablă</td>
+                                       </tr>
+                                       <tr>
+                                           <td>Software nativ al tablei</td>
+                                           <td>Variate, conform capabilităților software-ului</td>
+                                           <td>Integrare perfectă cu alte activități pe tablă</td>
+                                           <td>Nativă - creat special pentru tabla interactivă</td>
+                                       </tr>
+                                   </table>
+                               </div>
+                               
+                               <div class="activity-card">
+                                   <div class="activity-header">
+                                       <h3>Ghid pentru crearea quiz-urilor interactive eficiente</h3>
+                                   </div>
+                                   <div class="activity-content">
+                                       <div class="activity-implementation">
+                                           <ol>
+                                               <li><strong>Definirea obiectivelor de evaluare:</strong> Stabiliți ce anume doriți să verificați - cunoștințe factuale, înțelegere conceptuală, capacitate de aplicare, etc.</li>
+                                               <li><strong>Selectarea platformei adecvate:</strong> Alegeți instrumentul care se potrivește cel mai bine tipului de întrebări și contextului de utilizare.</li>
+                                               <li><strong>Crearea întrebărilor cu atenție la:</strong>
+                                                   <ul>
+                                                       <li>Claritatea formulării, fără ambiguități neintenționte</li>
+                                                       <li>Nivelul adecvat de dificultate pentru obiectivul vizat</li>
+                                                       <li>Varietatea tipurilor de întrebări pentru stimularea diferitelor abilități</li>
+                                                       <li>Implicarea diferitelor niveluri cognitive (de la memorare la analiză)</li>
+                                                   </ul>
+                                               </li>
+                                               <li><strong>Elaborarea feedback-ului:</strong> Pregătiți explicații pentru răspunsurile corecte și pentru cele greșite, oferind oportunități de învățare din erori.</li>
+                                               <li><strong>Testarea funcționalității:</strong> Parcurgeți quiz-ul înainte de a-l utiliza cu elevii pentru a verifica corectitudinea răspunsurilor și fluiditatea experienței.</li>
+                                               <li><strong>Planificarea implementării:</strong> Decideți când și cum va fi integrată evaluarea în secvența lecției și cât timp va fi alocat.</li>
+                                               <li><strong>Pregătirea analizei rezultatelor:</strong> Configurați modul în care vor fi colectate și vizualizate rezultatele pentru a facilita discuția și ajustarea predării.</li>
+                                           </ol>
+                                       </div>
+                                   </div>
+                               </div>
+                               
+                               <div class="warning-box">
+                                   <div class="box-title">
+                                       <i class="fas fa-exclamation-triangle"></i>
+                                       Atenție
+                                   </div>
+                                   <p>La utilizarea quiz-urilor interactive, aveți în vedere următoarele aspecte:</p>
+                                   <ul>
+                                       <li><strong>Presiunea timpului</strong> poate afecta negativ anumiți elevi - oferiți timp suficient sau ajustați în funcție de complexitatea întrebărilor</li>
+                                       <li><strong>Elementele competitive</strong> pot demotiva elevii cu performanțe mai scăzute - alternați între formate competitive și non-competitive</li>
+                                       <li><strong>Accentul pe răspunsuri rapide</strong> poate încuraja ghicitul în detrimentul gândirii profunde - includeți întrebări care necesită reflecție</li>
+                                       <li><strong>Utilizarea excesivă</strong> a aceluiași format poate duce la plictiseală - variați tipurile de quiz-uri și modul de implementare</li>
+                                   </ul>
+                               </div>
+                           </div>
+                       </div>
+                       
+                       <!-- Sondaje interactive -->
+                       <div class="lesson-section">
+                           <h2 class="lesson-section-title">Sondaje interactive: colectarea și vizualizarea opiniilor în timp real</h2>
+                           <div class="lesson-text">
+                               <p>Sondajele interactive reprezintă instrumente valoroase pentru colectarea rapidă a opiniilor, ideilor și cunoștințelor tuturor elevilor. Acestea facilitează participarea activă, oferă o perspectivă asupra gândirii colective a clasei și permit ajustarea predării pe baza răspunsurilor primite.</p>
+                               
+                               <h3>Utilizări pedagogice ale sondajelor interactive</h3>
+                               
+                               <div class="cards-grid">
+                                   <div class="card">
+                                       <div class="card-content">
+                                           <h3 class="card-title">Evaluare inițială</h3>
+                                           <p class="card-text">Identificarea cunoștințelor și concepțiilor anterioare ale elevilor la începutul unei lecții sau unități.</p>
+                                           <div class="card-meta">
+                                               <span><i class="fas fa-check-circle"></i> Adaptarea predării la nivelul actual</span>
+                                               <span><i class="fas fa-check-circle"></i> Identificarea concepțiilor greșite</span>
+                                           </div>
+                                           <p class="card-text"><strong>Întrebări tipice:</strong> "Ce știți deja despre...?", "Cât de familiari sunteți cu...?", "Care credeți că este explicația pentru...?"</p>
+                                       </div>
+                                   </div>
+                                   
+                                   <div class="card">
+                                       <div class="card-content">
+                                           <h3 class="card-title">Verificarea înțelegerii</h3>
+                                           <p class="card-text">Evaluare formativă rapidă pentru a determina gradul de înțelegere a unui concept prezentat.</p>
+                                           <div class="card-meta">
+                                               <span><i class="fas fa-check-circle"></i> Identificarea lacunelor</span>
+                                               <span><i class="fas fa-check-circle"></i> Ajustarea ritmului predării</span>
+                                           </div>
+                                           <p class="card-text"><strong>Întrebări tipice:</strong> "Care dintre aceste exemple ilustrează conceptul...?", "Ce s-ar întâmpla dacă...?", "Care este principiul din spatele...?"</p>
+                                       </div>
+                                   </div>
+                                   
+                                   <div class="card">
+                                       <div class="card-content">
+                                           <h3 class="card-title">Colectare de idei</h3>
+                                           <p class="card-text">Brainstorming colectiv și colectarea rapidă a diverselor perspective ale elevilor.</p>
+                                           <div class="card-meta">
+                                               <span><i class="fas fa-check-circle"></i> Stimularea creativității</span>
+                                               <span><i class="fas fa-check-circle"></i> Valorizarea diversității de gândire</span>
+                                           </div>
+                                           <p class="card-text"><strong>Întrebări tipice:</strong> "Ce soluții propuneți pentru această problemă?", "Ce alternative ar fi posibile?", "Ce conexiuni observați între...?"</p>
+                                       </div>
+                                   </div>
+                                   
+                                   <div class="card">
+                                       <div class="card-content">
+                                           <h3 class="card-title">Reflecție și metacogniție</h3>
+                                           <p class="card-text">Întrebări care încurajează elevii să reflecteze asupra propriului proces de învățare.</p>
+                                           <div class="card-meta">
+                                               <span><i class="fas fa-check-circle"></i> Dezvoltarea conștientizării</span>
+                                               <span><i class="fas fa-check-circle"></i> Identificarea strategiilor eficiente</span>
+                                           </div>
+                                           <p class="card-text"><strong>Întrebări tipice:</strong> "Ce aspect al lecției v-a ajutat cel mai mult?", "Ce întrebări aveți încă?", "Cât de confortabil vă simțiți aplicând acest concept?"</p>
+                                       </div>
+                                   </div>
+                               </div>
+                               
+                               <h3>Formate de vizualizare a răspunsurilor</h3>
+                               
+                               <div class="cards-grid">
+                                   <div class="card">
+                                       <div class="card-content">
+                                           <h3 class="card-title">Grafice și diagrame</h3>
+                                           <p class="card-text">Reprezentări vizuale ale distribuției răspunsurilor (bare, coloane, circulare, linii).</p>
+                                           <p class="card-text"><strong>Avantaje:</strong> Evidențiază rapid tendințele majoritare, permit comparații cantitative, sunt ușor de interpretat.</p>
+                                       </div>
+                                   </div>
+                                   
+                                   <div class="card">
+                                       <div class="card-content">
+                                           <h3 class="card-title">Word clouds (nori de cuvinte)</h3>
+                                           <p class="card-text">Reprezentări vizuale ale frecvenței cuvintelor în răspunsurile text deschise.</p>
+                                           <p class="card-text"><strong>Avantaje:</strong> Evidențiază temele dominante, sunt vizual atractive, procesează rapid multe răspunsuri text.</p>
+                                       </div>
+                                   </div>
+                                   
+                                   <div class="card">
+                                       <div class="card-content">
+                                           <h3 class="card-title">Hărți de idei</h3>
+                                           <p class="card-text">Organizări spațiale ale răspunsurilor în funcție de categorii sau relații conceptuale.</p>
+                                           <p class="card-text"><strong>Avantaje:</strong> Evidențiază conexiunile între idei, facilitează organizarea răspunsurilor diverse.</p>
+                                       </div>
+                                   </div>
+                                   
+                                   <div class="card">
+                                       <div class="card-content">
+                                           <h3 class="card-title">Scale și continuum-uri</h3>
+                                           <p class="card-text">Reprezentări ale pozițiilor elevilor pe o linie continuă între două extreme.</p>
+                                           <p class="card-text"><strong>Avantaje:</strong> Evidențiază nuanțele de opinie, nu doar opțiunile binare, permit vizualizarea schimbărilor de opinie.</p>
+                                       </div>
+                                   </div>
+                               </div>
+                               
+                               <div class="activity-card">
+                                   <div class="activity-header">
+                                       <h3>Implementarea eficientă a sondajelor interactive</h3>
+                                   </div>
+                                   <div class="activity-content">
+                                       <div class="activity-implementation">
+                                           <ol>
+                                               <li><strong>Pregătiți întrebări clare și relevante:</strong> Formulați întrebări precise, fără ambiguități, care se conectează direct cu obiectivele de învățare.</li>
+                                               <li><strong>Alegeți momentul potrivit:</strong> Integrați sondajele în momente strategice ale lecției - la început pentru activare, în mijloc pentru verificare, la final pentru reflecție.</li>
+                                               <li><strong>Selectați formatul adecvat:</strong> Potriviți tipul de întrebare și de vizualizare cu scopul sondajului (întrebări închise pentru statistici rapide, deschise pentru diversitate de idei).</li>
+                                               <li><strong>Facilitați participarea universală:</strong> Asigurați-vă că toți elevii pot răspunde, fie prin dispozitive personale, sisteme de răspuns dedicate sau alte metode.</li>
+                                               <li><strong>Analizați rezultatele împreună cu elevii:</strong> Transformați vizualizarea răspunsurilor într-o oportunitate de învățare prin discuții ghidate despre tiparele observate.</li>
+                                               <li><strong>Valorificați rezultatele pentru adaptarea predării:</strong> Utilizați informațiile obținute pentru a ajusta conținutul, ritmul sau metodele în timp real sau pentru lecțiile viitoare.</li>
+                                               <li><strong>Combinați metode anonime și publice:</strong> Alternați între sondaje anonime (pentru opinii sincere în subiecte sensibile) și răspunsuri personalizate (pentru responsabilizare).</li>
+                                           </ol>
+                                       </div>
+                                   </div>
+                               </div>
+                               
+                               <div class="example-box">
+                                   <div class="box-title">
+                                       <i class="fas fa-lightbulb"></i>
+                                       Exemplu: Sondaje interactive în lecția despre schimbările climatice
+                                   </div>
+                                   <p>Această secvență ilustrează utilizarea strategică a sondajelor interactive pe parcursul unei lecții de geografie/ecologie pentru clasa a VII-a.</p>
+                                   <ol>
+                                       <li><strong>Sondaj inițial de activare</strong> (format: scală de la 1-10): "Cât de îngrijorați sunteți de schimbările climatice?" - Rezultatele sunt afișate ca un grafic de distribuție pe tabla interactivă.</li>
+                                       <li><strong>Sondaj de identificare a cunoștințelor</strong> (format: răspuns deschis): "Menționați 1-3 cauze ale schimbărilor climatice" - Răspunsurile sunt agregate într-un word cloud.</li>
+                                       <li><strong>Sondaj de verificare conceptuală</strong> (format: alegere multiplă): "Care dintre următoarele NU este un gaz cu efect de seră?" - Răspunsurile sunt afișate într-un grafic de bare.</li>
+                                       <li><strong>Sondaj de aplicare</strong> (format: drag-and-drop): "Ordonați aceste acțiuni în funcție de impactul lor asupra reducerii emisiilor" - Rezultatele sunt vizualizate ca un grafic de clasament.</li>
+                                       <li><strong>Sondaj de reflecție finală</strong> (format: răspuns deschis): "Ce acțiune personală veți întreprinde pentru a reduce amprenta de carbon?" - Răspunsurile sunt organizate într-o hartă tematică.</li>
+                                   </ol>
+                                   <p><strong>Valoare adăugată:</strong> Această secvență de sondaje permite profesorului să observe evoluția înțelegerii și a atitudinilor pe parcursul lecției, să adapteze explicațiile în funcție de concepțiile greșite identificate și să stimuleze angajamentul personal al elevilor față de temă.</p>
+                               </div>
+                           </div>
+                       </div>
+                       
+                       <!-- Concluzie -->
+                       <div class="lesson-section">
+                           <h2 class="lesson-section-title">Concluzie: De la concepte la implementare practică</h2>
+                           <div class="lesson-text">
+                               <p>Crearea materialelor interactive - prezentări, exerciții, quiz-uri și sondaje - reprezintă o competență esențială pentru valorificarea tablei interactive ca instrument transformativ în educație. Aceste materiale transformă fundamentul relației pedagogice, permițând elevilor să devină participanți activi, nu simpli receptori pasivi de informație.</p>
+                               
+                               <p>În această lecție, am explorat caracteristicile, tipurile și procesele de creare pentru fiecare categorie de materiale interactive. Am analizat instrumente specifice și am oferit exemple practice care pot fi adaptate pentru diverse discipline și niveluri de vârstă.</p>
+                               
+                               <div class="info-box">
+                                   <div class="box-title">
+                                       <i class="fas fa-info-circle"></i>
+                                       Principii directoare pentru materiale interactive
+                                   </div>
+                                   <p>Indiferent de tipul de material interactiv pe care îl creați, țineți cont de aceste principii esențiale:</p>
+                                   <ul>
+                                       <li><strong>Centrare pe învățare, nu pe tehnologie</strong> - Tehnologia este un mijloc, nu un scop în sine</li>
+                                       <li><strong>Interactivitate cu scop pedagogic</strong> - Fiecare element interactiv trebuie să servească unui obiectiv educațional clar</li>
+                                       <li><strong>Echilibru între ghidare și explorare</strong> - Oferiți suficientă structură, dar și libertate pentru descoperire</li>
+                                       <li><strong>Feedback constructiv și imediat</strong> - Asigurați răspuns prompt care să ghideze învățarea</li>
+                                       <li><strong>Diferențiere și incluziune</strong> - Proiectați materiale care să răspundă diverselor nevoi și stiluri de învățare</li>
+                                   </ul>
+                               </div>
+                               
+                               <p>Dezvoltarea competențelor de creare a materialelor interactive este un proces gradual. Începeți cu formate simple și evoluați treptat către creații mai complexe pe măsură ce vă familiarizați cu instrumentele și principiile. Colaborarea cu colegii și împărtășirea resurselor poate accelera considerabil acest proces și poate duce la dezvoltarea unei biblioteci valoroase de materiale pentru întreaga școală.</p>
+                               
+                               <p>În lecția următoare, vom explora modul în care puteți valorifica aplicațiile și software-ul educațional compatibil cu tabla interactivă pentru a extinde și mai mult posibilitățile de creare a experiențelor educaționale captivante și eficiente.</p>
+                           </div>
+                       </div>
+                       
+                       <!-- Navigare între lecții -->
+                       <div class="lesson-navigation">
+                           <div class="nav-prev">
+                               <a href="/modules/module4/lesson1.html" class="lesson-nav-button prev">
+                                   <i class="fas fa-arrow-left"></i>
+                                   Înapoi la Lecția 1
+                               </a>
+                           </div>
+                           
+                           <div class="nav-next">
+                               <a href="/modules/module4/lesson3.html" class="lesson-nav-button next">
+                                   Continuă cu Lecția 3
+                                   <i class="fas fa-arrow-right"></i>
+                               </a>
+                           </div>
+                       </div>
+                   </div>
+               </main>
+           </div>
+       </div>
+   </section>
+   
+   <!-- Footer placeholder -->
+   <div id="footer-placeholder"></div>
+   
+   <script src="/js/main.js"></script>
+   <script src="/js/modules.js"></script>
+   <script src="/js/activity-scripts.js"></script>
+</body>
+</html>

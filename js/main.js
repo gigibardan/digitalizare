@@ -127,3 +127,17 @@ document.addEventListener('DOMContentLoaded', function() {
                 document.getElementById(firstTabId).classList.add('active');
             }
         });
+
+        document.addEventListener('DOMContentLoaded', function() {
+    // Verifică dacă există secțiunea #plan în pagina curentă
+    const planSection = document.getElementById('plan');
+    const planLinks = document.querySelectorAll('.plan-link');
+    
+    if (planSection && window.location.pathname === '/index.html') {
+        // Dacă suntem pe homepage, actualizăm linkul să ducă direct la #plan
+        planLinks.forEach(link => {
+            link.href = '#plan';
+        });
+    }
+    // Altfel, rămâne "/index.html#plan" și va redirecționa către homepage
+});

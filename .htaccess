@@ -1,0 +1,18 @@
+# Activăm motorul de rescriere
+RewriteEngine On
+
+# Setăm baza pentru rescriere
+RewriteBase /
+
+# Permitem accesul direct la fișierele statice
+RewriteRule ^(css|js|assets|images|videos)/.*$ - [L]
+
+# Verificăm toate cererile HTML pentru module prin middleware.php
+RewriteRule ^modules/.*\.html$ middleware.php [L]
+
+# Permitem accesul direct la paginile din rădăcină
+RewriteRule ^index\.html$ - [L]
+RewriteRule ^restricted\.php$ - [L]
+RewriteRule ^login\.php$ - [L]
+RewriteRule ^logout\.php$ - [L]
+RewriteRule ^check_auth\.php$ - [L]

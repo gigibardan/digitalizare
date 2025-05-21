@@ -149,17 +149,46 @@ document.addEventListener('DOMContentLoaded', function () {
 function checkAuthStatus() {
     const loginBtn = document.getElementById('login-btn');
     const logoutBtn = document.getElementById('logout-btn');
+    const adminLink = document.getElementById('admin-link');
     
     if (loginBtn && logoutBtn) {
         fetch('/check_auth.php?t=' + new Date().getTime())  // Adăugăm timestamp pentru a evita cache-ul
             .then(response => response.json())
             .then(data => {
                 if (data.authenticated) {
+                    // Actualizăm butoanele de autentificare
                     loginBtn.style.display = 'none';
                     logoutBtn.style.display = 'inline-block';
+                    
+                    // Afișăm numele utilizatorului dacă avem un element pentru aceasta
+                    const welcomeUser = document.getElementById('welcome-user');
+                    const usernameSpan = document.getElementById('username');
+                    if (welcomeUser && usernameSpan && data.username) {
+                        welcomeUser.style.display = 'inline-block';
+                        usernameSpan.textContent = data.username;
+                    }
+                    
+                    // Verificăm dacă utilizatorul este admin și afișăm link-ul de admin
+                    if (adminLink && data.isAdmin) {
+                        adminLink.style.display = 'inline-block';
+                    } else if (adminLink) {
+                        adminLink.style.display = 'none';
+                    }
                 } else {
+                    // Afișăm butonul de login și ascundem celelalte elemente
                     loginBtn.style.display = 'inline-block';
                     logoutBtn.style.display = 'none';
+                    
+                    // Ascundem numele utilizatorului
+                    const welcomeUser = document.getElementById('welcome-user');
+                    if (welcomeUser) {
+                        welcomeUser.style.display = 'none';
+                    }
+                    
+                    // Ascundem link-ul de admin
+                    if (adminLink) {
+                        adminLink.style.display = 'none';
+                    }
                 }
             })
             .catch(error => console.error('Eroare la verificarea autentificării:', error));
@@ -173,4 +202,7 @@ function checkAuthStatus() {
 document.addEventListener('DOMContentLoaded', function() {
     // Încercăm să verificăm după ce header-ul a fost încărcat
     setTimeout(checkAuthStatus, 500);
+    
+    // Verificăm periodic starea autentificării (pentru a actualiza UI-ul dacă sesiunea expiră)
+    setInterval(checkAuthStatus, 60000); // Verifică la fiecare minut
 });

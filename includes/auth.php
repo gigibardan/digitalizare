@@ -39,4 +39,18 @@ function isPublicPage($page) {
     // Verificăm dacă pagina este în lista paginilor publice
     return in_array($page, $public_pages);
 }
+
+// Adaugă această funcție în auth.php
+function isAdmin() {
+    // Verifică dacă utilizatorul este logat
+    if (!isSessionValid()) {
+        return false;
+    }
+    
+    // Lista utilizatorilor admin
+    $admin_users = ['admin', 'user1']; // Adaugă aici utilizatorii care ar trebui să aibă acces de admin
+    
+    // Verifică dacă utilizatorul curent este în lista de admini
+    return in_array($_SESSION['user'], $admin_users);
+}
 ?>

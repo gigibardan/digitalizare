@@ -1,0 +1,8 @@
+# Blocăm accesul direct la fișierele din acest director
+<Files *>
+    Order allow,deny
+    Deny from all
+</Files>
+
+# Dezactivăm listarea directorului
+Options -Indexes

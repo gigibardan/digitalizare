@@ -1,60 +1,78 @@
 <?php
-// În login.php, după verificarea cu succes a autentificării
-if (isset($users[$username]) && password_verify($password, $users[$username])) {
-    // Autentificare reușită, setăm sesiunea
-    $_SESSION['user'] = $username;
-    $_SESSION['login_time'] = time();
-    
-    // Înregistrăm autentificarea reușită
-    $log_dir = __DIR__ . '/logs';
-    
-    // Verificăm dacă directorul există și îl creăm dacă nu
-    if (!file_exists($log_dir)) {
-        mkdir($log_dir, 0755, true);
-    }
-    
-    // Creăm fișierul de log
-    $log_file = $log_dir . '/login_log.txt';
-    
-    // Informații pentru log
-    $timestamp = date('Y-m-d H:i:s');
-    $ip = $_SERVER['REMOTE_ADDR'];
-    $user_agent = $_SERVER['HTTP_USER_AGENT'];
-    
-    // Creăm înregistrarea în log
-    $log_entry = "[SUCCESS] $timestamp | User: $username | IP: $ip | Agent: $user_agent\n";
-    
-    // Scriem în fișierul de log
-    file_put_contents($log_file, $log_entry, FILE_APPEND);
-    
+// Includem sistemul de autentificare
+require_once 'includes/auth.php';
+
+// Verificăm dacă utilizatorul este deja autentificat
+if (isSessionValid()) {
     // Redirecționăm la pagina principală
     header('Location: /index.html');
     exit();
-} else {
-    // Autentificare eșuată
-    $log_dir = __DIR__ . '/logs';
+}
+
+$error = '';
+
+// Procesăm formularul de login dacă a fost trimis
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $username = $_POST['username'] ?? '';
+    $password = $_POST['password'] ?? '';
     
-    // Verificăm dacă directorul există și îl creăm dacă nu
-    if (!file_exists($log_dir)) {
-        mkdir($log_dir, 0755, true);
+    // Verificăm credențialele
+    if (isset($users[$username]) && password_verify($password, $users[$username])) {
+        // Autentificare reușită, setăm sesiunea
+        $_SESSION['user'] = $username;
+        $_SESSION['login_time'] = time();
+        
+        // Înregistrăm autentificarea reușită
+        $log_dir = __DIR__ . '/logs';
+        
+        // Verificăm dacă directorul există și îl creăm dacă nu
+        if (!file_exists($log_dir)) {
+            mkdir($log_dir, 0755, true);
+        }
+        
+        // Creăm fișierul de log
+        $log_file = $log_dir . '/login_log.txt';
+        
+        // Informații pentru log
+        $timestamp = date('Y-m-d H:i:s');
+        $ip = $_SERVER['REMOTE_ADDR'];
+        $user_agent = $_SERVER['HTTP_USER_AGENT'] ?? 'Unknown';
+        
+        // Creăm înregistrarea în log
+        $log_entry = "[SUCCESS] $timestamp | User: $username | IP: $ip | Agent: $user_agent\n";
+        
+        // Scriem în fișierul de log
+        file_put_contents($log_file, $log_entry, FILE_APPEND);
+        
+        // Redirecționăm la pagina principală
+        header('Location: /index.html');
+        exit();
+    } else {
+        // Autentificare eșuată
+        $log_dir = __DIR__ . '/logs';
+        
+        // Verificăm dacă directorul există și îl creăm dacă nu
+        if (!file_exists($log_dir)) {
+            mkdir($log_dir, 0755, true);
+        }
+        
+        // Creăm fișierul de log
+        $log_file = $log_dir . '/login_log.txt';
+        
+        // Informații pentru log
+        $timestamp = date('Y-m-d H:i:s');
+        $ip = $_SERVER['REMOTE_ADDR'];
+        $user_agent = $_SERVER['HTTP_USER_AGENT'] ?? 'Unknown';
+        $attempted_username = $username;
+        
+        // Creăm înregistrarea în log
+        $log_entry = "[FAILED] $timestamp | Attempted User: $attempted_username | IP: $ip | Agent: $user_agent\n";
+        
+        // Scriem în fișierul de log
+        file_put_contents($log_file, $log_entry, FILE_APPEND);
+        
+        $error = 'Nume de utilizator sau parolă incorecte!';
     }
-    
-    // Creăm fișierul de log
-    $log_file = $log_dir . '/login_log.txt';
-    
-    // Informații pentru log
-    $timestamp = date('Y-m-d H:i:s');
-    $ip = $_SERVER['REMOTE_ADDR'];
-    $user_agent = $_SERVER['HTTP_USER_AGENT'];
-    $attempted_username = isset($_POST['username']) ? $_POST['username'] : 'unknown';
-    
-    // Creăm înregistrarea în log
-    $log_entry = "[FAILED] $timestamp | Attempted User: $attempted_username | IP: $ip | Agent: $user_agent\n";
-    
-    // Scriem în fișierul de log
-    file_put_contents($log_file, $log_entry, FILE_APPEND);
-    
-    $error = 'Nume de utilizator sau parolă incorecte!';
 }
 ?>
 <!DOCTYPE html>

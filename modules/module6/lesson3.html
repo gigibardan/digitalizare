@@ -1,87 +1,855 @@
 <!DOCTYPE html>
 <html lang="ro">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Pagina în construcție | TechMinds Academy</title>
-  <link rel="stylesheet" href="/css/main.css">
-  <link rel="stylesheet" href="/css/responsive.css">
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
-  <style>
-    body {
-      font-family: 'Roboto', sans-serif;
-      margin: 0;
-      background-color: #f7f9fb;
-      color: #333;
-      display: flex;
-      flex-direction: column;
-      min-height: 100vh;
-    }
-
-    .construction-wrapper {
-      flex: 1;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 60px 20px;
-      text-align: center;
-      flex-direction: column;
-    }
-
-    .construction-svg {
-      max-width: 300px;
-      margin-bottom: 30px;
-    }
-
-    h1 {
-      font-size: 2rem;
-      margin-bottom: 10px;
-      color: #2c3e50;
-    }
-
-    p {
-      font-size: 1.1rem;
-      margin-bottom: 25px;
-      color: #555;
-    }
-
-    .home-button {
-      background-color: #007bff;
-      color: white;
-      border: none;
-      padding: 12px 24px;
-      border-radius: 6px;
-      text-decoration: none;
-      font-weight: 500;
-      transition: background-color 0.3s ease;
-    }
-
-    .home-button:hover {
-      background-color: #0056b3;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lecția 3: Analiza datelor și adaptarea predării | TechMinds Academy</title>
+    <meta name="description" content="Descoperă metode eficiente de analiză a datelor educaționale și strategii pentru adaptarea predării pe baza insight-urilor obținute, folosind tabla interactivă și platformele digitale.">
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/responsive.css">
+    <link rel="stylesheet" href="/css/module.css">
+    <link rel="stylesheet" href="/css/lesson.css">
+    <link rel="stylesheet" href="/css/activity-styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
 </head>
 <body>
-  <!-- Header -->
-  <div id="header-placeholder"></div>
-
-  <div class="construction-wrapper">
-    <svg class="construction-svg" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 300 200">
-      <path fill="#F4A261" d="M150 0l30 60h-60l30-60zM60 180h180v20H60v-20z"/>
-      <path fill="#2A9D8F" d="M90 80h120v80H90V80z"/>
-      <path fill="#264653" d="M110 100h20v40h-20v-40zm60 0h20v40h-20v-40z"/>
-      <circle cx="75" cy="190" r="10" fill="#E76F51"/>
-      <circle cx="225" cy="190" r="10" fill="#E76F51"/>
-    </svg>
-    <h1>Pagina este în construcție</h1>
-    <p>Conținutul acestei lecții va fi disponibil în curând. Îți mulțumim pentru răbdare!</p>
-    <a href="/index.html" class="home-button"><i class="fas fa-home"></i> Revenire la homepage</a>
-  </div>
-
-  <!-- Footer -->
-  <div id="footer-placeholder"></div>
-
-      <script src="/js/main.js"></script>
-
+    <!-- Header placeholder -->
+    <div id="header-placeholder"></div>
+    
+    <!-- Header lecție -->
+    <section class="lesson-header">
+        <div class="container">
+            <div class="lesson-breadcrumbs">
+                <a href="/index.html">Acasă</a>
+                <span class="separator">/</span>
+                <a href="/modules/module6/index.html">Modul 6: Evaluare și feedback digital</a>
+                <span class="separator">/</span>
+                <span>Lecția 3: Analiza datelor și adaptarea predării</span>
+            </div>
+            <h1>Lecția 3: Analiza datelor și adaptarea predării</h1>
+            <p>Explorează metode avansate de interpretare a datelor educaționale colectate prin instrumente digitale și descoperă strategii pentru personalizarea procesului de predare-învățare bazate pe insight-urile obținute.</p>
+        </div>
+    </section>
+    
+    <!-- Conținut principal lecție -->
+    <section class="lesson-layout">
+        <div class="container">
+            <div class="lesson-layout">
+                <!-- Sidebar -->
+                <aside class="lesson-sidebar">
+                    <!-- Progres modul -->
+                    <div class="sidebar-card">
+                        <div class="sidebar-card-header">
+                            Progres Modul 6
+                        </div>
+                        <div class="sidebar-card-content">
+                            <div class="module-progress">
+                                <div class="progress-text">
+                                    <span>Lecția 3 din 4</span>
+                                    <span>75%</span>
+                                </div>
+                                <div class="progress-bar">
+                                    <div class="progress-fill" style="width: 75%;"></div>
+                                </div>
+                            </div>
+                            
+                            <ul class="module-lessons-list">
+                                <li class="completed">
+                                    <a href="/modules/module6/lesson1.html">
+                                        <div class="lesson-number-indicator">1</div>
+                                        <div class="lesson-title-text">Instrumente pentru evaluare online</div>
+                                        <div class="lesson-completed-indicator">
+                                            <i class="fas fa-check"></i>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li class="completed">
+                                    <a href="/modules/module6/lesson2.html">
+                                        <div class="lesson-number-indicator">2</div>
+                                        <div class="lesson-title-text">Monitorizarea progresului elevilor</div>
+                                        <div class="lesson-completed-indicator">
+                                            <i class="fas fa-check"></i>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li class="active">
+                                    <a href="/modules/module6/lesson3.html">
+                                        <div class="lesson-number-indicator">3</div>
+                                        <div class="lesson-title-text">Analiza datelor și adaptarea predării</div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="/modules/module6/lesson4.html">
+                                        <div class="lesson-number-indicator">4</div>
+                                        <div class="lesson-title-text">Tehnici inovative de evaluare</div>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <!-- Resurse lecție -->
+                    <div class="sidebar-card">
+                        <div class="sidebar-card-header">
+                            Resurse lecție
+                        </div>
+                        <div class="sidebar-card-content">
+                            <ul class="lesson-resources-list">
+                                <li>
+                                    <a href="/assets/docs/ghid_analiza_date_educationale.pdf" download>
+                                        <i class="fas fa-file-pdf"></i>
+                                        <span>Ghid de analiză a datelor educaționale</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="/assets/docs/template_strategie_adaptare.pdf" download>
+                                        <i class="fas fa-file-excel"></i>
+                                        <span>Template strategie de adaptare predare</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="/assets/docs/instrumente_vizualizare_date.pdf" download>
+                                        <i class="fas fa-file-archive"></i>
+                                        <span>Kit instrumente vizualizare date</span>
+                                    </a>
+                                </li>
+                                
+                            </ul>
+                        </div>
+                    </div>
+                </aside>
+                
+                <!-- Conținut principal -->
+                <main class="lesson-main-contentt">
+                    <div class="lesson-content">
+                        <!-- Introducere -->
+                        <div class="lesson-section">
+                            <h2 class="lesson-section-title">De la date la insight-uri educaționale</h2>
+                            <div class="lesson-text">
+                                <p>În era digitală, profesorii au acces la o cantitate fără precedent de date despre procesul de învățare al elevilor: de la rezultate la evaluări și timp petrecut pe diverse activități, până la modele de interacțiune și preferințe de învățare. Însă adevărata valoare a acestor date nu stă în simpla lor colectare, ci în capacitatea de a le transforma în insight-uri acționabile care ghidează adaptarea predării pentru maximizarea impactului educațional.</p>
+                                
+                                <p>În această lecție, vom explora metodologii eficiente de analiză a datelor educaționale și strategii concrete pentru adaptarea practicilor pedagogice bazate pe evidențe. Ne vom concentra pe utilizarea tablei interactive ca instrument central pentru analiza vizuală colaborativă și planificarea intervențiilor personalizate.</p>
+                                
+                                <div class="info-box">
+                                    <div class="box-title">
+                                        <i class="fas fa-info-circle"></i>
+                                        Beneficiile analizei datelor educaționale
+                                    </div>
+                                    <ul>
+                                        <li><strong>Personalizare profundă</strong> - Adaptarea instruirii la nevoile specifice, stilurile de învățare și ritmul fiecărui elev</li>
+                                        <li><strong>Intervenție timpurie</strong> - Identificarea rapidă a dificultăților de învățare înainte ca acestea să escaladeze</li>
+                                        <li><strong>Eficiență pedagogică</strong> - Concentrarea resurselor și eforturilor pe strategiile cu impact demonstrat</li>
+                                        <li><strong>Feedback bazat pe evidențe</strong> - Comunicare precisă despre progres și direcțiile de îmbunătățire</li>
+                                        <li><strong>Planificare strategică</strong> - Fundamentarea deciziilor curriculare pe date obiective, nu doar pe intuiție</li>
+                                        <li><strong>Învățare metacognitivă</strong> - Dezvoltarea capacității elevilor de a-și înțelege și optimiza propriile procese de învățare</li>
+                                        <li><strong>Colaborare îmbunătățită</strong> - Facilitarea dialogului profesional bazat pe date concrete între cadrele didactice</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Secțiunea 1: Metodologii de analiză a datelor educaționale -->
+                        <div class="lesson-section">
+                            <h2 class="lesson-section-title">Metodologii de analiză a datelor educaționale</h2>
+                            <div class="lesson-text">
+                                <p>Analiza eficientă a datelor educaționale necesită o abordare structurată și un set de metode adaptate contextului unic al învățării. Vă prezentăm câteva metodologii care s-au dovedit deosebit de valoroase în interpretarea datelor colectate prin evaluări digitale și sisteme de monitorizare a progresului.</p>
+                                
+                                <h3>Abordări fundamentale în analiza datelor educaționale</h3>
+                                
+                                <div class="comparison-table">
+                                    <table>
+                                        <tr>
+                                            <th>Metodologie</th>
+                                            <th>Descriere și aplicații</th>
+                                            <th>Instrumente digitale</th>
+                                            <th>Integrare cu tabla interactivă</th>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Analiza<br>itemilor</strong></td>
+                                            <td>
+                                                <ul>
+                                                    <li>Examinarea detaliată a răspunsurilor pentru fiecare item de evaluare</li>
+                                                    <li>Identificarea tiparelor în răspunsurile corecte și greșite</li>
+                                                    <li>Determinarea dificultății și puterii discriminatorii a itemilor</li>
+                                                    <li>Recunoașterea misconceptiilor frecvente</li>
+                                                </ul>
+                                            </td>
+                                            <td>
+                                                <ul>
+                                                    <li>Formative</li>
+                                                    <li>Google Forms + Addon-uri</li>
+                                                    <li>Testmoz</li>
+                                                    <li>Quizalize</li>
+                                                    <li>ExamView</li>
+                                                </ul>
+                                            </td>
+                                            <td>
+                                                <ul>
+                                                    <li>Afișarea hărților termice de performanță pe itemi</li>
+                                                    <li>Analiza colaborativă a misconceptiilor identificate</li>
+                                                    <li>Notarea și clasificarea tiparelor observate</li>
+                                                </ul>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Analiza<br>pe competențe</strong></td>
+                                            <td>
+                                                <ul>
+                                                    <li>Cartografierea performanței pe competențe și subcompetențe specifice</li>
+                                                    <li>Urmărirea evoluției nivelurilor de stăpânire în timp</li>
+                                                    <li>Identificarea interdependențelor între diverse competențe</li>
+                                                    <li>Recunoașterea punctelor forte și a zonelor de dezvoltare</li>
+                                                </ul>
+                                            </td>
+                                            <td>
+                                                <ul>
+                                                    <li>Moodle Competency Framework</li>
+                                                    <li>PowerSchool</li>
+                                                    <li>Google Classroom + Sheets</li>
+                                                    <li>Schoology</li>
+                                                    <li>Adservio</li>
+                                                </ul>
+                                            </td>
+                                            <td>
+                                                <ul>
+                                                    <li>Vizualizarea rețelelor de competențe și relațiilor între ele</li>
+                                                    <li>Dashboard-uri comparative între competențe vizate și atinse</li>
+                                                    <li>Planificarea traseelor de dezvoltare personalizate</li>
+                                                </ul>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Analiza<br>temporală</strong></td>
+                                            <td>
+                                                <ul>
+                                                    <li>Studierea evoluției performanței în timp</li>
+                                                    <li>Identificarea ratei de progres și a punctelor de inflexiune</li>
+                                                    <li>Recunoașterea tendințelor și a ciclurilor de învățare</li>
+                                                    <li>Evaluarea eficienței intervențiilor implementate</li>
+                                                </ul>
+                                            </td>
+                                            <td>
+                                                <ul>
+                                                    <li>Seesaw</li>
+                                                    <li>ClassDojo</li>
+                                                    <li>Google Data Studio</li>
+                                                    <li>Excel/Sheets cu timeline</li>
+                                                    <li>Tableau for Education</li>
+                                                </ul>
+                                            </td>
+                                            <td>
+                                                <ul>
+                                                    <li>Timeline-uri interactive de performanță</li>
+                                                    <li>Compararea vizuală a perioadelor pre/post intervenție</li>
+                                                    <li>Previzualizarea traiectoriilor de progres</li>
+                                                </ul>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Analiza<br>comportamentală</strong></td>
+                                            <td>
+                                                <ul>
+                                                    <li>Examinarea modelelor de interacțiune cu materialele de învățare</li>
+                                                    <li>Analiza timpului petrecut pe diverse tipuri de activități</li>
+                                                    <li>Identificarea strategiilor de rezolvare a problemelor</li>
+                                                    <li>Monitorizarea persistenței și angajamentului în învățare</li>
+                                                </ul>
+                                            </td>
+                                            <td>
+                                                <ul>
+                                                    <li>Nearpod</li>
+                                                    <li>Pear Deck</li>
+                                                    <li>Learning Analytics platforms</li>
+                                                    <li>EdPuzzle</li>
+                                                    <li>Khan Academy analytics</li>
+                                                </ul>
+                                            </td>
+                                            <td>
+                                                <ul>
+                                                    <li>Fluxuri vizuale ale parcursului de învățare</li>
+                                                    <li>Heatmaps de engagement și persistență</li>
+                                                    <li>Analiza video a strategiilor de rezolvare</li>
+                                                </ul>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Analiza<br>comparativă</strong></td>
+                                            <td>
+                                                <ul>
+                                                    <li>Compararea performanței între diverse grupuri sau cohorte</li>
+                                                    <li>Benchmarking față de standarde sau obiective definite</li>
+                                                    <li>Identificarea discrepanțelor și a factorilor care le influențează</li>
+                                                    <li>Evaluarea echității și accesibilității instruirii</li>
+                                                </ul>
+                                            </td>
+                                            <td>
+                                                <ul>
+                                                    <li>PowerBI</li>
+                                                    <li>Google Data Studio</li>
+                                                    <li>Excel/Sheets</li>
+                                                    <li>Looker Data Studio</li>
+                                                    <li>Adservio</li>
+                                                </ul>
+                                            </td>
+                                            <td>
+                                                <ul>
+                                                    <li>Diagrame comparative interactive</li>
+                                                    <li>Vizualizări side-by-side pentru diferite grupe</li>
+                                                    <li>Identificarea vizuală a gap-urilor între grupuri</li>
+                                                </ul>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
+                                
+                                <div class="info-box">
+                                    <div class="box-title">
+                                        <i class="fas fa-info-circle"></i>
+                                        Principii etice în analiza datelor educaționale
+                                    </div>
+                                    <ul>
+                                        <li><strong>Confidențialitate și protecția datelor</strong> - Respectarea GDPR și a normelor de confidențialitate în toate etapele analizei</li>
+                                        <li><strong>Evitarea etichetării</strong> - Folosirea datelor pentru a identifica nevoi de învățare, nu pentru a eticheta sau categoriza elevii</li>
+                                        <li><strong>Transparență</strong> - Comunicarea clară către elevi și părinți despre datele colectate și modul lor de utilizare</li>
+                                        <li><strong>Analiză holistică</strong> - Evitarea deciziilor bazate exclusiv pe date cantitative, fără considerarea contextului</li>
+                                        <li><strong>Echitate</strong> - Asigurarea că analizele nu perpetuează sau amplifică biasuri sau inechități existente</li>
+                                        <li><strong>Acțiune constructivă</strong> - Utilizarea insight-urilor pentru îmbunătățirea învățării, nu pentru clasificare sau sancționare</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Secțiunea 2: Tehnici de analiză vizuală cu tabla interactivă -->
+                        <div class="lesson-section">
+                            <h2 class="lesson-section-title">Tehnici de analiză vizuală cu tabla interactivă</h2>
+                            <div class="lesson-text">
+                                <p>Tabla interactivă reprezintă un instrument excepțional pentru analiza vizuală colaborativă a datelor educaționale. Caracteristicile sale interactive permit transformarea datelor abstracte în reprezentări intuitive, manipulabile și accesibile pentru toți participanții la procesul educațional.</p>
+                                <h3>Vizualizări eficiente pentru analiza educațională</h3>
+                                
+                                <div class="strategy-card">
+                                    <div class="strategy-icon">
+                                        <i class="fas fa-puzzle-piece"></i>
+                                    </div>
+                                    <div class="strategy-content">
+                                        <h3>Hărți de competențe interactive</h3>
+                                        <p>Reprezentări vizuale ale rețelelor de competențe și nivelului de stăpânire a acestora.</p>
+                                        <div class="strategy-details">
+                                            <p><strong>Implementare pe tabla interactivă:</strong></p>
+                                            <ul>
+                                                <li>Creați structuri de tip "hartă" cu noduri reprezentând competențele și subcompetențele</li>
+                                                <li>Utilizați coduri de culori pentru a indica nivelul de stăpânire (roșu/galben/verde sau gradient)</li>
+                                                <li>Implementați funcționalități de zoom pentru navigarea între niveluri de detaliu</li>
+                                                <li>Adăugați conexiuni vizibile între competențele interdependente</li>
+                                                <li>Permiteți filtrarea și focalizarea pe anumite zone sau clustere de competențe</li>
+                                            </ul>
+                                            <p><strong>Aplicație:</strong> Pentru o unitate de învățare la matematică, creați o hartă a competențelor cu noduri pentru concepte și proceduri, colorate în funcție de performanța clasei. Dimensiunea nodurilor poate indica importanța competenței, iar grosimea conexiunilor poate reflecta puterea relației între competențe.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="strategy-card">
+                                    <div class="strategy-icon">
+                                        <i class="fas fa-chart-line"></i>
+                                    </div>
+                                    <div class="strategy-content">
+                                        <h3>Dashboarduri de progres multi-dimensionale</h3>
+                                        <p>Tablouri de bord care combină multiple vizualizări pentru o perspectivă cuprinzătoare asupra progresului.</p>
+                                        <div class="strategy-details">
+                                            <p><strong>Implementare pe tabla interactivă:</strong></p>
+                                            <ul>
+                                                <li>Dezvoltați dashboard-uri cu multiple paneluri sincronizate între ele</li>
+                                                <li>Includeți diverse tipuri de grafice complementare (linie pentru evoluție, bare pentru comparație, radar pentru profil de competențe)</li>
+                                                <li>Adăugați controale interactive pentru filtrare, grupare și schimbarea perspectivei temporale</li>
+                                                <li>Facilitați adnotarea și marcarea zonelor de interes pentru discuție</li>
+                                                <li>Implementați funcționalități de drill-down pentru explorarea detaliată a datelor agregate</li>
+                                            </ul>
+                                            <p><strong>Aplicație:</strong> Creați un dashboard pentru monitorizarea unei clase care include: grafic de evolutie temporală, distribuția performanței pe competențe, heatmap al itemilor problematici și o secțiune de analiză a tendințelor. Profesorul poate naviga dinamic între aceste vizualizări în timpul discuției cu elevii.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="strategy-card">
+                                    <div class="strategy-icon">
+                                        <i class="fas fa-project-diagram"></i>
+                                    </div>
+                                    <div class="strategy-content">
+                                        <h3>Fluxuri de proces și trasee de învățare</h3>
+                                        <p>Vizualizări care evidențiază parcursul de învățare și punctele critice de decizie sau intervenție.</p>
+                                        <div class="strategy-details">
+                                            <p><strong>Implementare pe tabla interactivă:</strong></p>
+                                            <ul>
+                                                <li>Construiți diagrame de flux sau hărți de proces care ilustrează parcursurile de învățare</li>
+                                                <li>Marcați punctele de verificare, blocajele frecvente și nodurile de decizie</li>
+                                                <li>Folosiți animații pentru a indica fluxul de progres și ratele de succes pe diverse ramuri</li>
+                                                <li>Evidențiați rutele alternative și personalizate pentru diferite profile de elevi</li>
+                                                <li>Integrați note și observații legate de experiențele specifice pe fiecare segment</li>
+                                            </ul>
+                                            <p><strong>Aplicație:</strong> Pentru învățarea unei limbi străine, vizualizați traseul de dezvoltare a competențelor de la începător la avansat, marcând punctele de verificare și opțiunile de ramificare bazate pe interese specifice. Evidențiați zonele unde elevii întâmpină frecvent dificultăți.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="strategy-card">
+                                    <div class="strategy-icon">
+                                        <i class="fas fa-users"></i>
+                                    </div>
+                                    <div class="strategy-content">
+                                        <h3>Grupare și segmentare inteligentă</h3>
+                                        <p>Tehnici de organizare a elevilor în grupuri bazate pe modele similare de învățare și nevoi.</p>
+                                        <div class="strategy-details">
+                                            <p><strong>Implementare pe tabla interactivă:</strong></p>
+                                            <ul>
+                                                <li>Creați vizualizări de tip "clustering" pentru a identifica grupuri naturale bazate pe performanță și nevoi</li>
+                                                <li>Utilizați diagramele de dispersie interactive pentru a poziționa elevii pe multiple dimensiuni</li>
+                                                <li>Facilitați reorganizarea dinamică a grupurilor prin drag-and-drop</li>
+                                                <li>Implementați funcționalități de filtrare pentru a testa diverse criterii de grupare</li>
+                                                <li>Asociați fiecărui grup strategii și resurse specifice nevoilor identificate</li>
+                                            </ul>
+                                            <p><strong>Aplicație:</strong> Vizualizați elevii pe o diagramă cu două axe reprezentând două competențe diferite, permițând identificarea grupurilor cu profile similare. Pentru fiecare grup, planificați activități diferențiate direct pe tablă, folosind coduri de culori pentru a le asocia cu grupurile corespunzătoare.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="quote-box">
+                                    <div class="quote-content">
+                                        <p>"Analiza vizuală a datelor pe tabla interactivă transformă procesul de la un exercițiu tehnic la o experiență colaborativă de descoperire. Când elevii pot vedea, manipula și discuta despre propriile date de învățare, ei devin participanți activi în interpretarea acestora și în planificarea pașilor următori."</p>
+                                    </div>
+                                    <div class="quote-author">
+                                        Din revista Educația Digitală, 2024
+                                    </div>
+                                </div>
+                                
+                                <div class="activity-card">
+                                    <div class="activity-header">
+                                        <h3>Activitate: Analiza vizuală a unei evaluări recente</h3>
+                                        <div class="activity-badges">
+                                            <span class="subject-badge">Toate disciplinele</span>
+                                            <span class="time-badge">40-50 minute</span>
+                                        </div>
+                                    </div>
+                                    <div class="activity-content">
+                                        <div class="activity-description">
+                                            <h4>Descriere</h4>
+                                            <p>În această activitate, veți transforma datele brute dintr-o evaluare recentă în vizualizări interactive pe tabla interactivă, facilitând analiza colaborativă și planificarea intervențiilor personalizate împreună cu elevii.</p>
+                                        </div>
+                                        
+                                        <div class="activity-implementation">
+                                            <h4>Pregătire</h4>
+                                            <ol>
+                                                <li><strong>Selectarea unei evaluări:</strong> Alegeți o evaluare recentă cu suficiente date pentru analiză (cel puțin 3-5 competențe evaluate și minimum 5 itemi).</li>
+                                                <li><strong>Organizarea datelor:</strong> Pregătiți un tabel simplu cu rezultatele brute, folosind coduri în loc de nume pentru a proteja confidențialitatea.</li>
+                                                <li><strong>Identificarea întrebărilor de analiză:</strong> Formulați 3-4 întrebări specifice pe care doriți să le explorați (ex: Care sunt misconceptiile comune? Ce competențe necesită consolidare? Ce grupuri de elevi au nevoi similare?).</li>
+                                            </ol>
+                                            
+                                            <h4>Desfășurarea activității</h4>
+                                            <ol>
+                                                <li><strong>Crearea vizualizărilor primare (15 min):</strong>
+                                                    <ul>
+                                                        <li>Pe tabla interactivă, dezvoltați 2-3 vizualizări complementare ale datelor (ex: heatmap al răspunsurilor pe itemi, grafic radar al performanței pe competențe, diagram de dispersie a elevilor)</li>
+                                                        <li>Asigurați-vă că vizualizările sunt clare, etichetate corespunzător și utilizează coduri de culori consistente</li>
+                                                        <li>Adăugați controale simple pentru filtrare sau schimbarea perspectivei</li>
+                                                    </ul>
+                                                </li>
+                                                <li><strong>Analiza colaborativă (15 min):</strong>
+                                                    <ul>
+                                                        <li>Invitați elevii să observe modelele și tendințele vizibile în date</li>
+                                                        <li>Facilitați o discuție structurată despre posibilele interpretări ale modelelor observate</li>
+                                                        <li>Utilizați instrumentele de adnotare pentru a marca și eticheta descoperirile importante</li>
+                                                        <li>Încurajați întrebările și ipotezele bazate pe date</li>
+                                                    </ul>
+                                                </li>
+                                                <li><strong>Planificarea intervențiilor (15 min):</strong>
+                                                    <ul>
+                                                        <li>Pe baza analizei, identificați împreună 2-3 zone prioritare pentru intervenție</li>
+                                                        <li>Creați o hartă vizuală a strategiilor specifice pentru fiecare zonă</li>
+                                                        <li>Asociați strategiile cu resurse și activități concrete pentru diferite grupuri de elevi</li>
+                                        <li>Organizați un calendar vizual al intervențiilor pe tabla interactivă</li>
+                                    </ul>
+                                </li>
+                                <li><strong>Reflecție și angajament (5 min):</strong>
+                                    <ul>
+                                        <li>Invitați elevii să reflecteze asupra propriului proces de învățare în lumina datelor analizate</li>
+                                        <li>Facilitați stabilirea unor obiective personale specifice și măsurabile</li>
+                                        <li>Încurajați asumarea responsabilității pentru progresul individual în zonele identificate</li>
+                                    </ul>
+                                </li>
+                            </ol>
+                        </div>
+                        
+                        <div class="activity-resources">
+                            <h4>Resurse necesare</h4>
+                            <ul>
+                                <li>Tablă interactivă cu software actualizat și funcționalități de analiză vizuală</li>
+                                <li>Set de date pregătit din evaluarea recentă (anonimizat)</li>
+                                <li>Template-uri de vizualizare pregătite în prealabil (disponibile în resursele lecției)</li>
+                                <li>Instrumente auxiliare pentru adnotare și capturare a concluziilor</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="activity-adaptations">
+                            <h4>Adaptări pentru diferite contexte</h4>
+                            <ul>
+                                <li><strong>Pentru elevii mai mici:</strong> Simplificați vizualizările și folosiți reprezentări mai intuitive (emoji, personaje) pentru nivelurile de performanță</li>
+                                <li><strong>Pentru discipline STEM:</strong> Includeți analize mai detaliate ale proceselor de rezolvare, nu doar ale răspunsurilor finale</li>
+                                <li><strong>Pentru discipline umaniste:</strong> Focalizați-vă pe hărți conceptuale și rețele de idei mai degrabă decât pe măsurători numerice stricte</li>
+                                <li><strong>Pentru grupuri numeroase:</strong> Organizați analiza pe subgrupuri, fiecare având acces la o secțiune a tablei interactive</li>
+                                <li><strong>Fără tablă interactivă:</strong> Utilizați alternative precum Jamboard, Miro sau Padlet pentru analiza colaborativă virtuală</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Secțiunea 3: Strategii de adaptare a predării bazate pe date -->
+                <div class="lesson-section">
+                    <h2 class="lesson-section-title">Strategii de adaptare a predării bazate pe date</h2>
+                    <div class="lesson-text">
+                        <p>Analiza datelor devine cu adevărat valoroasă atunci când conduce la decizii concrete privind adaptarea procesului de predare-învățare. Această secțiune prezintă strategii practice pentru transformarea insight-urilor analitice în intervenții educaționale eficiente, utilizând tabla interactivă ca facilitator principal.</p>
+                        
+                        <h3>Cadru pentru adaptarea predării bazată pe evidențe</h3>
+                        
+                        <div class="strategy-card">
+                            <div class="strategy-icon">
+                                <i class="fas fa-layer-group"></i>
+                            </div>
+                            <div class="strategy-content">
+                                <h3>Stratificarea conținutului și sarcinilor</h3>
+                                <p>Adaptarea materialelor și activităților pentru a adresa diferite niveluri de pregătire și nevoi identificate prin analiza datelor.</p>
+                                <div class="strategy-details">
+                                    <p><strong>Implementare cu ajutorul tablei interactive:</strong></p>
+                                    <ul>
+                                        <li>Creați o bibliotecă digitală organizată pe niveluri de complexitate, accesibilă prin tabla interactivă</li>
+                                        <li>Dezvoltați sarcini paralele pentru aceeași competență, cu grade diferite de suport și complexitate</li>
+                                        <li>Implementați "puncte de intrare" multiple pentru aceleași concepte (vizual, auditiv, kinestezic)</li>
+                                        <li>Utilizați funcționalitatea de layere pentru a adăuga progresiv complexitate sau suport</li>
+                                        <li>Asigurați trecerea fluidă între niveluri în funcție de performanța demonstrată</li>
+                                    </ul>
+                                    <p><strong>Exemplu practic:</strong> La o lecție de geografie despre relief, creați trei niveluri de activități pe tabla interactivă: (1) identificarea formelor de relief de bază pe hartă, (2) analiza proceselor de formare a reliefului, (3) evaluarea impactului reliefului asupra activităților umane - fiecare elev poate începe la nivelul adecvat conform analizei datelor precedente.</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="strategy-card">
+                            <div class="strategy-icon">
+                                <i class="fas fa-sitemap"></i>
+                            </div>
+                            <div class="strategy-content">
+                                <h3>Trasee de învățare personalizate</h3>
+                                <p>Crearea unor parcursuri educaționale individualizate bazate pe profilul de învățare și nevoile specifice ale fiecărui elev.</p>
+                                <div class="strategy-details">
+                                    <p><strong>Implementare cu ajutorul tablei interactive:</strong></p>
+                                    <ul>
+                                        <li>Dezvoltați hărți interactive cu multiple trasee posibile prin curriculum</li>
+                                        <li>Marcați punctele de decizie și criteriile pentru alegerea direcției optime</li>
+                                        <li>Integrați verificări adaptive pentru a evalua progresul și a ajusta traseul</li>
+                                        <li>Creați un sistem de navigare vizual pentru urmărirea progresului individual</li>
+                                        <li>Facilitați colaborarea între elevi aflați în puncte similare, indiferent de traseul urmat</li>
+                                    </ul>
+                                    <p><strong>Exemplu practic:</strong> Pentru o unitate de învățare la limba română, creați pe tabla interactivă o hartă a competențelor de comunicare cu multiple trasee de parcurgere. Fiecare elev poate urmări propriul traseu marcat cu un avatar personalizat, iar progresul este vizualizat în timp real, cu recomandări pentru următorii pași bazate pe performanța demonstrată.</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="strategy-card">
+                            <div class="strategy-icon">
+                                <i class="fas fa-hands-helping"></i>
+                            </div>
+                            <div class="strategy-content">
+                                <h3>Intervenții țintite și strategii de remediere</h3>
+                                <p>Dezvoltarea și implementarea unor intervenții precise pentru a adresa lacunele și dificultățile specifice identificate prin analiza datelor.</p>
+                                <div class="strategy-details">
+                                    <p><strong>Implementare cu ajutorul tablei interactive:</strong></p>
+                                    <ul>
+                                        <li>Creați o bibliotecă de microintervenții pentru misconceptii și erori frecvente</li>
+                                        <li>Dezvoltați fluxuri decizionale pentru selectarea intervențiilor optime</li>
+                                        <li>Utilizați tablouri vizuale cu "recepte de remediere" pentru diverse tipuri de dificultăți</li>
+                                        <li>Implementați sisteme de monitorizare continuă pentru evaluarea eficienței intervențiilor</li>
+                                        <li>Facilitați colaborarea între profesori pentru îmbogățirea continuă a bibliotecii de intervenții</li>
+                                    </ul>
+                                    <p><strong>Exemplu practic:</strong> Pentru dificultățile identificate la operațiile cu fracții, dezvoltați pe tabla interactivă un set de intervenții vizuale cu simulări manipulative, explicații alternative și exerciții de consolidare specifice. Organizați aceste resurse într-un "arbore decizional" care ghidează selectarea intervenției potrivite în funcție de tipul specific de eroare făcută de elev.</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="strategy-card">
+                            <div class="strategy-icon">
+                                <i class="fas fa-users-cog"></i>
+                            </div>
+                            <div class="strategy-content">
+                                <h3>Grupare flexibilă și colaborare strategică</h3>
+                                <p>Organizarea dinamică a elevilor în grupuri de învățare bazate pe date, pentru a maximiza colaborarea și sprijinul reciproc.</p>
+                                <div class="strategy-details">
+                                    <p><strong>Implementare cu ajutorul tablei interactive:</strong></p>
+                                    <ul>
+                                        <li>Utilizați vizualizări interactive pentru a identifica grupări optime bazate pe complementaritatea abilităților</li>
+                                        <li>Creați tablouri de organizare a clasei cu configurații multiple, ușor de alternat</li>
+                                        <li>Implementați sisteme de rotație pentru diversificarea interacțiunilor și expunerea la multiple perspective</li>
+                                        <li>Dezvoltați instrumente de monitorizare a eficienței diferitelor configurații de grup</li>
+                                        <li>Facilitați reflecția și evaluarea colaborativă a funcționării grupurilor</li>
+                                    </ul>
+                                    <p><strong>Exemplu practic:</strong> Folosind tabla interactivă, creați o reprezentare vizuală a clasei în care elevii pot fi reorganizați prin drag-and-drop în diferite configurații de grup bazate pe datele de performanță. Fiecare configurație poate avea asociate sarcini specifice, iar tabla interactivă facilitează atât distribuirea materialelor cât și colectarea rezultatelor grupurilor.</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="info-box">
+                            <div class="box-title">
+                                <i class="fas fa-info-circle"></i>
+                                Ciclul de adaptare continuă
+                            </div>
+                            <p>Adaptarea eficientă a predării bazată pe date este un proces ciclic, nu o intervenție punctuală. Urmați acest ciclu pentru o abordare sustenabilă:</p>
+                            <ol>
+                                <li><strong>Analizați</strong> - Examinați datele pentru a identifica modele, tendințe și nevoi specifice</li>
+                                <li><strong>Planificați</strong> - Dezvoltați strategii de intervenție și adaptare bazate pe constatări</li>
+                                <li><strong>Implementați</strong> - Aplicați intervențiile planificate în mod structurat și consistent</li>
+                                <li><strong>Monitorizați</strong> - Colectați date despre eficiența intervențiilor implementate</li>
+                                <li><strong>Reflectați</strong> - Evaluați impactul și identificați ajustările necesare</li>
+                                <li><strong>Ajustați</strong> - Refinați abordările în funcție de feedback-ul și datele noi obținute</li>
+                            </ol>
+                            <p>Tabla interactivă poate servi ca centru de comandă pentru vizualizarea și gestionarea acestui ciclu, facilitând tranziția fluidă între etape.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Secțiunea 4: Studii de caz și bune practici -->
+                <div class="lesson-section">
+                    <h2 class="lesson-section-title">Studii de caz și bune practici</h2>
+                    <div class="lesson-text">
+                        <p>Explorarea unor exemple concrete de utilizare a analizei datelor pentru adaptarea procesului educațional oferă inspirație și modele practice pentru implementarea propriilor abordări bazate pe evidențe.</p>
+                        
+                        <div class="case-study">
+                            <div class="case-study-header">
+                                <h3>Liceu Teoretic din Cluj-Napoca</h3>
+                                <div class="subtitle">Transformarea predării matematicii prin analiza datelor și feedback adaptiv</div>
+                            </div>
+                            <div class="case-study-content">
+                                <div class="case-study-context">
+                                    <h4>Context</h4>
+                                    <p>Departamentul de matematică al liceului a constatat o variație semnificativă în performanța elevilor la testele naționale, în ciuda rezultatelor aparent bune la evaluările interne. Echipa de profesori a decis să implementeze un sistem de analiză a datelor pentru a identifica cauzele profunde și a adapta predarea în mod corespunzător.</p>
+                                </div>
+                                
+                                <div class="case-study-approach">
+                                    <h4>Abordare</h4>
+                                    <p>Profesorii au dezvoltat un sistem integrat de analiză și adaptare, folosind tabla interactivă ca centru de comandă:</p>
+                                    <ul>
+                                        <li><strong>Colectarea structurată a datelor:</strong> Evaluări digitale cu itemii codificați pe competențe și sub-competențe specifice</li>
+                                        <li><strong>Analiza multi-nivel:</strong> Examinarea performanței pe itemi, pe competențe și în timp, utilizând vizualizări interactive pe tabla interactivă</li>
+                                        <li><strong>Sesiuni colaborative de interpretare:</strong> Întâlniri săptămânale ale echipei pentru analiza datelor și planificarea intervențiilor</li>
+                                        <li><strong>Feedback vizual pentru elevi:</strong> Dashboard-uri personalizate pe tabla interactivă, prezentând progresul individual și traseul de învățare recomandat</li>
+                                        <li><strong>Biblioteca de microintervenții:</strong> Colecție digitală de activități remediale pentru fiecare tip de dificultate identificată</li>
+                                        <li><strong>Grupare dinamică:</strong> Reorganizarea frecventă a elevilor în grupuri de lucru bazate pe nevoile identificate</li>
+                                    </ul>
+                                </div>
+                                
+                                <div class="case-study-results">
+                                    <h4>Rezultate</h4>
+                                    <ul>
+                                        <li>Creșterea scorului mediu la evaluările naționale cu 14% în primul an de implementare</li>
+                                        <li>Reducerea discrepanței între evaluările interne și externe de la 18% la 5%</li>
+                                        <li>Creșterea cu 42% a numărului de elevi care raportează înțelegerea clară a punctelor forte și a zonelor de îmbunătățit</li>
+                                        <li>Scăderea anxietății legate de evaluare, măsurată prin chestionare standardizate</li>
+                                        <li>Creșterea gradului de implicare a elevilor în procesul de monitorizare și îmbunătățire a propriei învățări</li>
+                                    </ul>
+                                </div>
+                                
+                                <div class="case-study-lessons">
+                                    <h4>Lecții învățate</h4>
+                                    <p>Prof. Adrian Popescu, coordonatorul proiectului, subliniază: "Cheia succesului a fost transparența totală a procesului. Când elevii au înțeles cum analizăm datele și cum folosim aceste informații pentru a personaliza învățarea, au devenit parteneri activi în acest proces, nu doar subiecți pasivi ai evaluării."</p>
+                                    <p>Echipa a identificat următorii factori critici de succes:</p>
+                                    <ul>
+                                        <li>Consistența în colectarea și codificarea datelor pentru a asigura comparabilitatea în timp</li>
+                                        <li>Formatarea vizuală intuitivă a analizelor pentru a facilita interpretarea rapidă</li>
+                                        <li>Implicarea elevilor în procesul de analiză și decizie privind intervențiile</li>
+                                        <li>Flexibilitatea în adaptarea strategiilor bazate pe feedback continuu</li>
+                                        <li>Colaborarea strânsă între profesori pentru împărtășirea expertizei și resurselor</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="case-study">
+                            <div class="case-study-header">
+                                <h3>Școala Gimnazială din Iași</h3>
+                                <div class="subtitle">Implementarea tablei interactive pentru analiza participării și adaptarea angajamentului</div>
+                            </div>
+                            <div class="case-study-content">
+                                <div class="case-study-context">
+                                    <h4>Context</h4>
+                                    <p>Școala a observat o scădere a participării active în timpul orelor, în special după perioada de învățare online. Echipa pedagogică a decis să utilizeze analiza datelor de angajament pentru a reconfigura activitățile și a crește participarea autentică.</p>
+                                </div>
+                                
+                                <div class="case-study-approach">
+                                    <h4>Abordare</h4>
+                                    <p>Profesorii au implementat un sistem inovator folosind tabla interactivă pentru a captura, analiza și vizualiza datele de participare:</p>
+                                    <ul>
+                                        <li><strong>Hărți de interacțiune:</strong> Monitorizarea frecvenței și calității intervențiilor fiecărui elev, vizualizate pe tabla interactivă</li>
+                                        <li><strong>Analiză a tiparelor de angajament:</strong> Identificarea momentelor din lecție cu participare maximă/minimă și a factorilor corelați</li>
+                                        <li><strong>Vizualizări ale rețelelor sociale:</strong> Cartografierea interacțiunilor între elevi pentru optimizarea grupării</li>
+                                        <li><strong>Feedback vizual în timp real:</strong> Afișarea nivelului de participare colectivă ca "termometru al angajamentului"</li>
+                                        <li><strong>Planificarea adaptivă a activităților:</strong> Reconfigurarea lecțiilor bazată pe preferințele de interacțiune identificate</li>
+                                    </ul>
+                                </div>
+                                
+                                <div class="case-study-results">
+                                    <h4>Rezultate</h4>
+                                    <ul>
+                                        <li>Creșterea cu 47% a frecvenței intervențiilor voluntare în clasă</li>
+                                        <li>Distribuire mai echilibrată a participării între toți elevii, cu o reducere a standardului deviație de 38%</li>
+                                        <li>Îmbunătățirea autoevaluată a sentimentului de apartenență și conexiune cu 23%</li>
+                                        <li>Creșterea satisfacției profesorilor privind dinamica clasei și calitatea interacțiunilor</li>
+                                        <li>Dezvoltarea unei culturi a participării și colaborării care s-a extins și la alte activități școlare</li>
+                                    </ul>
+                                </div>
+                                
+                                <div class="case-study-lessons">
+                                    <h4>Lecții învățate</h4>
+                                    <p>Prof. Elena Dumitrescu, directoarea școlii, notează: "Am descoperit că datele despre participare sunt la fel de valoroase ca datele despre performanță academică. Când am început să vizualizăm și să analizăm cine, când și cum participă, am putut să proiectăm experiențe educaționale mult mai angajante."</p>
+                                    <p>Principalele lecții desprinse includ:</p>
+                                    <ul>
+                                        <li>Importanța vizualizării datelor într-un format accesibil și acționabil pentru toți participanții</li>
+                                        <li>Valoarea discuțiilor deschise cu elevii despre tiparele de participare observate</li>
+                                        <li>Eficiența ajustărilor mici dar frecvente în designul activităților, bazate pe feedback continuu</li>
+                                        <li>Importanța celebrării îmbunătățirilor, chiar și a celor incrementale</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <h3>Recomandări pentru implementarea eficientă</h3>
+                        
+                        <div class="recommendations-grid">
+                            <div class="recommendation-item">
+                                <div class="recommendation-icon">
+                                    <i class="fas fa-graduation-cap"></i>
+                                </div>
+                                <div class="recommendation-content">
+                                    <h4>Construiți expertiza pas cu pas</h4>
+                                    <p>Dezvoltați competențele de analiză a datelor într-un ritm sustenabil, concentrându-vă inițial pe un singur tip de analiză sau vizualizare înainte de a adăuga altele. Tabla interactivă permite salvarea template-urilor, astfel încât să puteți crea o bibliotecă de instrumente analitice reutilizabile.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="recommendation-item">
+                                <div class="recommendation-icon">
+                                    <i class="fas fa-users"></i>
+                                </div>
+                                <div class="recommendation-content">
+                                    <h4>Implicați elevii în proces</h4>
+                                    <p>Transformați analiza datelor într-o activitate participativă în care elevii devin parteneri activi în interpretarea datelor proprii și în planificarea intervențiilor. Utilizați tabla interactivă pentru a facilita sesiuni colaborative de analiză în care elevii pot manipula și explora direct vizualizările.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="recommendation-item">
+                                <div class="recommendation-icon">
+                                    <i class="fas fa-balance-scale"></i>
+                                </div>
+                                <div class="recommendation-content">
+                                    <h4>Echilibrați datele cantitative cu cele calitative</h4>
+                                    <p>Completați analizele numerice cu observații calitative, feedback narativ și reflecții ale elevilor. Tabla interactivă permite integrarea diferitelor tipuri de date prin funcționalități multimedia și de adnotare, oferind o perspectivă mai complexă și nuanțată.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="recommendation-item">
+                                <div class="recommendation-icon">
+                                    <i class="fas fa-sync-alt"></i>
+                                </div>
+                                <div class="recommendation-content">
+                                    <h4>Iterați și rafiniți constant</h4>
+                                    <p>Tratați adaptarea predării ca un proces evolutiv, nu ca o soluție definitivă. Utilizați tabla interactivă pentru a documenta diferitele iterații ale intervențiilor și impactul acestora, construind o bază de cunoștințe despre ce funcționează în contextul specific al clasei dumneavoastră.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Concluzie -->
+                <div class="lesson-section">
+                    <h2 class="lesson-section-title">Concluzie</h2>
+                    <div class="lesson-text">
+                        <p>Analiza datelor educaționale și adaptarea predării pe baza evidențelor reprezintă o direcție transformatoare în educația contemporană. Tabla interactivă, prin caracteristicile sale de vizualizare, colaborare și interactivitate, oferă un instrument ideal pentru implementarea acestei abordări, facilitând tranziția de la date brute la insight-uri acționabile și la intervenții educaționale personalizate.</p>
+                        
+                        <p>Principalele beneficii ale abordării prezentate în această lecție includ:</p>
+                        <ul>
+                            <li>Transformarea evaluării dintr-un punct final într-un punct de plecare pentru adaptarea continuă a procesului educațional</li>
+                            <li>Democratizarea accesului la date și a procesului de interpretare, implicând activ elevii în propriul parcurs de învățare</li>
+                            <li>Facilitarea colaborării profesionale bazate pe evidențe concrete, nu doar pe impresii subiective</li>
+                            <li>Dezvoltarea unei culturi a îmbunătățirii continue bazate pe feedback și adaptare</li>
+                            <li>Valorificarea mai eficientă a potențialului tablei interactive ca instrument nu doar de prezentare, ci și de analiză și planificare strategică</li>
+                        </ul>
+                        
+                        <div class="checklist-box">
+                            <div class="box-title">
+                                <i class="fas fa-clipboard-check"></i>
+                                Pași pentru implementare
+                            </div>
+                            <div class="checklist">
+                                <div class="checklist-item">
+                                    <input type="checkbox" id="check1">
+                                    <label for="check1">Evaluați tipurile de date educaționale disponibile în contextul dvs. și sistemele de colectare existente</label>
+                                </div>
+                                <div class="checklist-item">
+                                    <input type="checkbox" id="check2">
+                                    <label for="check2">Dezvoltați 2-3 vizualizări simple dar relevante pentru nevoile specifice ale clasei dvs.</label>
+                                </div>
+                                <div class="checklist-item">
+                                    <input type="checkbox" id="check3">
+                                    <label for="check3">Creați o sesiune demonstrativă de analiză colaborativă cu elevii folosind tabla interactivă</label>
+                                </div>
+                                <div class="checklist-item">
+                                    <input type="checkbox" id="check4">
+                                    <label for="check4">Implementați cel puțin o strategie de adaptare bazată pe datele analizate</label>
+                                </div>
+                                <div class="checklist-item">
+                                    <input type="checkbox" id="check5">
+                                    <label for="check5">Documentați impactul intervenției și planificați următorul ciclu de analiză și adaptare</label>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <p>În lecția următoare, vom explora tehnici inovative de evaluare formativă și sumativă care extind abordarea tradițională a evaluării, folosind tabla interactivă și alte instrumente digitale pentru a crea experiențe de evaluare autentice, stimulative și relevante pentru lumea reală.</p>
+                        
+                        <div class="info-box">
+                            <div class="box-title">
+                                <i class="fas fa-info-circle"></i>
+                                Reflecție personală
+                            </div>
+                            <p>Pentru a integra conceptele din această lecție în practica dvs. pedagogică, reflectați asupra următoarelor întrebări:</p>
+                            <ul>
+                                <li>Ce tipuri de date colectez deja despre învățarea elevilor mei și cum aș putea valorifica mai eficient aceste date?</li>
+                                <li>Care sunt cele mai presante nevoi de adaptare în clasele mele și ce date mi-ar trebui pentru a ghida aceste adaptări?</li>
+                                <li>Cum pot utiliza tabla interactivă pentru a facilita analiza colaborativă a datelor împreună cu elevii și colegii?</li>
+                                <li>Ce strategii de personalizare ar avea cel mai mare impact în contextul specific al disciplinei și elevilor mei?</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Navigare între lecții -->
+                <div class="lesson-navigation">
+                    <div class="nav-prev">
+                        <a href="/modules/module6/lesson2.html" class="lesson-nav-button prev">
+                            <i class="fas fa-arrow-left"></i>
+                            Înapoi la Lecția 2
+                        </a>
+                    </div>
+                    
+                    <div class="nav-next">
+                        <a href="/modules/module6/lesson4.html" class="lesson-nav-button next">
+                            Continuă cu Lecția 4
+                            <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </main>
+        </div>
+        </div>
+    </section>
+    
+    <!-- Footer placeholder -->
+    <div id="footer-placeholder"></div>
+    
+    <script src="/js/main.js"></script>
+    <script src="/js/modules.js"></script>
+    <script src="/js/activity-scripts.js"></script>
 </body>
 </html>

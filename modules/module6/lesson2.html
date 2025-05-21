@@ -1,87 +1,825 @@
 <!DOCTYPE html>
 <html lang="ro">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Pagina în construcție | TechMinds Academy</title>
-  <link rel="stylesheet" href="/css/main.css">
-  <link rel="stylesheet" href="/css/responsive.css">
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
-  <style>
-    body {
-      font-family: 'Roboto', sans-serif;
-      margin: 0;
-      background-color: #f7f9fb;
-      color: #333;
-      display: flex;
-      flex-direction: column;
-      min-height: 100vh;
-    }
-
-    .construction-wrapper {
-      flex: 1;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 60px 20px;
-      text-align: center;
-      flex-direction: column;
-    }
-
-    .construction-svg {
-      max-width: 300px;
-      margin-bottom: 30px;
-    }
-
-    h1 {
-      font-size: 2rem;
-      margin-bottom: 10px;
-      color: #2c3e50;
-    }
-
-    p {
-      font-size: 1.1rem;
-      margin-bottom: 25px;
-      color: #555;
-    }
-
-    .home-button {
-      background-color: #007bff;
-      color: white;
-      border: none;
-      padding: 12px 24px;
-      border-radius: 6px;
-      text-decoration: none;
-      font-weight: 500;
-      transition: background-color 0.3s ease;
-    }
-
-    .home-button:hover {
-      background-color: #0056b3;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lecția 2: Monitorizarea progresului elevilor | TechMinds Academy</title>
+    <meta name="description" content="Descoperă metode eficiente de monitorizare a progresului elevilor utilizând tabla interactivă și platformele digitale, facilitând feedback personalizat și intervenții la timp.">
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/responsive.css">
+    <link rel="stylesheet" href="/css/module.css">
+    <link rel="stylesheet" href="/css/lesson.css">
+    <link rel="stylesheet" href="/css/activity-styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
 </head>
 <body>
-  <!-- Header -->
-  <div id="header-placeholder"></div>
-
-  <div class="construction-wrapper">
-    <svg class="construction-svg" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 300 200">
-      <path fill="#F4A261" d="M150 0l30 60h-60l30-60zM60 180h180v20H60v-20z"/>
-      <path fill="#2A9D8F" d="M90 80h120v80H90V80z"/>
-      <path fill="#264653" d="M110 100h20v40h-20v-40zm60 0h20v40h-20v-40z"/>
-      <circle cx="75" cy="190" r="10" fill="#E76F51"/>
-      <circle cx="225" cy="190" r="10" fill="#E76F51"/>
-    </svg>
-    <h1>Pagina este în construcție</h1>
-    <p>Conținutul acestei lecții va fi disponibil în curând. Îți mulțumim pentru răbdare!</p>
-    <a href="/index.html" class="home-button"><i class="fas fa-home"></i> Revenire la homepage</a>
-  </div>
-
-  <!-- Footer -->
-  <div id="footer-placeholder"></div>
-
-     <script src="/js/main.js"></script>
-
+    <!-- Header placeholder -->
+    <div id="header-placeholder"></div>
+    
+    <!-- Header lecție -->
+    <section class="lesson-header">
+        <div class="container">
+            <div class="lesson-breadcrumbs">
+                <a href="/index.html">Acasă</a>
+                <span class="separator">/</span>
+                <a href="/modules/module6/index.html">Modul 6: Evaluare și feedback digital</a>
+                <span class="separator">/</span>
+                <span>Lecția 2: Monitorizarea progresului elevilor</span>
+            </div>
+            <h1>Lecția 2: Monitorizarea progresului elevilor cu ajutorul tablei interactive și al platformelor digitale</h1>
+            <p>Descoperă metode și strategii pentru a urmări în mod eficient progresul elevilor, a visualiza datele de performanță și a oferi feedback personalizat folosind tabla interactivă și diverse platforme educaționale digitale.</p>
+        </div>
+    </section>
+    
+    <!-- Conținut principal lecție -->
+    <section class="lesson-layout">
+        <div class="container">
+            <div class="lesson-layout">
+                <!-- Sidebar -->
+                <aside class="lesson-sidebar">
+                    <!-- Progres modul -->
+                    <div class="sidebar-card">
+                        <div class="sidebar-card-header">
+                            Progres Modul 6
+                        </div>
+                        <div class="sidebar-card-content">
+                            <div class="module-progress">
+                                <div class="progress-text">
+                                    <span>Lecția 2 din 4</span>
+                                    <span>50%</span>
+                                </div>
+                                <div class="progress-bar">
+                                    <div class="progress-fill" style="width: 50%;"></div>
+                                </div>
+                            </div>
+                            
+                            <ul class="module-lessons-list">
+                                <li class="completed">
+                                    <a href="/modules/module6/lesson1.html">
+                                        <div class="lesson-number-indicator">1</div>
+                                        <div class="lesson-title-text">Instrumente pentru evaluare online</div>
+                                        <div class="lesson-completed-indicator">
+                                            <i class="fas fa-check"></i>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li class="active">
+                                    <a href="/modules/module6/lesson2.html">
+                                        <div class="lesson-number-indicator">2</div>
+                                        <div class="lesson-title-text">Monitorizarea progresului elevilor</div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="/modules/module6/lesson3.html">
+                                        <div class="lesson-number-indicator">3</div>
+                                        <div class="lesson-title-text">Analiza datelor și adaptarea predării</div>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="/modules/module6/lesson4.html">
+                                        <div class="lesson-number-indicator">4</div>
+                                        <div class="lesson-title-text">Tehnici inovative de evaluare</div>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <!-- Resurse lecție -->
+                    <div class="sidebar-card">
+                        <div class="sidebar-card-header">
+                            Resurse lecție
+                        </div>
+                        <div class="sidebar-card-content">
+                            <ul class="lesson-resources-list">
+                                <li>
+                                    <a href="/assets/docs/template_tablou_monitorizare.pdf" download>
+                                        <i class="fas fa-file-excel"></i>
+                                        <span>Template tablou de monitorizare</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="/assets/docs/ghid_dashboard_elevi.pdf" download>
+                                        <i class="fas fa-file-pdf"></i>
+                                        <span>Ghid dashboard progres elevi</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="/assets/docs/formular_feedback_personalizat.pdf" download>
+                                        <i class="fas fa-file-word"></i>
+                                        <span>Formular feedback personalizat</span>
+                                    </a>
+                                </li>
+                                
+                            </ul>
+                        </div>
+                    </div>
+                </aside>
+                
+                <!-- Conținut principal -->
+                <main class="lesson-main-contentt">
+                    <div class="lesson-content">
+                        <!-- Introducere -->
+                        <div class="lesson-section">
+                            <h2 class="lesson-section-title">De la evaluare la monitorizare continuă</h2>
+                            <div class="lesson-text">
+                                <p>Monitorizarea progresului elevilor reprezintă o componentă esențială a procesului educațional, care depășește simpla evaluare punctuală a cunoștințelor. Într-un context educațional centrat pe competențe și dezvoltare personalizată, urmărirea sistematică a evoluției fiecărui elev devine crucială pentru adaptarea procesului de predare-învățare și pentru oferirea de feedback constructiv.</p>
+                                
+                                <p>În această lecție, vom explora cum putem transforma tabla interactivă și platformele digitale în instrumente eficiente de monitorizare, care ne permit să vizualizăm progresul elevilor, să identificăm la timp nevoile specifice și să implementăm intervenții personalizate.</p>
+                                
+                                <div class="info-box">
+                                    <div class="box-title">
+                                        <i class="fas fa-info-circle"></i>
+                                        Beneficiile monitorizării digitale
+                                    </div>
+                                    <ul>
+                                        <li><strong>Continuitate</strong> - Urmărire constantă a progresului, nu doar la momentele de evaluare formală</li>
+                                        <li><strong>Vizualizare</strong> - Reprezentări grafice intuitive ale evoluției, accesibile atât profesorilor, cât și elevilor</li>
+                                        <li><strong>Personalizare</strong> - Identificarea precisă a zonelor de progres și a nevoilor de sprijin pentru fiecare elev</li>
+                                        <li><strong>Intervenție timpurie</strong> - Recunoașterea rapidă a dificultăților și implementarea de măsuri remediale înainte ca lacunele să se adâncească</li>
+                                        <li><strong>Motivare</strong> - Evidențierea progresului personal stimulează motivația intrinsecă și dorința de îmbunătățire</li>
+                                        <li><strong>Transparență</strong> - Comunicare clară cu elevii și părinții despre evoluția și obiectivele de învățare</li>
+                                        <li><strong>Eficiență</strong> - Automatizarea proceselor de colectare și analiză a datelor pentru a economisi timp</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Secțiunea 1: Sisteme de monitorizare digitală -->
+                        <div class="lesson-section">
+                            <h2 class="lesson-section-title">Sisteme de monitorizare digitală a progresului</h2>
+                            <div class="lesson-text">
+                                <p>Un sistem eficient de monitorizare digitală integrează multiple surse de date și instrumente pentru a oferi o imagine completă și nuanțată a progresului elevilor. Combinația dintre tabla interactivă și diverse platforme educaționale creează un ecosistem digital de monitorizare care poate fi adaptat la nevoile specifice ale fiecărei clase.</p>
+                                
+                                <div class="comparison-table">
+                                    <table>
+                                        <tr>
+                                            <th>Tip de sistem</th>
+                                            <th>Caracteristici principale</th>
+                                            <th>Platforme reprezentative</th>
+                                            <th>Integrare cu tabla interactivă</th>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Sisteme de management<br>al învățării (LMS)</strong></td>
+                                            <td>
+                                                <ul>
+                                                    <li>Monitorizare comprehensivă a întregului parcurs educațional</li>
+                                                    <li>Urmărirea completării activităților și a rezultatelor evaluărilor</li>
+                                                    <li>Rapoarte de progres detaliate pe competențe și obiective</li>
+                                                    <li>Comunicare integrată cu elevii și părinții</li>
+                                                </ul>
+                                            </td>
+                                            <td>
+                                                <ul>
+                                                    <li>Google Classroom</li>
+                                                    <li>Microsoft Teams for Education</li>
+                                                    <li>Moodle</li>
+                                                    <li>Edmodo</li>
+                                                    <li>Adservio (platformă românească)</li>
+                                                </ul>
+                                            </td>
+                                            <td>
+                                                <ul>
+                                                    <li>Afișarea dashboardurilor de progres pe tablă</li>
+                                                    <li>Discuții ghidate bazate pe datele de performanță</li>
+                                                    <li>Adnotarea și evidențierea tendințelor în rapoarte</li>
+                                                </ul>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Platforme specializate<br>de monitorizare</strong></td>
+                                            <td>
+                                                <ul>
+                                                    <li>Focus exclusiv pe urmărirea progresului și analiza datelor</li>
+                                                    <li>Vizualizări avansate și tablouri de bord personalizabile</li>
+                                                    <li>Funcții de alertă și notificare pentru intervenție timpurie</li>
+                                                    <li>Analitică predictivă pentru identificarea tendințelor</li>
+                                                </ul>
+                                            </td>
+                                            <td>
+                                                <ul>
+                                                    <li>Classdojo</li>
+                                                    <li>Seesaw</li>
+                                                    <li>Schoology</li>
+                                                    <li>GoFormative</li>
+                                                    <li>ClassTracker</li>
+                                                </ul>
+                                            </td>
+                                            <td>
+                                                <ul>
+                                                    <li>Sisteme interactive de feedback vizual</li>
+                                                    <li>Vizualizări comparative ale progresului clasei</li>
+                                                    <li>Facilități de intervenție directă prin tabla interactivă</li>
+                                                </ul>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Instrumente de<br>colectare continuă<br>a datelor</strong></td>
+                                            <td>
+                                                <ul>
+                                                    <li>Evaluări formative frecvente și micromonitorizare</li>
+                                                    <li>Integrare cu activitățile zilnice de învățare</li>
+                                                    <li>Feedback în timp real și ajustare imediată</li>
+                                                    <li>Accent pe procesul de învățare, nu doar pe rezultate</li>
+                                                </ul>
+                                            </td>
+                                            <td>
+                                                <ul>
+                                                    <li>Nearpod</li>
+                                                    <li>Pear Deck</li>
+                                                    <li>Formative</li>
+                                                    <li>Plickers</li>
+                                                    <li>Wooclap</li>
+                                                </ul>
+                                            </td>
+                                            <td>
+                                                <ul>
+                                                    <li>Verificări rapide ale înțelegerii prin sondaje și quiz-uri</li>
+                                                    <li>Capturi de ecran ale răspunsurilor pentru analiză colectivă</li>
+                                                    <li>Monitorizare în timp real a participării</li>
+                                                </ul>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Sisteme de<br>portofolii digitale</strong></td>
+                                            <td>
+                                                <ul>
+                                                    <li>Colecție organizată a lucrărilor și realizărilor elevilor</li>
+                                                    <li>Evidențierea progresului prin comparație directă în timp</li>
+                                                    <li>Reflecție și autoevaluare integrată</li>
+                                                    <li>Documentarea procesului, nu doar a produsului final</li>
+                                                </ul>
+                                            </td>
+                                            <td>
+                                                <ul>
+                                                    <li>Seesaw</li>
+                                                    <li>Wakelet</li>
+                                                    <li>Padlet</li>
+                                                    <li>Bulb</li>
+                                                    <li>Google Sites</li>
+                                                </ul>
+                                            </td>
+                                            <td>
+                                                <ul>
+                                                    <li>Prezentarea și analiza portofoliilor pe tabla interactivă</li>
+                                                    <li>Adnotarea artefactelor pentru feedback specific</li>
+                                                    <li>Compararea lucrărilor din diverse etape pentru evidențierea evoluției</li>
+                                                </ul>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
+                                
+                                <div class="info-box">
+                                    <div class="box-title">
+                                        <i class="fas fa-info-circle"></i>
+                                        Factori în selectarea sistemului potrivit
+                                    </div>
+                                    <p>Alegerea instrumentelor de monitorizare depinde de mai mulți factori:</p>
+                                    <ul>
+                                        <li><strong>Obiectivele de monitorizare</strong> - Clarificați ce anume doriți să urmăriți: competențe specifice, progres general, implicare, etc.</li>
+                                        <li><strong>Infrastructura disponibilă</strong> - Evaluați resursele tehnice și conectivitatea pentru a asigura funcționalitatea sistemului</li>
+                                        <li><strong>Vârsta și autonomia elevilor</strong> - Adaptați complexitatea la nivelul de independență digitală al elevilor</li>
+                                        <li><strong>Integrarea cu tabla interactivă</strong> - Verificați compatibilitatea și ușurința de utilizare împreună</li>
+                                        <li><strong>Protecția datelor</strong> - Asigurați-vă că sistemul respectă normele GDPR și principiile de confidențialitate</li>
+                                        <li><strong>Scalabilitate</strong> - Alegeți sisteme care pot crește odată cu dezvoltarea competențelor digitale ale dvs. și ale elevilor</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Secțiunea 2: Strategii de monitorizare cu tabla interactivă -->
+                        <div class="lesson-section">
+                            <h2 class="lesson-section-title">Strategii de monitorizare cu tabla interactivă</h2>
+                            <div class="lesson-text">
+                                <p>Tabla interactivă nu este doar un instrument de prezentare, ci poate deveni un centru nevralgic pentru monitorizarea și vizualizarea progresului elevilor. Iată câteva strategii eficiente pentru a transforma tabla interactivă într-un hub de monitorizare a progresului.</p>
+                                
+                                <h3>Organizarea spațiului digital pentru monitorizare</h3>
+                                <div class="strategy-card">
+                                    <div class="strategy-icon">
+                                        <i class="fas fa-columns"></i>
+                                    </div>
+                                    <div class="strategy-content">
+                                        <h3>Tablouri de bord interactive</h3>
+                                        <p>Transformați tabla într-un dashboard dinamic care afișează progresul individual și colectiv al elevilor.</p>
+                                        <div class="strategy-details">
+                                            <p><strong>Implementare practică:</strong></p>
+                                            <ul>
+                                                <li>Creați template-uri cu secțiuni dedicate pentru diverse tipuri de monitorizare: prezență, completarea sarcinilor, rezultate ale evaluărilor, dezvoltarea competențelor</li>
+                                                <li>Utilizați coduri de culori consistente pentru a evidenția nivelurile de progres și zonele care necesită atenție</li>
+                                                <li>Integrați elemente interactive precum butoane de filtrare, zoom pe anumite perioade și vizualizări personalizabile</li>
+                                                <li>Programați actualizări regulate ale dashboardului pentru a reflecta cele mai recente date</li>
+                                            </ul>
+                                            <p><strong>Exemplu:</strong> Un tablou de bord pentru clasa a V-a la matematică poate include: hărți termice care indică nivelul de stăpânire a diverselor competențe, diagrame de progres pentru fiecare unitate, liste de verificare pentru temele predate și un sistem vizual de monitorizare a obiectivelor individuale.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="strategy-card">
+                                    <div class="strategy-icon">
+                                        <i class="fas fa-chart-line"></i>
+                                    </div>
+                                    <div class="strategy-content">
+                                        <h3>Vizualizări interactive ale progresului</h3>
+                                        <p>Folosiți reprezentări grafice dinamice care permit explorarea datelor de performanță din multiple perspective.</p>
+                                        <div class="strategy-details">
+                                            <p><strong>Implementare practică:</strong></p>
+                                            <ul>
+                                                <li>Integrați grafice și diagrame interactive care reflectă evoluția în timp a performanțelor</li>
+                                                <li>Creați reprezentări comparative care permit elevilor să-și vadă propriul progres raportat la obiective personale, nu neapărat la restul clasei</li>
+                                                <li>Utilizați elemente vizuale precum trasee de progres, hărți ale competențelor sau "arbori de cunoaștere" care cresc pe măsură ce elevii avansează</li>
+                                                <li>Permiteți interacțiunea directă cu datele prin filtrare, sortare și focus pe arii specifice</li>
+                                            </ul>
+                                            <p><strong>Exemplu:</strong> Pentru monitorizarea progresului la limba engleză, creați un "traseu lingvistic" pe care elevii avansează prin îndeplinirea diverselor obiective. Tabla interactivă permite elevilor să-și vizualizeze poziția pe traseu, să exploreze detalii despre competențele dobândite și să identifice următoarele "stații" de învățare.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="strategy-card">
+                                    <div class="strategy-icon">
+                                        <i class="fas fa-users"></i>
+                                    </div>
+                                    <div class="strategy-content">
+                                        <h3>Sesiuni colaborative de analiză a progresului</h3>
+                                        <p>Transformați monitorizarea într-un proces participativ care implică activ elevii în evaluarea și planificarea propriei învățări.</p>
+                                        <div class="strategy-details">
+                                            <p><strong>Implementare practică:</strong></p>
+                                            <ul>
+                                                <li>Organizați sesiuni periodice de reflecție în care elevii analizează împreună datele de progres afișate pe tabla interactivă</li>
+                                                <li>Facilitați discuții despre tendințe, realizări colective și provocări comune</li>
+                                                <li>Utilizați instrumente de adnotare pentru a marca observații, a formula întrebări și a planifica pași următori</li>
+                                                <li>Implicați elevii în stabilirea obiectivelor de grup și în monitorizarea progresului către acestea</li>
+                                            </ul>
+                                            <p><strong>Exemplu:</strong> La sfârșitul unei unități de învățare, organizați o "ședință de progres" în care elevii analizează pe tabla interactivă datele agregate ale evaluărilor. Împreună, identifică conceptele care au fost bine înțelese și cele care necesită revizuire, apoi planifică strategii de îmbunătățire.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="strategy-card">
+                                    <div class="strategy-icon">
+                                        <i class="fas fa-user-check"></i>
+                                    </div>
+                                    <div class="strategy-content">
+                                        <h3>Monitorizare individualizată și feedback personalizat</h3>
+                                        <p>Utilizați tabla interactivă pentru a facilita sesiuni de feedback personalizat bazate pe datele de progres.</p>
+                                        <div class="strategy-details">
+                                            <p><strong>Implementare practică:</strong></p>
+                                            <ul>
+                                                <li>Creați profiluri individuale de progres care pot fi accesate rapid în timpul consultațiilor cu elevii sau părinții</li>
+                                                <li>Utilizați funcționalitatea split-screen pentru a compara performanța curentă cu obiectivele stabilite anterior</li>
+                                                <li>Documentați feedback-ul și planurile de acțiune direct pe tablă, cu posibilitatea de salvare și trimitere către elevi</li>
+                                                <li>Implementați un sistem de monitorizare a obiectivelor personalizate cu indicatori vizuali de progres</li>
+                                            </ul>
+                                            <p><strong>Exemplu:</strong> În cadrul sesiunilor individuale de feedback, afișați pe tablă portofoliul digital al elevului, evidențiați zonele de progres și provocare, apoi folosiți instrumentele de adnotare pentru a crea împreună cu elevul un plan de acțiune personalizat cu obiective SMART.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="quote-box">
+                                    <div class="quote-content">
+                                        <p>"Când elevii pot vizualiza și interacționa cu propriul traseu de învățare, transformăm monitorizarea dintr-un proces extern de control într-un instrument de dezvoltare a autonomiei și metacogniției. Tabla interactivă devine astfel o oglindă a creșterii personale care reflectă nu doar unde se află elevul, ci și drumul parcurs și direcția viitoare."</p>
+                                    </div>
+                                    <div class="quote-author">
+                                        Prof. Daniela Popescu, Liceul Teoretic "Nicolae Iorga", București
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Secțiunea 3: Integrarea platformelor digitale cu tabla interactivă -->
+                        <div class="lesson-section">
+                            <h2 class="lesson-section-title">Integrarea platformelor digitale cu tabla interactivă</h2>
+                            <div class="lesson-text">
+                                <p>Pentru a maximiza eficiența monitorizării, este esențială crearea unui ecosistem educațional în care tabla interactivă și platformele digitale funcționează în sinergie. Această abordare integrată permite colectarea automată a datelor, actualizarea în timp real a vizualizărilor și o experiență fluidă pentru profesor și elevi.</p>
+                                
+                                <h3>Modele de integrare și flux de date</h3>
+                                
+                                <div class="comparison-table">
+                                    <table>
+                                        <tr>
+                                            <th>Model de integrare</th>
+                                            <th>Flux de date și funcționalitate</th>
+                                            <th>Exemple de implementare</th>
+                                            <th>Avantaje specifice</th>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Tabla ca hub de<br>vizualizare</strong></td>
+                                            <td>
+                                                <ul>
+                                                    <li>Platformele digitale colectează datele de performanță</li>
+                                                    <li>Tabla interactivă afișează dashboarduri și rapoarte agregate</li>
+                                                    <li>Profesorul facilitează analiza și interpretarea vizuală</li>
+                                                </ul>
+                                            </td>
+                                            <td>
+                                                <ul>
+                                                    <li>Google Classroom + tabla interactivă pentru afișarea Analytics</li>
+                                                    <li>Moodle + vizualizări interactive pe tablă</li>
+                                                    <li>Microsoft Teams + Power BI dashboards pe tabla SmartBoard</li>
+                                                </ul>
+                                            </td>
+                                            <td>
+                                                <ul>
+                                                    <li>Claritate vizuală și interpretare colectivă</li>
+                                                    <li>Capacitate de adnotare și evidențiere a tendințelor</li>
+                                                    <li>Discuții faciliate pe baza datelor vizibile</li>
+                                                </ul>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Tabla ca<br>instrument de<br>colectare</strong></td>
+                                            <td>
+                                                <ul>
+                                                    <li>Tabla interactivă utilizată pentru evaluări rapide și verificări</li>
+                                                    <li>Datele colectate sunt transferate automat în platforme</li>
+                                                    <li>Platformele procesează și actualizează profilurile de progres</li>
+                                                </ul>
+                                            </td>
+                                            <td>
+                                                <ul>
+                                                    <li>Verificări Plickers scanate prin tabla+cameră</li>
+                                                    <li>Sondaje interactive Mentimeter afișate și sincronizate</li>
+                                                    <li>Quizlet Live coordonat de la tablă și integrat în LMS</li>
+                                                </ul>
+                                            </td>
+                                            <td>
+                                                <ul>
+                                                    <li>Evaluare rapidă și angajantă pentru întreaga clasă</li>
+                                                    <li>Gamificare și motivare prin vizibilitate</li>
+                                                    <li>Feedback imediat pentru profesor și elevi</li>
+                                                </ul>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Sistem<br>bidirecțional<br>integrat</strong></td>
+                                            <td>
+                                                <ul>
+                                                    <li>Comunicare continuă între tabla interactivă și platforme</li>
+                                                    <li>Actualizare automată a vizualizărilor cu date în timp real</li>
+                                                    <li>Interacțiunile de pe tablă generează actualizări în platforme</li>
+                                                </ul>
+                                            </td>
+                                            <td>
+                                                <ul>
+                                                    <li>Smart Learning Suite cu sincronizare bidirecțională</li>
+                                                    <li>ClassFlow cu actualizare în timp real a datelor</li>
+                                                    <li>ActivPanel + platforme cloud sincronizate</li>
+                                                </ul>
+                                            </td>
+                                            <td>
+                                                <ul>
+                                                    <li>Experiență fluidă fără întreruperi în flux</li>
+                                                    <li>Date de progres mereu actuale și relevante</li>
+                                                    <li>Intervenție imediată bazată pe feedback instant</li>
+                                                </ul>
+                                            </td>
+                                        </tr>
+                                        <tr>
+<td><strong>Integrare<br>extinsă cu<br>dispozitive multiple</strong></td>
+                                            <td>
+                                                <ul>
+                                                    <li>Tabla interactivă conectată cu dispozitivele elevilor</li>
+                                                    <li>Platforme care permit trimiterea și primirea datelor între multiple dispozitive</li>
+                                                    <li>Vizualizare și contribuție multi-device sincronizată</li>
+                                                </ul>
+                                            </td>
+                                            <td>
+                                                <ul>
+                                                    <li>Nearpod cu sincronizare între tabla interactivă și tablete</li>
+                                                    <li>Pear Deck pentru interacțiune simultană</li>
+                                                    <li>AirServer pentru oglindirea dispozitivelor pe tablă</li>
+                                                </ul>
+                                            </td>
+                                            <td>
+                                                <ul>
+                                                    <li>Participare activă a tuturor elevilor simultan</li>
+                                                    <li>Monitorizare individuală și colectivă în paralel</li>
+                                                    <li>Diferențiere și personalizare la scară</li>
+                                                </ul>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
+                                
+                                <h3>Soluții pentru provocări comune de integrare</h3>
+                                
+                                <div class="comparison-table">
+                                    <table>
+                                        <tr>
+                                            <th>Provocare</th>
+                                            <th>Impact</th>
+                                            <th>Soluții practice</th>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Compatibilitate limitată</strong> între tabla interactivă și platforme</td>
+                                            <td>Funcționalitate redusă, flux de lucru fragmentat și dificultăți în sincronizarea datelor</td>
+                                            <td>
+                                                <ul>
+                                                    <li>Utilizarea browserului web ca interfață comună pentru accesarea platformelor</li>
+                                                    <li>Implementarea soluțiilor de casting/screen mirroring</li>
+                                                    <li>Exportarea și importarea de date în formate universale (CSV, PDF)</li>
+                                                    <li>Folosirea API-urilor pentru integrări personalizate unde este posibil</li>
+                                                </ul>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Conectivitate inconsistentă</strong> la internet</td>
+                                            <td>Întreruperi în fluxul de monitorizare, pierderi de date, imposibilitatea accesării rapoartelor actualizate</td>
+                                            <td>
+                                                <ul>
+                                                    <li>Implementarea modurilor offline cu sincronizare ulterioară</li>
+                                                    <li>Pregătirea screenshot-urilor și rapoartelor statice ca backup</li>
+                                                    <li>Utilizarea unui hotspot de rezervă pentru situații critice</li>
+                                                    <li>Dezvoltarea unui sistem hibrid analogic-digital de monitorizare</li>
+                                                </ul>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Complexitate excesivă</strong> pentru utilizatori</td>
+                                            <td>Utilizare ineficientă, rezistență din partea profesorilor și elevilor, date incomplete sau eronate</td>
+                                            <td>
+                                                <ul>
+                                                    <li>Simplificarea interfeței prin crearea de dashboard-uri personalizate</li>
+                                                    <li>Dezvoltarea unor rutine pas cu pas documentate pentru procesele frecvente</li>
+                                                    <li>Formarea unui "comitet digital" din elevi pentru suport reciproc</li>
+                                                    <li>Implementarea treptată, începând cu funcționalitățile de bază</li>
+                                                </ul>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Protecția datelor</strong> și confidențialitatea</td>
+                                            <td>Risc de expunere a informațiilor personale, probleme de conformitate GDPR, îngrijorări din partea părinților</td>
+                                            <td>
+                                                <ul>
+                                                    <li>Utilizarea de coduri sau ID-uri în loc de nume complete pe afișajele publice</li>
+                                                    <li>Implementarea sistemelor de autentificare pentru accesarea datelor personalizate</li>
+                                                    <li>Stocarea datelor sensibile exclusiv în platforme securizate, nu pe tabla interactivă</li>
+                                                    <li>Obținerea consimțământului informat pentru monitorizarea și afișarea datelor</li>
+                                                </ul>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
+                                
+                                <div class="activity-card">
+                                    <div class="activity-header">
+                                        <h3>Activitate: Crearea unui dashboard personalizat de monitorizare</h3>
+                                        <div class="activity-badges">
+                                            <span class="subject-badge">Toate disciplinele</span>
+                                            <span class="time-badge">45-60 minute</span>
+                                        </div>
+                                    </div>
+                                    <div class="activity-content">
+                                        <div class="activity-description">
+                                            <h4>Descriere</h4>
+                                            <p>În această activitate, veți dezvolta un dashboard personalizat pentru tabla interactivă care integrează date de progres din diverse surse și oferă o vizualizare clară a evoluției elevilor pentru o unitate de învățare specifică.</p>
+                                        </div>
+                                        
+                                        <div class="activity-implementation">
+                                            <h4>Pregătire</h4>
+                                            <ol>
+                                                <li><strong>Selectarea unității de învățare:</strong> Alegeți o unitate din planificarea dvs. care include multiple competențe și activități evaluabile.</li>
+                                                <li><strong>Identificarea surselor de date:</strong> Determinați platformele și instrumentele digitale pe care le folosiți pentru colectarea datelor de performanță (ex: Google Classroom, Kahoot, formulare de feedback, etc.).</li>
+                                                <li><strong>Analiza nevoilor de monitorizare:</strong> Clarificați ce aspecte doriți să urmăriți (progres pe competențe, participare, finalizarea sarcinilor, etc.) și pentru ce audiență este destinat dashboardul (dvs., elevi, părinți).</li>
+                                            </ol>
+                                            
+                                            <h4>Desfășurarea activității</h4>
+                                            <ol>
+                                                <li><strong>Proiectarea structurii dashboard-ului (15 min):</strong>
+                                                    <ul>
+                                                        <li>Schițați pe hârtie sau direct pe tabla interactivă zonele principale ale dashboard-ului</li>
+                                                        <li>Determinați tipurile de vizualizări potrivite pentru fiecare tip de date (grafice, tabele, hărți termice, etc.)</li>
+                                                        <li>Planificați zonele interactive și elementele statice</li>
+                                                    </ul>
+                                                </li>
+                                                <li><strong>Dezvoltarea componentelor vizuale (20 min):</strong>
+                                                    <ul>
+                                                        <li>Creați template-uri pentru reprezentarea progresului pe competențe (ex: diagrame radar, bare de progres)</li>
+                                                        <li>Dezvoltați sisteme de codificare vizuală pentru diverse niveluri de performanță (culori, simboluri)</li>
+                                                        <li>Proiectați zone pentru feedback și pași următori recomandați</li>
+                                                    </ul>
+                                                </li>
+                                                <li><strong>Integrarea cu sursele de date (15 min):</strong>
+                                                    <ul>
+                                                        <li>Configurați metodele de import/export pentru datele din platformele utilizate</li>
+                                                        <li>Testați procesul de actualizare a dashboard-ului cu date reale sau simulate</li>
+                                                        <li>Asigurați-vă că dashboard-ul poate fi salvat și partajat în formate accesibile</li>
+                                                    </ul>
+                                                </li>
+                                                <li><strong>Planificarea utilizării în clasă (10 min):</strong>
+                                                    <ul>
+                                                        <li>Dezvoltați un scenariu pentru prezentarea dashboard-ului elevilor</li>
+                                                        <li>Creați activități de reflecție bazate pe datele vizualizate</li>
+                                                        <li>Stabiliți rutina de actualizare și analiză a dashboard-ului</li>
+                                                    </ul>
+                                                </li>
+                                            </ol>
+                                        </div>
+                                        
+                                        <div class="activity-adaptations">
+                                            <h4>Adaptări pentru diferite contexte</h4>
+                                            <ul>
+                                                <li><strong>Pentru ciclul primar:</strong> Simplificați vizualizările și utilizați mai multe elemente grafice și simboluri în locul numerelor</li>
+                                                <li><strong>Pentru ciclul liceal:</strong> Includeți analize mai complexe și permiteți elevilor să personalizeze propriile dashboard-uri</li>
+                                                <li><strong>Pentru resurse tehnice limitate:</strong> Dezvoltați versiuni printabile ale dashboard-ului care pot fi completate manual și scanate</li>
+                                                <li><strong>Pentru integrare cu părinții:</strong> Creați o versiune simplificată care poate fi partajată periodic prin email sau platforme de comunicare</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Secțiunea 4: Studii de caz din școli românești -->
+                        <div class="lesson-section">
+                            <h2 class="lesson-section-title">Studii de caz: Monitorizarea progresului în școli din România</h2>
+                            <div class="lesson-text">
+                                <p>Implementarea sistemelor digitale de monitorizare a progresului în contextul educațional românesc prezintă provocări și oportunități specifice. Următoarele studii de caz ilustrează abordări de succes adaptate la realitățile locale.</p>
+                                
+                                <div class="case-study">
+                                    <div class="case-study-header">
+                                        <h3>Colegiu Național din București</h3>
+                                        <div class="subtitle">Sistem integrat de monitorizare pentru predarea informaticii</div>
+                                    </div>
+                                    <div class="case-study-content">
+                                        <div class="case-study-context">
+                                            <h4>Context</h4>
+                                            <p>Departamentul de informatică al colegiului a dezvoltat un sistem integrat de monitorizare a progresului pentru clasele de matematică-informatică intensiv, având ca obiectiv principal identificarea timpurie a dificultăților și personalizarea intervențiilor.</p>
+                                        </div>
+                                        
+                                        <div class="case-study-approach">
+                                            <h4>Abordare</h4>
+                                            <p>Sistemul combină multiple instrumente digitale, având tabla interactivă ca interfață centrală:</p>
+                                            <ul>
+                                                <li><strong>GitHub Classroom</strong> pentru urmărirea progresului la proiecte de programare</li>
+                                                <li><strong>Platformă proprie bazată pe Moodle</strong> pentru evaluări și teme</li>
+                                                <li><strong>Tabla interactivă SMART Board</strong> pentru afișarea dashboard-urilor și analiza colectivă</li>
+                                            </ul>
+                                            <p>Elementul inovator a fost dezvoltarea unui plugin personalizat care agregă datele din diverse surse și generează vizualizări adaptive pe tabla interactivă, cu viziuni diferite pentru profesori, elevi și părinți.</p>
+                                        </div>
+                                        
+                                        <div class="case-study-results">
+                                            <h4>Rezultate</h4>
+                                            <ul>
+                                                <li>Creșterea procentului de rezolvare a problemelor de programare de la 72% la 89% într-un an</li>
+                                                <li>Reducerea timpului necesar pentru identificarea și remedierea dificultăților cu 60%</li>
+                                                <li>Îmbunătățirea semnificativă a capacității elevilor de a-și evalua propriul nivel și de a-și planifica învățarea</li>
+                                                <li>Adoptarea sistemului de către alte departamente ale școlii după succesul inițial</li>
+                                            </ul>
+                                        </div>
+                                        
+                                        <div class="case-study-lessons">
+                                            <h4>Lecții învățate</h4>
+                                            <p>Profesoara Monica Drăgan explică: "Cheia succesului a fost abordarea holistică - nu am monitorizat doar performanța la teste, ci întregul proces de învățare: participarea la discuții, erorile frecvente, colaborarea între colegi. Tabla interactivă a transformat monitorizarea dintr-un proces administrativ într-o experiență de învățare în sine."</p>
+                                            <p>Factori critici pentru succes:</p>
+                                            <ul>
+                                                <li>Implicarea elevilor în proiectarea dashboard-urilor și în definirea indicatorilor de performanță</li>
+                                                <li>Echilibrul între monitorizarea cantitativă (scoruri) și cea calitativă (procese de rezolvare, strategii)</li>
+                                                <li>Sesiuni săptămânale dedicate analizei progresului, nu doar colectării de date</li>
+                                                <li>Dezvoltarea unei culturi a învățării continue, nu a performanței punctuale</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="case-study">
+                                    <div class="case-study-header">
+                                        <h3>Școala Gimnazială din Cluj-Napoca</h3>
+                                        <div class="subtitle">Sistem de monitorizare hibrid adaptat la resurse limitate</div>
+                                    </div>
+                                    <div class="case-study-content">
+                                        <div class="case-study-context">
+                                            <h4>Context</h4>
+                                            <p>Școala dispunea de o singură tablă interactivă și acces limitat la internet, dar dorea să implementeze un sistem eficient de monitorizare a progresului pentru clasele V-VIII. Provocarea era dezvoltarea unei soluții funcționale în condițiile infrastructurii existente.</p>
+                                        </div>
+                                        
+                                        <div class="case-study-approach">
+                                            <h4>Abordare</h4>
+                                            <p>Echipa de profesori a dezvoltat un sistem hibrid bazat pe:</p>
+                                            <ul>
+                                                <li><strong>Template-uri fizice standardizate</strong> pentru colectarea datelor, cu coduri QR pentru fiecare elev</li>
+                                                <li><strong>Scanarea periodică</strong> a acestora și importul în tabla interactivă</li>
+                                                <li><strong>Software offline</strong> pentru generarea dashboard-urilor, funcțional fără conexiune permanentă</li>
+                                                <li><strong>Rotație programată</strong> pentru accesul claselor la tabla interactivă pentru sesiunile de analiză</li>
+                                            </ul>
+                                            <p>Sistemul includea și o componentă de portofolii fizice organizate după structura digitală, asigurând continuitatea monitorizării chiar și fără acces la tehnologie.</p>
+                                        </div>
+                                        
+                                        <div class="case-study-results">
+                                            <h4>Rezultate</h4>
+                                            <ul>
+                                                <li>Îmbunătățirea vizibilă a motivației elevilor prin vizualizarea progresului personal</li>
+                                                <li>Creșterea participării active la orele de analiză a progresului</li>
+                                                <li>Dezvoltarea abilităților metacognitive și de auto-reglare a învățării</li>
+                                                <li>Implicarea sporită a părinților prin rapoartele periodice generate</li>
+                                            </ul>
+                                        </div>
+                                        
+                                        <div class="case-study-lessons">
+                                            <h4>Lecții învățate</h4>
+                                            <p>Profesorul coordonator Alexandru Mureșan notează: "Am descoperit că nu ai nevoie de tehnologie avansată pentru a implementa un sistem eficient de monitorizare. Cheia este consistența procesului și implicarea elevilor în interpretarea datelor, nu complexitatea instrumentelor."</p>
+                                            <p>Recomandări pentru contexte similare:</p>
+                                            <ul>
+                                                <li>Focalizarea pe câteva competențe esențiale pentru monitorizare, nu încercarea de a urmări totul</li>
+                                                <li>Dezvoltarea unei rutine clare care alternează colectarea datelor (offline) cu analiza acestora (la tabla interactivă)</li>
+                                                <li>Formarea elevilor pentru auto-monitorizare și utilizarea eficientă a sesiunilor cu tabla interactivă</li>
+                                                <li>Crearea unui sistem modular care poate fi extins pe măsură ce resursele cresc</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Concluzie -->
+                        <div class="lesson-section">
+                            <h2 class="lesson-section-title">Concluzie</h2>
+                            <div class="lesson-text">
+                                <p>Monitorizarea progresului elevilor cu ajutorul tablei interactive și al platformelor digitale reprezintă mai mult decât o simplă colectare de date - este un proces transformativ care poate redefini întreaga experiență de învățare. Prin vizualizarea clară a traseului educațional, elevii își dezvoltă metacogniția și autonomia, iar profesorii pot personaliza intervenții și oferi feedback mai relevant și la timp.</p>
+                                
+                                <p>Principalele învățăminte din această lecție includ:</p>
+                                <ul>
+                                    <li>Valoarea integrării dintre tabla interactivă și platformele digitale pentru a crea un ecosistem coerent de monitorizare</li>
+                                    <li>Importanța vizualizărilor interactive care transformă datele abstracte în reprezentări semnificative și acționabile</li>
+                                    <li>Necesitatea implicării active a elevilor în procesul de monitorizare și interpretare a propriului progres</li>
+                                    <li>Adaptabilitatea sistemelor de monitorizare la diverse contexte și resurse disponibile</li>
+                                    <li>Valoarea abordării holistice care monitorizează atât rezultatele, cât și procesele de învățare</li>
+                                </ul>
+                                
+                                <div class="checklist-box">
+                                    <div class="box-title">
+                                        <i class="fas fa-clipboard-check"></i>
+                                        Pași pentru implementare
+                                    </div>
+                                    <div class="checklist">
+                                        <div class="checklist-item">
+                                            <input type="checkbox" id="check1">
+                                            <label for="check1">Evaluați sursele existente de date despre progresul elevilor și instrumentele disponibile</label>
+                                        </div>
+                                        <div class="checklist-item">
+                                            <input type="checkbox" id="check2">
+                                            <label for="check2">Dezvoltați un dashboard de bază pentru monitorizarea a 2-3 competențe esențiale</label>
+                                        </div>
+                                        <div class="checklist-item">
+                                            <input type="checkbox" id="check3">
+                                            <label for="check3">Implementați o rutină săptămânală de analiză a progresului folosind tabla interactivă</label>
+                                        </div>
+                                        <div class="checklist-item">
+                                            <input type="checkbox" id="check4">
+                                            <label for="check4">Implicați elevii prin crearea de obiective personalizate și auto-monitorizare</label>
+                                        </div>
+                                        <div class="checklist-item">
+                                            <input type="checkbox" id="check5">
+                                            <label for="check5">Dezvoltați un sistem simplu de feedback bazat pe datele de monitorizare</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <p>În lecția următoare, vom explora cum să analizăm datele colectate prin aceste sisteme de monitorizare și să adaptăm predarea în funcție de insight-urile obținute, maximizând impactul asupra învățării elevilor.</p>
+                                
+                                <div class="info-box">
+                                    <div class="box-title">
+                                        <i class="fas fa-info-circle"></i>
+                                        Reflecție personală
+                                    </div>
+                                    <p>Pentru a aplica conceptele din această lecție, reflectați asupra următoarelor întrebări:</p>
+                                    <ul>
+                                        <li>Cum ați putea adapta sistemele de monitorizare prezentate la contextul specific al școlii și al claselor dvs.?</li>
+                                        <li>Ce tip de vizualizări ar fi cele mai relevante pentru disciplina și nivelul elevilor cu care lucrați?</li>
+                                        <li>Cum ați putea implica elevii în procesul de monitorizare pentru a dezvolta autonomia și metacogniția?</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Navigare între lecții -->
+                        <div class="lesson-navigation">
+                            <div class="nav-prev">
+                                <a href="/modules/module6/lesson1.html" class="lesson-nav-button prev">
+                                    <i class="fas fa-arrow-left"></i>
+                                    Înapoi la Lecția 1
+                                </a>
+                            </div>
+                            
+                            <div class="nav-next">
+                                <a href="/modules/module6/lesson3.html" class="lesson-nav-button next">
+                                    Continuă cu Lecția 3
+                                    <i class="fas fa-arrow-right"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </main>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer placeholder -->
+    <div id="footer-placeholder"></div>
+    
+    <script src="/js/main.js"></script>
+    <script src="/js/modules.js"></script>
+    <script src="/js/activity-scripts.js"></script>
 </body>
 </html>

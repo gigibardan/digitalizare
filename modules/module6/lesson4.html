@@ -1,87 +1,902 @@
 <!DOCTYPE html>
 <html lang="ro">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Pagina în construcție | TechMinds Academy</title>
-  <link rel="stylesheet" href="/css/main.css">
-  <link rel="stylesheet" href="/css/responsive.css">
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
-  <style>
-    body {
-      font-family: 'Roboto', sans-serif;
-      margin: 0;
-      background-color: #f7f9fb;
-      color: #333;
-      display: flex;
-      flex-direction: column;
-      min-height: 100vh;
-    }
-
-    .construction-wrapper {
-      flex: 1;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 60px 20px;
-      text-align: center;
-      flex-direction: column;
-    }
-
-    .construction-svg {
-      max-width: 300px;
-      margin-bottom: 30px;
-    }
-
-    h1 {
-      font-size: 2rem;
-      margin-bottom: 10px;
-      color: #2c3e50;
-    }
-
-    p {
-      font-size: 1.1rem;
-      margin-bottom: 25px;
-      color: #555;
-    }
-
-    .home-button {
-      background-color: #007bff;
-      color: white;
-      border: none;
-      padding: 12px 24px;
-      border-radius: 6px;
-      text-decoration: none;
-      font-weight: 500;
-      transition: background-color 0.3s ease;
-    }
-
-    .home-button:hover {
-      background-color: #0056b3;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lecția 4: Tehnici inovative de evaluare formativă și sumativă | TechMinds Academy</title>
+    <meta name="description" content="Explorează tehnici moderne și interactive pentru evaluarea formativă și sumativă, utilizând tabla interactivă și instrumentele digitale pentru a crea experiențe de evaluare autentice și relevante.">
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/responsive.css">
+    <link rel="stylesheet" href="/css/module.css">
+    <link rel="stylesheet" href="/css/lesson.css">
+    <link rel="stylesheet" href="/css/activity-styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
 </head>
 <body>
-  <!-- Header -->
-  <div id="header-placeholder"></div>
-
-  <div class="construction-wrapper">
-    <svg class="construction-svg" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 300 200">
-      <path fill="#F4A261" d="M150 0l30 60h-60l30-60zM60 180h180v20H60v-20z"/>
-      <path fill="#2A9D8F" d="M90 80h120v80H90V80z"/>
-      <path fill="#264653" d="M110 100h20v40h-20v-40zm60 0h20v40h-20v-40z"/>
-      <circle cx="75" cy="190" r="10" fill="#E76F51"/>
-      <circle cx="225" cy="190" r="10" fill="#E76F51"/>
-    </svg>
-    <h1>Pagina este în construcție</h1>
-    <p>Conținutul acestei lecții va fi disponibil în curând. Îți mulțumim pentru răbdare!</p>
-    <a href="/index.html" class="home-button"><i class="fas fa-home"></i> Revenire la homepage</a>
-  </div>
-
-  <!-- Footer -->
-  <div id="footer-placeholder"></div>
-
-      <script src="/js/main.js"></script>
-
+    <!-- Header placeholder -->
+    <div id="header-placeholder"></div>
+    
+    <!-- Header lecție -->
+    <section class="lesson-header">
+        <div class="container">
+            <div class="lesson-breadcrumbs">
+                <a href="/index.html">Acasă</a>
+                <span class="separator">/</span>
+                <a href="/modules/module6/index.html">Modul 6: Evaluare și feedback digital</a>
+                <span class="separator">/</span>
+                <span>Lecția 4: Tehnici inovative de evaluare formativă și sumativă</span>
+            </div>
+            <h1>Lecția 4: Tehnici inovative de evaluare formativă și sumativă</h1>
+            <p>Descoperă abordări moderne și creative pentru evaluarea competențelor și cunoștințelor elevilor, folosind tabla interactivă și instrumentele digitale pentru a transforma evaluarea într-o experiență autentică, motivantă și relevantă pentru lumea reală.</p>
+        </div>
+    </section>
+    
+    <!-- Conținut principal lecție -->
+    <section class="lesson-layout">
+        <div class="container">
+            <div class="lesson-layout">
+                <!-- Sidebar -->
+                <aside class="lesson-sidebar">
+                    <!-- Progres modul -->
+                    <div class="sidebar-card">
+                        <div class="sidebar-card-header">
+                            Progres Modul 6
+                        </div>
+                        <div class="sidebar-card-content">
+                            <div class="module-progress">
+                                <div class="progress-text">
+                                    <span>Lecția 4 din 4</span>
+                                    <span>100%</span>
+                                </div>
+                                <div class="progress-bar">
+                                    <div class="progress-fill" style="width: 100%;"></div>
+                                </div>
+                            </div>
+                            
+                            <ul class="module-lessons-list">
+                                <li class="completed">
+                                    <a href="/modules/module6/lesson1.html">
+                                        <div class="lesson-number-indicator">1</div>
+                                        <div class="lesson-title-text">Instrumente pentru evaluare online</div>
+                                        <div class="lesson-completed-indicator">
+                                            <i class="fas fa-check"></i>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li class="completed">
+                                    <a href="/modules/module6/lesson2.html">
+                                        <div class="lesson-number-indicator">2</div>
+                                        <div class="lesson-title-text">Monitorizarea progresului elevilor</div>
+                                        <div class="lesson-completed-indicator">
+                                            <i class="fas fa-check"></i>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li class="completed">
+                                    <a href="/modules/module6/lesson3.html">
+                                        <div class="lesson-number-indicator">3</div>
+                                        <div class="lesson-title-text">Analiza datelor și adaptarea predării</div>
+                                        <div class="lesson-completed-indicator">
+                                            <i class="fas fa-check"></i>
+                                        </div>
+                                    </a>
+                                </li>
+                                <li class="active">
+                                    <a href="/modules/module6/lesson4.html">
+                                        <div class="lesson-number-indicator">4</div>
+                                        <div class="lesson-title-text">Tehnici inovative de evaluare</div>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <!-- Resurse lecție -->
+                    <div class="sidebar-card">
+                        <div class="sidebar-card-header">
+                            Resurse lecție
+                        </div>
+                        <div class="sidebar-card-content">
+                            <ul class="lesson-resources-list">
+                                <li>
+                                    <a href="/assets/docs/tehnici_evaluare_inovativa.pdf" download>
+                                        <i class="fas fa-file-pdf"></i>
+                                        <span>Ghid complet tehnici evaluare inovativă</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="/assets/docs/template_evaluare_autentica.pdf" download>
+                                        <i class="fas fa-file-pdf"></i>
+                                        <span>Template pentru evaluare autentică</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href="/assets/docs/rubrics_digitale.pdf" download>
+                                        <i class="fas fa-file-pdf"></i>
+                                        <span>Colecție de rubrici digitale</span>
+                                    </a>
+                                </li>
+                                
+                            </ul>
+                        </div>
+                    </div>
+                </aside>
+                
+                <!-- Conținut principal -->
+                <main class="lesson-main-contentt">
+                    <div class="lesson-content">
+                        <!-- Introducere -->
+                        <div class="lesson-section">
+                            <h2 class="lesson-section-title">Reconceptualizarea evaluării pentru era digitală</h2>
+                            <div class="lesson-text">
+                                <p>Evaluarea educațională traversează o perioadă de transformare profundă, trecând de la abordările tradiționale, standardizate și unidimensionale, către modalități de evaluare mai autentice, personalizate și integrate în procesul de învățare. Tehnologiile digitale, inclusiv tabla interactivă, oferă oportunități fără precedent pentru a reimagina evaluarea ca experiență ce dezvoltă competențe, stimulează creativitatea și reflectă contextele din lumea reală.</p>
+                                
+                                <p>În această lecție, vom explora tehnici inovative de evaluare formativă și sumativă care depășesc simpla verificare a cunoștințelor și se concentrează pe măsurarea și dezvoltarea competențelor complexe necesare în secolul XXI. Ne vom concentra pe modul în care tabla interactivă poate deveni un hub central pentru implementarea acestor tehnici de evaluare, facilitând interactivitate, colaborare și feedback imediat.</p>
+                                
+                                <div class="info-box">
+                                    <div class="box-title">
+                                        <i class="fas fa-info-circle"></i>
+                                        Caracteristicile evaluării de calitate în era digitală
+                                    </div>
+                                    <ul>
+                                        <li><strong>Autenticitate</strong> - Reflectă sarcini și contexte din lumea reală, nu doar situații abstracte sau izolate</li>
+                                        <li><strong>Integralitate</strong> - Evaluează procesul și produsul, nu doar rezultatul final</li>
+                                        <li><strong>Multidimensionalitate</strong> - Măsoară multiple competențe și niveluri cognitive simultan</li>
+                                        <li><strong>Interactivitate</strong> - Oferă oportunități de răspuns, adaptare și aprofundare în timp real</li>
+                                        <li><strong>Transparență</strong> - Clarifică criteriile, așteptările și procesul de evaluare pentru toți participanții</li>
+                                        <li><strong>Colaborare</strong> - Include oportunități de evaluare între colegi și autoevaluare</li>
+                                        <li><strong>Relevanță</strong> - Are semnificație și aplicabilitate directă pentru dezvoltarea personală și profesională a elevului</li>
+                                    </ul>
+                                </div>
+                                
+                                <div class="quote-box">
+                                    <div class="quote-content">
+                                        <p>"Evaluarea nu ar trebui să fie un eveniment, ci un proces. Nu ar trebui să fie un verdict, ci o conversație. Nu ar trebui să fie un punct final, ci o punte către învățarea viitoare."</p>
+                                    </div>
+                                    <div class="quote-author">
+                                        Revista de Pedagogie Digitală, 2024
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Secțiunea 1: Evaluare formativă inovativă -->
+                        <div class="lesson-section">
+                            <h2 class="lesson-section-title">Evaluare formativă inovativă: Strategii și implementare</h2>
+                            <div class="lesson-text">
+                                <p>Evaluarea formativă reprezintă procesul continuu de monitorizare și ghidare a învățării, oferind feedback constructiv și oportunități de ajustare înainte de evaluările sumative. Tehnicile inovative de evaluare formativă valorifică potențialul tehnologiei pentru a face acest proces mai interactiv, personalizat și eficient, permițând profesorilor să identifice rapid nevoile și să adapteze predarea în timp real.</p>
+                                
+                                <h3>Tehnici inovative pentru evaluarea formativă digitală</h3>
+                                
+                                <div class="strategy-card">
+                                    <div class="strategy-icon">
+                                        <i class="fas fa-comments"></i>
+                                    </div>
+                                    <div class="strategy-content">
+                                        <h3>Sisteme de răspuns interactiv în timp real</h3>
+                                        <p>Tehnici care permit colectarea instantanee a răspunsurilor de la toți elevii simultan, oferind o imagine comprehensivă a înțelegerii clasei în timpul lecției.</p>
+                                        <div class="strategy-details">
+                                            <p><strong>Implementare cu tabla interactivă:</strong></p>
+                                            <ul>
+                                                <li>Integrați instrumente precum Mentimeter, Poll Everywhere sau Slido direct în prezentările de pe tabla interactivă</li>
+                                                <li>Creați întrebări cu răspuns multiplu, nori de cuvinte sau scale de evaluare care apar pe tabla interactivă</li>
+                                                <li>Permiteți elevilor să răspundă de pe dispozitivele proprii sau de pe tabletele școlare</li>
+                                                <li>Afișați rezultatele agregate în timp real pe tabla interactivă pentru analiză colectivă</li>
+                                                <li>Utilizați funcționalitățile de adnotare pentru a evidenția tendințe și a discuta misconceptiile identificate</li>
+                                            </ul>
+                                            <p><strong>Exemplu practic:</strong> În timpul unei lecții de chimie despre reacții, profesorul prezintă un experiment și adresează întrebări conceptuale la fiecare etapă. Elevii răspund pe dispozitivele lor, iar rezultatele sunt afișate instantaneu pe tabla interactivă. Profesorul poate astfel identifica zonele de confuzie în timp real și ajusta explicațiile înainte de a continua.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="strategy-card">
+                                    <div class="strategy-icon">
+                                        <i class="fas fa-map-marked-alt"></i>
+                                    </div>
+                                    <div class="strategy-content">
+                                        <h3>Hărți conceptuale interactive și colaborative</h3>
+                                        <p>Utilizarea reprezentărilor vizuale pentru a evalua înțelegerea relațiilor dintre concepte și structura cognitivă a elevilor.</p>
+                                        <div class="strategy-details">
+                                            <p><strong>Implementare cu tabla interactivă:</strong></p>
+                                            <ul>
+                                                <li>Utilizați software-ul tablei interactive sau instrumente precum Miro, MindMeister sau Lucidchart pentru crearea hărților conceptuale</li>
+                                                <li>Începeți cu un concept central și invitați elevii să adauge conexiuni și relații, direct pe tablă sau de pe dispozitivele lor</li>
+                                                <li>Implementați coduri de culori pentru diferite tipuri de relații sau nivele de înțelegere</li>
+                                                <li>Permiteți adăugarea de comentarii, întrebări sau evidențe pentru fiecare conexiune</li>
+                                                <li>Salvați versiuni succesive ale hărții pentru a documenta evoluția înțelegerii în timp</li>
+                                            </ul>
+                                            <p><strong>Exemplu practic:</strong> La finalul unei unități despre ecosisteme, elevii construiesc colaborativ o hartă conceptuală pe tabla interactivă, ilustrând relațiile dintre diferite organisme și factori abiotici. Profesorul poate evalua înțelegerea relațiilor de cauzalitate, a ciclurilor și interdependențelor, identificând conceptele care necesită clarificare suplimentară.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="strategy-card">
+                                    <div class="strategy-icon">
+                                        <i class="fas fa-film"></i>
+                                    </div>
+                                    <div class="strategy-content">
+                                        <h3>Video interactiv cu verificări de înțelegere integrate</h3>
+                                        <p>Transformarea conținutului video într-o experiență de învățare activă, cu evaluări formative încorporate la momente strategice.</p>
+                                        <div class="strategy-details">
+                                            <p><strong>Implementare cu tabla interactivă:</strong></p>
+                                            <ul>
+                                                <li>Utilizați instrumente precum EdPuzzle, H5P sau PlayPosit pentru a insera întrebări interactive în videoclipuri</li>
+                                                <li>Programați opriri automate la momente cheie, unde elevii trebuie să răspundă la întrebări sau să rezolve probleme</li>
+                                                <li>Afișați videoclipul interactiv pe tabla interactivă pentru vizionare colectivă sau permiteți accesul individual</li>
+                                                <li>Colectați răspunsurile și afișați-le în timp real pentru discuție și clarificare</li>
+                                                <li>Utilizați datele colectate pentru a identifica punctele care necesită reexplicare sau aprofundare</li>
+                                            </ul>
+                                            <p><strong>Exemplu practic:</strong> Un videoclip despre Revoluția Franceză include opriri strategice unde elevii trebuie să anticipeze consecințele unui eveniment, să explice cauzalitatea sau să facă conexiuni cu alte evenimente istorice. Răspunsurile sunt colectate și afișate pe tabla interactivă pentru analiză și discuție în clasă.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="strategy-card">
+                                    <div class="strategy-icon">
+                                        <i class="fas fa-gamepad"></i>
+                                    </div>
+                                    <div class="strategy-content">
+                                        <h3>Evaluare bazată pe joc (Game-based assessment)</h3>
+                                        <p>Utilizarea mecanismelor și elementelor de joc pentru a evalua competențele și cunoștințele într-un mod angajant și motivant.</p>
+                                        <div class="strategy-details">
+                                            <p><strong>Implementare cu tabla interactivă:</strong></p>
+                                            <ul>
+                                                <li>Creați sau adaptați jocuri educaționale interactive compatibile cu tabla interactivă (Kahoot, Quizizz, Blooket)</li>
+                                                <li>Dezvoltați aventuri interactive unde progresul este condiționat de demonstrarea competențelor specifice</li>
+                                                <li>Implementați sisteme de puncte, insigne și clasamente pentru a motiva participarea</li>
+                                                <li>Utilizați tabla interactivă pentru a afișa progresul colectiv și rezultatele</li>
+                                                <li>Încorporați feedback-ul direct în mecanismele jocului, oferind explicații pentru răspunsurile corecte și incorecte</li>
+                                            </ul>
+                                            <p><strong>Exemplu practic:</strong> Pentru recapitularea operațiilor matematice, creați un joc de tipul "escape room" digital pe tabla interactivă, unde echipele de elevi trebuie să rezolve probleme matematice pentru a debloca indicii și a avansa. Jocul oferă feedback imediat și colectează date despre performanța la diferite tipuri de probleme.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="info-box">
+                                    <div class="box-title">
+                                        <i class="fas fa-info-circle"></i>
+                                        Principii pentru implementarea eficientă a evaluării formative digitale
+                                    </div>
+                                    <ul>
+                                        <li><strong>Frecvență și integrare</strong> - Încorporați evaluarea formativă în fluxul natural al lecției, nu ca activități separate</li>
+                                        <li><strong>Varietate</strong> - Alternați diferite tehnici pentru a menține angajamentul și a evalua diverse competențe</li>
+                                        <li><strong>Transparență</strong> - Comunicați clar scopul fiecărei evaluări formative și modul în care feedback-ul va fi utilizat</li>
+                                        <li><strong>Acționabilitate</strong> - Asigurați-vă că feedback-ul oferit poate fi tradus imediat în acțiuni concrete de îmbunătățire</li>
+                                        <li><strong>Participare activă</strong> - Implicați elevii în procesul de interpretare a datelor și în planificarea pașilor următori</li>
+                                        <li><strong>Low-stakes</strong> - Mențineți un nivel scăzut de presiune, concentrându-vă pe identificarea zonelor de îmbunătățire, nu pe notare</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Secțiunea 2: Evaluare sumativă inovativă -->
+                        <div class="lesson-section">
+                            <h2 class="lesson-section-title">Evaluare sumativă inovativă: Dincolo de testele tradiționale</h2>
+                            <div class="lesson-text">
+                                <p>Evaluarea sumativă măsoară nivelul de realizare a obiectivelor de învățare la finalul unei unități, semestru sau an școlar. Abordările inovative în evaluarea sumativă transcend limitele testelor tradiționale, oferind modalități complexe și autentice de a demonstra stăpânirea competențelor și aplicarea cunoștințelor în contexte relevante.</p>
+                                
+                                <h3>Abordări moderne pentru evaluarea sumativă în era digitală</h3>
+                                
+                                <div class="comparison-table">
+                                    <table>
+                                        <tr>
+                                            <th>Abordare inovativă</th>
+                                            <th>Descriere și beneficii</th>
+                                            <th>Implementare cu tabla interactivă</th>
+                                            <th>Discipline și contexte potrivite</th>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Evaluare bazată pe proiecte digitale</strong></td>
+                                            <td>
+                                                <ul>
+                                                    <li>Crearea unor produse complexe care demonstrează aplicarea cunoștințelor în contexte autentice</li>
+                                                    <li>Dezvoltă competențe de cercetare, planificare, colaborare și prezentare</li>
+                                                    <li>Permite exprimarea creativității și abordări personalizate</li>
+                                                    <li>Dezvoltă autonomia și managementul timpului</li>
+                                                </ul>
+                                            </td>
+                                            <td>
+                                                <ul>
+                                                    <li>Prezentarea și evaluarea colectivă a proiectelor pe tabla interactivă</li>
+                                                    <li>Aplicarea de rubrici digitale interactive pentru evaluare</li>
+                                                    <li>Facilitarea feedback-ului de la colegi prin adnotări și comentarii</li>
+                                                    <li>Documentarea procesului de creație prin capturi de ecran secvențiale</li>
+                                                </ul>
+                                            </td>
+                                            <td>
+                                                <ul>
+                                                    <li>Ideal pentru științe sociale, literatură, arte</li>
+                                                    <li>Eficient pentru evaluarea interdisciplinară</li>
+                                                    <li>Potrivit pentru ciclul gimnazial și liceal</li>
+                                                    <li>Adaptat pentru evaluarea competențelor de cercetare</li>
+                                                </ul>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Portofolii digitale evolutive</strong></td>
+                                            <td>
+                                                <ul>
+                                                    <li>Colecții curatate de lucrări care demonstrează progresul și realizările în timp</li>
+                                                    <li>Încurajează reflecția și metacogniția</li>
+                                                    <li>Oferă o perspectivă holistică asupra dezvoltării elevului</li>
+                                                    <li>Stimulează autonomia prin selectarea lucrărilor reprezentative</li>
+                                                </ul>
+                                            </td>
+                                            <td>
+                                                <ul>
+                                                    <li>Crearea unei galerii digitale interactive pe tabla interactivă</li>
+                                                    <li>Organizarea sesiunilor de prezentare a portofoliilor</li>
+                                                    <li>Facilitarea reflecției colective prin adnotări</li>
+                                                    <li>Compararea artefactelor din diverse etape pentru evidențierea progresului</li>
+                                                </ul>
+                                            </td>
+                                            <td>
+                                                <ul>
+                                                    <li>Versatil pentru toate disciplinele</li>
+                                                    <li>Eficient pentru arte, limbi străine și discipline tehnice</li>
+                                                    <li>Aplicabil la toate nivelurile de vârstă</li>
+                                                    <li>Ideal pentru evaluarea longitudinală</li>
+                                                </ul>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Evaluare bazată pe performanță</strong></td>
+                                            <td>
+                                                <ul>
+                                                    <li>Demonstrarea competențelor prin realizarea unor sarcini autentice în timp real</li>
+                                                    <li>Măsoară aplicarea practică a cunoștințelor, nu doar memorarea</li>
+                                                    <li>Evaluează procesul și strategiile, nu doar rezultatul final</li>
+                                                    <li>Simulează situații din lumea reală și cerințe profesionale</li>
+                                                </ul>
+                                            </td>
+                                            <td>
+                                                <ul>
+                                                    <li>Înregistrarea și analiza performanțelor pe tabla interactivă</li>
+                                                    <li>Utilizarea funcționalităților de înregistrare pentru capturarea procesului</li>
+                                                    <li>Implementarea evaluării comparative cu modele de excelență</li>
+                                                    <li>Facilitarea feedback-ului imediat și a autoevaluării</li>
+                                                </ul>
+                                            </td>
+                                            <td>
+                                                <ul>
+                                                    <li>Ideal pentru limbi străine (conversație, prezentări)</li>
+                                                    <li>Eficient pentru științe (experimente, demonstrații)</li>
+                                                    <li>Potrivit pentru matematică (rezolvare de probleme)</li>
+                                                    <li>Adaptat pentru discipline vocaționale</li>
+                                                </ul>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Simulări și scenarii interactive</strong></td>
+                                            <td>
+                                                <ul>
+                                                    <li>Plasarea elevilor în situații simulate care necesită aplicarea competențelor în contexte noi</li>
+                                                    <li>Evaluează gândirea critică, luarea deciziilor și adaptabilitatea</li>
+                                                    <li>Dezvoltă competențe de analiză a situațiilor complexe</li>
+                                                    <li>Permite experimentarea consecințelor diferitelor alegeri</li>
+                                                </ul>
+                                            </td>
+                                            <td>
+                                                <ul>
+                                                    <li>Utilizarea tablei interactive pentru prezentarea scenariilor complexe</li>
+                                                    <li>Implementarea de simulări interactive cu puncte de decizie</li>
+                                                    <li>Documentarea și analizarea parcursurilor decizionale</li>
+                                                    <li>Facilitarea reflecției post-simulare și a transferului de învățare</li>
+                                                </ul>
+                                            </td>
+                                            <td>
+                                                <ul>
+                                                    <li>Eficient pentru istorie, educație civică, etică</li>
+                                                    <li>Potrivit pentru științe, medicină, management</li>
+                                                    <li>Ideal pentru situații care implică dileme și compromisuri</li>
+                                                    <li>Adaptat pentru dezvoltarea gândirii sistemice</li>
+                                                </ul>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Creații multimedia și transmedia</strong></td>
+                                            <td>
+                                                <ul>
+                                                    <li>Dezvoltarea unor produse care integrează multiple forme media pentru a demonstra competențele</li>
+                                                    <li>Stimulează creativitatea și expresivitatea</li>
+                                                    <li>Dezvoltă competențe digitale avansate</li>
+                                                    <li>Permite abordări personalizate conform preferințelor și talentelor</li>
+                                                </ul>
+                                            </td>
+                                            <td>
+                                                <ul>
+                                                    <li>Prezentarea interactivă a creațiilor multimedia pe tabla interactivă</li>
+                                                    <li>Facilitarea navigării între diferitele componente ale proiectului</li>
+                                                    <li>Implementarea evaluării între colegi prin sesiuni interactive</li>
+                                                    <li>Evidențierea procesului creativ prin jurnal digital integrat</li>
+                                                </ul>
+                                            </td>
+                                            <td>
+                                                <ul>
+                                                    <li>Ideal pentru literatură, artă, comunicare</li>
+                                                    <li>Eficient pentru proiecte interdisciplinare</li>
+                                                    <li>Potrivit pentru gimnaziu și liceu</li>
+                                                    <li>Adaptat pentru teme complexe cu multiple perspective</li>
+                                                </ul>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
+                                
+                                <h3>Implementarea rubrici lor digitale pentru evaluare autentică</h3>
+                                
+                                <p>Rubricile digitale reprezintă instrumente esențiale pentru asigurarea unei evaluări sistematice, transparente și echitabile a sarcinilor complexe. Integrarea acestora cu tabla interactivă transformă procesul evaluativ într-o experiență colaborativă și formativă.</p>
+                                
+                                <div class="strategy-card">
+                                    <div class="strategy-icon">
+                                        <i class="fas fa-clipboard-check"></i>
+                                    </div>
+                                    <div class="strategy-content">
+                                        <h3>Rubrici digitale interactive</h3>
+                                        <p>Matrici de evaluare digitale care definesc criteriile, nivelurile de performanță și descriptori detaliați pentru fiecare dimensiune evaluată.</p>
+                                        <div class="strategy-details">
+                                            <p><strong>Implementare cu tabla interactivă:</strong></p>
+                                            <ul>
+                                                <li>Creați rubrici vizuale și interactive utilizând software-ul tablei sau instrumente precum ForAllRubrics, Rubistar, sau Google Sheets</li>
+                                                <li>Prezentați și explicați criteriile de evaluare pe tabla interactivă la începutul proiectului</li>
+                                                <li>Utilizați tehnici de codificare cromatică pentru a diferenția nivelurile de performanță</li>
+                                                <li>Aplicați rubrica în mod transparent pe tabla interactivă în timpul evaluării, evidențiind zonele de excelență și cele care necesită îmbunătățire</li>
+                                               <li>Implicați elevii în procesul de feedback și autoevaluare utilizând copia digitală a rubricii</li>
+                                           </ul>
+                                           <p><strong>Exemplu practic:</strong> Pentru evaluarea unui proiect de cercetare la istorie, creați o rubrică digitală cu criteriile: calitatea cercetării, argumentarea, utilizarea surselor, prezentarea vizuală și gândirea critică. Pe tabla interactivă, prezentați exemple concrete pentru fiecare nivel de performanță și folosiți rubrica pentru a evalua împreună cu elevii câteva proiecte model.</p>
+                                       </div>
+                                   </div>
+                               </div>
+                               
+                               <div class="activity-card">
+                                   <div class="activity-header">
+                                       <h3>Activitate: Proiectarea unei evaluări autentice cu suportul tablei interactive</h3>
+                                       <div class="activity-badges">
+                                           <span class="subject-badge">Toate disciplinele</span>
+                                           <span class="time-badge">60-70 minute</span>
+                                       </div>
+                                   </div>
+                                   <div class="activity-content">
+                                       <div class="activity-description">
+                                           <h4>Descriere</h4>
+                                           <p>În această activitate, veți dezvolta o evaluare sumativă inovativă pentru o unitate de învățare la alegere, folosind tabla interactivă ca instrument central atât pentru proiectare, cât și pentru implementare și evaluare.</p>
+                                       </div>
+                                       
+                                       <div class="activity-implementation">
+                                           <h4>Pregătire</h4>
+                                           <ol>
+                                               <li><strong>Selectarea unității de învățare:</strong> Alegeți o unitate de învățare sau un modul tematic care se pretează la o evaluare complexă și autentică.</li>
+                                               <li><strong>Identificarea competențelor cheie:</strong> Definiți 3-5 competențe esențiale pe care doriți să le evaluați în cadrul unității respective.</li>
+                                               <li><strong>Explorarea contextelor autentice:</strong> Identificați situații din lumea reală în care competențele respective sunt aplicate și valorificate.</li>
+                                           </ol>
+                                           
+                                           <h4>Desfășurarea activității</h4>
+                                           <ol>
+                                               <li><strong>Definirea proiectului de evaluare (15 min):</strong>
+                                                   <ul>
+                                                       <li>Creați pe tabla interactivă o hartă conceptuală a evaluării, incluzând: obiectivele, competențele vizate, produsul final și etapele procesului</li>
+                                                       <li>Formulați o provocare autentică sau un scenariu care va constitui contextul evaluării</li>
+                                                       <li>Definiți produsul sau performanța așteptată de la elevi (ex: proiect digital, simulare, prezentare multimedia)</li>
+                                                   </ul>
+                                               </li>
+                                               <li><strong>Dezvoltarea rubricilor de evaluare (20 min):</strong>
+                                                   <ul>
+                                                       <li>Utilizați un template digital pe tabla interactivă pentru a crea rubrica de evaluare</li>
+                                                       <li>Definiți 4-6 criterii specifice de evaluare aliniate cu competențele vizate</li>
+                                                       <li>Pentru fiecare criteriu, specificați 3-4 niveluri de performanță cu descriptori detaliați</li>
+                                                       <li>Stabiliți ponderea fiecărui criteriu în evaluarea globală</li>
+                                                   </ul>
+                                               </li>
+                                               <li><strong>Planificarea integrării tablei interactive (15 min):</strong>
+                                                   <ul>
+                                                       <li>Identificați punctele din proces unde tabla interactivă va fi utilizată (prezentare, colaborare, feedback, evaluare)</li>
+                                                       <li>Dezvoltați template-uri și materiale digitale necesare pentru fiecare etapă</li>
+                                                       <li>Planificați metode de documentare a procesului folosind funcționalitățile tablei</li>
+                                                       <li>Creați un sistem de gestionare a artefactelor digitale produse de elevi</li>
+                                                   </ul>
+                                               </li>
+                                               <li><strong>Testarea și simularea procesului (15 min):</strong>
+                                                   <ul>
+                                                       <li>Simulați implementarea evaluării cu un mic grup de colegi sau voluntari</li>
+                                                       <li>Testați funcționalitățile tablei interactive și fluxul de activități</li>
+                                                       <li>Colectați feedback și identificați potențiale provocări sau obstacole</li>
+                                                       <li>Ajustați designul evaluării și materialele în funcție de feedback</li>
+                                                   </ul>
+                                               </li>
+                                           </ol>
+                                       </div>
+                                       
+                                       <div class="activity-resources">
+                                           <h4>Resurse necesare</h4>
+                                           <ul>
+                                               <li>Tablă interactivă cu software actualizat</li>
+                                               <li>Template-uri pentru rubrici (disponibile în resursele lecției)</li>
+                                               <li>Exemple de evaluări autentice în domeniul dvs. de specialitate</li>
+                                               <li>Standardele și competențele specifice disciplinei</li>
+                                               <li>Instrumente complementare pentru crearea materialelor digitale</li>
+                                           </ul>
+                                       </div>
+                                       
+                                       <div class="activity-adaptations">
+                                           <h4>Adaptări pentru diferite contexte</h4>
+                                           <ul>
+                                               <li><strong>Pentru învățământul primar:</strong> Simplificați rubricile și utilizați mai multe elemente vizuale; concentrați-vă pe proiecte practice sau demonstrații</li>
+                                               <li><strong>Pentru discipline STEM:</strong> Includeți evaluarea procesului de rezolvare a problemelor și gândirea algoritmică; valorificați simulările și modelările</li>
+                                               <li><strong>Pentru arte și discipline umaniste:</strong> Puneți accent pe creativitate și expresivitate; folosiți portofolii digitale și prezentări multimedia</li>
+                                               <li><strong>Pentru învățământ profesional:</strong> Concentrați-vă pe simularea situațiilor din mediul de lucru real și evaluarea competențelor practice specifice</li>
+                                               <li><strong>Fără tablă interactivă:</strong> Utilizați alternative precum Google Jamboard sau Miro pentru proiectare colaborativă virtuală</li>
+                                           </ul>
+                                       </div>
+                                   </div>
+                               </div>
+                           </div>
+                       </div>
+                       
+                       <!-- Secțiunea 3: Tehnici de feedback inovativ -->
+                       <div class="lesson-section">
+                           <h2 class="lesson-section-title">Tehnici de feedback inovativ: Dincolo de notare</h2>
+                           <div class="lesson-text">
+                               <p>Feedback-ul eficient reprezintă componenta cea mai valoroasă a procesului de evaluare, transformând rezultatele în oportunități de învățare și dezvoltare. Abordările inovative de feedback depășesc simpla notare sau comentariile generice, oferind insight-uri personalizate, acționabile și orientate spre creștere.</p>
+                               
+                               <h3>Strategii de feedback digital augmentat</h3>
+                               
+                               <div class="strategy-card">
+                                   <div class="strategy-icon">
+                                       <i class="fas fa-microphone"></i>
+                                   </div>
+                                   <div class="strategy-content">
+                                       <h3>Feedback audio și video personalizat</h3>
+                                       <p>Utilizarea înregistrărilor audio sau video pentru a oferi feedback nuanțat, expresiv și detaliat, care transmite mai multe informații decât textul scris.</p>
+                                       <div class="strategy-details">
+                                           <p><strong>Implementare cu tabla interactivă:</strong></p>
+                                           <ul>
+                                               <li>Utilizați funcționalitățile de înregistrare ale tablei interactive pentru a captura feedback audio-video</li>
+                                               <li>Creați adnotări vocale direct pe lucrările elevilor afișate pe tablă</li>
+                                               <li>Dezvoltați o bibliotecă de înregistrări pentru tipurile comune de feedback, care pot fi reutilizate</li>
+                                               <li>Permiteți elevilor să acceseze feedback-ul prin coduri QR sau linkuri asociate cu lucrările lor</li>
+                                               <li>Facilitați dialogul prin răspunsuri audio ale elevilor la feedback-ul primit</li>
+                                           </ul>
+                                           <p><strong>Exemplu practic:</strong> Pentru o compunere literară, afișați textul pe tabla interactivă și înregistrați un feedback video în care evidențiați punctele forte și sugestiile de îmbunătățire, demonstrând concret exemple și alternative. Elevii pot accesa aceste înregistrări oricând au nevoie să revadă sugestiile, păstrând nuanțele și tonul încurajator al comunicării.</p>
+                                       </div>
+                                   </div>
+                               </div>
+                               
+                               <div class="strategy-card">
+                                   <div class="strategy-icon">
+                                       <i class="fas fa-comments-dollar"></i>
+                                   </div>
+                                   <div class="strategy-content">
+                                       <h3>Feedback bazat pe date și vizualizări</h3>
+                                       <p>Utilizarea reprezentărilor vizuale și a analizelor de date pentru a oferi o perspectivă obiectivă și ușor de înțeles asupra performanței și progresului.</p>
+                                       <div class="strategy-details">
+                                           <p><strong>Implementare cu tabla interactivă:</strong></p>
+                                           <ul>
+                                               <li>Creați dashboard-uri personalizate care afișează date relevante despre performanța elevului</li>
+                                               <li>Dezvoltați vizualizări comparative între performanța actuală și obiectivele stabilite</li>
+                                               <li>Implementați grafice de progres care evidențiază evoluția în timp</li>
+                                               <li>Utilizați hărți de căldură pentru a identifica zonele de excelență și cele care necesită îmbunătățire</li>
+                                               <li>Facilitați analize de tip "what-if" pentru a explora impactul potențial al diverselor strategii de îmbunătățire</li>
+                                           </ul>
+                                           <p><strong>Exemplu practic:</strong> După o serie de evaluări la matematică, creați pe tabla interactivă un dashboard personalizat pentru fiecare elev, evidențiind performanța pe diferite tipuri de probleme, evoluția scorurilor și comparații cu obiectivele stabilite. Discutați aceste vizualizări individual cu elevii, identificând împreună strategii specifice de îmbunătățire.</p>
+                                       </div>
+                                   </div>
+                               </div>
+                               
+                               <div class="strategy-card">
+                                   <div class="strategy-icon">
+                                       <i class="fas fa-exchange-alt"></i>
+                                   </div>
+                                   <div class="strategy-content">
+                                       <h3>Feedback bidirecțional și dialog evaluativ</h3>
+                                       <p>Transformarea feedback-ului dintr-un monolog într-un dialog constructiv care implică activ elevul în procesul de analiză și îmbunătățire.</p>
+                                       <div class="strategy-details">
+                                           <p><strong>Implementare cu tabla interactivă:</strong></p>
+                                           <ul>
+                                               <li>Creați spații digitale de dialog pe tabla interactivă, unde feedback-ul poate fi discutat și negociat</li>
+                                               <li>Implementați sisteme de întrebări și răspunsuri legate de feedback-ul oferit</li>
+                                               <li>Utilizați tehnici de adnotare colaborativă pentru identificarea zonelor de acord și dezacord</li>
+                                               <li>Facilitați sesiuni de conferință individuală folosind tabla interactivă ca spațiu de lucru comun</li>
+                                               <li>Documentați dialogul evaluativ pentru referințe ulterioare și pentru a urmări implementarea sugestiilor</li>
+                                           </ul>
+                                           <p><strong>Exemplu practic:</strong> După un proiect de grup, organizați sesiuni de feedback pe tabla interactivă unde atât profesorul cât și elevii contribuie cu observații și sugestii. Creați o zonă dedicată pe tablă pentru comentariile profesorului, una pentru autoevaluarea grupului și una pentru feedback-ul de la colegi, facilitând apoi o discuție integrativă bazată pe toate perspectivele.</p>
+                                       </div>
+                                   </div>
+                               </div>
+                               
+                               <div class="strategy-card">
+                                   <div class="strategy-icon">
+                                       <i class="fas fa-forward"></i>
+                                   </div>
+                                   <div class="strategy-content">
+                                       <h3>Feedforward: Strategii concrete pentru îmbunătățire</h3>
+                                       <p>Depășirea feedback-ului retrospectiv prin oferirea de orientări specifice și acționabile pentru dezvoltarea viitoare.</p>
+                                       <div class="strategy-details">
+                                           <p><strong>Implementare cu tabla interactivă:</strong></p>
+                                           <ul>
+                                               <li>Dezvoltați template-uri de planificare a acțiunilor viitoare pe tabla interactivă</li>
+                                               <li>Creați biblioteci de strategii specifice pentru diverse tipuri de îmbunătățiri</li>
+                                               <li>Implementați sisteme de monitorizare a implementării strategiilor recomandate</li>
+                                               <li>Facilitați demonstrații concrete și modelări ale îmbunătățirilor sugerate</li>
+                                               <li>Organizați sesiuni de follow-up pentru a discuta progresul și a ajusta strategiile</li>
+                                           </ul>
+                                           <p><strong>Exemplu practic:</strong> După evaluarea unui eseu argumentativ, utilizați tabla interactivă pentru a crea un plan personalizat de îmbunătățire pentru fiecare elev, cu exemple concrete, exerciții specifice și resurse recomandate pentru dezvoltarea zonelor identificate. Stabiliți împreună obiective SMART și verificați progresul într-o sesiune ulterioară.</p>
+                                       </div>
+                                   </div>
+                               </div>
+                               
+                               <div class="info-box">
+                                   <div class="box-title">
+                                       <i class="fas fa-info-circle"></i>
+                                       Principii pentru feedback eficient în era digitală
+                                   </div>
+                                   <ul>
+                                       <li><strong>Specificitate</strong> - Feedback-ul trebuie să se refere la aspecte concrete ale lucrării, nu la generalități</li>
+                                       <li><strong>Acționabilitate</strong> - Comentariile trebuie să ofere direcții clare despre ce și cum poate fi îmbunătățit</li>
+                                       <li><strong>Echilibru</strong> - Un raport sănătos între aspectele pozitive identificate și cele care necesită îmbunătățire</li>
+                                       <li><strong>Promptitudine</strong> - Feedback-ul este mai eficient când este oferit cât mai aproape de momentul realizării sarcinii</li>
+                                       <li><strong>Personalizare</strong> - Adaptarea stilului și conținutului feedback-ului la profilul și nevoile specifice ale elevului</li>
+                                       <li><strong>Continuitate</strong> - Feedback-ul nu trebuie să fie un eveniment izolat, ci parte a unui dialog continuu despre învățare</li>
+                                       <li><strong>Monitorizare</strong> - Urmărirea modului în care feedback-ul a fost implementat și a impactului său asupra performanței</li>
+                                   </ul>
+                               </div>
+                           </div>
+                       </div>
+                       
+                       <!-- Secțiunea 4: Studii de caz și bune practici -->
+                       <div class="lesson-section">
+                           <h2 class="lesson-section-title">Studii de caz și bune practici</h2>
+                           <div class="lesson-text">
+                               <p>Explorarea unor exemple concrete de implementare a tehnicilor inovative de evaluare oferă inspirație și modele practice pentru adaptarea acestor abordări la contextul specific al clasei dumneavoastră.</p>
+                               
+                               <div class="case-study">
+                                   <div class="case-study-header">
+                                       <h3>Colegiu Național din Constanța</h3>
+                                       <div class="subtitle">Sistem integrat de evaluare autentică la disciplinele STEM</div>
+                                   </div>
+                                   <div class="case-study-content">
+                                       <div class="case-study-context">
+                                           <h4>Context</h4>
+                                           <p>Departamentul de științe exacte al colegiului a constatat o discrepanță între performanțele bune ale elevilor la testele standardizate și capacitatea limitată de a aplica cunoștințele în contexte reale. Echipa a decis să implementeze un sistem integrat de evaluare autentică, utilizând tabla interactivă ca hub central.</p>
+                                       </div>
+                                       
+                                       <div class="case-study-approach">
+                                           <h4>Abordare</h4>
+                                           <p>Profesorii au dezvoltat un sistem de evaluare bazat pe trei componente principale:</p>
+                                           <ul>
+                                               <li><strong>Proiecte interdisciplinare trimestriale:</strong> Provocări din lumea reală care necesită aplicarea integrată a conceptelor din matematică, fizică, chimie și biologie</li>
+                                               <li><strong>Laboratoare virtuale evaluate:</strong> Simulări interactive pe tabla interactivă unde elevii demonstrează competențe experimentale și interpretative</li>
+                                               <li><strong>Portofolii digitale evolutive:</strong> Colecții sistematice de artefacte care demonstrează progresul în dezvoltarea competențelor STEM</li>
+                                           </ul>
+                                           <p>Tabla interactivă a fost utilizată pentru:</p>
+                                           <ul>
+                                               <li>Prezentarea și explicarea detaliată a provocărilor și a criteriilor de evaluare</li>
+                                               <li>Facilitarea laboratoarelor virtuale și a simulărilor interactive</li>
+                                               <li>Evaluarea colaborativă a proiectelor, cu feedback multi-perspectivă</li>
+                                               <li>Monitorizarea și vizualizarea progresului individual și colectiv</li>
+                                               <li>Organizarea sesiunilor de prezentare și feedback între colegi</li>
+                                           </ul>
+                                       </div>
+                                       
+                                       <div class="case-study-results">
+                                           <h4>Rezultate</h4>
+                                           <ul>
+                                               <li>Creșterea cu 32% a capacității elevilor de a aplica concepte STEM în contexte noi și probleme din lumea reală</li>
+                                               <li>Îmbunătățirea semnificativă a competențelor de colaborare, comunicare și gândire critică</li>
+                                               <li>Creșterea cu 47% a numărului de elevi care raportează interes pentru cariere în domenii STEM</li>
+                                               <li>Dezvoltarea unui sentiment mai profund de autonomie și responsabilitate pentru propria învățare</li>
+                                               <li>Crearea unei comunități de practică între profesorii de discipline diferite</li>
+                                           </ul>
+                                       </div>
+                                       
+                                       <div class="case-study-lessons">
+                                           <h4>Lecții învățate</h4>
+                                           <p>Coordonatorul departamentului subliniază: "Provocarea cea mai mare a fost să trecem de la o cultură a notării la o cultură a învățării autentice. Tabla interactivă a jucat un rol esențial în această tranziție, făcând procesul de evaluare mai transparent, colaborativ și orientat spre dezvoltare."</p>
+                                           <p>Factorii critici de succes au inclus:</p>
+                                           <ul>
+                                               <li>Implicarea elevilor în definirea criteriilor de calitate și a procesului de evaluare</li>
+                                               <li>Formarea sistematică a profesorilor pentru utilizarea avansată a tablei interactive</li>
+                                               <li>Colaborarea interdisciplinară strânsă între profesorii din departament</li>
+                                               <li>Parteneriatele cu organizații și profesioniști din domeniul STEM pentru contexte autentice</li>
+                                               <li>Comunicarea constantă cu părinții despre noua abordare a evaluării</li>
+                                           </ul>
+                                       </div>
+                                   </div>
+                               </div>
+                               
+                               <div class="case-study">
+                                   <div class="case-study-header">
+                                       <h3>Școala Gimnazială din Brașov</h3>
+                                       <div class="subtitle">Evaluare formativă continuă prin tabla interactivă</div>
+                                   </div>
+                                   <div class="case-study-content">
+                                       <div class="case-study-context">
+                                           <h4>Context</h4>
+                                           <p>Profesorii de la ciclul primar au observat că evaluările tradiționale erau percepute ca evenimente stresante și izolate, cu impact limitat asupra îmbunătățirii învățării. Ei au decis să implementeze un sistem de evaluare formativă continuă, integrat organic în procesul didactic.</p>
+                                       </div>
+                                       
+                                       <div class="case-study-approach">
+                                           <h4>Abordare</h4>
+                                           <p>Echipa a dezvoltat un ecosistem de evaluare formativă având tabla interactivă ca element central:</p>
+                                           <ul>
+                                               <li><strong>Mini-evaluări digitale zilnice:</strong> Verificări rapide la începutul și finalul fiecărei lecții</li>
+                                               <li><strong>Sisteme de răspuns interactive:</strong> Utilizarea dispozitivelor de vot și a aplicațiilor de feedback instant</li>
+                                               <li><strong>Jurnale de învățare digitale:</strong> Reflecții structurate ale elevilor despre propriul proces de învățare</li>
+                                               <li><strong>Hărți de progres vizuale:</strong> Reprezentări grafice ale evoluției individuale și colective</li>
+                                           </ul>
+                                           <p>Tabla interactivă a fost utilizată pentru:</p>
+                                           <ul>
+                                               <li>Administrarea mini-evaluărilor și afișarea rezultatelor în timp real</li>
+                                               <li>Crearea și actualizarea hărților de progres individuale și colective</li>
+                                               <li>Facilitarea auto-evaluării și evaluării între colegi prin rubrici vizuale</li>
+                                               <li>Organizarea spațiului digital al clasei în zone dedicate diferitelor tipuri de feedback</li>
+                                               <li>Documentarea progresului longitudinal prin capturi periodice</li>
+                                           </ul>
+                                       </div>
+                                       
+                                       <div class="case-study-results">
+                                           <h4>Rezultate</h4>
+                                           <ul>
+                                               <li>Reducerea cu 67% a anxietății legate de evaluare, conform chestionarelor aplicate elevilor</li>
+                                               <li>Creșterea capacității de autoevaluare și reflecție metacognitivă la 86% dintre elevi</li>
+                                               <li>Îmbunătățirea semnificativă a comunicării între școală și familie privind progresul elevilor</li>
+                                               <li>Dezvoltarea unei culturi a clasei orientate spre creștere și îmbunătățire continuă</li>
+                                               <li>Creșterea capacității profesorilor de a adapta predarea în timp real, bazat pe feedback imediat</li>
+                                           </ul>
+                                       </div>
+                                       
+                                       <div class="case-study-lessons">
+                                           <h4>Lecții învățate</h4>
+                                           <p>Coordonatoarea inițiativei observă: "Transformarea tablei interactive într-un spațiu comun de evaluare și feedback a schimbat fundamental dinamica clasei. Evaluarea nu mai este ceva ce se întâmplă elevilor, ci un proces colaborativ în care toți sunt implicați activ."</p>
+                                           <p>Recomandări pentru implementare similară:</p>
+                                           <ul>
+                                               <li>Începeți cu activități simple și intuitive, adăugând treptat complexitate</li>
+                                               <li>Asigurați-vă că feedback-ul este specific, imediat și orientat spre acțiune</li>
+                                               <li>Implicați elevii în crearea și îmbunătățirea instrumentelor de evaluare</li>
+                                               <li>Mențineți un echilibru între feedback individual și feedback colectiv</li>
+                                               <li>Documentați procesul și celebrați progresul, oricât de mic</li>
+                                           </ul>
+                                       </div>
+                                   </div>
+                               </div>
+                               
+                               <h3>Recomandări pentru implementare eficientă</h3>
+                               
+                               <div class="recommendations-grid">
+                                   <div class="recommendation-item">
+                                       <div class="recommendation-icon">
+                                           <i class="fas fa-seedling"></i>
+                                       </div>
+                                       <div class="recommendation-content">
+                                           <h4>Implementare graduală și strategică</h4>
+                                           <p>Introduceți tehnicile inovative de evaluare într-un ritm sustenabil, începând cu schimbări mici dar semnificative. Tabla interactivă poate servi ca hub central pentru această transformare, permițând adăugarea treptată de noi funcționalități și abordări pe măsură ce vă dezvoltați competențele și confortul.</p>
+                                       </div>
+                                   </div>
+                                   
+                                   <div class="recommendation-item">
+                                       <div class="recommendation-icon">
+                                           <i class="fas fa-balance-scale"></i>
+                                       </div>
+                                       <div class="recommendation-content">
+                                           <h4>Echilibru între evaluarea formativă și sumativă</h4>
+                                           <p>Creați un sistem echilibrat în care evaluările formative continue informează și pregătesc pentru evaluările sumative. Utilizați tabla interactivă pentru a vizualiza și discuta această conexiune, ajutând elevii să înțeleagă cum feedback-ul formativ contribuie la succesul în evaluările finale.</p>
+                                       </div>
+                                   </div>
+                                   
+                                   <div class="recommendation-item">
+                                       <div class="recommendation-icon">
+                                           <i class="fas fa-users-cog"></i>
+                                       </div>
+                                       <div class="recommendation-content">
+                                           <h4>Comunitate profesională de învățare</h4>
+                                           <p>Colaborați cu colegii pentru dezvoltarea, testarea și rafinarea abordărilor inovative de evaluare. Organizați sesiuni regulate de sharing și analiză a practicilor, utilizând tabla interactivă pentru demonstrații și discuții structurate despre impactul diferitelor strategii.</p>
+                                       </div>
+                                   </div>
+                                   
+                                   <div class="recommendation-item">
+                                       <div class="recommendation-icon">
+                                           <i class="fas fa-hand-holding-heart"></i>
+                                       </div>
+                                       <div class="recommendation-content">
+                                           <h4>Centrare pe creștere și dezvoltare</h4>
+                                           <p>Cultivați o mentalitate orientată spre creștere în evaluare, punând accentul pe progres și îmbunătățire, nu pe judecată și clasificare. Utilizați tabla interactivă pentru a evidenția și celebra progresul individual, creând vizualizări care evidențiază evoluția în timp a competențelor, nu doar performanța de moment.</p>
+                                       </div>
+                                   </div>
+                               </div>
+                           </div>
+                       </div>
+                       
+                       <!-- Concluzie -->
+                       <div class="lesson-section">
+                           <h2 class="lesson-section-title">Concluzie</h2>
+                           <div class="lesson-text">
+                               <p>Tehnicile inovative de evaluare formativă și sumativă, augmentate de potențialul tablei interactive, transformă fundamental modul în care măsurăm, valorificăm și stimulăm învățarea. Aceste abordări moderne depășesc limitările evaluărilor tradiționale, oferind o perspectivă mai autentică, complexă și formativă asupra progresului elevilor.</p>
+                               
+                               <p>Principalele beneficii ale implementării acestor tehnici includ:</p>
+                               <ul>
+                                   <li>Tranziția evaluării de la un eveniment izolat și potențial anxiogen la un proces continuu și organic integrat în învățare</li>
+                                   <li>Dezvoltarea competențelor complexe necesare în secolul XXI, nu doar a memorării informației</li>
+                                   <li>Creșterea angajamentului și motivației elevilor prin contexte autentice și feedback constructiv</li>
+                                   <li>Valorificarea mai eficientă a tablei interactive ca instrument central pentru administrarea, vizualizarea și analiza evaluărilor</li>
+                                   <li>Cultivarea autonomiei și a competențelor metacognitive ale elevilor prin implicarea lor activă în procesul evaluativ</li>
+                                   <li>Dezvoltarea unei culturi a clasei orientate spre creștere, colaborare și învățare continuă</li>
+                               </ul>
+                               
+                               <div class="checklist-box">
+                                   <div class="box-title">
+                                       <i class="fas fa-clipboard-check"></i>
+                                       Pași pentru implementare
+                                   </div>
+                                   <div class="checklist">
+                                       <div class="checklist-item">
+                                           <input type="checkbox" id="check1">
+                                           <label for="check1">Auditați practicile actuale de evaluare și identificați oportunitățile de inovare</label>
+                                       </div>
+                                       <div class="checklist-item">
+                                           <input type="checkbox" id="check2">
+                                           <label for="check2">Dezvoltați o strategie de implementare graduală a tehnicilor inovative, începând cu evaluarea formativă</label>
+                                       </div>
+                                       <div class="checklist-item">
+                                           <input type="checkbox" id="check3">
+                                           <label for="check3">Creați un set inițial de instrumente digitale pentru evaluare, folosind funcționalitățile tablei interactive</label>
+                                       </div>
+                                       <div class="checklist-item">
+                                           <input type="checkbox" id="check4">
+                                           <label for="check4">Implementați un proiect pilot cu o tehnică inovativă și colectați feedback structurat</label>
+                                       </div>
+                                       <div class="checklist-item">
+                                           <input type="checkbox" id="check5">
+                                           <label for="check5">Dezvoltați o comunitate de practică cu colegii pentru împărtășirea experiențelor și rafinarea abordărilor</label>
+                                       </div>
+                                   </div>
+                               </div>
+                               
+                               <p>Pe măsură ce continuați să explorați și să implementați tehnicile prezentate în acest modul, veți descoperi că evaluarea poate deveni nu doar un instrument de măsurare, ci un catalizator puternic pentru învățare, motivație și dezvoltare personală. Tabla interactivă, prin versatilitatea și funcționalitățile sale, reprezintă aliatul ideal în această transformare, facilitând experiențe de evaluare interactive, personalizate și relevante pentru toți elevii.</p>
+                               
+                               <div class="info-box">
+                                   <div class="box-title">
+                                       <i class="fas fa-info-circle"></i>
+                                       Reflecție finală asupra modulului
+                                   </div>
+                                   <p>Acum, că am ajuns la finalul Modulului 6, vă invităm să reflectați asupra călătoriei de învățare parcurse:</p>
+                                   <ul>
+                                       <li>Cum a evoluat perspectiva dumneavoastră asupra evaluării pe parcursul acestui modul?</li>
+                                       <li>Care dintre tehnicile prezentate vi se pare cea mai promițătoare pentru contextul specific al clasei dumneavoastră?</li>
+                                       <li>Ce provocări anticipați în implementarea acestor abordări și cum le-ați putea depăși?</li>
+                                       <li>Cum intenționați să valorificați tabla interactivă pentru a transforma evaluarea într-o experiență mai autentică și formativă?</li>
+                                       <li>Ce pași concreți veți face în următoarele săptămâni pentru a începe implementarea ideilor din acest modul?</li>
+                                   </ul>
+                               </div>
+                           </div>
+                       </div>
+                       
+                       <!-- Navigare între lecții -->
+                       <div class="lesson-navigation">
+                           <div class="nav-prev">
+                               <a href="/modules/module6/lesson3.html" class="lesson-nav-button prev">
+                                   <i class="fas fa-arrow-left"></i>
+                                   Înapoi la Lecția 3
+                               </a>
+                           </div>
+                           
+                           <div class="nav-next">
+                               <a href="/modules/module7/lesson1.html" class="lesson-nav-button next">
+                                   Continuă cu Modulul 7
+                                   <i class="fas fa-arrow-right"></i>
+                               </a>
+                           </div>
+                       </div>
+                   </div>
+               </main>
+           </div>
+       </div>
+   </section>
+   
+   <!-- Footer placeholder -->
+   <div id="footer-placeholder"></div>
+   
+   <script src="/js/main.js"></script>
+   <script src="/js/modules.js"></script>
+   <script src="/js/activity-scripts.js"></script>
 </body>
 </html>

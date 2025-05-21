@@ -1616,3 +1616,15 @@ li.active .lesson-number {
 html {
     scroll-behavior: smooth;
 }
+.auth-btn {
+    padding: 8px 15px;
+    border-radius: 4px;
+    background-color: #1e88e5;
+    color: white !important;
+    text-decoration: none;
+    transition: background-color 0.3s;
+}
+
+.auth-btn:hover {
+    background-color: #1565c0;
+}

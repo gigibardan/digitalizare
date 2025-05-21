@@ -7,12 +7,16 @@ RewriteBase /
 # Permitem accesul direct la fișierele statice
 RewriteRule ^(css|js|assets|images|videos)/.*$ - [L]
 
-# Verificăm toate cererile HTML pentru module prin middleware.php
-RewriteRule ^modules/.*\.html$ middleware.php [L]
+# Nu aplicăm regula pentru fișierele PHP
+RewriteCond %{REQUEST_FILENAME} -f
+RewriteRule \.php$ - [L]
 
-# Permitem accesul direct la paginile din rădăcină
+# Excludem paginile publice (permite accesul direct)
 RewriteRule ^index\.html$ - [L]
-RewriteRule ^restricted\.php$ - [L]
 RewriteRule ^login\.php$ - [L]
 RewriteRule ^logout\.php$ - [L]
+RewriteRule ^restricted\.php$ - [L]
 RewriteRule ^check_auth\.php$ - [L]
+
+# Verifică toate cererile HTML pentru module prin middleware.php
+RewriteRule ^modules/.*\.html$ middleware.php [L]

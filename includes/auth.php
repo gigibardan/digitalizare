@@ -32,26 +32,11 @@ function isSessionValid() {
 // Funcție pentru verificarea dacă o pagină este publică
 function isPublicPage($page) {
     global $public_pages;
-    $page = basename($page);
+    
+    // Normalizăm calea, eliminând / de la început
+    $page = ltrim($page, '/');
+    
+    // Verificăm dacă pagina este în lista paginilor publice
     return in_array($page, $public_pages);
-}
-
-// Funcție pentru verificarea paginii curente
-function checkAccess() {
-    $current_page = basename($_SERVER['PHP_SELF']);
-    
-    // Dacă pagina este publică, permitem accesul
-    if (isPublicPage($current_page)) {
-        return true;
-    }
-    
-    // Verificăm dacă utilizatorul este autentificat
-    if (isSessionValid()) {
-        return true;
-    }
-    
-    // Utilizatorul nu este autentificat, redirecționăm la pagina restricționată
-    header('Location: /restricted.php');
-    exit();
 }
 ?>

@@ -2,17 +2,43 @@
 // resources/evaluation_api.php
 session_start();
 
-// Includ sistemul de autentificare
-require_once '../includes/auth.php';
+// Debug - să vedem ce se întâmplă
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
 
-// Verifică autentificarea folosind funcția din sistemul tău
-if (!isSessionValid()) {
-    http_response_code(401);
-    echo json_encode(['success' => false, 'message' => 'Neautentificat']);
+try {
+    // Verifică path-ul către includes/auth.php
+    $auth_path = '../includes/auth.php';
+    if (!file_exists($auth_path)) {
+        throw new Exception("Fișierul auth.php nu există la path: $auth_path");
+    }
+    require_once $auth_path;
+    
+    // Verifică autentificarea
+    if (!isSessionValid()) {
+        http_response_code(401);
+        echo json_encode(['success' => false, 'message' => 'Neautentificat']);
+        exit;
+    }
+    
+    // Verifică path-ul către config/database.php
+    $db_path = '../config/database.php';
+    if (!file_exists($db_path)) {
+        throw new Exception("Fișierul database.php nu există la path: $db_path");
+    }
+    require_once $db_path;
+    
+    // Verifică conexiunea PDO
+    if (!isset($pdo)) {
+        throw new Exception("Variabila \$pdo nu este definită după includerea database.php");
+    }
+    
+} catch (Exception $e) {
+    header('Content-Type: application/json');
+    echo json_encode(['success' => false, 'message' => 'Eroare de configurare: ' . $e->getMessage()]);
     exit;
 }
 
-require_once '../config/database.php';
 
 header('Content-Type: application/json');
 

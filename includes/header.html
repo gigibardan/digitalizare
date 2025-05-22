@@ -25,22 +25,28 @@
                 </li>
                 <li><a href="/index.html#plan" class="plan-link">Plan curs</a></li>
                 <li><a href="/resources/evaluation.html">Evaluare</a></li>
-                
+
                 <!-- Dropdown Admin (vizibil doar pentru admini) -->
+                <!-- Link admin simplu (cel vechi) -->
+                <li><a href="/admin_logs.php" id="admin-link" style="display: none;" title="Jurnal autentificări">
+                        <i class="fas fa-chart-line"></i> Admin
+                    </a></li>
+
+                <!-- Dropdown Admin (noul) -->
                 <li class="dropdown" id="admin-dropdown" style="display: none;">
                     <a href="#">
                         <i class="fas fa-shield-alt"></i> Admin
                     </a>
                     <ul class="dropdown-menu">
                         <li><a href="/admin_logs.php">
-                            <i class="fas fa-list-alt"></i> Jurnale Autentificare
-                        </a></li>
+                                <i class="fas fa-list-alt"></i> Jurnale Autentificare
+                            </a></li>
                         <li><a href="/admin/evaluation_dashboard.php">
-                            <i class="fas fa-graduation-cap"></i> Sistem Evaluare
-                        </a></li>
+                                <i class="fas fa-graduation-cap"></i> Sistem Evaluare
+                            </a></li>
                     </ul>
                 </li>
-                
+
                 <!-- Butoane autentificare/deconectare -->
                 <li><a href="/login.php" id="login-btn" class="auth-btn">Autentificare</a></li>
                 <li><a href="/logout.php" id="logout-btn" class="auth-btn" style="display: none;">Deconectare</a></li>

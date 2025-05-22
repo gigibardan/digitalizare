@@ -27,12 +27,15 @@ if (isSessionValid()) {
     echo json_encode([
         'authenticated' => true,
         'username' => $_SESSION['user'],
-        'isAdmin' => isAdmin()
+        'isAdmin' => isAdmin(),
+        'user_type' => isAdmin() ? 'admin' : 'user'  // Adăugat pentru compatibilitate
     ]);
 } else {
     echo json_encode([
         'authenticated' => false,
-        'isAdmin' => false
+        'username' => null,
+        'isAdmin' => false,
+        'user_type' => null  // Adăugat pentru compatibilitate
     ]);
 }
 exit;

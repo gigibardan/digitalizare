@@ -149,7 +149,8 @@ document.addEventListener('DOMContentLoaded', function () {
 function checkAuthStatus() {
     const loginBtn = document.getElementById('login-btn');
     const logoutBtn = document.getElementById('logout-btn');
-    const adminLink = document.getElementById('admin-link');
+    const adminLink = document.getElementById('admin-link'); // Link-ul vechi
+    const adminDropdown = document.getElementById('admin-dropdown'); // Noul dropdown
     
     if (loginBtn && logoutBtn) {
         fetch('/check_auth.php?t=' + new Date().getTime())  // Adăugăm timestamp pentru a evita cache-ul
@@ -168,11 +169,24 @@ function checkAuthStatus() {
                         usernameSpan.textContent = data.username;
                     }
                     
-                    // Verificăm dacă utilizatorul este admin și afișăm link-ul de admin
-                    if (adminLink && data.isAdmin) {
-                        adminLink.style.display = 'inline-block';
-                    } else if (adminLink) {
-                        adminLink.style.display = 'none';
+                    // Verificăm dacă utilizatorul este admin
+                    if (data.isAdmin || data.user_type === 'admin') {
+                        // Afișăm noul dropdown admin dacă există
+                        if (adminDropdown) {
+                            adminDropdown.style.display = 'block';
+                        }
+                        // Păstrăm și link-ul vechi pentru compatibilitate
+                        if (adminLink) {
+                            adminLink.style.display = 'inline-block';
+                        }
+                    } else {
+                        // Nu este admin - ascundem ambele variante
+                        if (adminDropdown) {
+                            adminDropdown.style.display = 'none';
+                        }
+                        if (adminLink) {
+                            adminLink.style.display = 'none';
+                        }
                     }
                 } else {
                     // Afișăm butonul de login și ascundem celelalte elemente
@@ -185,7 +199,10 @@ function checkAuthStatus() {
                         welcomeUser.style.display = 'none';
                     }
                     
-                    // Ascundem link-ul de admin
+                    // Ascundem toate link-urile de admin
+                    if (adminDropdown) {
+                        adminDropdown.style.display = 'none';
+                    }
                     if (adminLink) {
                         adminLink.style.display = 'none';
                     }

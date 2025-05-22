@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Evaluare Finală - Curs Digitalizare | TechMinds Academy</title>
+    <meta name="description" content="Test de evaluare pentru cursul de digitalizare și utilizarea tablei interactive în educație.">
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/responsive.css">
+    <link rel="stylesheet" href="/css/evaluation.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Header placeholder -->
+    <div id="header-placeholder"></div>
+    
+    <!-- Main Content -->
+    <section class="evaluation-section">
+        <div class="container">
+            <div class="evaluation-header">
+                <h1><i class="fas fa-graduation-cap"></i> Evaluare Finală</h1>
+                <p>Testați cunoștințele dobândite în cursul de digitalizare și utilizarea tablei interactive în educație.</p>
+            </div>
+            
+            <!-- Formularul de identificare -->
+            <div id="identification-form" class="evaluation-card">
+                <div class="card-header">
+                    <h2><i class="fas fa-user"></i> Date de identificare</h2>
+                    <p>Completați datele pentru a începe testul de evaluare</p>
+                </div>
+                <div class="card-content">
+                    <form id="student-form">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="nume"><i class="fas fa-user"></i> Nume *</label>
+                                <input type="text" id="nume" name="nume" required>
+                                <span class="error-message" id="nume-error"></span>
+                            </div>
+                            <div class="form-group">
+                                <label for="prenume"><i class="fas fa-user"></i> Prenume *</label>
+                                <input type="text" id="prenume" name="prenume" required>
+                                <span class="error-message" id="prenume-error"></span>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="cnp"><i class="fas fa-id-card"></i> CNP *</label>
+                                <input type="text" id="cnp" name="cnp" required maxlength="13" pattern="[0-9]{13}">
+                                <span class="error-message" id="cnp-error"></span>
+                                <small>Introduceți 13 cifre fără spații sau liniuțe</small>
+                            </div>
+                            <div class="form-group">
+                                <label for="institutia"><i class="fas fa-school"></i> Instituția de învățământ *</label>
+                                <input type="text" id="institutia" name="institutia" required>
+                                <span class="error-message" id="institutia-error"></span>
+                            </div>
+                        </div>
+                        <div class="form-actions">
+                            <button type="submit" class="btn btn-primary">
+                                <i class="fas fa-play"></i> Începe testul
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            
+            <!-- Testul propriu-zis -->
+            <div id="test-container" class="evaluation-card" style="display: none;">
+                <div class="card-header">
+                    <div class="test-progress">
+                        <div class="progress-info">
+                            <span id="question-counter">Întrebarea 1 din 20</span>
+                            <span id="test-timer">Timp: <span id="timer-display">00:00</span></span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" id="progress-fill" style="width: 5%;"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-content">
+                    <div id="question-container">
+                        <!-- Întrebările vor fi încărcate aici prin JavaScript -->
+                    </div>
+                    <div class="test-navigation">
+                        <button type="button" id="prev-btn" class="btn btn-secondary" disabled>
+                            <i class="fas fa-arrow-left"></i> Înapoi
+                        </button>
+                        <button type="button" id="next-btn" class="btn btn-primary">
+                            Următoarea <i class="fas fa-arrow-right"></i>
+                        </button>
+                        <button type="button" id="finish-btn" class="btn btn-success" style="display: none;">
+                            <i class="fas fa-check"></i> Finalizează testul
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Rezultatele testului -->
+            <div id="results-container" class="evaluation-card" style="display: none;">
+                <div class="card-header" id="results-header">
+                    <!-- Rezultatele vor fi populate prin JavaScript -->
+                </div>
+                <div class="card-content" id="results-content">
+                    <!-- Detaliile rezultatelor vor fi populate prin JavaScript -->
+                </div>
+            </div>
+            
+            <!-- Resurse și Recapitulare -->
+            <div class="resources-section">
+                <div class="section-header">
+                    <h2><i class="fas fa-book"></i> Resurse și Recapitulare</h2>
+                    <p>Revizuiți conceptele principale din cursul de digitalizare</p>
+                </div>
+                
+                <div class="accordion">
+                    <div class="accordion-item">
+                        <div class="accordion-header" data-accordion="1">
+                            <div class="accordion-title">
+                                <i class="fas fa-digital-tachograph"></i>
+                                Modul 1: Introducere în digitalizare și pedagogie digitală
+                            </div>
+                            <div class="accordion-icon">
+                                <i class="fas fa-plus"></i>
+                            </div>
+                        </div>
+                        <div class="accordion-content" id="accordion-1">
+                            <div class="module-content">
+                                <h4>Concepte cheie:</h4>
+                                <ul>
+                                    <li><strong>Digitalizarea în educație</strong> - Integrarea tehnologiei digitale în toate aspectele procesului educațional pentru îmbunătățirea predării și învățării.</li>
+                                    <li><strong>Competențe digitale</strong> - Abilitățile necesare pentru utilizarea eficientă a tehnologiei în context educațional.</li>
+                                    <li><strong>Ecosistemul digital școlar</strong> - Ansamblul de platforme, instrumente și resurse digitale utilizate în educație.</li>
+                                </ul>
+                                <h4>Avantaje principale:</h4>
+                                <ul>
+                                    <li>Personalizarea învățării</li>
+                                    <li>Feedback instant și continuu</li>
+                                    <li>Accesul la resurse diverse și actualizate</li>
+                                    <li>Dezvoltarea competențelor digitale</li>
+                                    <li>Pregătirea pentru viitorul digital</li>
+                                </ul>
+                                <div class="module-links">
+                                    <a href="/modules/module1/lesson1.html" class="resource-link">
+                                        <i class="fas fa-external-link-alt"></i> Lecția 1: Concepte de bază
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="accordion-item">
+                        <div class="accordion-header" data-accordion="2">
+                            <div class="accordion-title">
+                                <i class="fas fa-chalkboard"></i>
+                                Modul 2: Tabla interactivă - prezentare generală și beneficii
+                            </div>
+                            <div class="accordion-icon">
+                                <i class="fas fa-plus"></i>
+                            </div>
+                        </div>
+                        <div class="accordion-content" id="accordion-2">
+                            <div class="module-content">
+                                <h4>Ce este tabla interactivă:</h4>
+                                <p>O suprafață tactilă conectată la calculator care permite interacțiunea directă cu conținutul digital, transformând prezentările statice în experiențe interactive și angajante.</p>
+                                
+                                <h4>Tipuri de table interactive:</h4>
+                                <ul>
+                                    <li><strong>Rezistive</strong> - Funcționează prin presiune, compatibile cu orice obiect</li>
+                                    <li><strong>Capacitive</strong> - Detectează atingerea prin modificarea câmpului electric</li>
+                                    <li><strong>Infraroșu</strong> - Utilizează fascicule IR pentru detectarea atingerii</li>
+                                    <li><strong>LED</strong> - Tehnologie modernă cu precizie și durabilitate crescute</li>
+                                </ul>
+                                
+                                <h4>Beneficii principale:</h4>
+                                <ul>
+                                    <li>Creșterea interactivității și colaborării</li>
+                                    <li>Stimularea participării active a elevilor</li>
+                                    <li>Adaptabilitate la toate disciplinele</li>
+                                    <li>Îmbunătățirea motivației și atenției</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="accordion-item">
+                        <div class="accordion-header" data-accordion="3">
+                            <div class="accordion-title">
+                                <i class="fas fa-play-circle"></i>
+                                Modul 3: Primii pași - utilizarea tablei interactive
+                            </div>
+                            <div class="accordion-icon">
+                                <i class="fas fa-plus"></i>
+                            </div>
+                        </div>
+                        <div class="accordion-content" id="accordion-3">
+                            <div class="module-content">
+                                <h4>Pași pentru începerea utilizării:</h4>
+                                <ol>
+                                    <li><strong>Calibrarea</strong> - Asigură precizia atingerii și răspunsul corect la comenzi</li>
+                                    <li><strong>Configurarea</strong> - Setarea parametrilor de funcționare optimă</li>
+                                    <li><strong>Conectarea</strong> - Legături USB pentru date și HDMI pentru video</li>
+                                    <li><strong>Testarea</strong> - Verificarea tuturor funcționalităților</li>
+                                </ol>
+                                
+                                <h4>Funcții de bază:</h4>
+                                <ul>
+                                    <li><strong>Scriere și desenare</strong> - Instrumente diverse pentru adnotări</li>
+                                    <li><strong>Salvare</strong> - Păstrarea lucrărilor în format digital</li>
+                                    <li><strong>Import/Export</strong> - Lucrul cu materiale existente</li>
+                                    <li><strong>Prezentare</strong> - Afișarea conținutului multimedia</li>
+                                </ul>
+                                
+                                <h4>Integrarea cu alte dispozitive:</h4>
+                                <ul>
+                                    <li>Laptop-uri și computere</li>
+                                    <li>Tablete și smartphone-uri</li>
+                                    <li>Sisteme audio</li>
+                                    <li>Camere și proiectoare</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="accordion-item">
+                        <div class="accordion-header" data-accordion="4">
+                            <div class="accordion-title">
+                                <i class="fas fa-tools"></i>
+                                Modul 4: Tehnici de predare digitală cu tabla interactivă
+                            </div>
+                            <div class="accordion-icon">
+                                <i class="fas fa-plus"></i>
+                            </div>
+                        </div>
+                        <div class="accordion-content" id="accordion-4">
+                            <div class="module-content">
+                                <h4>Metode digitale de predare:</h4>
+                                <ul>
+                                    <li><strong>Lecții interactive</strong> - Conținut manipulabil și explorabil</li>
+                                    <li><strong>Resurse multimedia</strong> - Video, audio, animații integrate</li>
+                                    <li><strong>Evaluare online</strong> - Quiz-uri și teste interactive</li>
+                                    <li><strong>Simulări</strong> - Experiențe virtuale și modelări</li>
+                                </ul>
+                                
+                                <h4>Crearea de materiale interactive:</h4>
+                                <ul>
+                                    <li>Prezentări cu elemente tactile</li>
+                                    <li>Exerciții cu feedback imediat</li>
+                                    <li>Quiz-uri cu răspunsuri în timp real</li>
+                                    <li>Sondaje pentru măsurarea înțelegerii</li>
+                                </ul>
+                                
+                                <h4>Software educațional compatibil:</h4>
+                                <ul>
+                                    <li>SMART Notebook, ActivInspire</li>
+                                    <li>Nearpod, Pear Deck</li>
+                                    <li>Kahoot, Mentimeter</li>
+                                    <li>Google Workspace for Education</li>
+                                </ul>
+                                
+                                <h4>Colaborare și lucru în echipă:</h4>
+                                <ul>
+                                    <li>Activități de grup simultane</li>
+                                    <li>Brainstorming digital</li>
+                                    <li>Proiecte comune interactive</li>
+                                    <li>Prezentări colaborative</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="accordion-item">
+                        <div class="accordion-header" data-accordion="5">
+                            <div class="accordion-title">
+                                <i class="fas fa-users"></i>
+                                Modul 5: Implicarea elevilor și învățarea colaborativă
+                            </div>
+                            <div class="accordion-icon">
+                                <i class="fas fa-plus"></i>
+                            </div>
+                        </div>
+                        <div class="accordion-content" id="accordion-5">
+                            <div class="module-content">
+                                <h4>Stimularea atenției și participării:</h4>
+                                <ul>
+                                    <li><strong>Elemente vizuale</strong> - Grafice, imagini, animații captivante</li>
+                                    <li><strong>Interacțiune tactilă</strong> - Manipularea directă a conținutului</li>
+                                    <li><strong>Gamificare</strong> - Elemente de joc pentru motivație</li>
+                                    <li><strong>Varietate</strong> - Schimbarea frecventă a tipurilor de activități</li>
+                                </ul>
+                                
+                                <h4>Jocuri educaționale și simulări:</h4>
+                                <ul>
+                                    <li>Quiz-uri competitive</li>
+                                    <li>Jocuri de rol digitale</li>
+                                    <li>Simulări de experimente</li>
+                                    <li>Provocări de rezolvare a problemelor</li>
+                                </ul>
+                                
+                                <h4>Activități hands-on:</h4>
+                                <ul>
+                                    <li>Manipularea obiectelor virtuale</li>
+                                    <li>Construirea de scheme și diagrame</li>
+                                    <li>Experimentarea cu variabile</li>
+                                    <li>Explorarea conținutului multimedial</li>
+                                </ul>
+                                
+                                <h4>Adaptarea la stilurile de învățare:</h4>
+                                <ul>
+                                    <li><strong>Vizual</strong> - Grafice, scheme, culori</li>
+                                    <li><strong>Auditiv</strong> - Explicații vocale, muzică, efecte sonore</li>
+                                    <li><strong>Kinestezic</strong> - Atingere, manipulare, mișcare</li>
+                                    <li><strong>Mixt</strong> - Combinarea multiplelor abordări</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="accordion-item">
+                        <div class="accordion-header" data-accordion="6">
+                            <div class="accordion-title">
+                                <i class="fas fa-chart-line"></i>
+                                Modul 6: Evaluare și feedback digital
+                            </div>
+                            <div class="accordion-icon">
+                                <i class="fas fa-plus"></i>
+                            </div>
+                        </div>
+                        <div class="accordion-content" id="accordion-6">
+                            <div class="module-content">
+                                <h4>Instrumente pentru evaluare online:</h4>
+                                <ul>
+                                    <li><strong>Teste interactive</strong> - Întrebări cu feedback imediat</li>
+                                    <li><strong>Chestionare adaptive</strong> - Întrebări care se adaptează la răspunsuri</li>
+                                    <li><strong>Sondaje în timp real</strong> - Măsurarea înțelegerii instant</li>
+                                    <li><strong>Portofolii digitale</strong> - Colecții de lucrări și progres</li>
+                                </ul>
+                                
+                                <h4>Monitorizarea progresului:</h4>
+                                <ul>
+                                    <li>Urmărirea performanței în timp real</li>
+                                    <li>Identificarea dificultăților imediate</li>
+                                    <li>Analiza tiparelor de învățare</li>
+                                    <li>Raportarea automată a progresului</li>
+                                </ul>
+                                
+                                <h4>Analiza datelor și adaptarea predării:</h4>
+                                <ul>
+                                    <li>Interpretarea statisticilor de performanță</li>
+                                    <li>Identificarea zonelor problematice</li>
+                                    <li>Personalizarea conținutului și ritmului</li>
+                                    <li>Ajustarea strategiilor pedagogice</li>
+                                </ul>
+                                
+                                <h4>Tehnici inovative de evaluare:</h4>
+                                <ul>
+                                    <li><strong>Formativă</strong> - Evaluare continuă pentru îmbunătățire</li>
+                                    <li><strong>Sumativă</strong> - Măsurarea finală a realizărilor</li>
+                                    <li><strong>Bazată pe performanță</strong> - Demonstrarea competențelor practice</li>
+                                    <li><strong>Colaborativă</strong> - Evaluarea în grup și peer assessment</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer placeholder -->
+    <div id="footer-placeholder"></div>
+    
+    <script src="/js/main.js"></script>
+    <script src="/js/evaluation.js"></script>
+</body>
+</html>

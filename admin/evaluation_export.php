@@ -2,14 +2,18 @@
 // admin/evaluation_export.php
 session_start();
 
-// Verifică autentificarea admin
-if (!isset($_SESSION['authenticated']) || $_SESSION['authenticated'] !== true || $_SESSION['user_type'] !== 'admin') {
+// Folosește funcțiile din sistemul de autentificare
+require_once '../includes/auth.php';
+
+// Verifică autentificarea și privilegiile admin
+if (!isSessionValid() || !isAdmin()) {
     header('Location: /login.php');
     exit;
 }
 
-require_once '../includes/auth.php';
 require_once '../config/database.php';
+
+// Restul codului rămâne la fel...
 
 // Setează header-ele pentru descărcare CSV
 header('Content-Type: text/csv; charset=utf-8');

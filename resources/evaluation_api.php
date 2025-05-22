@@ -2,8 +2,11 @@
 // resources/evaluation_api.php
 session_start();
 
-// Verifică autentificarea
-if (!isset($_SESSION['authenticated']) || $_SESSION['authenticated'] !== true) {
+// Includ sistemul de autentificare
+require_once '../includes/auth.php';
+
+// Verifică autentificarea folosind funcția din sistemul tău
+if (!isSessionValid()) {
     http_response_code(401);
     echo json_encode(['success' => false, 'message' => 'Neautentificat']);
     exit;
@@ -33,6 +36,7 @@ switch ($action) {
         echo json_encode(['success' => false, 'message' => 'Acțiune invalidă']);
 }
 
+// Restul funcțiilor rămân la fel...
 function getQuestions() {
     global $pdo;
     
@@ -51,6 +55,8 @@ function getQuestions() {
         ]);
     }
 }
+
+// ... restul funcțiilor rămân neschimbate
 
 function startTest($studentData) {
     global $pdo;

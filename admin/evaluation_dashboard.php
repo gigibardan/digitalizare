@@ -2,14 +2,17 @@
 // admin/evaluation_dashboard.php
 session_start();
 
-// Verifică autentificarea admin
-if (!isset($_SESSION['authenticated']) || $_SESSION['authenticated'] !== true || $_SESSION['user_type'] !== 'admin') {
-    header('Location: /login.php');
+// Folosește funcțiile din sistemul de autentificare
+require_once '../includes/auth.php';
+
+// Verifică autentificarea și privilegiile admin
+if (!isSessionValid() || !isAdmin()) {
+    header('Location: /restricted.php');
     exit;
 }
 
-require_once '../includes/auth.php';  // În loc de 'includes/auth.php'
 require_once '../config/database.php';
+
 
 // Obține statisticile
 $stmt = $pdo->query("SELECT * FROM test_statistics WHERE id = 1");

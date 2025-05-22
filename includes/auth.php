@@ -48,7 +48,7 @@ function isAdmin() {
     }
     
     // Lista utilizatorilor admin
-    $admin_users = ['admin', 'user1']; // Adaugă aici utilizatorii care ar trebui să aibă acces de admin
+    $admin_users = ['admin']; // Adaugă aici utilizatorii care ar trebui să aibă acces de admin
     
     // Verifică dacă utilizatorul curent este în lista de admini
     return in_array($_SESSION['user'], $admin_users);

@@ -1628,3 +1628,30 @@ html {
 .auth-btn:hover {
     background-color: #1565c0;
 }
+/* Stilizare pentru link-ul de admin */
+#admin-link {
+    background-color: #28a745 !important;
+    color: white !important;
+    padding: 8px 15px;
+    border-radius: 4px;
+    text-decoration: none;
+    transition: background-color 0.3s;
+    font-size: 14px;
+}
+
+#admin-link:hover {
+    background-color: #218838 !important;
+}
+
+#admin-link i {
+    margin-right: 5px;
+}
+
+/* Responsive - pe mobile să fie pe linie separată */
+@media (max-width: 768px) {
+    #admin-link {
+        display: block !important;
+        margin: 5px 0;
+        text-align: center;
+    }
+}

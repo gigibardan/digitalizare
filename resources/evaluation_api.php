@@ -2,43 +2,17 @@
 // resources/evaluation_api.php
 session_start();
 
-// Debug - să vedem ce se întâmplă
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
+// Includ sistemul de autentificare
+require_once '../includes/auth.php';
 
-try {
-    // Verifică path-ul către includes/auth.php
-    $auth_path = '../includes/auth.php';
-    if (!file_exists($auth_path)) {
-        throw new Exception("Fișierul auth.php nu există la path: $auth_path");
-    }
-    require_once $auth_path;
-    
-    // Verifică autentificarea
-    if (!isSessionValid()) {
-        http_response_code(401);
-        echo json_encode(['success' => false, 'message' => 'Neautentificat']);
-        exit;
-    }
-    
-    // Verifică path-ul către config/database.php
-    $db_path = '../config/database.php';
-    if (!file_exists($db_path)) {
-        throw new Exception("Fișierul database.php nu există la path: $db_path");
-    }
-    require_once $db_path;
-    
-    // Verifică conexiunea PDO
-    if (!isset($pdo)) {
-        throw new Exception("Variabila \$pdo nu este definită după includerea database.php");
-    }
-    
-} catch (Exception $e) {
-    header('Content-Type: application/json');
-    echo json_encode(['success' => false, 'message' => 'Eroare de configurare: ' . $e->getMessage()]);
+// Verifică autentificarea
+if (!isSessionValid()) {
+    http_response_code(401);
+    echo json_encode(['success' => false, 'message' => 'Neautentificat']);
     exit;
 }
 
+require_once '../config/database.php';
 
 header('Content-Type: application/json');
 
@@ -62,7 +36,6 @@ switch ($action) {
         echo json_encode(['success' => false, 'message' => 'Acțiune invalidă']);
 }
 
-// Restul funcțiilor rămân la fel...
 function getQuestions() {
     global $pdo;
     
@@ -77,12 +50,10 @@ function getQuestions() {
     } catch (Exception $e) {
         echo json_encode([
             'success' => false,
-            'message' => 'Eroare la încărcarea întrebărilor'
+            'message' => 'Eroare la încărcarea întrebărilor: ' . $e->getMessage()
         ]);
     }
 }
-
-// ... restul funcțiilor rămân neschimbate
 
 function startTest($studentData) {
     global $pdo;
@@ -133,7 +104,7 @@ function startTest($studentData) {
     } catch (Exception $e) {
         echo json_encode([
             'success' => false,
-            'message' => 'Eroare la începerea testului'
+            'message' => 'Eroare la începerea testului: ' . $e->getMessage()
         ]);
     }
 }
@@ -147,7 +118,7 @@ function saveProgress($testId, $answers) {
         
         echo json_encode(['success' => true]);
     } catch (Exception $e) {
-        echo json_encode(['success' => false]);
+        echo json_encode(['success' => false, 'message' => $e->getMessage()]);
     }
 }
 
@@ -229,7 +200,7 @@ function finishTest($testId, $answers) {
     } catch (Exception $e) {
         echo json_encode([
             'success' => false,
-            'message' => 'Eroare la finalizarea testului'
+            'message' => 'Eroare la finalizarea testului: ' . $e->getMessage()
         ]);
     }
 }
@@ -273,7 +244,6 @@ function updateStatistics() {
             round($stats['average_score'], 2)
         ]);
     } catch (Exception $e) {
-        // Log error but don't fail the main operation
         error_log("Error updating statistics: " . $e->getMessage());
     }
 }

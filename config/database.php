@@ -1,9 +1,9 @@
 <?php
 // config/database.php
 define('DB_HOST', 'localhost');
-define('DB_NAME', 'numele_tau_evaluation_system'); // Schimbă cu numele real
-define('DB_USER', 'numele_tau_eval_user'); // Schimbă cu numele real
-define('DB_PASS', 'parola_ta'); // Schimbă cu parola reală
+define('DB_NAME', 'techmind_evaluation_system');
+define('DB_USER', 'techmind_eval_user');
+define('DB_PASS', 'T3chM1nds');
 
 try {
     $pdo = new PDO("mysql:host=" . DB_HOST . ";dbname=" . DB_NAME . ";charset=utf8mb4", DB_USER, DB_PASS);

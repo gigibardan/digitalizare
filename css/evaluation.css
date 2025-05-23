@@ -715,3 +715,222 @@
         padding: 12px;
     }
 }
+
+/* Stiluri pentru acordeon - adaugă la sfârșitul fișierului evaluation.css */
+
+.resources-section {
+    margin-top: 60px;
+    padding: 40px 0;
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.section-header h2 {
+    font-size: 2rem;
+    color: var(--primary-color);
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+}
+
+.section-header p {
+    font-size: 1.1rem;
+    color: var(--gray-color);
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.accordion {
+    margin-bottom: 40px;
+}
+
+.accordion-item {
+    background-color: white;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+    margin-bottom: 15px;
+    overflow: hidden;
+    transition: var(--transition);
+}
+
+.accordion-item:hover {
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.accordion-header {
+    padding: 20px 25px;
+    background-color: white;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: var(--transition);
+    border-left: 4px solid var(--primary-color);
+    user-select: none;
+}
+
+.accordion-header:hover {
+    background-color: rgba(66, 133, 244, 0.05);
+}
+
+.accordion-header.active {
+    background-color: rgba(66, 133, 244, 0.1);
+    border-left-color: var(--hover-color);
+}
+
+.accordion-title {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--dark-color);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.accordion-title i {
+    color: var(--primary-color);
+    font-size: 1.1rem;
+}
+
+.accordion-icon {
+    width: 30px;
+    height: 30px;
+    background-color: rgba(66, 133, 244, 0.1);
+   border-radius: 50%;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   transition: var(--transition);
+}
+
+.accordion-icon i {
+   color: var(--primary-color);
+   transition: var(--transition);
+   font-size: 0.9rem;
+}
+
+.accordion-header.active .accordion-icon {
+   background-color: var(--primary-color);
+   transform: rotate(45deg);
+}
+
+.accordion-header.active .accordion-icon i {
+   color: white;
+}
+
+.accordion-content {
+   max-height: 0;
+   overflow: hidden;
+   transition: max-height 0.4s ease-out, padding 0.4s ease-out;
+   background-color: #fafafa;
+}
+
+.accordion-content.active {
+   max-height: 2000px;
+   padding: 25px;
+}
+
+.module-content {
+   line-height: 1.6;
+}
+
+.module-content h4 {
+   color: var(--primary-color);
+   font-size: 1.1rem;
+   margin-bottom: 15px;
+   margin-top: 20px;
+   font-weight: 600;
+   padding-bottom: 8px;
+   border-bottom: 2px solid rgba(66, 133, 244, 0.1);
+}
+
+.module-content h4:first-child {
+   margin-top: 0;
+}
+
+.module-content ul, .module-content ol {
+   margin-bottom: 20px;
+   padding-left: 20px;
+}
+
+.module-content li {
+   margin-bottom: 10px;
+   line-height: 1.5;
+}
+
+.module-content li strong {
+   color: var(--dark-color);
+   font-weight: 600;
+}
+
+.module-content p {
+   margin-bottom: 15px;
+   line-height: 1.6;
+   color: var(--dark-color);
+}
+
+.module-links {
+   margin-top: 25px;
+   padding-top: 20px;
+   border-top: 1px solid #e0e0e0;
+}
+
+.resource-link {
+   display: inline-flex;
+   align-items: center;
+   gap: 8px;
+   padding: 10px 15px;
+   background-color: var(--primary-color);
+   color: white;
+   text-decoration: none;
+   border-radius: 50px;
+   font-size: 0.9rem;
+   font-weight: 500;
+   transition: var(--transition);
+}
+
+.resource-link:hover {
+   background-color: var(--hover-color);
+   transform: translateY(-2px);
+   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Responsive pentru acordeon */
+@media (max-width: 768px) {
+   .accordion-header {
+       padding: 15px 20px;
+   }
+   
+   .accordion-title {
+       font-size: 1rem;
+   }
+   
+   .accordion-content.active {
+       padding: 20px;
+   }
+   
+   .section-header h2 {
+       font-size: 1.5rem;
+       flex-direction: column;
+       gap: 10px;
+   }
+}
+
+@media (max-width: 480px) {
+   .accordion-header {
+       padding: 12px 15px;
+   }
+   
+   .accordion-title {
+       font-size: 0.9rem;
+   }
+   
+   .accordion-content.active {
+       padding: 15px;
+   }
+}

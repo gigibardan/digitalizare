@@ -517,3 +517,54 @@ class EvaluationSystem {
 document.addEventListener('DOMContentLoaded', () => {
    new EvaluationSystem();
 });
+
+// Funcționalitatea acordeonului - adaugă la sfârșitul fișierului evaluation.js
+
+// Funcție pentru inițializarea acordeonului
+function initAccordionFunc() {
+    const accordionHeaders = document.querySelectorAll('.accordion-header');
+    
+    accordionHeaders.forEach(header => {
+        header.addEventListener('click', function() {
+            const accordionId = this.getAttribute('data-accordion');
+            const content = document.getElementById(`accordion-${accordionId}`);
+            const icon = this.querySelector('.accordion-icon i');
+            
+            // Verifică dacă acordeonul este deja activ
+            const isActive = content.classList.contains('active');
+            
+            // Închide toate acordeoanele
+            accordionHeaders.forEach(otherHeader => {
+                const otherId = otherHeader.getAttribute('data-accordion');
+                const otherContent = document.getElementById(`accordion-${otherId}`);
+                const otherIcon = otherHeader.querySelector('.accordion-icon i');
+                
+                otherContent.classList.remove('active');
+                otherHeader.classList.remove('active');
+                otherIcon.classList.remove('fa-minus');
+                otherIcon.classList.add('fa-plus');
+            });
+            
+            // Dacă acordeonul nu era activ, îl deschidem
+            if (!isActive) {
+                content.classList.add('active');
+                this.classList.add('active');
+                icon.classList.remove('fa-plus');
+                icon.classList.add('fa-minus');
+            }
+        });
+    });
+}
+
+// Inițializează acordeonul când pagina se încarcă
+document.addEventListener('DOMContentLoaded', function() {
+    // Mică întârziere pentru a se asigura că toate elementele sunt încărcate
+    setTimeout(initAccordionFunc, 100);
+});
+
+// În caz că acordeonul nu funcționează la prima încărcare
+window.addEventListener('load', function() {
+    if (typeof initAccordionFunc === 'function') {
+        initAccordionFunc();
+    }
+});

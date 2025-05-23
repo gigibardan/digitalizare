@@ -33,9 +33,6 @@ class EvaluationSystem {
         if (prevBtn) prevBtn.addEventListener('click', () => this.previousQuestion());
         if (nextBtn) nextBtn.addEventListener('click', () => this.nextQuestion());
         if (finishBtn) finishBtn.addEventListener('click', () => this.finishTest());
-        
-        // Acordeon pentru resurse
-        this.initAccordion();
     }
     
     async loadQuestions() {
@@ -329,199 +326,152 @@ class EvaluationSystem {
     showResults(results) {
         document.getElementById('test-container').style.display = 'none';
         document.getElementById('results-container').style.display = 'block';
-       
-       // Scroll la rezultate
-       document.getElementById('results-container').scrollIntoView({ 
-           behavior: 'smooth' 
-       });
-       
-       const isPassed = results.scor >= 16;
-       const percentage = Math.round((results.scor / 20) * 100);
-       
-       // Header rezultate
-       const resultsHeader = document.getElementById('results-header');
-       resultsHeader.innerHTML = `
-           <div class="results-score">
-               <div class="score-circle ${isPassed ? 'success' : 'fail'}">
-                   ${results.scor}/20
-               </div>
-               <div class="score-text">Scorul dumneavoastră: ${results.scor} din 20 (${percentage}%)</div>
-               <div class="score-message">
-                   ${isPassed ? 
-                       'Felicitări! Ați promovat testul!' : 
-                       'Nu ați atins scorul minim de 16 puncte.'}
-               </div>
-           </div>
-       `;
-       
-       // Conținut rezultate
-       const resultsContent = document.getElementById('results-content');
-       let contentHTML = '';
-       
-       if (isPassed) {
-           contentHTML += `
-               <div class="success-section">
-                   <h3><i class="fas fa-trophy"></i> Felicitări!</h3>
-                   <p>Ați absolvit cu succes cursul de digitalizare și utilizarea tablei interactive în educație.</p>
-                   <p>Diploma dumneavoastră va fi procesată în scurt timp.</p>
-               </div>
-           `;
-       } else {
-           contentHTML += `
-               <div class="retake-section">
-                   <h3><i class="fas fa-redo"></i> Puteți relua testul</h3>
-                   <p>Pentru a obține diploma, aveți nevoie de minimum 16 puncte din 20.</p>
-                   <button type="button" class="btn btn-primary" onclick="location.reload()">
-                       <i class="fas fa-redo"></i> Reluați testul
-                   </button>
-               </div>
-           `;
-       }
-       
-       // Afișează răspunsurile greșite
-       if (results.wrong_answers && results.wrong_answers.length > 0) {
-           contentHTML += `
-               <div class="wrong-answers">
-                   <h3><i class="fas fa-times-circle"></i> Răspunsuri incorecte (${results.wrong_answers.length})</h3>
-           `;
-           
-           results.wrong_answers.forEach(item => {
-               contentHTML += `
-                   <div class="wrong-answer-item">
-                       <div class="wrong-question">
-                           <strong>Întrebarea ${item.question_number}:</strong> ${item.intrebarea}
-                       </div>
-                       <div class="answer-comparison">
-                           <div class="your-answer">
-                               <div class="answer-label">Răspunsul dumneavoastră:</div>
-                               <div>${item.your_answer_text}</div>
-                           </div>
-                           <div class="correct-answer">
-                               <div class="answer-label">Răspunsul corect:</div>
-                               <div>${item.correct_answer_text}</div>
-                           </div>
-                       </div>
-                       ${item.explicatie ? `
-                           <div class="explanation">
-                               <h5>Explicație:</h5>
-                               <p>${item.explicatie}</p>
-                           </div>
-                       ` : ''}
-                   </div>
-               `;
-           });
-           
-           contentHTML += `</div>`;
-       }
-       
-       resultsContent.innerHTML = contentHTML;
-   }
-   
-   startTimer() {
-       this.startTime = new Date();
-       this.updateTimer();
-       
-       this.timerInterval = setInterval(() => {
-           this.updateTimer();
-       }, 1000);
-   }
-   
-   stopTimer() {
-       if (this.timerInterval) {
-           clearInterval(this.timerInterval);
-           this.timerInterval = null;
-       }
-   }
-   
-   updateTimer() {
-       if (!this.startTime) return;
-       
-       const now = new Date();
-       const elapsed = Math.floor((now - this.startTime) / 1000);
-       
-       const minutes = Math.floor(elapsed / 60);
-       const seconds = elapsed % 60;
-       
-       const display = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
-       document.getElementById('timer-display').textContent = display;
-   }
-   
-   initAccordion() {
-       const accordionHeaders = document.querySelectorAll('.accordion-header');
-       
-       accordionHeaders.forEach(header => {
-           header.addEventListener('click', () => {
-               const accordionId = header.getAttribute('data-accordion');
-               const content = document.getElementById(`accordion-${accordionId}`);
-               const icon = header.querySelector('.accordion-icon i');
-               
-               // Toggle conținut
-               if (content.classList.contains('active')) {
-                   content.classList.remove('active');
-                   header.classList.remove('active');
-                   icon.classList.remove('fa-minus');
-                   icon.classList.add('fa-plus');
-               } else {
-                   // Închide toate celelalte
-                   accordionHeaders.forEach(otherHeader => {
-                       const otherId = otherHeader.getAttribute('data-accordion');
-                       const otherContent = document.getElementById(`accordion-${otherId}`);
-                       const otherIcon = otherHeader.querySelector('.accordion-icon i');
-                       
-                       if (otherHeader !== header) {
-                           otherContent.classList.remove('active');
-                           otherHeader.classList.remove('active');
-                           otherIcon.classList.remove('fa-minus');
-                           otherIcon.classList.add('fa-plus');
-                       }
-                   });
-                   
-                   // Deschide cel curent
-                   content.classList.add('active');
-                   header.classList.add('active');
-                   icon.classList.remove('fa-plus');
-                   icon.classList.add('fa-minus');
-               }
-           });
-       });
-   }
-   
-   showToast(message, type = 'info') {
-       // Șterge toast-urile existente
-       document.querySelectorAll('.toast').forEach(toast => toast.remove());
-       
-       const toast = document.createElement('div');
-       toast.className = `toast ${type}`;
-       toast.textContent = message;
-       
-       document.body.appendChild(toast);
-       
-       // Afișează toast-ul
-       setTimeout(() => {
-           toast.classList.add('show');
-       }, 100);
-       
-       // Șterge toast-ul după 5 secunde
-       setTimeout(() => {
-           toast.classList.remove('show');
-           setTimeout(() => {
-               if (toast.parentNode) {
-                   toast.parentNode.removeChild(toast);
-               }
-           }, 300);
-       }, 5000);
-   }
+        
+        // Scroll la rezultate
+        document.getElementById('results-container').scrollIntoView({ 
+            behavior: 'smooth' 
+        });
+        
+        const isPassed = results.scor >= 16;
+        const percentage = Math.round((results.scor / 20) * 100);
+        
+        // Header rezultate
+        const resultsHeader = document.getElementById('results-header');
+        resultsHeader.innerHTML = `
+            <div class="results-score">
+                <div class="score-circle ${isPassed ? 'success' : 'fail'}">
+                    ${results.scor}/20
+                </div>
+                <div class="score-text">Scorul dumneavoastră: ${results.scor} din 20 (${percentage}%)</div>
+                <div class="score-message">
+                    ${isPassed ? 
+                        'Felicitări! Ați promovat testul!' : 
+                        'Nu ați atins scorul minim de 16 puncte.'}
+                </div>
+            </div>
+        `;
+        
+        // Conținut rezultate
+        const resultsContent = document.getElementById('results-content');
+        let contentHTML = '';
+        
+        if (isPassed) {
+            contentHTML += `
+                <div class="success-section">
+                    <h3><i class="fas fa-trophy"></i> Felicitări!</h3>
+                    <p>Ați absolvit cu succes cursul de digitalizare și utilizarea tablei interactive în educație.</p>
+                    <p>Diploma dumneavoastră va fi procesată în scurt timp.</p>
+                </div>
+            `;
+        } else {
+            contentHTML += `
+                <div class="retake-section">
+                    <h3><i class="fas fa-redo"></i> Puteți relua testul</h3>
+                    <p>Pentru a obține diploma, aveți nevoie de minimum 16 puncte din 20.</p>
+                    <button type="button" class="btn btn-primary" onclick="location.reload()">
+                        <i class="fas fa-redo"></i> Reluați testul
+                    </button>
+                </div>
+            `;
+        }
+        
+        // Afișează răspunsurile greșite
+        if (results.wrong_answers && results.wrong_answers.length > 0) {
+            contentHTML += `
+                <div class="wrong-answers">
+                    <h3><i class="fas fa-times-circle"></i> Răspunsuri incorecte (${results.wrong_answers.length})</h3>
+            `;
+            
+            results.wrong_answers.forEach(item => {
+                contentHTML += `
+                    <div class="wrong-answer-item">
+                        <div class="wrong-question">
+                            <strong>Întrebarea ${item.question_number}:</strong> ${item.intrebarea}
+                        </div>
+                        <div class="answer-comparison">
+                            <div class="your-answer">
+                                <div class="answer-label">Răspunsul dumneavoastră:</div>
+                                <div>${item.your_answer_text}</div>
+                            </div>
+                            <div class="correct-answer">
+                                <div class="answer-label">Răspunsul corect:</div>
+                                <div>${item.correct_answer_text}</div>
+                            </div>
+                        </div>
+                        ${item.explicatie ? `
+                            <div class="explanation">
+                                <h5>Explicație:</h5>
+                                <p>${item.explicatie}</p>
+                            </div>
+                        ` : ''}
+                    </div>
+                `;
+            });
+            
+            contentHTML += `</div>`;
+        }
+        
+        resultsContent.innerHTML = contentHTML;
+    }
+    
+    startTimer() {
+        this.startTime = new Date();
+        this.updateTimer();
+        
+        this.timerInterval = setInterval(() => {
+            this.updateTimer();
+        }, 1000);
+    }
+    
+    stopTimer() {
+        if (this.timerInterval) {
+            clearInterval(this.timerInterval);
+            this.timerInterval = null;
+        }
+    }
+    
+    updateTimer() {
+        if (!this.startTime) return;
+        
+        const now = new Date();
+        const elapsed = Math.floor((now - this.startTime) / 1000);
+        
+        const minutes = Math.floor(elapsed / 60);
+        const seconds = elapsed % 60;
+        
+        const display = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+        document.getElementById('timer-display').textContent = display;
+    }
+    
+    showToast(message, type = 'info') {
+        // Șterge toast-urile existente
+        document.querySelectorAll('.toast').forEach(toast => toast.remove());
+        
+        const toast = document.createElement('div');
+        toast.className = `toast ${type}`;
+        toast.textContent = message;
+        
+        document.body.appendChild(toast);
+        
+        // Afișează toast-ul
+        setTimeout(() => {
+            toast.classList.add('show');
+        }, 100);
+        
+        // Șterge toast-ul după 5 secunde
+        setTimeout(() => {
+            toast.classList.remove('show');
+            setTimeout(() => {
+                if (toast.parentNode) {
+                    toast.parentNode.removeChild(toast);
+                }
+            }, 300);
+        }, 5000);
+    }
 }
 
-// Inițializează sistemul când pagina este încărcată
-document.addEventListener('DOMContentLoaded', () => {
-   new EvaluationSystem();
-});
-
-// Funcționalitatea acordeonului - adaugă la sfârșitul fișierului evaluation.js
-
-// Funcție pentru inițializarea acordeonului
-function initAccordionFunc() {
+// FUNCȚIONALITATEA ACORDEONULUI - O SINGURĂ IMPLEMENTARE
+function initAccordion() {
     const accordionHeaders = document.querySelectorAll('.accordion-header');
     
     accordionHeaders.forEach(header => {
@@ -556,15 +506,11 @@ function initAccordionFunc() {
     });
 }
 
-// Inițializează acordeonul când pagina se încarcă
+// INIȚIALIZARE UNICĂ CÂND PAGINA SE ÎNCARCĂ
 document.addEventListener('DOMContentLoaded', function() {
-    // Mică întârziere pentru a se asigura că toate elementele sunt încărcate
-    setTimeout(initAccordionFunc, 100);
-});
-
-// În caz că acordeonul nu funcționează la prima încărcare
-window.addEventListener('load', function() {
-    if (typeof initAccordionFunc === 'function') {
-        initAccordionFunc();
-    }
+    // Inițializează sistemul de evaluare
+    new EvaluationSystem();
+    
+    // Inițializează acordeonul cu mică întârziere
+    setTimeout(initAccordion, 200);
 });

@@ -8,6 +8,9 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Funcționalități pentru exerciții interactive
     initExercises();
+    
+    // Inițializare accordion
+    initAccordion();
 });
 
 // Funcție pentru inițializarea punctelor interactive (hotspots)
@@ -179,4 +182,46 @@ function resetExercise(exerciseBox) {
     if (feedbackElement) {
         feedbackElement.style.display = 'none';
     }
+}
+
+// Funcție pentru inițializarea accordion-ului
+function initAccordion() {
+    const accordionHeaders = document.querySelectorAll('.accordion-header');
+    
+    accordionHeaders.forEach(header => {
+        header.addEventListener('click', function() {
+            const accordionId = this.getAttribute('data-accordion');
+            const content = document.getElementById(`accordion-${accordionId}`);
+            const icon = this.querySelector('.accordion-icon i');
+            
+            // Toggle current accordion
+            if (content.style.maxHeight) {
+                // Close accordion
+                content.style.maxHeight = null;
+                content.classList.remove('active');
+                icon.classList.remove('fa-minus');
+                icon.classList.add('fa-plus');
+            } else {
+                // Close all other accordions first (optional - remove if you want multiple open)
+                accordionHeaders.forEach(otherHeader => {
+                    const otherAccordionId = otherHeader.getAttribute('data-accordion');
+                    const otherContent = document.getElementById(`accordion-${otherAccordionId}`);
+                    const otherIcon = otherHeader.querySelector('.accordion-icon i');
+                    
+                    if (otherContent && otherContent !== content) {
+                        otherContent.style.maxHeight = null;
+                        otherContent.classList.remove('active');
+                        otherIcon.classList.remove('fa-minus');
+                        otherIcon.classList.add('fa-plus');
+                    }
+                });
+                
+                // Open current accordion
+                content.style.maxHeight = content.scrollHeight + "px";
+                content.classList.add('active');
+                icon.classList.remove('fa-plus');
+                icon.classList.add('fa-minus');
+            }
+        });
+    });
 }

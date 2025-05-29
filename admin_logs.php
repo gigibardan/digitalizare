@@ -3,6 +3,7 @@
 require_once 'includes/auth.php';
 require_once 'includes/config.php'; 
 
+
 // Dacă nu este admin, redirecționăm (folosim funcția din auth.php)
 if (!isSessionValid() || !isAdmin()) {
     header('Location: /restricted.php');
@@ -102,7 +103,8 @@ $page = isset($_GET['page']) ? max(1, intval($_GET['page'])) : 1;
 $per_page = 20; // Înregistrări per pagină
 
 // Calea către fișierul de log
-$log_file = __DIR__ . '/logs/login_log.txt';
+$log_file = __DIR__ . '/includes/logs/login_log.txt';
+
 $logs = [];
 $all_logs = [];
 

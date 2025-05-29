@@ -173,6 +173,37 @@ function getLogStats() {
     return $stats;
 }
 
+// Adaugă această funcție în config.php
+function clearSelectedLogs($selected_indices) {
+    $log_file = __DIR__ . '/logs/login_log.txt';
+    if (!file_exists($log_file)) {
+        return false;
+    }
+    
+    // Citim toate logurile
+    $logs = file($log_file, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES);
+    
+    // Convertim indicii la integers pentru comparație sigură
+    $selected_indices = array_map('intval', $selected_indices);
+    
+    // Filtrăm logurile (păstrăm cele care NU sunt selectate)
+    $filtered_logs = [];
+    foreach ($logs as $index => $log) {
+        if (!in_array($index, $selected_indices)) {
+            $filtered_logs[] = $log;
+        }
+    }
+    
+    // Creăm backup
+    $backup_file = __DIR__ . '/logs/backup_' . date('Y-m-d_H-i-s') . '_selected_removed.txt';
+    copy($log_file, $backup_file);
+    
+    // Scriem logurile filtrate înapoi
+    file_put_contents($log_file, implode("\n", $filtered_logs) . (empty($filtered_logs) ? '' : "\n"));
+    
+    return true;
+}
+
 // Configurări pentru sesiune
 $session_timeout = 7200; // 2 ore în secunde
 

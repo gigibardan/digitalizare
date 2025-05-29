@@ -10,18 +10,15 @@ if (!isSessionValid() || !isAdmin()) {
 }
 
 // Procesăm acțiunile de ștergere
-$message = '';
-$message_type = '';
-
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action'])) {
     switch ($_POST['action']) {
         case 'clear_all':
             if (clearAllLogs()) {
-                $message = 'Toate logurile au fost șterse cu succes! A fost creat un backup.';
-                $message_type = 'success';
+                header('Location: ' . $_SERVER['PHP_SELF'] . '?message=all_cleared&type=success');
+                exit();
             } else {
-                $message = 'Eroare la ștergerea logurilor.';
-                $message_type = 'error';
+                header('Location: ' . $_SERVER['PHP_SELF'] . '?message=error&type=error');
+                exit();
             }
             break;
             
@@ -29,11 +26,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action'])) {
             $type = $_POST['clear_type'] ?? '';
             if (!empty($type) && in_array($type, ['SUCCESS', 'FAILED', 'LOGOUT'])) {
                 if (clearLogsByType($type)) {
-                    $message = "Logurile de tipul {$type} au fost șterse cu succes! A fost creat un backup.";
-                    $message_type = 'success';
+                    header('Location: ' . $_SERVER['PHP_SELF'] . '?message=type_cleared&type=success&cleared_type=' . $type);
+                    exit();
                 } else {
-                    $message = 'Eroare la ștergerea logurilor.';
-                    $message_type = 'error';
+                    header('Location: ' . $_SERVER['PHP_SELF'] . '?message=error&type=error');
+                    exit();
                 }
             }
             break;
@@ -42,13 +39,56 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action'])) {
             $days = intval($_POST['clear_days'] ?? 30);
             if ($days > 0) {
                 if (clearOldLogs($days)) {
-                    $message = "Logurile mai vechi de {$days} zile au fost șterse cu succes! A fost creat un backup.";
-                    $message_type = 'success';
+                    header('Location: ' . $_SERVER['PHP_SELF'] . '?message=old_cleared&type=success&days=' . $days);
+                    exit();
                 } else {
-                    $message = 'Eroare la ștergerea logurilor.';
-                    $message_type = 'error';
+                    header('Location: ' . $_SERVER['PHP_SELF'] . '?message=error&type=error');
+                    exit();
                 }
             }
+            break;
+            
+        case 'clear_selected':
+            $selected_indices = $_POST['selected_logs'] ?? [];
+            if (!empty($selected_indices)) {
+                if (clearSelectedLogs($selected_indices)) {
+                    $count = count($selected_indices);
+                    header('Location: ' . $_SERVER['PHP_SELF'] . '?message=selected_cleared&type=success&count=' . $count);
+                    exit();
+                } else {
+                    header('Location: ' . $_SERVER['PHP_SELF'] . '?message=error&type=error');
+                    exit();
+                }
+            }
+            break;
+    }
+}
+
+// Procesăm mesajele din URL
+$message = '';
+$message_type = '';
+
+if (isset($_GET['message'])) {
+    $message_type = $_GET['type'] ?? 'info';
+    
+    switch ($_GET['message']) {
+        case 'all_cleared':
+            $message = 'Toate logurile au fost șterse cu succes! A fost creat un backup.';
+            break;
+        case 'type_cleared':
+            $cleared_type = $_GET['cleared_type'] ?? 'necunoscut';
+            $message = "Logurile de tipul {$cleared_type} au fost șterse cu succes! A fost creat un backup.";
+            break;
+        case 'old_cleared':
+            $days = $_GET['days'] ?? '30';
+            $message = "Logurile mai vechi de {$days} zile au fost șterse cu succes! A fost creat un backup.";
+            break;
+        case 'selected_cleared':
+            $count = $_GET['count'] ?? '0';
+            $message = "{$count} înregistrări au fost șterse cu succes! A fost creat un backup.";
+            break;
+        case 'error':
+            $message = 'Eroare la ștergerea logurilor.';
             break;
     }
 }
@@ -447,6 +487,32 @@ $general_stats = getLogStats();
             font-size: 12px;
         }
         
+        /* Ștergere selectivă */
+        .selection-section {
+            background-color: #fff3cd;
+            padding: 15px;
+            border-radius: 6px;
+            margin-bottom: 20px;
+            border: 1px solid #ffeaa7;
+            display: none;
+        }
+        
+        .selection-section.active {
+            display: block;
+        }
+        
+        .selection-controls {
+            display: flex;
+            gap: 10px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        
+        .selection-info {
+            font-weight: 500;
+            color: #856404;
+        }
+        
         /* Tabel */
         .log-table {
             width: 100%;
@@ -467,7 +533,12 @@ $general_stats = getLogStats();
             position: relative;
         }
         
-        .log-table th:hover {
+        .log-table th:first-child {
+            width: 40px;
+            cursor: default;
+        }
+        
+        .log-table th:hover:not(:first-child) {
             background-color: #e9ecef;
         }
         
@@ -480,6 +551,10 @@ $general_stats = getLogStats();
         
         .log-table tbody tr:hover {
             background-color: #f9f9f9;
+        }
+        
+        .log-table tbody tr.selected {
+            background-color: #e3f2fd;
         }
         
         .sort-icon {
@@ -506,6 +581,19 @@ $general_stats = getLogStats();
         .log-logout {
             color: #6c757d;
             font-weight: 500;
+        }
+        
+        /* Checkbox styling */
+        .log-checkbox {
+            width: 16px;
+            height: 16px;
+            cursor: pointer;
+        }
+        
+        #selectAll {
+            width: 16px;
+            height: 16px;
+            cursor: pointer;
         }
         
         /* Statistici */
@@ -621,7 +709,7 @@ $general_stats = getLogStats();
         
         /* Responsive */
         @media (max-width: 768px) {
-            .filters-row, .management-actions {
+            .filters-row, .management-actions, .selection-controls {
                 flex-direction: column;
                 align-items: stretch;
             }
@@ -642,35 +730,6 @@ $general_stats = getLogStats();
             .log-table td {
                 padding: 8px;
             }
-        }
-        
-        /* Modal pentru confirmări */
-        .modal {
-            display: none;
-            position: fixed;
-            z-index: 1000;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0,0,0,0.5);
-        }
-        
-        .modal-content {
-            background-color: #fefefe;
-            margin: 15% auto;
-            padding: 20px;
-            border-radius: 8px;
-            width: 90%;
-            max-width: 500px;
-            text-align: center;
-        }
-        
-        .modal-buttons {
-            display: flex;
-            gap: 10px;
-            justify-content: center;
-            margin-top: 20px;
         }
     </style>
 </head>
@@ -770,245 +829,414 @@ $general_stats = getLogStats();
                         </button>
                     </form>
                 </div>
-            </div>
-        </div>
-        
-        <!-- Filtre și căutare -->
-        <div class="filters-section">
-            <form method="GET" action="">
-                <div class="filters-row">
-                    <div class="filter-group search-group">
-                        <label for="search">Căutare globală:</label>
-                        <input type="text" id="search" name="search" value="<?php echo htmlspecialchars($search); ?>" placeholder="Caută în toate câmpurile (inclusiv nume complete)...">
-                    </div>
-                    
-                    <div class="filter-group">
-                        <label for="type">Tip eveniment:</label>
-                        <select id="type" name="type">
-                            <option value="">Toate tipurile</option>
-                            <option value="SUCCESS" <?php echo $filter_type === 'SUCCESS' ? 'selected' : ''; ?>>SUCCESS</option>
-                            <option value="FAILED" <?php echo $filter_type === 'FAILED' ? 'selected' : ''; ?>>FAILED</option>
-                            <option value="LOGOUT" <?php echo $filter_type === 'LOGOUT' ? 'selected' : ''; ?>>LOGOUT</option>
-                        </select>
-                    </div>
-                    
-                    <div class="filter-buttons">
-                        <button type="submit" class="btn btn-primary">
-                            <i class="fas fa-search"></i> Filtrează
+                
+                <!-- Ștergere selectivă -->
+                <div class="action-group">
+                    <h4><i class="fas fa-check-square"></i> Ștergere selectivă</h4>
+                    <p style="font-size: 12px; color: #666; margin: 0;">Selectează înregistrările din tabel și șterge-le</p>
+                    <div class="action-form">
+                        <button type="button" class="btn btn-primary btn-sm" onclick="toggleSelectionMode()">
+                            <i class="fas fa-mouse-pointer"></i> Activează selecția
                         </button>
-                        <a href="<?php echo $_SERVER['PHP_SELF']; ?>" class="btn btn-secondary">
-                            <i class="fas fa-times"></i> Resetează
-                        </a>
-                    </div>
-                </div>
-                
-                <!-- Păstrăm parametrii de sortare -->
-                <?php if (isset($_GET['sort'])): ?>
-                    <input type="hidden" name="sort" value="<?php echo htmlspecialchars($_GET['sort']); ?>">
-                <?php endif; ?>
-                <?php if (isset($_GET['order'])): ?>
-                    <input type="hidden" name="order" value="<?php echo htmlspecialchars($_GET['order']); ?>">
-                <?php endif; ?>
-            </form>
-        </div>
-        
-        <?php if (empty($all_logs)): ?>
-            <div class="no-logs">
-                <i class="fas fa-file-alt" style="font-size: 48px; margin-bottom: 15px; color: #ccc;"></i>
-                <p>Nu există înregistrări de autentificare.</p>
-            </div>
-        <?php else: ?>
-            <!-- Informații despre rezultate -->
-            <?php if (!empty($search) || !empty($filter_type)): ?>
-                <div class="results-info">
-                    <strong>Rezultate filtrare:</strong> 
-                    <?php echo $total_logs; ?> înregistrări găsite
-                    <?php if (!empty($search)): ?>
-                        pentru căutarea "<em><?php echo htmlspecialchars($search); ?></em>"
-                    <?php endif; ?>
-                    <?php if (!empty($filter_type)): ?>
-                        <?php echo !empty($search) ? ' și' : ''; ?> tipul "<em><?php echo $filter_type; ?></em>"
-                    <?php endif; ?>
-                </div>
-            <?php endif; ?>
-            
-            <!-- Statistici pentru rezultatele filtrate -->
-            <div class="stats">
-                <div class="stat-box stat-success">
-                    <span class="stat-number"><?php echo $stats['SUCCESS']; ?></span>
-                    <div class="stat-label">Autentificări reușite</div>
-                </div>
-                <div class="stat-box stat-failed">
-                    <span class="stat-number"><?php echo $stats['FAILED']; ?></span>
-                    <div class="stat-label">Autentificări eșuate</div>
-                </div>
-                <div class="stat-box stat-logout">
-                    <span class="stat-number"><?php echo $stats['LOGOUT']; ?></span>
-                    <div class="stat-label">Deconectări</div>
-                </div>
-            </div>
-            
-            <?php if (empty($logs)): ?>
-                <div class="no-logs">
-                    <i class="fas fa-search" style="font-size: 48px; margin-bottom: 15px; color: #ccc;"></i>
-                    <p>Nu s-au găsit înregistrări pentru criteriile de căutare.</p>
-                </div>
-            <?php else: ?>
-                <!-- Tabelul cu logurile -->
-                <table class="log-table">
-                    <thead>
-                        <tr>
-                            <th style="width: 12%;">
-                                <a href="<?php echo getSortUrl('type'); ?>" style="color: inherit; text-decoration: none;">
-                                    Tip <?php echo getSortIcon('type'); ?>
-                                </a>
-                            </th>
-                            <th style="width: 20%;">
-                                <a href="<?php echo getSortUrl('date'); ?>" style="color: inherit; text-decoration: none;">
-                                    Data și ora <?php echo getSortIcon('date'); ?>
-                                </a>
-                            </th>
-                            <th style="width: 15%;">
-                                <a href="<?php echo getSortUrl('user'); ?>" style="color: inherit; text-decoration: none;">
-                                    Username <?php echo getSortIcon('user'); ?>
-                                </a>
-                            </th>
-                            <th style="width: 25%;">
-                                <a href="<?php echo getSortUrl('name'); ?>" style="color: inherit; text-decoration: none;">
-                                    Nume complet <?php echo getSortIcon('name'); ?>
-                                </a>
-                            </th>
-                            <th style="width: 13%;">
-                                <a href="<?php echo getSortUrl('ip'); ?>" style="color: inherit; text-decoration: none;">
-                                    IP <?php echo getSortIcon('ip'); ?>
-                                </a>
-                            </th>
-                            <th style="width: 15%;">
-                                <a href="<?php echo getSortUrl('browser'); ?>" style="color: inherit; text-decoration: none;">
-                                    Browser <?php echo getSortIcon('browser'); ?>
-                                </a>
-                            </th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <?php foreach ($logs as $log): ?>
-                            <?php
-                            $type = $log['type'];
-                            $timestamp = $log['timestamp'];
-                            $user = $log['user'];
-                            $full_name = $log['full_name'];
-                            $ip = $log['ip'];
-                            $agent = $log['agent'];
-                            $browser = getBrowserName($agent);
-                            
-                            // Clasa CSS în funcție de tip
-                            $class = '';
-                            $icon = '';
-                            if ($type === 'SUCCESS') {
-                                $class = 'log-success';
-                                $icon = '<i class="fas fa-check-circle"></i>';
-                            } elseif ($type === 'FAILED') {
-                                $class = 'log-failed';
-                                $icon = '<i class="fas fa-times-circle"></i>';
-                            } elseif ($type === 'LOGOUT') {
-                                $class = 'log-logout';
-                                $icon = '<i class="fas fa-sign-out-alt"></i>';
-                            }
-                            ?>
-                            <tr>
-                                <td class="<?php echo $class; ?>">
-                                    <?php echo $icon; ?> <?php echo $type; ?>
-                                </td>
-                                <td><?php echo $timestamp; ?></td>
-                                <td><?php echo htmlspecialchars($user); ?></td>
-                                <td><strong><?php echo htmlspecialchars($full_name); ?></strong></td>
-                                <td><?php echo htmlspecialchars($ip); ?></td>
-                                <td><?php echo htmlspecialchars($browser); ?></td>
-                            </tr>
-                        <?php endforeach; ?>
-                    </tbody>
-                </table>
-                
-                <!-- Paginație -->
-                <?php if ($total_pages > 1): ?>
-                    <div class="pagination">
-                        <?php
-                        // Construim parametrii pentru paginație
-                        $pagination_params = [];
-                        if (!empty($search)) $pagination_params['search'] = $search;
-                        if (!empty($filter_type)) $pagination_params['type'] = $filter_type;
-                        if (!empty($sort_by)) $pagination_params['sort'] = $sort_by;
-                        if (!empty($sort_order)) $pagination_params['order'] = $sort_order;
-                        
-                        // Pagina anterioară
-                        if ($page > 1): ?>
-                            <a href="?<?php echo http_build_query(array_merge($pagination_params, ['page' => $page - 1])); ?>">
-                                <i class="fas fa-chevron-left"></i> Anterior
-                            </a>
-                        <?php else: ?>
-                            <span class="disabled"><i class="fas fa-chevron-left"></i> Anterior</span>
-                        <?php endif; ?>
-                        
-                        <?php
-                        // Calculăm intervalul de pagini de afișat
-                        $start_page = max(1, $page - 2);
-                        $end_page = min($total_pages, $page + 2);
-                        
-                        // Prima pagină
-                        if ($start_page > 1): ?>
-                            <a href="?<?php echo http_build_query(array_merge($pagination_params, ['page' => 1])); ?>">1</a>
-                            <?php if ($start_page > 2): ?>
-                                <span>...</span>
-                            <?php endif; ?>
-                        <?php endif; ?>
-                        
-                        <?php
-                        // Paginile din interval
-                        for ($i = $start_page; $i <= $end_page; $i++): ?>
-                            <?php if ($i == $page): ?>
-                                <span class="current"><?php echo $i; ?></span>
-                            <?php else: ?>
-                                <a href="?<?php echo http_build_query(array_merge($pagination_params, ['page' => $i])); ?>"><?php echo $i; ?></a>
-                            <?php endif; ?>
-                        <?php endfor; ?>
-                        
-                        <?php
-                        // Ultima pagină
-                        if ($end_page < $total_pages): ?>
-                            <?php if ($end_page < $total_pages - 1): ?>
-                                <span>...</span>
-                            <?php endif; ?>
-                            <a href="?<?php echo http_build_query(array_merge($pagination_params, ['page' => $total_pages])); ?>"><?php echo $total_pages; ?></a>
-                        <?php endif; ?>
-                        
-                        <?php
-                        // Pagina următoare
-                        if ($page < $total_pages): ?>
-                            <a href="?<?php echo http_build_query(array_merge($pagination_params, ['page' => $page + 1])); ?>">
-                                Următorul <i class="fas fa-chevron-right"></i>
-                            </a>
-                        <?php else: ?>
-                            <span class="disabled">Următorul <i class="fas fa-chevron-right"></i></span>
-                        <?php endif; ?>
-                    </div>
-                    
-                    <div class="pagination-info">
-                        Afișare <?php echo $offset + 1; ?> - <?php echo min($offset + $per_page, $total_logs); ?> din <?php echo $total_logs; ?> înregistrări
-                        (Pagina <?php echo $page; ?> din <?php echo $total_pages; ?>)
-                    </div>
-                <?php endif; ?>
-            <?php endif; ?>
-        <?php endif; ?>
-    </div>
-    
-    <!-- Footer placeholder -->
-    <div id="footer-placeholder"></div>
-    
-    <script src="/js/main.js"></script>
-    <script>
-        function confirmAction(message) {
-            return confirm(message);
-        }
-    </script>
+                   </div>
+               </div>
+           </div>
+       </div>
+       
+       <!-- Secțiunea de ștergere selectivă -->
+       <div class="selection-section" id="selectionSection">
+           <form method="POST" id="selectionForm" onsubmit="return confirmSelectedDeletion();">
+               <input type="hidden" name="action" value="clear_selected">
+               <div class="selection-controls">
+                   <span class="selection-info">
+                       <i class="fas fa-info-circle"></i>
+                       <span id="selectedCount">0</span> înregistrări selectate
+                   </span>
+                   <button type="button" class="btn btn-sm btn-secondary" onclick="selectAll()">
+                       <i class="fas fa-check-double"></i> Selectează tot
+                   </button>
+                   <button type="button" class="btn btn-sm btn-secondary" onclick="selectNone()">
+                       <i class="fas fa-times"></i> Deselectează tot
+                   </button>
+                   <button type="submit" class="btn btn-sm btn-danger" id="deleteSelectedBtn" disabled>
+                       <i class="fas fa-trash"></i> Șterge selectate
+                   </button>
+                   <button type="button" class="btn btn-sm btn-warning" onclick="toggleSelectionMode()">
+                       <i class="fas fa-times"></i> Anulează
+                   </button>
+               </div>
+           </form>
+       </div>
+       
+       <!-- Filtre și căutare -->
+       <div class="filters-section">
+           <form method="GET" action="">
+               <div class="filters-row">
+                   <div class="filter-group search-group">
+                       <label for="search">Căutare globală:</label>
+                       <input type="text" id="search" name="search" value="<?php echo htmlspecialchars($search); ?>" placeholder="Caută în toate câmpurile (inclusiv nume complete)...">
+                   </div>
+                   
+                   <div class="filter-group">
+                       <label for="type">Tip eveniment:</label>
+                       <select id="type" name="type">
+                           <option value="">Toate tipurile</option>
+                           <option value="SUCCESS" <?php echo $filter_type === 'SUCCESS' ? 'selected' : ''; ?>>SUCCESS</option>
+                           <option value="FAILED" <?php echo $filter_type === 'FAILED' ? 'selected' : ''; ?>>FAILED</option>
+                           <option value="LOGOUT" <?php echo $filter_type === 'LOGOUT' ? 'selected' : ''; ?>>LOGOUT</option>
+                       </select>
+                   </div>
+                   
+                   <div class="filter-buttons">
+                       <button type="submit" class="btn btn-primary">
+                           <i class="fas fa-search"></i> Filtrează
+                       </button>
+                       <a href="<?php echo $_SERVER['PHP_SELF']; ?>" class="btn btn-secondary">
+                           <i class="fas fa-times"></i> Resetează
+                       </a>
+                   </div>
+               </div>
+               
+               <!-- Păstrăm parametrii de sortare -->
+               <?php if (isset($_GET['sort'])): ?>
+                   <input type="hidden" name="sort" value="<?php echo htmlspecialchars($_GET['sort']); ?>">
+               <?php endif; ?>
+               <?php if (isset($_GET['order'])): ?>
+                   <input type="hidden" name="order" value="<?php echo htmlspecialchars($_GET['order']); ?>">
+               <?php endif; ?>
+           </form>
+       </div>
+       
+       <?php if (empty($all_logs)): ?>
+           <div class="no-logs">
+               <i class="fas fa-file-alt" style="font-size: 48px; margin-bottom: 15px; color: #ccc;"></i>
+               <p>Nu există înregistrări de autentificare.</p>
+           </div>
+       <?php else: ?>
+           <!-- Informații despre rezultate -->
+           <?php if (!empty($search) || !empty($filter_type)): ?>
+               <div class="results-info">
+                   <strong>Rezultate filtrare:</strong> 
+                   <?php echo $total_logs; ?> înregistrări găsite
+                   <?php if (!empty($search)): ?>
+                       pentru căutarea "<em><?php echo htmlspecialchars($search); ?></em>"
+                   <?php endif; ?>
+                   <?php if (!empty($filter_type)): ?>
+                       <?php echo !empty($search) ? ' și' : ''; ?> tipul "<em><?php echo $filter_type; ?></em>"
+                   <?php endif; ?>
+               </div>
+           <?php endif; ?>
+           
+           <!-- Statistici pentru rezultatele filtrate -->
+           <div class="stats">
+               <div class="stat-box stat-success">
+                   <span class="stat-number"><?php echo $stats['SUCCESS']; ?></span>
+                   <div class="stat-label">Autentificări reușite</div>
+               </div>
+               <div class="stat-box stat-failed">
+                   <span class="stat-number"><?php echo $stats['FAILED']; ?></span>
+                   <div class="stat-label">Autentificări eșuate</div>
+               </div>
+               <div class="stat-box stat-logout">
+                   <span class="stat-number"><?php echo $stats['LOGOUT']; ?></span>
+                   <div class="stat-label">Deconectări</div>
+               </div>
+           </div>
+           
+           <?php if (empty($logs)): ?>
+               <div class="no-logs">
+                   <i class="fas fa-search" style="font-size: 48px; margin-bottom: 15px; color: #ccc;"></i>
+                   <p>Nu s-au găsit înregistrări pentru criteriile de căutare.</p>
+               </div>
+           <?php else: ?>
+               <!-- Tabelul cu logurile -->
+               <table class="log-table">
+                   <thead>
+                       <tr>
+                           <th>
+                               <input type="checkbox" id="selectAll" style="display: none;" onchange="toggleAllCheckboxes()">
+                               <span id="selectAllLabel" style="display: none;">
+                                   <i class="fas fa-check-square"></i>
+                               </span>
+                           </th>
+                           <th style="width: 12%;">
+                               <a href="<?php echo getSortUrl('type'); ?>" style="color: inherit; text-decoration: none;">
+                                   Tip <?php echo getSortIcon('type'); ?>
+                               </a>
+                           </th>
+                           <th style="width: 20%;">
+                               <a href="<?php echo getSortUrl('date'); ?>" style="color: inherit; text-decoration: none;">
+                                   Data și ora <?php echo getSortIcon('date'); ?>
+                               </a>
+                           </th>
+                           <th style="width: 15%;">
+                               <a href="<?php echo getSortUrl('user'); ?>" style="color: inherit; text-decoration: none;">
+                                   Username <?php echo getSortIcon('user'); ?>
+                               </a>
+                           </th>
+                           <th style="width: 25%;">
+                               <a href="<?php echo getSortUrl('name'); ?>" style="color: inherit; text-decoration: none;">
+                                   Nume complet <?php echo getSortIcon('name'); ?>
+                               </a>
+                           </th>
+                           <th style="width: 13%;">
+                               <a href="<?php echo getSortUrl('ip'); ?>" style="color: inherit; text-decoration: none;">
+                                   IP <?php echo getSortIcon('ip'); ?>
+                               </a>
+                           </th>
+                           <th style="width: 15%;">
+                               <a href="<?php echo getSortUrl('browser'); ?>" style="color: inherit; text-decoration: none;">
+                                   Browser <?php echo getSortIcon('browser'); ?>
+                               </a>
+                           </th>
+                       </tr>
+                   </thead>
+                   <tbody>
+                       <?php foreach ($logs as $log): ?>
+                           <?php
+                           $type = $log['type'];
+                           $timestamp = $log['timestamp'];
+                           $user = $log['user'];
+                           $full_name = $log['full_name'];
+                           $ip = $log['ip'];
+                           $agent = $log['agent'];
+                           $browser = getBrowserName($agent);
+                           
+                           // Clasa CSS în funcție de tip
+                           $class = '';
+                           $icon = '';
+                           if ($type === 'SUCCESS') {
+                               $class = 'log-success';
+                               $icon = '<i class="fas fa-check-circle"></i>';
+                           } elseif ($type === 'FAILED') {
+                               $class = 'log-failed';
+                               $icon = '<i class="fas fa-times-circle"></i>';
+                           } elseif ($type === 'LOGOUT') {
+                               $class = 'log-logout';
+                               $icon = '<i class="fas fa-sign-out-alt"></i>';
+                           }
+                           ?>
+                           <tr>
+                               <td>
+                                   <input type="checkbox" class="log-checkbox" name="selected_logs[]" 
+                                          value="<?php echo $log['original_index']; ?>" 
+                                          style="display: none;" onchange="updateSelectedCount()">
+                               </td>
+                               <td class="<?php echo $class; ?>">
+                                   <?php echo $icon; ?> <?php echo $type; ?>
+                               </td>
+                               <td><?php echo $timestamp; ?></td>
+                               <td><?php echo htmlspecialchars($user); ?></td>
+                               <td><strong><?php echo htmlspecialchars($full_name); ?></strong></td>
+                               <td><?php echo htmlspecialchars($ip); ?></td>
+                               <td><?php echo htmlspecialchars($browser); ?></td>
+                           </tr>
+                       <?php endforeach; ?>
+                   </tbody>
+               </table>
+               
+               <!-- Paginație -->
+               <?php if ($total_pages > 1): ?>
+                   <div class="pagination">
+                       <?php
+                       // Construim parametrii pentru paginație
+                       $pagination_params = [];
+                       if (!empty($search)) $pagination_params['search'] = $search;
+                       if (!empty($filter_type)) $pagination_params['type'] = $filter_type;
+                       if (!empty($sort_by)) $pagination_params['sort'] = $sort_by;
+                       if (!empty($sort_order)) $pagination_params['order'] = $sort_order;
+                       
+                       // Pagina anterioară
+                       if ($page > 1): ?>
+                           <a href="?<?php echo http_build_query(array_merge($pagination_params, ['page' => $page - 1])); ?>">
+                               <i class="fas fa-chevron-left"></i> Anterior
+                           </a>
+                       <?php else: ?>
+                           <span class="disabled"><i class="fas fa-chevron-left"></i> Anterior</span>
+                       <?php endif; ?>
+                       
+                       <?php
+                       // Calculăm intervalul de pagini de afișat
+                       $start_page = max(1, $page - 2);
+                       $end_page = min($total_pages, $page + 2);
+                       
+                       // Prima pagină
+                       if ($start_page > 1): ?>
+                           <a href="?<?php echo http_build_query(array_merge($pagination_params, ['page' => 1])); ?>">1</a>
+                           <?php if ($start_page > 2): ?>
+                               <span>...</span>
+                           <?php endif; ?>
+                       <?php endif; ?>
+                       
+                       <?php
+                       // Paginile din interval
+                       for ($i = $start_page; $i <= $end_page; $i++): ?>
+                           <?php if ($i == $page): ?>
+                               <span class="current"><?php echo $i; ?></span>
+                           <?php else: ?>
+                               <a href="?<?php echo http_build_query(array_merge($pagination_params, ['page' => $i])); ?>"><?php echo $i; ?></a>
+                           <?php endif; ?>
+                       <?php endfor; ?>
+                       
+                       <?php
+                       // Ultima pagină
+                       if ($end_page < $total_pages): ?>
+                           <?php if ($end_page < $total_pages - 1): ?>
+                               <span>...</span>
+                           <?php endif; ?>
+                           <a href="?<?php echo http_build_query(array_merge($pagination_params, ['page' => $total_pages])); ?>"><?php echo $total_pages; ?></a>
+                       <?php endif; ?>
+                       
+                       <?php
+                       // Pagina următoare
+                       if ($page < $total_pages): ?>
+                           <a href="?<?php echo http_build_query(array_merge($pagination_params, ['page' => $page + 1])); ?>">
+                               Următorul <i class="fas fa-chevron-right"></i>
+                           </a>
+                       <?php else: ?>
+                           <span class="disabled">Următorul <i class="fas fa-chevron-right"></i></span>
+                       <?php endif; ?>
+                   </div>
+                   
+                   <div class="pagination-info">
+                       Afișare <?php echo $offset + 1; ?> - <?php echo min($offset + $per_page, $total_logs); ?> din <?php echo $total_logs; ?> înregistrări
+                       (Pagina <?php echo $page; ?> din <?php echo $total_pages; ?>)
+                   </div>
+               <?php endif; ?>
+           <?php endif; ?>
+       <?php endif; ?>
+   </div>
+   
+   <!-- Footer placeholder -->
+   <div id="footer-placeholder"></div>
+   
+   <script src="/js/main.js"></script>
+   <script>
+       let selectionMode = false;
+       
+       function confirmAction(message) {
+           return confirm(message);
+       }
+       
+       function toggleSelectionMode() {
+           selectionMode = !selectionMode;
+           const selectionSection = document.getElementById('selectionSection');
+           const checkboxes = document.querySelectorAll('.log-checkbox');
+           const selectAllCheckbox = document.getElementById('selectAll');
+           const selectAllLabel = document.getElementById('selectAllLabel');
+           
+           if (selectionMode) {
+               selectionSection.classList.add('active');
+               checkboxes.forEach(cb => cb.style.display = 'block');
+               selectAllCheckbox.style.display = 'block';
+               selectAllLabel.style.display = 'block';
+           } else {
+               selectionSection.classList.remove('active');
+               checkboxes.forEach(cb => {
+                   cb.style.display = 'none';
+                   cb.checked = false;
+               });
+               selectAllCheckbox.style.display = 'none';
+               selectAllLabel.style.display = 'none';
+               selectAllCheckbox.checked = false;
+               updateSelectedCount();
+           }
+       }
+       
+       function toggleAllCheckboxes() {
+           const selectAllCheckbox = document.getElementById('selectAll');
+           const checkboxes = document.querySelectorAll('.log-checkbox');
+           const isChecked = selectAllCheckbox.checked;
+           
+           checkboxes.forEach(cb => {
+               cb.checked = isChecked;
+               if (isChecked) {
+                   cb.closest('tr').classList.add('selected');
+               } else {
+                   cb.closest('tr').classList.remove('selected');
+               }
+           });
+           
+           updateSelectedCount();
+       }
+       
+       function selectAll() {
+           const checkboxes = document.querySelectorAll('.log-checkbox');
+           const selectAllCheckbox = document.getElementById('selectAll');
+           
+           checkboxes.forEach(cb => {
+               cb.checked = true;
+               cb.closest('tr').classList.add('selected');
+           });
+           
+           selectAllCheckbox.checked = true;
+           updateSelectedCount();
+       }
+       
+       function selectNone() {
+           const checkboxes = document.querySelectorAll('.log-checkbox');
+           const selectAllCheckbox = document.getElementById('selectAll');
+           
+           checkboxes.forEach(cb => {
+               cb.checked = false;
+               cb.closest('tr').classList.remove('selected');
+           });
+           
+           selectAllCheckbox.checked = false;
+           updateSelectedCount();
+       }
+       
+       function updateSelectedCount() {
+           const checkboxes = document.querySelectorAll('.log-checkbox:checked');
+           const count = checkboxes.length;
+           const countElement = document.getElementById('selectedCount');
+           const deleteBtn = document.getElementById('deleteSelectedBtn');
+           const selectAllCheckbox = document.getElementById('selectAll');
+           const allCheckboxes = document.querySelectorAll('.log-checkbox');
+           
+           countElement.textContent = count;
+           deleteBtn.disabled = count === 0;
+           
+           // Actualizăm checkbox-ul "Selectează tot"
+           if (count === 0) {
+               selectAllCheckbox.indeterminate = false;
+               selectAllCheckbox.checked = false;
+           } else if (count === allCheckboxes.length) {
+               selectAllCheckbox.indeterminate = false;
+               selectAllCheckbox.checked = true;
+           } else {
+               selectAllCheckbox.indeterminate = true;
+           }
+           
+           // Actualizăm vizual rândurile selectate
+           allCheckboxes.forEach(cb => {
+               if (cb.checked) {
+                   cb.closest('tr').classList.add('selected');
+               } else {
+                   cb.closest('tr').classList.remove('selected');
+               }
+           });
+       }
+       
+       function confirmSelectedDeletion() {
+           const checkboxes = document.querySelectorAll('.log-checkbox:checked');
+           const count = checkboxes.length;
+           
+           if (count === 0) {
+               alert('Nu ați selectat nicio înregistrare pentru ștergere.');
+               return false;
+           }
+           
+           return confirm(`Ești sigur că vrei să ștergi ${count} înregistrări selectate? Se va crea un backup înainte de ștergere.`);
+       }
+       
+       // Adaugăm event listeners pentru checkbox-uri
+       document.addEventListener('DOMContentLoaded', function() {
+           const checkboxes = document.querySelectorAll('.log-checkbox');
+           checkboxes.forEach(cb => {
+               cb.addEventListener('change', updateSelectedCount);
+           });
+       });
+   </script>
 </body>
 </html>

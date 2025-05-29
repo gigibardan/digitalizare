@@ -51,10 +51,17 @@ function getUserFullName($username) {
 function logEvent($type, $username, $ip = null, $user_agent = null) {
     $log_file = __DIR__ . '/logs/login_log.txt';
     
+    // DEBUG - verifică calea
+    error_log("LOG EVENT - File path: " . $log_file);
+    error_log("LOG EVENT - File exists: " . (file_exists($log_file) ? 'YES' : 'NO'));
+    error_log("LOG EVENT - Directory exists: " . (is_dir(dirname($log_file)) ? 'YES' : 'NO'));
+    error_log("LOG EVENT - File writable: " . (is_writable($log_file) ? 'YES' : 'NO'));
+    
     // Creăm directorul logs dacă nu există
     $log_dir = dirname($log_file);
     if (!is_dir($log_dir)) {
         mkdir($log_dir, 0755, true);
+        error_log("LOG EVENT - Created directory: " . $log_dir);
     }
     
     // Obținem IP-ul și user agent-ul dacă nu sunt furnizate
@@ -78,8 +85,15 @@ function logEvent($type, $username, $ip = null, $user_agent = null) {
         $log_message = "[{$type}] {$timestamp} | User: {$username} ({$full_name}) | IP: {$ip} | Agent: {$user_agent}";
     }
     
-    // Scriem în fișier
-    file_put_contents($log_file, $log_message . "\n", FILE_APPEND | LOCK_EX);
+    // Încearcă să scrie în fișier
+    $result = file_put_contents($log_file, $log_message . "\n", FILE_APPEND | LOCK_EX);
+    
+    if ($result === false) {
+        error_log("LOG EVENT - FAILED to write to file!");
+        error_log("LOG EVENT - Message was: " . $log_message);
+    } else {
+        error_log("LOG EVENT - Successfully wrote " . $result . " bytes");
+    }
 }
 
 // Funcții pentru gestionarea logurilor (folosite în admin_logs.php)

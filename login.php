@@ -1,7 +1,12 @@
 <?php
-// Includem sistemul de autentificare
-require_once 'includes/auth.php';
+// Debug - elimină după ce rezolvi problema
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+
+// IMPORTANT: Includem config.php PRIMUL pentru că auth.php depinde de el
 require_once 'config.php';
+require_once 'includes/auth.php';
 
 // Verificăm dacă utilizatorul este deja autentificat
 if (isSessionValid()) {

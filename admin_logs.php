@@ -1,7 +1,7 @@
 <?php
 // Verificăm dacă utilizatorul este autentificat și este admin
 require_once 'includes/auth.php';
-require_once 'config.php';
+require_once 'includes/config.php'; 
 
 // Dacă nu este admin, redirecționăm (folosim funcția din auth.php)
 if (!isSessionValid() || !isAdmin()) {

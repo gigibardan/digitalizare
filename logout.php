@@ -1,7 +1,7 @@
 <?php
 // Includem sistemul de autentificare și configurația
 require_once 'includes/auth.php';
-require_once 'config.php';
+require_once 'includes/config.php';
 
 // Înregistrăm deconectarea
 if (isset($_SESSION['user'])) {

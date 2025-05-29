@@ -1,11 +1,56 @@
 <?php
 // Verificăm dacă utilizatorul este autentificat și este admin
 require_once 'includes/auth.php';
+require_once 'config.php';
 
 // Dacă nu este admin, redirecționăm (folosim funcția din auth.php)
 if (!isSessionValid() || !isAdmin()) {
     header('Location: /restricted.php');
     exit();
+}
+
+// Procesăm acțiunile de ștergere
+$message = '';
+$message_type = '';
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action'])) {
+    switch ($_POST['action']) {
+        case 'clear_all':
+            if (clearAllLogs()) {
+                $message = 'Toate logurile au fost șterse cu succes! A fost creat un backup.';
+                $message_type = 'success';
+            } else {
+                $message = 'Eroare la ștergerea logurilor.';
+                $message_type = 'error';
+            }
+            break;
+            
+        case 'clear_by_type':
+            $type = $_POST['clear_type'] ?? '';
+            if (!empty($type) && in_array($type, ['SUCCESS', 'FAILED', 'LOGOUT'])) {
+                if (clearLogsByType($type)) {
+                    $message = "Logurile de tipul {$type} au fost șterse cu succes! A fost creat un backup.";
+                    $message_type = 'success';
+                } else {
+                    $message = 'Eroare la ștergerea logurilor.';
+                    $message_type = 'error';
+                }
+            }
+            break;
+            
+        case 'clear_old':
+            $days = intval($_POST['clear_days'] ?? 30);
+            if ($days > 0) {
+                if (clearOldLogs($days)) {
+                    $message = "Logurile mai vechi de {$days} zile au fost șterse cu succes! A fost creat un backup.";
+                    $message_type = 'success';
+                } else {
+                    $message = 'Eroare la ștergerea logurilor.';
+                    $message_type = 'error';
+                }
+            }
+            break;
+    }
 }
 
 // Parametrii pentru sortare, căutare și paginație
@@ -35,13 +80,28 @@ if (file_exists($log_file)) {
     // Parsăm logurile și le convertim în array-uri pentru sortare
     $parsed_logs = [];
     foreach ($all_logs as $index => $log) {
-        if (preg_match('/\[(SUCCESS|FAILED|LOGOUT)\] (.*?) \| (?:User|Attempted User): (.*?) \| IP: (.*?)(?:\s\|\sAgent:\s(.*))?$/', $log, $matches)) {
+        // Pattern actualizat pentru noul format cu nume complete
+        if (preg_match('/\[(SUCCESS|FAILED|LOGOUT)\] (.*?) \| (?:User|Attempted User): (.*?) \((.*?)\) \| IP: (.*?)(?:\s\|\sAgent:\s(.*))?$/', $log, $matches)) {
             $parsed_logs[] = [
                 'original_index' => $index,
                 'raw' => $log,
                 'type' => $matches[1],
                 'timestamp' => $matches[2],
                 'user' => $matches[3],
+                'full_name' => $matches[4],
+                'ip' => $matches[5],
+                'agent' => isset($matches[6]) ? $matches[6] : 'Necunoscut'
+            ];
+        } 
+        // Compatibilitate cu vechiul format (fără nume complete)
+        elseif (preg_match('/\[(SUCCESS|FAILED|LOGOUT)\] (.*?) \| (?:User|Attempted User): (.*?) \| IP: (.*?)(?:\s\|\sAgent:\s(.*))?$/', $log, $matches)) {
+            $parsed_logs[] = [
+                'original_index' => $index,
+                'raw' => $log,
+                'type' => $matches[1],
+                'timestamp' => $matches[2],
+                'user' => $matches[3],
+                'full_name' => getUserFullName($matches[3]), // Obținem numele din config
                 'ip' => $matches[4],
                 'agent' => isset($matches[5]) ? $matches[5] : 'Necunoscut'
             ];
@@ -54,13 +114,14 @@ if (file_exists($log_file)) {
             $match_search = true;
             $match_type = true;
             
-            // Căutare în toate câmpurile
+            // Căutare în toate câmpurile, inclusiv numele complet
             if (!empty($search)) {
                 $search_lower = mb_strtolower($search, 'UTF-8');
                 $match_search = (
                     strpos(mb_strtolower($log['type'], 'UTF-8'), $search_lower) !== false ||
                     strpos(mb_strtolower($log['timestamp'], 'UTF-8'), $search_lower) !== false ||
                     strpos(mb_strtolower($log['user'], 'UTF-8'), $search_lower) !== false ||
+                    strpos(mb_strtolower($log['full_name'], 'UTF-8'), $search_lower) !== false ||
                     strpos(mb_strtolower($log['ip'], 'UTF-8'), $search_lower) !== false ||
                     strpos(mb_strtolower($log['agent'], 'UTF-8'), $search_lower) !== false
                 );
@@ -88,6 +149,9 @@ if (file_exists($log_file)) {
                 break;
             case 'user':
                 $result = strcmp($a['user'], $b['user']);
+                break;
+            case 'name':
+                $result = strcmp($a['full_name'], $b['full_name']);
                 break;
             case 'ip':
                 $result = strcmp($a['ip'], $b['ip']);
@@ -162,6 +226,9 @@ if (!empty($parsed_logs)) {
         }
     }
 }
+
+// Obținem statisticile generale pentru administrare
+$general_stats = getLogStats();
 ?>
 <!DOCTYPE html>
 <html lang="ro">
@@ -181,6 +248,103 @@ if (!empty($parsed_logs)) {
             background-color: #fff;
             border-radius: 8px;
             box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        
+        /* Mesaje */
+        .message {
+            padding: 12px 16px;
+            border-radius: 6px;
+            margin-bottom: 20px;
+            font-weight: 500;
+        }
+        
+        .message.success {
+            background-color: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+        
+        .message.error {
+            background-color: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+        
+        /* Management section */
+        .management-section {
+            background-color: #f8f9fa;
+            padding: 20px;
+            border-radius: 6px;
+            margin-bottom: 30px;
+            border: 1px solid #e9ecef;
+        }
+        
+        .management-header {
+            display: flex;
+            justify-content: between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        
+        .management-actions {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+        
+        .action-group {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            padding: 15px;
+            background-color: white;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            flex: 1;
+            min-width: 250px;
+        }
+        
+        .action-group h4 {
+            margin: 0 0 10px 0;
+            color: #333;
+            font-size: 14px;
+        }
+        
+        .action-form {
+            display: flex;
+            gap: 10px;
+            align-items: end;
+            flex-wrap: wrap;
+        }
+        
+        .general-stats {
+            background-color: #e3f2fd;
+            padding: 15px;
+            border-radius: 6px;
+            margin-bottom: 20px;
+            border-left: 4px solid #1e88e5;
+        }
+        
+        .general-stats h4 {
+            margin: 0 0 10px 0;
+            color: #1565c0;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 10px;
+            font-size: 14px;
+        }
+        
+        .stat-item {
+            text-align: center;
+        }
+        
+        .stat-value {
+            font-size: 18px;
+            font-weight: bold;
+            display: block;
         }
         
         /* Filtre și căutare */
@@ -230,7 +394,7 @@ if (!empty($parsed_logs)) {
             gap: 10px;
         }
         
-        .btn {
+        .btn, .btn-danger, .btn-warning {
             padding: 8px 16px;
             border: none;
             border-radius: 4px;
@@ -258,6 +422,29 @@ if (!empty($parsed_logs)) {
         
         .btn-secondary:hover {
             background-color: #545b62;
+        }
+        
+        .btn-danger {
+            background-color: #dc3545;
+            color: white;
+        }
+        
+        .btn-danger:hover {
+            background-color: #c82333;
+        }
+        
+        .btn-warning {
+            background-color: #ffc107;
+            color: #212529;
+        }
+        
+        .btn-warning:hover {
+            background-color: #e0a800;
+        }
+        
+        .btn-sm {
+            padding: 6px 12px;
+            font-size: 12px;
         }
         
         /* Tabel */
@@ -434,12 +621,12 @@ if (!empty($parsed_logs)) {
         
         /* Responsive */
         @media (max-width: 768px) {
-            .filters-row {
+            .filters-row, .management-actions {
                 flex-direction: column;
                 align-items: stretch;
             }
             
-            .filter-group {
+            .filter-group, .action-group {
                 min-width: auto;
             }
             
@@ -456,6 +643,35 @@ if (!empty($parsed_logs)) {
                 padding: 8px;
             }
         }
+        
+        /* Modal pentru confirmări */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.5);
+        }
+        
+        .modal-content {
+            background-color: #fefefe;
+            margin: 15% auto;
+            padding: 20px;
+            border-radius: 8px;
+            width: 90%;
+            max-width: 500px;
+            text-align: center;
+        }
+        
+        .modal-buttons {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            margin-top: 20px;
+        }
     </style>
 </head>
 <body>
@@ -469,13 +685,101 @@ if (!empty($parsed_logs)) {
         
         <h2>Jurnal autentificări</h2>
         
+        <?php if (!empty($message)): ?>
+            <div class="message <?php echo $message_type; ?>">
+                <i class="fas fa-<?php echo $message_type === 'success' ? 'check-circle' : 'exclamation-triangle'; ?>"></i>
+                <?php echo $message; ?>
+            </div>
+        <?php endif; ?>
+        
+        <!-- Secțiunea de administrare -->
+        <div class="management-section">
+            <div class="management-header">
+                <h3><i class="fas fa-tools"></i> Administrare loguri</h3>
+            </div>
+            
+            <!-- Statistici generale -->
+            <div class="general-stats">
+                <h4><i class="fas fa-chart-bar"></i> Statistici generale</h4>
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <span class="stat-value"><?php echo $general_stats['total']; ?></span>
+                        <small>Total loguri</small>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-value" style="color: #28a745;"><?php echo $general_stats['SUCCESS']; ?></span>
+                        <small>Reușite</small>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-value" style="color: #dc3545;"><?php echo $general_stats['FAILED']; ?></span>
+                        <small>Eșuate</small>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-value" style="color: #6c757d;"><?php echo $general_stats['LOGOUT']; ?></span>
+                        <small>Deconectări</small>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-value"><?php echo number_format($general_stats['size'] / 1024, 1); ?> KB</span>
+                        <small>Mărime fișier</small>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Acțiuni de administrare -->
+            <div class="management-actions">
+                <!-- Ștergere totală -->
+                <div class="action-group">
+                    <h4><i class="fas fa-trash-alt"></i> Ștergere totală</h4>
+                    <p style="font-size: 12px; color: #666; margin: 0;">Șterge toate logurile (se creează backup)</p>
+                    <form method="POST" class="action-form" onsubmit="return confirmAction('Ești sigur că vrei să ștergi TOATE logurile? Se va crea un backup înainte de ștergere.');">
+                        <input type="hidden" name="action" value="clear_all">
+                        <button type="submit" class="btn btn-danger btn-sm">
+                            <i class="fas fa-trash"></i> Șterge tot
+                        </button>
+                    </form>
+                </div>
+                
+                <!-- Ștergere după tip -->
+                <div class="action-group">
+                    <h4><i class="fas fa-filter"></i> Ștergere după tip</h4>
+                    <p style="font-size: 12px; color: #666; margin: 0;">Șterge logurile de un anumit tip</p>
+                    <form method="POST" class="action-form" onsubmit="return confirmAction('Ești sigur că vrei să ștergi logurile de tipul selectat?');">
+                        <input type="hidden" name="action" value="clear_by_type">
+                        <select name="clear_type" required>
+                            <option value="">Selectează tipul</option>
+                            <option value="SUCCESS">SUCCESS (<?php echo $general_stats['SUCCESS']; ?>)</option>
+                            <option value="FAILED">FAILED (<?php echo $general_stats['FAILED']; ?>)</option>
+                            <option value="LOGOUT">LOGOUT (<?php echo $general_stats['LOGOUT']; ?>)</option>
+                        </select>
+                        <button type="submit" class="btn btn-warning btn-sm">
+                            <i class="fas fa-eraser"></i> Șterge
+                        </button>
+                    </form>
+                </div>
+                
+                <!-- Ștergere loguri vechi -->
+                <div class="action-group">
+                    <h4><i class="fas fa-calendar-alt"></i> Ștergere loguri vechi</h4>
+                    <p style="font-size: 12px; color: #666; margin: 0;">Șterge logurile mai vechi de X zile</p>
+                    <form method="POST" class="action-form" onsubmit="return confirmAction('Ești sigur că vrei să ștergi logurile mai vechi de ' + this.clear_days.value + ' zile?');">
+                        <input type="hidden" name="action" value="clear_old">
+                        <input type="number" name="clear_days" min="1" max="365" value="30" required style="width: 80px;">
+                        <label style="font-size: 12px;">zile</label>
+                        <button type="submit" class="btn btn-secondary btn-sm">
+                            <i class="fas fa-clock"></i> Șterge
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        
         <!-- Filtre și căutare -->
         <div class="filters-section">
             <form method="GET" action="">
                 <div class="filters-row">
                     <div class="filter-group search-group">
                         <label for="search">Căutare globală:</label>
-                        <input type="text" id="search" name="search" value="<?php echo htmlspecialchars($search); ?>" placeholder="Caută în toate câmpurile...">
+                        <input type="text" id="search" name="search" value="<?php echo htmlspecialchars($search); ?>" placeholder="Caută în toate câmpurile (inclusiv nume complete)...">
                     </div>
                     
                     <div class="filter-group">
@@ -528,7 +832,7 @@ if (!empty($parsed_logs)) {
                 </div>
             <?php endif; ?>
             
-            <!-- Statistici -->
+            <!-- Statistici pentru rezultatele filtrate -->
             <div class="stats">
                 <div class="stat-box stat-success">
                     <span class="stat-number"><?php echo $stats['SUCCESS']; ?></span>
@@ -554,27 +858,32 @@ if (!empty($parsed_logs)) {
                 <table class="log-table">
                     <thead>
                         <tr>
-                            <th style="width: 15%;">
+                            <th style="width: 12%;">
                                 <a href="<?php echo getSortUrl('type'); ?>" style="color: inherit; text-decoration: none;">
                                     Tip <?php echo getSortIcon('type'); ?>
                                 </a>
                             </th>
-                            <th style="width: 25%;">
+                            <th style="width: 20%;">
                                 <a href="<?php echo getSortUrl('date'); ?>" style="color: inherit; text-decoration: none;">
                                     Data și ora <?php echo getSortIcon('date'); ?>
                                 </a>
                             </th>
-                            <th style="width: 20%;">
-                                <a href="<?php echo getSortUrl('user'); ?>" style="color: inherit; text-decoration: none;">
-                                    Utilizator <?php echo getSortIcon('user'); ?>
-                                </a>
-                            </th>
                             <th style="width: 15%;">
-                                <a href="<?php echo getSortUrl('ip'); ?>" style="color: inherit; text-decoration: none;">
-                                    Adresă IP <?php echo getSortIcon('ip'); ?>
+                                <a href="<?php echo getSortUrl('user'); ?>" style="color: inherit; text-decoration: none;">
+                                    Username <?php echo getSortIcon('user'); ?>
                                 </a>
                             </th>
                             <th style="width: 25%;">
+                                <a href="<?php echo getSortUrl('name'); ?>" style="color: inherit; text-decoration: none;">
+                                    Nume complet <?php echo getSortIcon('name'); ?>
+                                </a>
+                            </th>
+                            <th style="width: 13%;">
+                                <a href="<?php echo getSortUrl('ip'); ?>" style="color: inherit; text-decoration: none;">
+                                    IP <?php echo getSortIcon('ip'); ?>
+                                </a>
+                            </th>
+                            <th style="width: 15%;">
                                 <a href="<?php echo getSortUrl('browser'); ?>" style="color: inherit; text-decoration: none;">
                                     Browser <?php echo getSortIcon('browser'); ?>
                                 </a>
@@ -587,6 +896,7 @@ if (!empty($parsed_logs)) {
                             $type = $log['type'];
                             $timestamp = $log['timestamp'];
                             $user = $log['user'];
+                            $full_name = $log['full_name'];
                             $ip = $log['ip'];
                             $agent = $log['agent'];
                             $browser = getBrowserName($agent);
@@ -611,6 +921,7 @@ if (!empty($parsed_logs)) {
                                 </td>
                                 <td><?php echo $timestamp; ?></td>
                                 <td><?php echo htmlspecialchars($user); ?></td>
+                                <td><strong><?php echo htmlspecialchars($full_name); ?></strong></td>
                                 <td><?php echo htmlspecialchars($ip); ?></td>
                                 <td><?php echo htmlspecialchars($browser); ?></td>
                             </tr>
@@ -694,5 +1005,10 @@ if (!empty($parsed_logs)) {
     <div id="footer-placeholder"></div>
     
     <script src="/js/main.js"></script>
+    <script>
+        function confirmAction(message) {
+            return confirm(message);
+        }
+    </script>
 </body>
 </html>

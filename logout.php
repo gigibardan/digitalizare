@@ -1,33 +1,28 @@
 <?php
-// Includem sistemul de autentificare
+// Includem sistemul de autentificare și configurația
 require_once 'includes/auth.php';
+require_once 'config.php';
 
 // Înregistrăm deconectarea
 if (isset($_SESSION['user'])) {
     $username = $_SESSION['user'];
     
-    $log_dir = __DIR__ . '/logs';
-    
-    // Verificăm dacă directorul există
-    if (file_exists($log_dir)) {
-        // Creăm fișierul de log
-        $log_file = $log_dir . '/login_log.txt';
-        
-        // Informații pentru log
-        $timestamp = date('Y-m-d H:i:s');
-        $ip = $_SERVER['REMOTE_ADDR'];
-        
-        // Creăm înregistrarea în log
-        $log_entry = "[LOGOUT] $timestamp | User: $username | IP: $ip\n";
-        
-        // Scriem în fișierul de log
-        file_put_contents($log_file, $log_entry, FILE_APPEND);
-    }
+    // Folosim funcția de logging din config.php care include numele complet
+    logEvent('LOGOUT', $username);
 }
 
-// Ștergem sesiunea
+// Ștergem sesiunea complet
 session_unset();
 session_destroy();
+
+// Ștergem și cookie-ul de sesiune pentru securitate maximă
+if (ini_get("session.use_cookies")) {
+    $params = session_get_cookie_params();
+    setcookie(session_name(), '', time() - 42000,
+        $params["path"], $params["domain"],
+        $params["secure"], $params["httponly"]
+    );
+}
 
 // Redirecționăm la pagina principală
 header('Location: /index.html');

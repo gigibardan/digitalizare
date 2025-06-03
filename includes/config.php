@@ -6,6 +6,7 @@ $users = [
     
     // Utilizatori ȘCOALA GIMNAZIALĂ SMARDIOASA
     // Toți utilizatorii au parola: scoalasmardioasa
+    'gigitest' => password_hash('gigitest', PASSWORD_DEFAULT),      // Gigi Test
     'slavu.smardioasa' => password_hash('scoalasmardioasa', PASSWORD_DEFAULT),      // Slavu Lorelai Mihaela
     'petre.smardioasa' => password_hash('scoalasmardioasa', PASSWORD_DEFAULT),      // Petre Elena  
     'cristea.smardioasa' => password_hash('scoalasmardioasa', PASSWORD_DEFAULT),    // Cristea Olimpia

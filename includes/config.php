@@ -4,7 +4,7 @@ $users = [
     // Administrator
     'admin' => password_hash('techminds', PASSWORD_DEFAULT),
     
-    // Utilizatori ȘCOALA GIMNAZIALĂ SMARDIOASA
+    // ȘCOALA GIMNAZIALĂ SMARDIOASA
     // Toți utilizatorii au parola: scoalasmardioasa
     'gigitest' => password_hash('gigitest', PASSWORD_DEFAULT),      // Gigi Test
     'slavu.smardioasa' => password_hash('scoalasmardioasa', PASSWORD_DEFAULT),      // Slavu Lorelai Mihaela
@@ -21,11 +21,38 @@ $users = [
     'lazarica.smardioasa' => password_hash('scoalasmardioasa', PASSWORD_DEFAULT),   // Lăzărică Liliana
     'joinel.smardioasa' => password_hash('scoalasmardioasa', PASSWORD_DEFAULT),     // Joinel Mihaela
     'avram.smardioasa' => password_hash('scoalasmardioasa', PASSWORD_DEFAULT),      // Avram Roxana Madalina
+    
+    // ȘCOALA DIN COZMEȘTI
+    // Toți utilizatorii au parola: scoalacozmesti
+    'chescu.cozmesti' => password_hash('scoalacozmesti', PASSWORD_DEFAULT),         // Cheșcu Mioara
+    'baltag.cozmesti' => password_hash('scoalacozmesti', PASSWORD_DEFAULT),         // Baltag Adina
+    'guralivu.cozmesti' => password_hash('scoalacozmesti', PASSWORD_DEFAULT),       // Guralivu Daniela
+    'agavriloaiei.cozmesti' => password_hash('scoalacozmesti', PASSWORD_DEFAULT),   // Agavriloaiei Pompilia
+    'tanase.cozmesti' => password_hash('scoalacozmesti', PASSWORD_DEFAULT),         // Tănase Gheorghe
+    'piriiala.cozmesti' => password_hash('scoalacozmesti', PASSWORD_DEFAULT),       // Pîrîială Constantin
+    'iacob.cozmesti' => password_hash('scoalacozmesti', PASSWORD_DEFAULT),          // Iacob Cristina
+    'rusu.cozmesti' => password_hash('scoalacozmesti', PASSWORD_DEFAULT),           // Rusu Claudiu
+    'piriialaim.cozmesti' => password_hash('scoalacozmesti', PASSWORD_DEFAULT),     // Pîrîială Mihaela
+    'ifrim.cozmesti' => password_hash('scoalacozmesti', PASSWORD_DEFAULT),          // Ifrim Adina-Cosmina
+    'galita.cozmesti' => password_hash('scoalacozmesti', PASSWORD_DEFAULT),         // Găliță Mihai-Florin
+    'chiriac.cozmesti' => password_hash('scoalacozmesti', PASSWORD_DEFAULT),        // Chiriac Ecaterina
+    'ungureanu.cozmesti' => password_hash('scoalacozmesti', PASSWORD_DEFAULT),      // Ungureanu Valentina
+    'andrii.cozmesti' => password_hash('scoalacozmesti', PASSWORD_DEFAULT),         // Andrii Doru Emil
+    'samoila.cozmesti' => password_hash('scoalacozmesti', PASSWORD_DEFAULT),        // Samoilă Ștefania
+    'puscasu.cozmesti' => password_hash('scoalacozmesti', PASSWORD_DEFAULT),        // Pușcașu Gabriela
+    'verdes.cozmesti' => password_hash('scoalacozmesti', PASSWORD_DEFAULT),         // Verdeș-Enculescu Mirela-Elena
+    'lupu.cozmesti' => password_hash('scoalacozmesti', PASSWORD_DEFAULT),           // Lupu Silviu
+    'pascariu.cozmesti' => password_hash('scoalacozmesti', PASSWORD_DEFAULT),       // Pascariu-Iliescu Mihaela
+    'policiuc.cozmesti' => password_hash('scoalacozmesti', PASSWORD_DEFAULT),       // Policiuc Andreea
+    'aniculaesei.cozmesti' => password_hash('scoalacozmesti', PASSWORD_DEFAULT),    // Aniculaesei Patricia-Maria
 ];
 
 // MAPAREA NUMELOR COMPLETE PENTRU LOGURI
 $user_full_names = [
     'admin' => 'Administrator',
+    'gigitest' => 'Gigi Test',
+    
+    // ȘCOALA GIMNAZIALĂ SMARDIOASA
     'slavu.smardioasa' => 'Slavu Lorelai Mihaela',
     'petre.smardioasa' => 'Petre Elena',
     'cristea.smardioasa' => 'Cristea Olimpia',
@@ -40,6 +67,29 @@ $user_full_names = [
     'lazarica.smardioasa' => 'Lăzărică Liliana',
     'joinel.smardioasa' => 'Joinel Mihaela',
     'avram.smardioasa' => 'Avram Roxana Madalina',
+    
+    // ȘCOALA DIN COZMEȘTI
+    'chescu.cozmesti' => 'Cheșcu Mioara',
+    'baltag.cozmesti' => 'Baltag Adina',
+    'guralivu.cozmesti' => 'Guralivu Daniela',
+    'agavriloaiei.cozmesti' => 'Agavriloaiei Pompilia',
+    'tanase.cozmesti' => 'Tănase Gheorghe',
+    'piriiala.cozmesti' => 'Pîrîială Constantin',
+    'iacob.cozmesti' => 'Iacob Cristina',
+    'rusu.cozmesti' => 'Rusu Claudiu',
+    'piriialaim.cozmesti' => 'Pîrîială Mihaela',
+    'ifrim.cozmesti' => 'Ifrim Adina-Cosmina',
+    'galita.cozmesti' => 'Găliță Mihai-Florin',
+    'chiriac.cozmesti' => 'Chiriac Ecaterina',
+    'ungureanu.cozmesti' => 'Ungureanu Valentina',
+    'andrii.cozmesti' => 'Andrii Doru Emil',
+    'samoila.cozmesti' => 'Samoilă Ștefania',
+    'puscasu.cozmesti' => 'Pușcașu Gabriela',
+    'verdes.cozmesti' => 'Verdeș-Enculescu Mirela-Elena',
+    'lupu.cozmesti' => 'Lupu Silviu',
+    'pascariu.cozmesti' => 'Pascariu-Iliescu Mihaela',
+    'policiuc.cozmesti' => 'Policiuc Andreea',
+    'aniculaesei.cozmesti' => 'Aniculaesei Patricia-Maria',
 ];
 
 // Funcție pentru obținerea numelui complet
@@ -243,7 +293,10 @@ $public_pages = [
 ];
 
 /* 
-LISTĂ UTILIZATORI ȘCOALA GIMNAZIALĂ SMARDIOASA:
+LISTĂ UTILIZATORI - TOTAL: 37 utilizatori (1 admin + 1 test + 14 Smardioasa + 21 Cozmești)
+=============================================================================================
+
+ȘCOALA GIMNAZIALĂ SMARDIOASA (14 utilizatori):
 ================================================
 Username: slavu.smardioasa      | Nume: Slavu Lorelai Mihaela     | Email: lory.slavu@gmail.com
 Username: petre.smardioasa      | Nume: Petre Elena               | Email: elis_2u@yahoo.com
@@ -259,13 +312,37 @@ Username: dragomirescu.smardioasa | Nume: Dragomirescu Alina      | Email: alinu
 Username: lazarica.smardioasa   | Nume: Lăzărică Liliana          | Email: lazaricaliliana134@gmail.com
 Username: joinel.smardioasa     | Nume: Joinel Mihaela            | Email: joinel_mihaela@yahoo.com
 Username: avram.smardioasa      | Nume: Avram Roxana Madalina     | Email: avram_roxana2009@yahoo.com
+PAROLA COMUNĂ: scoalasmardioasa
 
-PAROLA COMUNĂ PENTRU TOȚI: scoalasmardioasa
+ȘCOALA DIN COZMEȘTI (21 utilizatori):
+======================================
+Username: chescu.cozmesti       | Nume: Cheșcu Mioara             | Email: mioara.chescu@gmail.com
+Username: baltag.cozmesti       | Nume: Baltag Adina              | Email: adina_baltag@yahoo.com
+Username: guralivu.cozmesti     | Nume: Guralivu Daniela          | Email: daniela_popa_od@yahoo.com
+Username: agavriloaiei.cozmesti | Nume: Agavriloaiei Pompilia     | Email: liaagavriloaiei@yahoo.com
+Username: tanase.cozmesti       | Nume: Tănase Gheorghe           | Email: gheorghetanase1968@gmail.com
+Username: piriiala.cozmesti     | Nume: Pîrîială Constantin       | Email: constantinpiriiala@yahoo.com
+Username: iacob.cozmesti        | Nume: Iacob Cristina            | Email: iacobcris77@yahoo.com
+Username: rusu.cozmesti         | Nume: Rusu Claudiu              | Email: claudgym@yahoo.com
+Username: piriialaim.cozmesti   | Nume: Pîrîială Mihaela          | Email: piriialamihaela@gmail.com
+Username: ifrim.cozmesti        | Nume: Ifrim Adina-Cosmina       | Email: ifrim.adina99@gmail.com
+Username: galita.cozmesti       | Nume: Găliță Mihai-Florin       | Email: florin3006@yahoo.com
+Username: chiriac.cozmesti      | Nume: Chiriac Ecaterina         | Email: inachiriac1@yahoo.com
+Username: ungureanu.cozmesti    | Nume: Ungureanu Valentina       | Email: maghercavalentina@gmail.com
+Username: andrii.cozmesti       | Nume: Andrii Doru Emil          | Email: artaandrii@yahoo.com
+Username: samoila.cozmesti      | Nume: Samoilă Ștefania          | Email: stefania_samoila@yahoo.com
+Username: puscasu.cozmesti      | Nume: Pușcașu Gabriela          | Email: gaby_ezaru@yahoo.com
+Username: verdes.cozmesti       | Nume: Verdeș-Enculescu Mirela-Elena | Email: mirela.enculescu@yahoo.com
+Username: lupu.cozmesti         | Nume: Lupu Silviu               | Email: valentinian82@yahoo.com
+Username: pascariu.cozmesti     | Nume: Pascariu-Iliescu Mihaela  | Email: pascariumihaela84@yahoo.com
+Username: policiuc.cozmesti     | Nume: Policiuc Andreea          | Email: andreea.policiuc@gmail.com
+Username: aniculaesei.cozmesti  | Nume: Aniculaesei Patricia-Maria | Email: patriciaaniculaesei@gmail.com
+PAROLA COMUNĂ: scoalacozmesti
 
 NOUL FORMAT DE LOGURI:
 ======================
 [SUCCESS] 2025-05-29 14:30:15 | User: cristea.smardioasa (Cristea Olimpia) | IP: 192.168.1.1 | Agent: Mozilla/5.0...
 [FAILED] 2025-05-29 14:32:10 | Attempted User: wrong.user (Utilizator Necunoscut) | IP: 192.168.1.1 | Agent: Mozilla/5.0...
-[LOGOUT] 2025-05-29 15:45:20 | User: cristea.smardioasa (Cristea Olimpia) | IP: 192.168.1.1 | Agent: Mozilla/5.0...
+[LOGOUT] 2025-05-29 15:45:20 | User: chescu.cozmesti (Cheșcu Mioara) | IP: 192.168.1.1 | Agent: Mozilla/5.0...
 */
 ?>

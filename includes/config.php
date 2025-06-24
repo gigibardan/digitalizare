@@ -22,7 +22,7 @@ $users = [
     'joinel.smardioasa' => password_hash('scoalasmardioasa', PASSWORD_DEFAULT),     // Joinel Mihaela
     'avram.smardioasa' => password_hash('scoalasmardioasa', PASSWORD_DEFAULT),      // Avram Roxana Madalina
     
-    // ȘCOALA DIN COZMEȘTI
+    // ȘCOALA PROFESIONALĂ COZMEȘTI
     // Toți utilizatorii au parola: scoalacozmesti
     'chescu.cozmesti' => password_hash('scoalacozmesti', PASSWORD_DEFAULT),         // Cheșcu Mioara
     'baltag.cozmesti' => password_hash('scoalacozmesti', PASSWORD_DEFAULT),         // Baltag Adina
@@ -45,6 +45,25 @@ $users = [
     'pascariu.cozmesti' => password_hash('scoalacozmesti', PASSWORD_DEFAULT),       // Pascariu-Iliescu Mihaela
     'policiuc.cozmesti' => password_hash('scoalacozmesti', PASSWORD_DEFAULT),       // Policiuc Andreea
     'aniculaesei.cozmesti' => password_hash('scoalacozmesti', PASSWORD_DEFAULT),    // Aniculaesei Patricia-Maria
+    
+    // ȘCOALA GIMNAZIALĂ PETREȘTI
+    // Toți utilizatorii au parola: scoalapetresti
+    'muresanu.petresti' => password_hash('scoalapetresti', PASSWORD_DEFAULT),       // Mureșanu T. Marius (Director)
+    'tatuc.petresti' => password_hash('scoalapetresti', PASSWORD_DEFAULT),          // Tătuc V. Gabriela
+    'copilu.petresti' => password_hash('scoalapetresti', PASSWORD_DEFAULT),         // Copilu I. Ion-Florin
+    'oancea.petresti' => password_hash('scoalapetresti', PASSWORD_DEFAULT),         // Oancea-Anghelescu N. Monica
+    'spinu.petresti' => password_hash('scoalapetresti', PASSWORD_DEFAULT),          // Spînu V. Liliana
+    'popescu.petresti' => password_hash('scoalapetresti', PASSWORD_DEFAULT),        // Popescu C. Maria-Amalia
+    'dita.petresti' => password_hash('scoalapetresti', PASSWORD_DEFAULT),           // Diţă I. Nicoleta-Manuela
+    'craciun.petresti' => password_hash('scoalapetresti', PASSWORD_DEFAULT),        // Crăciun I. Cecilia-Oana
+    'topor.petresti' => password_hash('scoalapetresti', PASSWORD_DEFAULT),          // Topor M. Elena
+    'spinuc.petresti' => password_hash('scoalapetresti', PASSWORD_DEFAULT),         // Spînu C. Ancuța-Elena
+    'calin.petresti' => password_hash('scoalapetresti', PASSWORD_DEFAULT),          // Călin G. Constantin
+    'rotaru.petresti' => password_hash('scoalapetresti', PASSWORD_DEFAULT),         // Rotaru D. Mihaela-Carmen
+    'hodorogea.petresti' => password_hash('scoalapetresti', PASSWORD_DEFAULT),      // Hodorogea I. Ana-Maria
+    'stoian.petresti' => password_hash('scoalapetresti', PASSWORD_DEFAULT),         // Stoian L. Marius
+    'nicolae.petresti' => password_hash('scoalapetresti', PASSWORD_DEFAULT),        // Nicolae P. Marioara
+    'blendea.petresti' => password_hash('scoalapetresti', PASSWORD_DEFAULT),        // Blendea G. Valentina-Florentina
 ];
 
 // MAPAREA NUMELOR COMPLETE PENTRU LOGURI
@@ -68,7 +87,7 @@ $user_full_names = [
     'joinel.smardioasa' => 'Joinel Mihaela',
     'avram.smardioasa' => 'Avram Roxana Madalina',
     
-    // ȘCOALA DIN COZMEȘTI
+    // ȘCOALA PROFESIONALĂ COZMEȘTI
     'chescu.cozmesti' => 'Cheșcu Mioara',
     'baltag.cozmesti' => 'Baltag Adina',
     'guralivu.cozmesti' => 'Guralivu Daniela',
@@ -90,6 +109,24 @@ $user_full_names = [
     'pascariu.cozmesti' => 'Pascariu-Iliescu Mihaela',
     'policiuc.cozmesti' => 'Policiuc Andreea',
     'aniculaesei.cozmesti' => 'Aniculaesei Patricia-Maria',
+    
+    // ȘCOALA GIMNAZIALĂ PETREȘTI
+    'muresanu.petresti' => 'Mureșanu T. Marius',
+    'tatuc.petresti' => 'Tătuc V. Gabriela',
+    'copilu.petresti' => 'Copilu I. Ion-Florin',
+    'oancea.petresti' => 'Oancea-Anghelescu N. Monica',
+    'spinu.petresti' => 'Spînu V. Liliana',
+    'popescu.petresti' => 'Popescu C. Maria-Amalia',
+    'dita.petresti' => 'Diţă I. Nicoleta-Manuela',
+    'craciun.petresti' => 'Crăciun I. Cecilia-Oana',
+    'topor.petresti' => 'Topor M. Elena',
+    'spinuc.petresti' => 'Spînu C. Ancuța-Elena',
+    'calin.petresti' => 'Călin G. Constantin',
+    'rotaru.petresti' => 'Rotaru D. Mihaela-Carmen',
+    'hodorogea.petresti' => 'Hodorogea I. Ana-Maria',
+    'stoian.petresti' => 'Stoian L. Marius',
+    'nicolae.petresti' => 'Nicolae P. Marioara',
+    'blendea.petresti' => 'Blendea G. Valentina-Florentina',
 ];
 
 // Funcție pentru obținerea numelui complet
@@ -293,56 +330,70 @@ $public_pages = [
 ];
 
 /* 
-LISTĂ UTILIZATORI - TOTAL: 37 utilizatori (1 admin + 1 test + 14 Smardioasa + 21 Cozmești)
-=============================================================================================
+LISTĂ UTILIZATORI - TOTAL: 52 utilizatori (1 admin + 1 test + 14 Smardioasa + 21 Cozmești + 16 Petrești)
+==========================================================================================================
 
 ȘCOALA GIMNAZIALĂ SMARDIOASA (14 utilizatori):
 ================================================
-Username: slavu.smardioasa      | Nume: Slavu Lorelai Mihaela     | Email: lory.slavu@gmail.com
-Username: petre.smardioasa      | Nume: Petre Elena               | Email: elis_2u@yahoo.com
-Username: cristea.smardioasa    | Nume: Cristea Olimpia           | Email: cristea.olimpia1964@yahoo.com
-Username: zahariea.smardioasa   | Nume: Zahariea Cristina         | Email: cristina.zahariea@yahoo.com
-Username: ionescu.smardioasa    | Nume: Ionescu Ileana            | Email: ionescuileana1981@yahoo.com
-Username: raportaru.smardioasa  | Nume: Raportaru Aurelian        | Email: aurelianraportaru@yahoo.com
-Username: paun.smardioasa       | Nume: Păun Roxana Elena         | Email: roxanapaun33@gmail.com
-Username: bratu.smardioasa      | Nume: Bratu Angelica Mihaela    | Email: bratumihaelaangelica@yahoo.com
-Username: urucu.smardioasa      | Nume: Urucu Angelica Mădălina   | Email: urucu.madalina@gmail.com
-Username: dociu.smardioasa      | Nume: Dociu Mihaela Simona      | Email: dociumihaelasimona@yahoo.com
-Username: dragomirescu.smardioasa | Nume: Dragomirescu Alina      | Email: alinutad76@yahoo.com
-Username: lazarica.smardioasa   | Nume: Lăzărică Liliana          | Email: lazaricaliliana134@gmail.com
-Username: joinel.smardioasa     | Nume: Joinel Mihaela            | Email: joinel_mihaela@yahoo.com
-Username: avram.smardioasa      | Nume: Avram Roxana Madalina     | Email: avram_roxana2009@yahoo.com
+Username: slavu.smardioasa      | Nume: Slavu Lorelai Mihaela     
+Username: petre.smardioasa      | Nume: Petre Elena               
+Username: cristea.smardioasa    | Nume: Cristea Olimpia           
+Username: zahariea.smardioasa   | Nume: Zahariea Cristina         
+Username: ionescu.smardioasa    | Nume: Ionescu Ileana            
+Username: raportaru.smardioasa  | Nume: Raportaru Aurelian        
+Username: paun.smardioasa       | Nume: Păun Roxana Elena         
+Username: bratu.smardioasa      | Nume: Bratu Angelica Mihaela    
+Username: urucu.smardioasa      | Nume: Urucu Angelica Mădălina   
+Username: dociu.smardioasa      | Nume: Dociu Mihaela Simona      
+Username: dragomirescu.smardioasa | Nume: Dragomirescu Alina      
+Username: lazarica.smardioasa   | Nume: Lăzărică Liliana          
+Username: joinel.smardioasa     | Nume: Joinel Mihaela            
+Username: avram.smardioasa      | Nume: Avram Roxana Madalina     
 PAROLA COMUNĂ: scoalasmardioasa
 
-ȘCOALA DIN COZMEȘTI (21 utilizatori):
-======================================
-Username: chescu.cozmesti       | Nume: Cheșcu Mioara             | Email: mioara.chescu@gmail.com
-Username: baltag.cozmesti       | Nume: Baltag Adina              | Email: adina_baltag@yahoo.com
-Username: guralivu.cozmesti     | Nume: Guralivu Daniela          | Email: daniela_popa_od@yahoo.com
-Username: agavriloaiei.cozmesti | Nume: Agavriloaiei Pompilia     | Email: liaagavriloaiei@yahoo.com
-Username: tanase.cozmesti       | Nume: Tănase Gheorghe           | Email: gheorghetanase1968@gmail.com
-Username: piriiala.cozmesti     | Nume: Pîrîială Constantin       | Email: constantinpiriiala@yahoo.com
-Username: iacob.cozmesti        | Nume: Iacob Cristina            | Email: iacobcris77@yahoo.com
-Username: rusu.cozmesti         | Nume: Rusu Claudiu              | Email: claudgym@yahoo.com
-Username: piriialaim.cozmesti   | Nume: Pîrîială Mihaela          | Email: piriialamihaela@gmail.com
-Username: ifrim.cozmesti        | Nume: Ifrim Adina-Cosmina       | Email: ifrim.adina99@gmail.com
-Username: galita.cozmesti       | Nume: Găliță Mihai-Florin       | Email: florin3006@yahoo.com
-Username: chiriac.cozmesti      | Nume: Chiriac Ecaterina         | Email: inachiriac1@yahoo.com
-Username: ungureanu.cozmesti    | Nume: Ungureanu Valentina       | Email: maghercavalentina@gmail.com
-Username: andrii.cozmesti       | Nume: Andrii Doru Emil          | Email: artaandrii@yahoo.com
-Username: samoila.cozmesti      | Nume: Samoilă Ștefania          | Email: stefania_samoila@yahoo.com
-Username: puscasu.cozmesti      | Nume: Pușcașu Gabriela          | Email: gaby_ezaru@yahoo.com
-Username: verdes.cozmesti       | Nume: Verdeș-Enculescu Mirela-Elena | Email: mirela.enculescu@yahoo.com
-Username: lupu.cozmesti         | Nume: Lupu Silviu               | Email: valentinian82@yahoo.com
-Username: pascariu.cozmesti     | Nume: Pascariu-Iliescu Mihaela  | Email: pascariumihaela84@yahoo.com
-Username: policiuc.cozmesti     | Nume: Policiuc Andreea          | Email: andreea.policiuc@gmail.com
-Username: aniculaesei.cozmesti  | Nume: Aniculaesei Patricia-Maria | Email: patriciaaniculaesei@gmail.com
+ȘCOALA PROFESIONALĂ COZMEȘTI (21 utilizatori):
+===============================================
+Username: chescu.cozmesti       | Nume: Cheșcu Mioara             
+Username: baltag.cozmesti       | Nume: Baltag Adina              
+Username: guralivu.cozmesti     | Nume: Guralivu Daniela          
+Username: agavriloaiei.cozmesti | Nume: Agavriloaiei Pompilia     
+Username: tanase.cozmesti       | Nume: Tănase Gheorghe           
+Username: piriiala.cozmesti     | Nume: Pîrîială Constantin       
+Username: iacob.cozmesti        | Nume: Iacob Cristina            
+Username: rusu.cozmesti         | Nume: Rusu Claudiu              
+Username: piriialaim.cozmesti   | Nume: Pîrîială Mihaela          
+Username: ifrim.cozmesti        | Nume: Ifrim Adina-Cosmina       
+Username: galita.cozmesti       | Nume: Găliță Mihai-Florin       
+Username: chiriac.cozmesti      | Nume: Chiriac Ecaterina         
+Username: ungureanu.cozmesti    | Nume: Ungureanu Valentina       
+Username: andrii.cozmesti       | Nume: Andrii Doru Emil          
+Username: samoila.cozmesti      | Nume: Samoilă Ștefania          
+Username: puscasu.cozmesti      | Nume: Pușcașu Gabriela          
+Username: verdes.cozmesti       | Nume: Verdeș-Enculescu Mirela-Elena 
+Username: lupu.cozmesti         | Nume: Lupu Silviu               
+Username: pascariu.cozmesti     | Nume: Pascariu-Iliescu Mihaela  
+Username: policiuc.cozmesti     | Nume: Policiuc Andreea          
+Username: aniculaesei.cozmesti  | Nume: Aniculaesei Patricia-Maria 
 PAROLA COMUNĂ: scoalacozmesti
 
-NOUL FORMAT DE LOGURI:
-======================
-[SUCCESS] 2025-05-29 14:30:15 | User: cristea.smardioasa (Cristea Olimpia) | IP: 192.168.1.1 | Agent: Mozilla/5.0...
-[FAILED] 2025-05-29 14:32:10 | Attempted User: wrong.user (Utilizator Necunoscut) | IP: 192.168.1.1 | Agent: Mozilla/5.0...
-[LOGOUT] 2025-05-29 15:45:20 | User: chescu.cozmesti (Cheșcu Mioara) | IP: 192.168.1.1 | Agent: Mozilla/5.0...
+ȘCOALA GIMNAZIALĂ PETREȘTI (16 utilizatori):
+=============================================
+Username: muresanu.petresti     | Nume: Mureșanu T. Marius (Director)
+Username: tatuc.petresti        | Nume: Tătuc V. Gabriela (CHI, FIZ)
+Username: copilu.petresti       | Nume: Copilu I. Ion-Florin (MAT)
+Username: oancea.petresti       | Nume: Oancea-Anghelescu N. Monica (MAT)
+Username: spinu.petresti        | Nume: Spînu V. Liliana (LRO)
+Username: popescu.petresti      | Nume: Popescu C. Maria-Amalia (LRO)
+Username: dita.petresti         | Nume: Diţă I. Nicoleta-Manuela (LRO)
+Username: craciun.petresti      | Nume: Crăciun I. Cecilia-Oana (LEN)
+Username: topor.petresti        | Nume: Topor M. Elena (IST, EDS, EDF)
+Username: spinuc.petresti       | Nume: Spînu C. Ancuța-Elena (EDF)
+Username: calin.petresti        | Nume: Călin G. Constantin (EDR)
+Username: rotaru.petresti       | Nume: Rotaru D. Mihaela-Carmen (FIZ, CHI)
+Username: hodorogea.petresti    | Nume: Hodorogea I. Ana-Maria (GEO)
+Username: stoian.petresti       | Nume: Stoian L. Marius (EDF)
+Username: nicolae.petresti      | Nume: Nicolae P. Marioara (LFR, LEN)
+Username: blendea.petresti      | Nume: Blendea G. Valentina-Florentina (LRO)
+PAROLA COMUNĂ: scoalapetresti
 */
 ?>

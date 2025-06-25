@@ -45,7 +45,7 @@ $users = [
     'pascariu.cozmesti' => password_hash('scoalacozmesti', PASSWORD_DEFAULT),       // Pascariu-Iliescu Mihaela
     'policiuc.cozmesti' => password_hash('scoalacozmesti', PASSWORD_DEFAULT),       // Policiuc Andreea
     'aniculaesei.cozmesti' => password_hash('scoalacozmesti', PASSWORD_DEFAULT),    // Aniculaesei Patricia-Maria
-    'carp.cozmesti' => => password_hash('scoalacozmesti', PASSWORD_DEFAULT),         //Carp Mihaela Mirela
+    'carp.cozmesti' => password_hash('scoalacozmesti', PASSWORD_DEFAULT),               //Carp Mihaela Mirela
 
     // ȘCOALA GIMNAZIALĂ PERISORU
     // Toți utilizatorii au parola: scoalaperisoru

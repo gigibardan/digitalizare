@@ -45,7 +45,8 @@ $users = [
     'pascariu.cozmesti' => password_hash('scoalacozmesti', PASSWORD_DEFAULT),       // Pascariu-Iliescu Mihaela
     'policiuc.cozmesti' => password_hash('scoalacozmesti', PASSWORD_DEFAULT),       // Policiuc Andreea
     'aniculaesei.cozmesti' => password_hash('scoalacozmesti', PASSWORD_DEFAULT),    // Aniculaesei Patricia-Maria
-    
+    'carp.cozmesti' => => password_hash('scoalacozmesti', PASSWORD_DEFAULT),         //Carp Mihaela Mirela
+
     // ȘCOALA GIMNAZIALĂ PERISORU
     // Toți utilizatorii au parola: scoalaperisoru
     'muresanu.perisoru' => password_hash('scoalaperisoru', PASSWORD_DEFAULT),       // Mureșanu T. Marius (Director)
@@ -109,6 +110,7 @@ $user_full_names = [
     'pascariu.cozmesti' => 'Pascariu-Iliescu Mihaela',
     'policiuc.cozmesti' => 'Policiuc Andreea',
     'aniculaesei.cozmesti' => 'Aniculaesei Patricia-Maria',
+    'carp.cozmesti' => 'Carp Mihaela Mirela',
     
     // ȘCOALA GIMNAZIALĂ PERISORU
     'muresanu.perisoru' => 'Mureșanu T. Marius',
@@ -374,6 +376,8 @@ Username: lupu.cozmesti         | Nume: Lupu Silviu
 Username: pascariu.cozmesti     | Nume: Pascariu-Iliescu Mihaela  
 Username: policiuc.cozmesti     | Nume: Policiuc Andreea          
 Username: aniculaesei.cozmesti  | Nume: Aniculaesei Patricia-Maria 
+Username:carp.cozmesti          | Nume: Carp Mihaela Mirela
+
 PAROLA COMUNĂ: scoalacozmesti
 
 ȘCOALA GIMNAZIALĂ PERISORU (16 utilizatori):

@@ -45,7 +45,7 @@ $users = [
     'pascariu.cozmesti' => password_hash('scoalacozmesti', PASSWORD_DEFAULT),       // Pascariu-Iliescu Mihaela
     'policiuc.cozmesti' => password_hash('scoalacozmesti', PASSWORD_DEFAULT),       // Policiuc Andreea
     'aniculaesei.cozmesti' => password_hash('scoalacozmesti', PASSWORD_DEFAULT),    // Aniculaesei Patricia-Maria
-    'carp.cozmesti' => password_hash('scoalacozmesti', PASSWORD_DEFAULT),               //Carp Mihaela Mirela
+    'carp.cozmesti' => password_hash('scoalacozmesti', PASSWORD_DEFAULT),           // Carp Mihaela Mirela
 
     // ȘCOALA GIMNAZIALĂ PERISORU
     // Toți utilizatorii au parola: scoalaperisoru
@@ -65,6 +65,29 @@ $users = [
     'stoian.perisoru' => password_hash('scoalaperisoru', PASSWORD_DEFAULT),         // Stoian L. Marius
     'nicolae.perisoru' => password_hash('scoalaperisoru', PASSWORD_DEFAULT),        // Nicolae P. Marioara
     'blendea.perisoru' => password_hash('scoalaperisoru', PASSWORD_DEFAULT),        // Blendea G. Valentina-Florentina
+    
+    // ȘCOALA GIMNAZIALĂ PETREȘTI
+    // Toți utilizatorii au parola: scoalapetresti
+    'diaconu.petresti' => password_hash('scoalapetresti', PASSWORD_DEFAULT),        // Diaconu Nicușor (Director)
+    'dumitrescu.petresti' => password_hash('scoalapetresti', PASSWORD_DEFAULT),     // Dumitrescu Mariana (Director adjunct)
+    'ilie.petresti' => password_hash('scoalapetresti', PASSWORD_DEFAULT),           // Ilie Alin Florin
+    'staicu.petresti' => password_hash('scoalapetresti', PASSWORD_DEFAULT),         // Staicu Adriana
+    'andrei.petresti' => password_hash('scoalapetresti', PASSWORD_DEFAULT),         // Andrei Cristina Luciana
+    'rosu.petresti' => password_hash('scoalapetresti', PASSWORD_DEFAULT),           // Roșu Eugen
+    'serban.petresti' => password_hash('scoalapetresti', PASSWORD_DEFAULT),         // Șerban Geanina Liliana
+    'stan.petresti' => password_hash('scoalapetresti', PASSWORD_DEFAULT),           // Stan Daniel Florin
+    'zarnescu.petresti' => password_hash('scoalapetresti', PASSWORD_DEFAULT),       // Zărnescu Nela
+    'banica.petresti' => password_hash('scoalapetresti', PASSWORD_DEFAULT),         // Bănică George Silvian
+    'schmidt.petresti' => password_hash('scoalapetresti', PASSWORD_DEFAULT),        // Schmidt Victor Marius
+    'ene.petresti' => password_hash('scoalapetresti', PASSWORD_DEFAULT),            // Ene Florentina Cristina
+    'soare.petresti' => password_hash('scoalapetresti', PASSWORD_DEFAULT),          // Soare Viorica
+    'tudor.petresti' => password_hash('scoalapetresti', PASSWORD_DEFAULT),          // Tudor Dumitra Daniela
+    'alexandru.petresti' => password_hash('scoalapetresti', PASSWORD_DEFAULT),      // Alexandru Vasilica
+    'neblea.petresti' => password_hash('scoalapetresti', PASSWORD_DEFAULT),         // Neblea Florin
+    'ioneci.petresti' => password_hash('scoalapetresti', PASSWORD_DEFAULT),         // Ioneci Nicoleta
+    'stoica.petresti' => password_hash('scoalapetresti', PASSWORD_DEFAULT),         // Stoica Adeluța
+    'constantinescu.petresti' => password_hash('scoalapetresti', PASSWORD_DEFAULT), // Constantinescu Nicoleta
+    'bumbes.petresti' => password_hash('scoalapetresti', PASSWORD_DEFAULT),         // Bumbeș Iliuță
 ];
 
 // MAPAREA NUMELOR COMPLETE PENTRU LOGURI
@@ -129,6 +152,28 @@ $user_full_names = [
     'stoian.perisoru' => 'Stoian L. Marius',
     'nicolae.perisoru' => 'Nicolae P. Marioara',
     'blendea.perisoru' => 'Blendea G. Valentina-Florentina',
+    
+    // ȘCOALA GIMNAZIALĂ PETREȘTI
+    'diaconu.petresti' => 'Diaconu Nicușor',
+    'dumitrescu.petresti' => 'Dumitrescu Mariana',
+    'ilie.petresti' => 'Ilie Alin Florin',
+    'staicu.petresti' => 'Staicu Adriana',
+    'andrei.petresti' => 'Andrei Cristina Luciana',
+    'rosu.petresti' => 'Roșu Eugen',
+    'serban.petresti' => 'Șerban Geanina Liliana',
+    'stan.petresti' => 'Stan Daniel Florin',
+    'zarnescu.petresti' => 'Zărnescu Nela',
+    'banica.petresti' => 'Bănică George Silvian',
+    'schmidt.petresti' => 'Schmidt Victor Marius',
+    'ene.petresti' => 'Ene Florentina Cristina',
+    'soare.petresti' => 'Soare Viorica',
+    'tudor.petresti' => 'Tudor Dumitra Daniela',
+    'alexandru.petresti' => 'Alexandru Vasilica',
+    'neblea.petresti' => 'Neblea Florin',
+    'ioneci.petresti' => 'Ioneci Nicoleta',
+    'stoica.petresti' => 'Stoica Adeluța',
+    'constantinescu.petresti' => 'Constantinescu Nicoleta',
+    'bumbes.petresti' => 'Bumbeș Iliuță',
 ];
 
 // Funcție pentru obținerea numelui complet
@@ -332,72 +377,12 @@ $public_pages = [
 ];
 
 /* 
-LISTĂ UTILIZATORI - TOTAL: 52 utilizatori (1 admin + 1 test + 14 Smardioasa + 21 Cozmești + 16 PERISORU)
-==========================================================================================================
+LISTĂ UTILIZATORI - TOTAL: 73 utilizatori (1 admin + 1 test + 14 Smardioasa + 22 Cozmești + 16 Perisoru + 20 Petrești)
+========================================================================================================================
 
-ȘCOALA GIMNAZIALĂ SMARDIOASA (14 utilizatori):
-================================================
-Username: slavu.smardioasa      | Nume: Slavu Lorelai Mihaela     
-Username: petre.smardioasa      | Nume: Petre Elena               
-Username: cristea.smardioasa    | Nume: Cristea Olimpia           
-Username: zahariea.smardioasa   | Nume: Zahariea Cristina         
-Username: ionescu.smardioasa    | Nume: Ionescu Ileana            
-Username: raportaru.smardioasa  | Nume: Raportaru Aurelian        
-Username: paun.smardioasa       | Nume: Păun Roxana Elena         
-Username: bratu.smardioasa      | Nume: Bratu Angelica Mihaela    
-Username: urucu.smardioasa      | Nume: Urucu Angelica Mădălina   
-Username: dociu.smardioasa      | Nume: Dociu Mihaela Simona      
-Username: dragomirescu.smardioasa | Nume: Dragomirescu Alina      
-Username: lazarica.smardioasa   | Nume: Lăzărică Liliana          
-Username: joinel.smardioasa     | Nume: Joinel Mihaela            
-Username: avram.smardioasa      | Nume: Avram Roxana Madalina     
-PAROLA COMUNĂ: scoalasmardioasa
-
-ȘCOALA PROFESIONALĂ COZMEȘTI (21 utilizatori):
-===============================================
-Username: chescu.cozmesti       | Nume: Cheșcu Mioara             
-Username: baltag.cozmesti       | Nume: Baltag Adina              
-Username: guralivu.cozmesti     | Nume: Guralivu Daniela          
-Username: agavriloaiei.cozmesti | Nume: Agavriloaiei Pompilia     
-Username: tanase.cozmesti       | Nume: Tănase Gheorghe           
-Username: piriiala.cozmesti     | Nume: Pîrîială Constantin       
-Username: iacob.cozmesti        | Nume: Iacob Cristina            
-Username: rusu.cozmesti         | Nume: Rusu Claudiu              
-Username: piriialaim.cozmesti   | Nume: Pîrîială Mihaela          
-Username: ifrim.cozmesti        | Nume: Ifrim Adina-Cosmina       
-Username: galita.cozmesti       | Nume: Găliță Mihai-Florin       
-Username: chiriac.cozmesti      | Nume: Chiriac Ecaterina         
-Username: ungureanu.cozmesti    | Nume: Ungureanu Valentina       
-Username: andrii.cozmesti       | Nume: Andrii Doru Emil          
-Username: samoila.cozmesti      | Nume: Samoilă Ștefania          
-Username: puscasu.cozmesti      | Nume: Pușcașu Gabriela          
-Username: verdes.cozmesti       | Nume: Verdeș-Enculescu Mirela-Elena 
-Username: lupu.cozmesti         | Nume: Lupu Silviu               
-Username: pascariu.cozmesti     | Nume: Pascariu-Iliescu Mihaela  
-Username: policiuc.cozmesti     | Nume: Policiuc Andreea          
-Username: aniculaesei.cozmesti  | Nume: Aniculaesei Patricia-Maria 
-Username:carp.cozmesti          | Nume: Carp Mihaela Mirela
-
-PAROLA COMUNĂ: scoalacozmesti
-
-ȘCOALA GIMNAZIALĂ PERISORU (16 utilizatori):
-=============================================
-Username: muresanu.perisoru     | Nume: Mureșanu T. Marius (Director)
-Username: tatuc.perisoru        | Nume: Tătuc V. Gabriela (CHI, FIZ)
-Username: copilu.perisoru       | Nume: Copilu I. Ion-Florin (MAT)
-Username: oancea.perisoru       | Nume: Oancea-Anghelescu N. Monica (MAT)
-Username: spinu.perisoru        | Nume: Spînu V. Liliana (LRO)
-Username: popescu.perisoru      | Nume: Popescu C. Maria-Amalia (LRO)
-Username: dita.perisoru         | Nume: Diţă I. Nicoleta-Manuela (LRO)
-Username: craciun.perisoru      | Nume: Crăciun I. Cecilia-Oana (LEN)
-Username: topor.perisoru        | Nume: Topor M. Elena (IST, EDS, EDF)
-Username: spinuc.perisoru       | Nume: Spînu C. Ancuța-Elena (EDF)
-Username: calin.perisoru        | Nume: Călin G. Constantin (EDR)
-Username: rotaru.perisoru       | Nume: Rotaru D. Mihaela-Carmen (FIZ, CHI)
-Username: hodorogea.perisoru    | Nume: Hodorogea I. Ana-Maria (GEO)
-Username: stoian.perisoru       | Nume: Stoian L. Marius (EDF)
-Username: nicolae.perisoru      | Nume: Nicolae P. Marioara (LFR, LEN)
-Username: blendea.perisoru      | Nume: Blendea G. Valentina-Florentina (LRO)
-PAROLA COMUNĂ: scoalaperisoru
+ȘCOALA GIMNAZIALĂ SMARDIOASA (14 utilizatori): PAROLA: scoalasmardioasa
+ȘCOALA PROFESIONALĂ COZMEȘTI (22 utilizatori): PAROLA: scoalacozmesti
+ȘCOALA GIMNAZIALĂ PERISORU (16 utilizatori): PAROLA: scoalaperisoru
+ȘCOALA GIMNAZIALĂ PETREȘTI (20 utilizatori): PAROLA: scoalapetresti
 */
 ?>

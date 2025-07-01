@@ -22,6 +22,9 @@ $users = [
     'joinel.smardioasa' => password_hash('scoalasmardioasa', PASSWORD_DEFAULT),     // Joinel Mihaela
     'avram.smardioasa' => password_hash('scoalasmardioasa', PASSWORD_DEFAULT),      // Avram Roxana Madalina
     
+
+
+
     // ȘCOALA PROFESIONALĂ COZMEȘTI
     // Toți utilizatorii au parola: scoalacozmesti
     'chescu.cozmesti' => password_hash('scoalacozmesti', PASSWORD_DEFAULT),         // Cheșcu Mioara
@@ -47,6 +50,8 @@ $users = [
     'aniculaesei.cozmesti' => password_hash('scoalacozmesti', PASSWORD_DEFAULT),    // Aniculaesei Patricia-Maria
     'carp.cozmesti' => password_hash('scoalacozmesti', PASSWORD_DEFAULT),           // Carp Mihaela Mirela
 
+
+    
     // ȘCOALA GIMNAZIALĂ PERISORU
     // Toți utilizatorii au parola: scoalaperisoru
     'muresanu.perisoru' => password_hash('scoalaperisoru', PASSWORD_DEFAULT),       // Mureșanu T. Marius (Director)

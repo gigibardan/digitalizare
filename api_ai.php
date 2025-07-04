@@ -41,7 +41,7 @@ $headers = [
 ];
 
 $data = [
-    'model' => 'mistralai/mistral-7b-instruct',
+    'model' => 'google/gemini-2.0-flash-exp:free',
     'messages' => [
         ['role' => 'system', 'content' => 'Ești un asistent pentru profesori, specializat în educație și digitalizare. Răspunde clar și pe înțelesul cadrelor didactice.'],
         ['role' => 'user', 'content' => $question]

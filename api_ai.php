@@ -1,24 +1,21 @@
 <?php
+// api_ai.php
 header('Content-Type: application/json');
-
-// 1. Preluare întrebare
-$question = json_decode(file_get_contents('php://input'), true)['question'] ?? '';
+$input = json_decode(file_get_contents('php://input'), true);
+$question = trim($input['question'] ?? '');
 
 if (!$question) {
     echo json_encode(['answer' => 'Întrebare invalidă.']);
     exit;
 }
 
-// 2. Preluare cheie din .env
-$env_path = __DIR__ . '/config/.env';
-$api_key = trim(file_get_contents($env_path));
+$api_key = include __DIR__ . '/includes/secret_key.php';
 
 if (!$api_key) {
-    echo json_encode(['answer' => 'Cheia API este goală sau lipsă.']);
+    echo json_encode(['answer' => 'Cheia API nu a fost încărcată.']);
     exit;
 }
 
-// 3. Pregătire request
 $url = 'https://openrouter.ai/api/v1/chat/completions';
 
 $headers = [
@@ -29,28 +26,28 @@ $headers = [
 $data = [
     'model' => 'mistralai/mistral-7b-instruct',
     'messages' => [
-        ['role' => 'system', 'content' => 'Ești un asistent pentru profesori, specializat în educație și digitalizare.'],
+        ['role' => 'system', 'content' => 'Ești un asistent pentru profesori, specializat în educație și digitalizare. Răspunde clar și pe înțelesul cadrelor didactice.'],
         ['role' => 'user', 'content' => $question]
     ]
 ];
 
-// 4. Executare cu cURL
-$ch = curl_init($url);
-curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-curl_setopt($ch, CURLOPT_POST, true);
-curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
-curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($data));
+$options = [
+    'http' => [
+        'method' => 'POST',
+        'header' => implode("\r\n", $headers),
+        'content' => json_encode($data),
+        'ignore_errors' => true
+    ]
+];
 
-$response = curl_exec($ch);
-$http_code = curl_getinfo($ch, CURLINFO_HTTP_CODE);
-curl_close($ch);
-
-// 5. Procesare răspuns
+$response = file_get_contents($url, false, stream_context_create($options));
 $result = json_decode($response, true);
 
-if ($http_code !== 200 || !$result || !isset($result['choices'][0]['message']['content'])) {
-    echo json_encode(['answer' => 'Eroare OpenRouter (' . $http_code . '): ' . ($result['error']['message'] ?? $response)]);
+// DEBUG:
+if (!$result || !isset($result['choices'][0]['message']['content'])) {
+    echo json_encode(['answer' => 'Eroare brută OpenRouter: ' . $response]);
     exit;
 }
 
 echo json_encode(['answer' => $result['choices'][0]['message']['content']]);
+

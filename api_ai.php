@@ -8,9 +8,8 @@ if (!$question) {
     exit;
 }
 
-// Încarcă cheia
-include __DIR__ . '/includes/secret_key.php';
-$api_key = $API_KEY;
+$env_path = __DIR__ . '/config/.env';
+$api_key = trim(file_get_contents($env_path));
 
 $url = 'https://openrouter.ai/api/v1/chat/completions';
 

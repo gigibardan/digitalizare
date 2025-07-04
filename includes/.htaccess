@@ -1,0 +1,3 @@
+# includes/.htaccess
+# Blochează accesul direct la fișierele din includes
+deny from all

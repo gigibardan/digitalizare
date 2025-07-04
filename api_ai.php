@@ -1,6 +1,10 @@
 <?php
 // api_ai.php
 header('Content-Type: application/json');
+header('Access-Control-Allow-Origin: *');
+header('Access-Control-Allow-Methods: POST');
+header('Access-Control-Allow-Headers: Content-Type');
+
 $input = json_decode(file_get_contents('php://input'), true);
 $question = trim($input['question'] ?? '');
 
@@ -9,10 +13,23 @@ if (!$question) {
     exit;
 }
 
-$api_key = include __DIR__ . '/includes/secret_key.php';
+// Încarcă cheia API din fișierul securizat
+$api_key = null;
+$key_file = __DIR__ . '/includes/secret_key.php';
 
-if (!$api_key) {
-    echo json_encode(['answer' => 'Cheia API nu a fost încărcată.']);
+if (file_exists($key_file)) {
+    define('ALLOW_INCLUDE', true);
+    $api_key = include $key_file;
+} else {
+    echo json_encode([
+        'answer' => 'Fișierul cu cheia API nu există.',
+        'debug' => 'Caută: ' . $key_file
+    ]);
+    exit;
+}
+
+if (!$api_key || strpos($api_key, 'sk-your-actual') !== false) {
+    echo json_encode(['answer' => 'Cheia API nu a fost configurată corect.']);
     exit;
 }
 
@@ -41,13 +58,21 @@ $options = [
 ];
 
 $response = file_get_contents($url, false, stream_context_create($options));
+
+if ($response === false) {
+    echo json_encode(['answer' => 'Eroare la conectarea cu OpenRouter API.']);
+    exit;
+}
+
 $result = json_decode($response, true);
 
-// DEBUG:
 if (!$result || !isset($result['choices'][0]['message']['content'])) {
-    echo json_encode(['answer' => 'Eroare brută OpenRouter: ' . $response]);
+    echo json_encode([
+        'answer' => 'Eroare la procesarea răspunsului.',
+        'debug' => $response
+    ]);
     exit;
 }
 
 echo json_encode(['answer' => $result['choices'][0]['message']['content']]);
-
+?>

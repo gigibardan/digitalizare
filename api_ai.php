@@ -1,5 +1,6 @@
 <?php
 // api_ai.php
+
 header('Content-Type: application/json');
 header('Access-Control-Allow-Origin: *');
 header('Access-Control-Allow-Methods: POST');
@@ -40,13 +41,23 @@ $headers = [
     'Authorization: Bearer ' . $api_key
 ];
 
+$text = "Ești un asistent pentru profesori, specializat în educație și digitalizare. Răspunde clar și pe înțelesul cadrelor didactice.\n\nÎntrebare: $question";
+
 $data = [
     'model' => 'google/gemini-2.0-flash-exp:free',
     'messages' => [
-        ['role' => 'system', 'content' => 'Ești un asistent pentru profesori, specializat în educație și digitalizare. Răspunde clar și pe înțelesul cadrelor didactice.'],
-        ['role' => 'user', 'content' => $question]
+        [
+            'role' => 'user',
+            'content' => [
+                [
+                    'type' => 'text',
+                    'text' => $text
+                ]
+            ]
+        ]
     ]
 ];
+
 
 $options = [
     'http' => [

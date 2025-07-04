@@ -1,2 +1,2 @@
 <?php
-return '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';
+$API_KEY = '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';

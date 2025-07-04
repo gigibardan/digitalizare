@@ -41,8 +41,6 @@ $headers = [
     'Authorization: Bearer ' . $api_key
 ];
 
-$text = "Ești un asistent pentru profesori, specializat în educație și digitalizare. Răspunde clar și pe înțelesul cadrelor didactice.\n\nÎntrebare: $question";
-
 $data = [
     'model' => 'google/gemini-2.0-flash-exp:free',
     'messages' => [
@@ -51,7 +49,7 @@ $data = [
             'content' => [
                 [
                     'type' => 'text',
-                    'text' => $text
+                    'text' => $question
                 ]
             ]
         ]

@@ -37,4 +37,14 @@ $options = [
 $response = file_get_contents($url, false, stream_context_create($options));
 $result = json_decode($response, true);
 
-echo json_encode(['answer' => $result['choices'][0]['message']['content'] ?? 'Nu am reușit să obțin un răspuns.']);
+// DEBUG:
+if (!$result || !isset($result['choices'][0]['message']['content'])) {
+    echo json_encode(['answer' => 'Eroare brută OpenRouter: ' . $response]);
+    exit;
+}
+
+echo json_encode(['answer' => $result['choices'][0]['message']['content']]);
+
+file_put_contents('ai-log.txt', print_r($response, true), FILE_APPEND);
+
+

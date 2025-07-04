@@ -2,140 +2,173 @@
 <html lang="ro">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Asistent AI Educațional</title>
-  <link rel="stylesheet" href="/css/main.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <style>
-    body {
-      background-color: #f4f7fd;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Asistent AI Educațional</title>
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            background-color: #f4f7fd;
+        }
 
-    .ai-box {
-      max-width: 800px;
-      margin: 80px auto;
-      background: white;
-      border-radius: 12px;
-      padding: 40px;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
-    }
+        .ai-box {
+            max-width: 800px;
+            margin: 80px auto;
+            background: white;
+            border-radius: 12px;
+            padding: 40px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+        }
 
-    .ai-box h2 {
-      font-size: 1.8rem;
-      color: var(--primary-color);
-      margin-bottom: 10px;
-    }
+        .ai-box h2 {
+            font-size: 1.8rem;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
 
-    .ai-box p {
-      color: var(--gray-color);
-      margin-bottom: 30px;
-    }
+        .ai-box p {
+            color: var(--gray-color);
+            margin-bottom: 30px;
+        }
 
-    .ai-textarea {
-      width: 100%;
-      padding: 20px;
-      border-radius: var(--border-radius);
-      border: 1px solid #ccc;
-      font-size: 1rem;
-      resize: vertical;
-      box-shadow: var(--shadow);
-      margin-bottom: 25px;
-      transition: 0.3s ease;
-      font-family: 'Roboto', sans-serif;
-    }
+        .ai-textarea {
+            width: 100%;
+            padding: 20px;
+            border-radius: var(--border-radius);
+            border: 1px solid #ccc;
+            font-size: 1rem;
+            resize: vertical;
+            box-shadow: var(--shadow);
+            margin-bottom: 25px;
+            transition: 0.3s ease;
+            font-family: 'Roboto', sans-serif;
+        }
 
-    .ai-textarea:focus {
-      outline: none;
-      border-color: var(--primary-color);
-      box-shadow: 0 0 0 3px rgba(66, 133, 244, 0.15);
-    }
+        .ai-textarea:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(66, 133, 244, 0.15);
+        }
 
-    .ai-response-card {
-      display: none;
-      background-color: #ffffff;
-      border-left: 4px solid var(--primary-color);
-      padding: 25px;
-      border-radius: 8px;
-      margin-top: 25px;
-      animation: fadeIn 0.6s ease-in-out;
-    }
+        .ai-response-card {
+            display: none;
+            background-color: #ffffff;
+            border-left: 4px solid var(--primary-color);
+            padding: 25px;
+            border-radius: 8px;
+            margin-top: 25px;
+            animation: fadeIn 0.6s ease-in-out;
+        }
 
-    .ai-response-card h3 {
-      margin-bottom: 10px;
-      color: var(--primary-color);
-    }
+        .ai-response-card h3 {
+            margin-bottom: 10px;
+            color: var(--primary-color);
+        }
 
-    .typing .dots::after {
-      content: '...';
-      animation: dots 1.5s infinite;
-    }
+        .typing .dots::after {
+            content: '...';
+            animation: dots 1.5s infinite;
+        }
 
-    .btn-center {
-      display: flex;
-      justify-content: center;
-    }
+        .btn-center {
+            display: flex;
+            justify-content: center;
+        }
 
-    @keyframes dots {
-      0% { content: ''; }
-      33% { content: '.'; }
-      66% { content: '..'; }
-      100% { content: '...'; }
-    }
+        @keyframes dots {
+            0% {
+                content: '';
+            }
 
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(10px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-  </style>
+            33% {
+                content: '.';
+            }
+
+            66% {
+                content: '..';
+            }
+
+            100% {
+                content: '...';
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        #response-text strong {
+            color: #2a52be;
+            font-weight: 600;
+        }
+
+        #response-text {
+            line-height: 1.6;
+            white-space: normal;
+        }
+    </style>
 </head>
 
 <body>
 
-  <div class="ai-box">
-    <h2><i class="fas fa-robot"></i> Asistent AI Educațional</h2>
-    <p>Scrie o întrebare despre educație sau digitalizare, iar asistentul nostru AI îți va răspunde.</p>
+    <div class="ai-box">
+        <h2><i class="fas fa-robot"></i> Asistent AI Educațional</h2>
+        <p>Scrie o întrebare despre educație sau digitalizare, iar asistentul nostru AI îți va răspunde.</p>
 
-    <form id="ai-form">
-      <textarea id="question" class="ai-textarea" rows="4" placeholder="Ex: Cum pot folosi tabla interactivă la clasa?"></textarea>
-      <div class="btn-center">
-        <button type="submit" class="btn">Trimite întrebarea</button>
-      </div>
-    </form>
+        <form id="ai-form">
+            <textarea id="question" class="ai-textarea" rows="4"
+                placeholder="Ex: Cum pot folosi tabla interactivă la clasa?"></textarea>
+            <div class="btn-center">
+                <button type="submit" class="btn">Trimite întrebarea</button>
+            </div>
+        </form>
 
-    <div id="ai-response" class="ai-response-card">
-      <h3>Răspunsul AI:</h3>
-      <p id="response-text" class="typing">Se generează răspunsul<span class="dots"></span></p>
+        <div id="ai-response" class="ai-response-card">
+            <h3>Răspunsul AI:</h3>
+            <p id="response-text" class="typing">Se generează răspunsul<span class="dots"></span></p>
+        </div>
     </div>
-  </div>
 
-  <script>
-    document.getElementById('ai-form').addEventListener('submit', async function (e) {
-      e.preventDefault();
-      const question = document.getElementById('question').value.trim();
-      const responseContainer = document.getElementById('ai-response');
-      const responseText = document.getElementById('response-text');
+    <script>
+        document.getElementById('ai-form').addEventListener('submit', async function (e) {
+            e.preventDefault();
+            const question = document.getElementById('question').value.trim();
+            const responseContainer = document.getElementById('ai-response');
+            const responseText = document.getElementById('response-text');
 
-      if (!question) return;
+            if (!question) return;
 
-      responseText.textContent = 'Se generează răspunsul...';
-      responseContainer.style.display = 'block';
+            responseText.textContent = 'Se generează răspunsul...';
+            responseContainer.style.display = 'block';
 
-      try {
-        const res = await fetch('api_ai.php', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ question })
+            try {
+                const res = await fetch('api_ai.php', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ question })
+                });
+
+                const data = await res.json();
+                responseText.innerHTML = marked.parse(data.answer || 'Nu am putut genera un răspuns.');
+            } catch (err) {
+                responseText.textContent = 'Eroare la conectarea cu AI.';
+                console.error(err);
+            }
         });
+    </script>
 
-        const data = await res.json();
-        responseText.textContent = data.answer || 'Nu am putut genera un răspuns.';
-      } catch (err) {
-        responseText.textContent = 'Eroare la conectarea cu AI.';
-        console.error(err);
-      }
-    });
-  </script>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+
 
 </body>
+
 </html>

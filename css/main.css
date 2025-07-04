@@ -1949,3 +1949,14 @@ html {
   66%  { content: '..'; }
   100% { content: '...'; }
 }
+
+#response-text strong {
+  color: #2a52be;
+  font-weight: 600;
+}
+
+#response-text {
+  line-height: 1.6;
+  white-space: normal;
+}
+

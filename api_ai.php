@@ -77,7 +77,7 @@ $result = json_decode($response, true);
 
 if (!$result || !isset($result['choices'][0]['message']['content'])) {
     echo json_encode([
-        'answer' => 'Eroare la procesarea răspunsului.',
+        'answer' => '<strong>Ne pare rău!</strong> Asistentul AI răspunde doar la întrebări despre <strong>educație</strong>, <strong>digitalizare</strong> și <strong>predare modernă</strong>. Încearcă să reformulezi întrebarea.',
         'debug' => $response
     ]);
     exit;

@@ -32,28 +32,17 @@
         </div>
     </section>
 
-    <section class="section" id="ai-assistant">
-        <div class="container ai-box">
-            <div class="section-title">
-                <h2><i class="fas fa-robot" style="margin-right: 10px;"></i>Întreabă Asistentul AI</h2>
-                <p>Pune o întrebare legată de educație, digitalizare sau predare modernă.</p>
+    <section class="ai-hook">
+        <div class="container ai-hook-box">
+            <i class="fas fa-magic ai-hook-icon"></i>
+            <div class="ai-hook-content">
+                <p><strong>Nou:</strong> Platforma noastră include acum un <strong>Asistent AI al profesorilor</strong>
+                    – gata să te ajute cu întrebări despre educație, digitalizare și predare modernă.</p>
             </div>
-
-            <form id="ai-form" class="ai-form">
-                <textarea id="question" rows="4" class="ai-textarea"
-                    placeholder="Scrie întrebarea ta aici..."></textarea>
-                <div class="ai-button-wrapper">
-                    <button type="submit" class="btn">Trimite întrebarea</button>
-                </div>
-            </form>
-
-            <div id="ai-response" class="ai-response-card animate-fade" style="display: none;">
-                <h3><i class="fas fa-comment-dots" style="margin-right: 8px; color: var(--primary-color);"></i>Răspunsul
-                    AI:</h3>
-                <p id="response-text" class="typing">Se generează răspunsul<span class="dots"></span></p>
-            </div>
+            <a href="#ai-assistant" class="btn btn-outline ai-hook-btn">Întreabă-l acum</a>
         </div>
     </section>
+
 
     <!-- Prezentare generală -->
     <!-- Secțiunea cu carduri module -->
@@ -335,6 +324,29 @@
         </div>
     </section>
 
+    <section class="section" id="ai-assistant">
+        <div class="container ai-box">
+            <div class="section-title">
+                <h2><i class="fas fa-robot" style="margin-right: 10px;"></i>Întreabă Asistentul AI</h2>
+                <p>Pune o întrebare legată de educație, digitalizare sau predare modernă.</p>
+            </div>
+
+            <form id="ai-form" class="ai-form">
+                <textarea id="question" rows="4" class="ai-textarea"
+                    placeholder="Scrie întrebarea ta aici..."></textarea>
+                <div class="ai-button-wrapper">
+                    <button type="submit" class="btn">Trimite întrebarea</button>
+                </div>
+            </form>
+
+            <div id="ai-response" class="ai-response-card animate-fade" style="display: none;">
+                <h3><i class="fas fa-comment-dots" style="margin-right: 8px; color: var(--primary-color);"></i>Răspunsul
+                    AI:</h3>
+                <p id="response-text" class="typing">Se generează răspunsul<span class="dots"></span></p>
+            </div>
+        </div>
+    </section>
+
     <!-- Secțiunea de beneficii -->
     <section class="benefits-section">
         <div class="container">
@@ -571,9 +583,10 @@
 
     <script src="/js/main.js"></script>
 
+    <!-- Script pentru gestionarea întrebărilor AI -->
     <script>
         document.getElementById('ai-form').addEventListener('submit', async function (e) {
-            e.preventDefault(); // PREVINE redirecționarea
+            e.preventDefault();
 
             const question = document.getElementById('question').value.trim();
             const responseContainer = document.getElementById('ai-response');

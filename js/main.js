@@ -151,7 +151,7 @@ function checkAuthStatus() {
     const logoutBtn = document.getElementById('logout-btn');
     const adminLink = document.getElementById('admin-link'); // Link-ul vechi
     const adminDropdown = document.getElementById('admin-dropdown'); // Noul dropdown
-    
+
     if (loginBtn && logoutBtn) {
         fetch('/check_auth.php?t=' + new Date().getTime())  // Adăugăm timestamp pentru a evita cache-ul
             .then(response => response.json())
@@ -160,7 +160,7 @@ function checkAuthStatus() {
                     // Actualizăm butoanele de autentificare
                     loginBtn.style.display = 'none';
                     logoutBtn.style.display = 'inline-block';
-                    
+
                     // Afișăm numele utilizatorului dacă avem un element pentru aceasta
                     const welcomeUser = document.getElementById('welcome-user');
                     const usernameSpan = document.getElementById('username');
@@ -168,7 +168,7 @@ function checkAuthStatus() {
                         welcomeUser.style.display = 'inline-block';
                         usernameSpan.textContent = data.username;
                     }
-                    
+
                     // Verificăm dacă utilizatorul este admin
                     if (data.isAdmin || data.user_type === 'admin') {
                         // Afișăm noul dropdown admin dacă există
@@ -192,13 +192,13 @@ function checkAuthStatus() {
                     // Afișăm butonul de login și ascundem celelalte elemente
                     loginBtn.style.display = 'inline-block';
                     logoutBtn.style.display = 'none';
-                    
+
                     // Ascundem numele utilizatorului
                     const welcomeUser = document.getElementById('welcome-user');
                     if (welcomeUser) {
                         welcomeUser.style.display = 'none';
                     }
-                    
+
                     // Ascundem toate link-urile de admin
                     if (adminDropdown) {
                         adminDropdown.style.display = 'none';
@@ -228,25 +228,25 @@ document.getElementById('ai-form').addEventListener('submit', async function (e)
     responseContainer.style.display = 'block';
 
     try {
-      const res = await fetch('api_ai.php', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ question })
-      });
+        const res = await fetch('api_ai.php', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ question })
+        });
 
-      const data = await res.json();
-      responseText.innerHTML = marked.parse(data.answer || 'Nu am putut genera un răspuns.');
+        const data = await res.json();
+        responseText.innerHTML = marked.parse(data.answer || 'Nu am putut genera un răspuns.');
     } catch (err) {
-      responseText.textContent = 'Eroare la conectarea cu AI.';
-      console.error(err);
+        responseText.textContent = 'Eroare la conectarea cu AI.';
+        console.error(err);
     }
-  });
+});
 
 // După ce pagina se încarcă complet
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', function () {
     // Încercăm să verificăm după ce header-ul a fost încărcat
     setTimeout(checkAuthStatus, 500);
-    
+
     // Verificăm periodic starea autentificării (pentru a actualiza UI-ul dacă sesiunea expiră)
     setInterval(checkAuthStatus, 60000); // Verifică la fiecare minut
 });

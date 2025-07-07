@@ -216,30 +216,31 @@ function checkAuthStatus() {
 }
 
 document.getElementById('ai-form').addEventListener('submit', async function (e) {
-  e.preventDefault();
-  const question = document.getElementById('question').value.trim();
-  const responseContainer = document.getElementById('ai-response');
-  const responseText = document.getElementById('response-text');
+    e.preventDefault(); // PREVINE redirecționarea
 
-  if (!question) return;
+    const question = document.getElementById('question').value.trim();
+    const responseContainer = document.getElementById('ai-response');
+    const responseText = document.getElementById('response-text');
 
-  responseText.textContent = 'Se generează răspunsul...';
-  responseContainer.style.display = 'block';
+    if (!question) return;
 
-  try {
-    const res = await fetch('/api_ai.php', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ question })
-    });
+    responseText.textContent = 'Se generează răspunsul...';
+    responseContainer.style.display = 'block';
 
-    const data = await res.json();
-    responseText.textContent = data.answer || 'Nu am putut genera un răspuns.';
-  } catch (err) {
-    responseText.textContent = 'Eroare la conectarea cu AI.';
-    console.error(err);
-  }
-});
+    try {
+      const res = await fetch('api_ai.php', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ question })
+      });
+
+      const data = await res.json();
+      responseText.innerHTML = marked.parse(data.answer || 'Nu am putut genera un răspuns.');
+    } catch (err) {
+      responseText.textContent = 'Eroare la conectarea cu AI.';
+      console.error(err);
+    }
+  });
 
 // După ce pagina se încarcă complet
 document.addEventListener('DOMContentLoaded', function() {

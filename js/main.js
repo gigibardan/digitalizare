@@ -215,33 +215,6 @@ function checkAuthStatus() {
     }
 }
 
-document.getElementById('ai-form').addEventListener('submit', async function (e) {
-    e.preventDefault(); // PREVINE redirecționarea
-
-    const question = document.getElementById('question').value.trim();
-    const responseContainer = document.getElementById('ai-response');
-    const responseText = document.getElementById('response-text');
-
-    if (!question) return;
-
-    responseText.textContent = 'Se generează răspunsul...';
-    responseContainer.style.display = 'block';
-
-    try {
-        const res = await fetch('api_ai.php', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ question })
-        });
-
-        const data = await res.json();
-        responseText.innerHTML = marked.parse(data.answer || 'Nu am putut genera un răspuns.');
-    } catch (err) {
-        responseText.textContent = 'Eroare la conectarea cu AI.';
-        console.error(err);
-    }
-});
-
 // După ce pagina se încarcă complet
 document.addEventListener('DOMContentLoaded', function () {
     // Încercăm să verificăm după ce header-ul a fost încărcat

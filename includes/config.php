@@ -93,6 +93,37 @@ $users = [
     'stoica.petresti' => password_hash('scoalapetresti', PASSWORD_DEFAULT),         // Stoica Adeluța
     'constantinescu.petresti' => password_hash('scoalapetresti', PASSWORD_DEFAULT), // Constantinescu Nicoleta
     'bumbes.petresti' => password_hash('scoalapetresti', PASSWORD_DEFAULT),         // Bumbeș Iliuță
+    
+    // LICEUL CU PROGRAM SPORTIV ROMAN
+    // Toți utilizatorii au parola: liceulroman
+    'agache.roman' => password_hash('liceulroman', PASSWORD_DEFAULT),               // Agache Monica (Director adjunct)
+    'andrei.roman' => password_hash('liceulroman', PASSWORD_DEFAULT),               // Andrei Alina-Magdalena
+    'bumbu.roman' => password_hash('liceulroman', PASSWORD_DEFAULT),                // Bumbu Mirela-Ionela
+    'ciobanu.roman' => password_hash('liceulroman', PASSWORD_DEFAULT),              // Ciobanu Mihaela
+    'ciobanuc.roman' => password_hash('liceulroman', PASSWORD_DEFAULT),             // Ciobanu Constantin
+    'chiriac.roman' => password_hash('liceulroman', PASSWORD_DEFAULT),              // Chiriac Lucica
+    'costandache.roman' => password_hash('liceulroman', PASSWORD_DEFAULT),          // Costandache Cristina-Diana
+    'creanga.roman' => password_hash('liceulroman', PASSWORD_DEFAULT),              // Creangă Andreea
+    'dascalescu.roman' => password_hash('liceulroman', PASSWORD_DEFAULT),           // Dăscălescu Claudia
+    'didi.roman' => password_hash('liceulroman', PASSWORD_DEFAULT),                 // Didi Andreea-Ștefana
+    'enea.roman' => password_hash('liceulroman', PASSWORD_DEFAULT),                 // Enea Laura-Cristina
+    'gaina.roman' => password_hash('liceulroman', PASSWORD_DEFAULT),                // Găină Judit
+    'hanganu.roman' => password_hash('liceulroman', PASSWORD_DEFAULT),              // Hanganu Dana-Ioana
+    'huci.roman' => password_hash('liceulroman', PASSWORD_DEFAULT),                 // Huci Camelia-Elena
+    'lazar.roman' => password_hash('liceulroman', PASSWORD_DEFAULT),                // Lazăr Maria-Vasilica
+    'lazarv.roman' => password_hash('liceulroman', PASSWORD_DEFAULT),               // Lazăr Viorel
+    'lungu.roman' => password_hash('liceulroman', PASSWORD_DEFAULT),                // Lungu Anca-Maria
+    'lupu.roman' => password_hash('liceulroman', PASSWORD_DEFAULT),                 // Lupu Raluca-Mihaela
+    'lupusoru.roman' => password_hash('liceulroman', PASSWORD_DEFAULT),             // Lupușoru Constantin-Dan
+    'minut.roman' => password_hash('liceulroman', PASSWORD_DEFAULT),                // Minuț Alina-Lăcrămioara
+    'murariu.roman' => password_hash('liceulroman', PASSWORD_DEFAULT),              // Murariu Georgiana
+    'pascal.roman' => password_hash('liceulroman', PASSWORD_DEFAULT),               // Pascal Nicoleta
+    'patrauceanu.roman' => password_hash('liceulroman', PASSWORD_DEFAULT),          // Pătrăuceanu Irina-Elena (Director adjunct)
+    'petcu.roman' => password_hash('liceulroman', PASSWORD_DEFAULT),                // Petcu Gabriela-Daniela
+    'pintea.roman' => password_hash('liceulroman', PASSWORD_DEFAULT),               // Pîntea Amelia
+    'pislaru.roman' => password_hash('liceulroman', PASSWORD_DEFAULT),              // Pîslaru Ludmila Tereza
+    'simionescu.roman' => password_hash('liceulroman', PASSWORD_DEFAULT),           // Simionescu Liliana
+    'tamba.roman' => password_hash('liceulroman', PASSWORD_DEFAULT),                // Tamba Constantin
 ];
 
 // MAPAREA NUMELOR COMPLETE PENTRU LOGURI
@@ -179,6 +210,36 @@ $user_full_names = [
     'stoica.petresti' => 'Stoica Adeluța',
     'constantinescu.petresti' => 'Constantinescu Nicoleta',
     'bumbes.petresti' => 'Bumbeș Iliuță',
+    
+    // LICEUL CU PROGRAM SPORTIV ROMAN
+    'agache.roman' => 'Agache Monica',
+    'andrei.roman' => 'Andrei Alina-Magdalena',
+    'bumbu.roman' => 'Bumbu Mirela-Ionela',
+    'ciobanu.roman' => 'Ciobanu Mihaela',
+    'ciobanuc.roman' => 'Ciobanu Constantin',
+    'chiriac.roman' => 'Chiriac Lucica',
+    'costandache.roman' => 'Costandache Cristina-Diana',
+    'creanga.roman' => 'Creangă Andreea',
+    'dascalescu.roman' => 'Dăscălescu Claudia',
+    'didi.roman' => 'Didi Andreea-Ștefana',
+    'enea.roman' => 'Enea Laura-Cristina',
+    'gaina.roman' => 'Găină Judit',
+    'hanganu.roman' => 'Hanganu Dana-Ioana',
+    'huci.roman' => 'Huci Camelia-Elena',
+    'lazar.roman' => 'Lazăr Maria-Vasilica',
+    'lazarv.roman' => 'Lazăr Viorel',
+    'lungu.roman' => 'Lungu Anca-Maria',
+    'lupu.roman' => 'Lupu Raluca-Mihaela',
+    'lupusoru.roman' => 'Lupușoru Constantin-Dan',
+    'minut.roman' => 'Minuț Alina-Lăcrămioara',
+    'murariu.roman' => 'Murariu Georgiana',
+    'pascal.roman' => 'Pascal Nicoleta',
+    'patrauceanu.roman' => 'Pătrăuceanu Irina-Elena',
+    'petcu.roman' => 'Petcu Gabriela-Daniela',
+    'pintea.roman' => 'Pîntea Amelia',
+    'pislaru.roman' => 'Pîslaru Ludmila Tereza',
+    'simionescu.roman' => 'Simionescu Liliana',
+    'tamba.roman' => 'Tamba Constantin',
 ];
 
 // Funcție pentru obținerea numelui complet
@@ -382,12 +443,13 @@ $public_pages = [
 ];
 
 /* 
-LISTĂ UTILIZATORI - TOTAL: 73 utilizatori (1 admin + 1 test + 14 Smardioasa + 22 Cozmești + 16 Perisoru + 20 Petrești)
-========================================================================================================================
+LISTĂ UTILIZATORI - TOTAL: 101 utilizatori (1 admin + 1 test + 14 Smardioasa + 22 Cozmești + 16 Perisoru + 20 Petrești + 28 Roman)
+============================================================================================================================
 
 ȘCOALA GIMNAZIALĂ SMARDIOASA (14 utilizatori): PAROLA: scoalasmardioasa
-ȘCOALA PROFESIONALĂ COZMEȘTI (22 utilizatori): PAROLA: scoalacozmesti
+ȘCOALA PROFESIONALĂ COZMEȘTI (22 utilizatori): PAROLA: scoalacozmesti  
 ȘCOALA GIMNAZIALĂ PERISORU (16 utilizatori): PAROLA: scoalaperisoru
 ȘCOALA GIMNAZIALĂ PETREȘTI (20 utilizatori): PAROLA: scoalapetresti
+LICEUL CU PROGRAM SPORTIV ROMAN (28 utilizatori): PAROLA: liceulroman
 */
 ?>

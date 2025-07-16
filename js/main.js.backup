@@ -1,5 +1,4 @@
-// js/main.js - VERSIUNEA OPTIMIZATĂ
-
+// js/main.js
 document.addEventListener('DOMContentLoaded', function () {
     // Încărcarea header-ului
     const headerElement = document.querySelector('#header-placeholder');
@@ -89,7 +88,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     }
                 }
             });
-              });
+        });
     });
 });
 
@@ -130,6 +129,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 });
 
+
 document.addEventListener('DOMContentLoaded', function () {
     // Verifică dacă există secțiunea #plan în pagina curentă
     const planSection = document.getElementById('plan');
@@ -144,114 +144,75 @@ document.addEventListener('DOMContentLoaded', function () {
     // Altfel, rămâne "/index.html#plan" și va redirecționa către homepage
 });
 
-// ==========================================
-// VERIFICAREA AUTENTIFICĂRII - OPTIMIZATĂ
-// ==========================================
-
-// Cache pentru starea autentificării
-let authCache = {
-    data: null,
-    timestamp: 0,
-    duration: 300000 // 5 minute cache
-};
-
+// Adaugă acest cod la sfârșitul main.js
 // Verifică autentificarea după ce header-ul este încărcat
 function checkAuthStatus() {
     const loginBtn = document.getElementById('login-btn');
     const logoutBtn = document.getElementById('logout-btn');
-    const adminLink = document.getElementById('admin-link');
-    const adminDropdown = document.getElementById('admin-dropdown');
+    const adminLink = document.getElementById('admin-link'); // Link-ul vechi
+    const adminDropdown = document.getElementById('admin-dropdown'); // Noul dropdown
 
-    if (!loginBtn || !logoutBtn) {
+    if (loginBtn && logoutBtn) {
+        fetch('/check_auth.php?t=' + new Date().getTime())  // Adăugăm timestamp pentru a evita cache-ul
+            .then(response => response.json())
+            .then(data => {
+                if (data.authenticated) {
+                    // Actualizăm butoanele de autentificare
+                    loginBtn.style.display = 'none';
+                    logoutBtn.style.display = 'inline-block';
+
+                    // Afișăm numele utilizatorului dacă avem un element pentru aceasta
+                    const welcomeUser = document.getElementById('welcome-user');
+                    const usernameSpan = document.getElementById('username');
+                    if (welcomeUser && usernameSpan && data.username) {
+                        welcomeUser.style.display = 'inline-block';
+                        usernameSpan.textContent = data.username;
+                    }
+
+                    // Verificăm dacă utilizatorul este admin
+                    if (data.isAdmin || data.user_type === 'admin') {
+                        // Afișăm noul dropdown admin dacă există
+                        if (adminDropdown) {
+                            adminDropdown.style.display = 'block';
+                        }
+                        // Păstrăm și link-ul vechi pentru compatibilitate
+                        if (adminLink) {
+                            adminLink.style.display = 'inline-block';
+                        }
+                    } else {
+                        // Nu este admin - ascundem ambele variante
+                        if (adminDropdown) {
+                            adminDropdown.style.display = 'none';
+                        }
+                        if (adminLink) {
+                            adminLink.style.display = 'none';
+                        }
+                    }
+                } else {
+                    // Afișăm butonul de login și ascundem celelalte elemente
+                    loginBtn.style.display = 'inline-block';
+                    logoutBtn.style.display = 'none';
+
+                    // Ascundem numele utilizatorului
+                    const welcomeUser = document.getElementById('welcome-user');
+                    if (welcomeUser) {
+                        welcomeUser.style.display = 'none';
+                    }
+
+                    // Ascundem toate link-urile de admin
+                    if (adminDropdown) {
+                        adminDropdown.style.display = 'none';
+                    }
+                    if (adminLink) {
+                        adminLink.style.display = 'none';
+                    }
+                }
+            })
+            .catch(error => console.error('Eroare la verificarea autentificării:', error));
+    } else {
         // Încă nu există butonul, reîncercăm mai târziu
         setTimeout(checkAuthStatus, 300);
-        return;
     }
-
-    // Verifică cache-ul
-    const now = Date.now();
-    if (authCache.data && (now - authCache.timestamp) < authCache.duration) {
-        updateUI(authCache.data);
-        return;
-    }
-
-    // Doar dacă cache-ul a expirat, fă request-ul
-    fetch('/check_auth.php?t=' + now)
-        .then(response => response.json())
-        .then(data => {
-            // Salvează în cache
-            authCache.data = data;
-            authCache.timestamp = now;
-            
-            updateUI(data);
-        })
-        .catch(error => {
-            console.error('Eroare la verificarea autentificării:', error);
-            // În caz de eroare, afișează starea de nelogat
-            updateUI({ authenticated: false });
-        });
-}
-
-// Funcție separată pentru actualizarea UI-ului
-function updateUI(data) {
-    const loginBtn = document.getElementById('login-btn');
-    const logoutBtn = document.getElementById('logout-btn');
-    const adminLink = document.getElementById('admin-link');
-    const adminDropdown = document.getElementById('admin-dropdown');
-    const welcomeUser = document.getElementById('welcome-user');
-    const usernameSpan = document.getElementById('username');
-
-    if (data.authenticated) {
-        // Actualizăm butoanele de autentificare
-        loginBtn.style.display = 'none';
-        logoutBtn.style.display = 'inline-block';
-
-        // Afișăm numele utilizatorului dacă avem un element pentru aceasta
-        if (welcomeUser && usernameSpan && data.username) {
-            welcomeUser.style.display = 'inline-block';
-            usernameSpan.textContent = data.username;
-        }
-
-        // Verificăm dacă utilizatorul este admin
-        if (data.isAdmin || data.user_type === 'admin') {
-            if (adminDropdown) {
-                adminDropdown.style.display = 'block';
-            }
-            if (adminLink) {
-                adminLink.style.display = 'inline-block';
-            }
-        } else {
-            if (adminDropdown) {
-                adminDropdown.style.display = 'none';
-            }
-            if (adminLink) {
-                adminLink.style.display = 'none';
-            }
-        }
-    } else {
-        // Afișăm butonul de login și ascundem celelalte elemente
-        loginBtn.style.display = 'inline-block';
-        logoutBtn.style.display = 'none';
-
-        // Ascundem numele utilizatorului
-        if (welcomeUser) {
-            welcomeUser.style.display = 'none';
-        }
-
-        // Ascundem toate link-urile de admin
-        if (adminDropdown) {
-            adminDropdown.style.display = 'none';
-        }
-        if (adminLink) {
-            adminLink.style.display = 'none';
-        }
-    }
-}
-
-// Funcție pentru invalidarea cache-ului (de ex. după login/logout)
-function invalidateAuthCache() {
-    authCache.data = null;
-    authCache.timestamp = 0;
 }
 
 // După ce pagina se încarcă complet
@@ -259,13 +220,9 @@ document.addEventListener('DOMContentLoaded', function () {
     // Încercăm să verificăm după ce header-ul a fost încărcat
     setTimeout(checkAuthStatus, 500);
 
-    // Verificăm periodic starea autentificării (mai rar!)
-    setInterval(checkAuthStatus, 300000); // Verifică la fiecare 5 minute în loc de 1 minut
+    // Verificăm periodic starea autentificării (pentru a actualiza UI-ul dacă sesiunea expiră)
+    setInterval(checkAuthStatus, 60000); // Verifică la fiecare minut
 });
 
-// Adaugă event listener pentru logout pentru a invalida cache-ul
-document.addEventListener('click', function(e) {
-    if (e.target && (e.target.id === 'logout-btn' || e.target.closest('#logout-btn'))) {
-        invalidateAuthCache();
-    }
-});
+
+

@@ -30,18 +30,33 @@
                 <li><a href="/resources/evaluation.html">Evaluare</a></li>
 
                 <!-- Dropdown Admin (vizibil doar pentru admini) -->
-                
+
                 <!-- Dropdown Admin (noul) -->
                 <li class="dropdown" id="admin-dropdown" style="display: none;">
                     <a href="#">
                         <i class="fas fa-shield-alt"></i> Admin
                     </a>
                     <ul class="dropdown-menu">
+                        <!-- Grup: Monitorizare -->
                         <li><a href="/admin_logs.php">
                                 <i class="fas fa-list-alt"></i> Jurnale Autentificare
                             </a></li>
                         <li><a href="/admin/evaluation_dashboard.php">
                                 <i class="fas fa-graduation-cap"></i> Sistem Evaluare
+                            </a></li>
+
+                        <!-- Separator vizual (opțional) -->
+                        <li class="dropdown-divider"></li>
+
+                        <!-- Grup: Management Utilizatori -->
+                        <li><a href="/user_manager.php">
+                                <i class="fas fa-users-cog"></i> Manager Utilizatori
+                            </a></li>
+                        <li><a href="/school_generator.php">
+                                <i class="fas fa-school"></i> Generator Școli
+                            </a></li>
+                        <li><a href="/csv_import.php">
+                                <i class="fas fa-file-upload"></i> Import CSV
                             </a></li>
                     </ul>
                 </li>

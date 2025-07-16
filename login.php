@@ -4,9 +4,10 @@ ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
-// IMPORTANT: config.php este în includes/
-require_once 'includes/config.php';
 require_once 'includes/auth.php';
+require_once 'includes/config.php';
+
+
 
 // Verificăm dacă utilizatorul este deja autentificat
 if (isSessionValid()) {

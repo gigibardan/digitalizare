@@ -26,7 +26,23 @@ if ($_POST['action'] ?? '' === 'add_user') {
         if (addNewUser($username, $password, $full_name, $school)) {
             $message = "Utilizatorul '$username' a fost adăugat cu succes!";
         } else {
-            $error = 'Eroare la adăugarea utilizatorului!';
+            $error = 'Eroare la adăugarea utilizatorului sau utilizatorul există deja!';
+        }
+    }
+}
+
+if ($_POST['action'] ?? '' === 'delete_user') {
+    $username_to_delete = trim($_POST['username_to_delete'] ?? '');
+    
+    if (!empty($username_to_delete)) {
+        if ($username_to_delete === 'admin') {
+            $error = 'Nu poți șterge contul de administrator!';
+        } else {
+            if (deleteUser($username_to_delete)) {
+                $message = "Utilizatorul '$username_to_delete' a fost șters cu succes!";
+            } else {
+                $error = 'Eroare la ștergerea utilizatorului!';
+            }
         }
     }
 }
@@ -41,7 +57,15 @@ if ($_POST['action'] ?? '' === 'regenerate_all') {
 
 // Funcția pentru adăugarea unui utilizator nou
 function addNewUser($username, $password, $full_name, $school = '') {
-    // Verifică dacă utilizatorul există deja
+    // Verifică dacă utilizatorul există deja în users_final.php
+    if (file_exists('includes/users_final.php')) {
+        include 'includes/users_final.php';
+        if (isset($users[$username])) {
+            return false; // Utilizatorul există deja în sistemul principal
+        }
+    }
+    
+    // Verifică dacă utilizatorul există deja în users_data.json
     $users_data_file = 'users_data.json';
     
     if (file_exists($users_data_file)) {
@@ -50,14 +74,14 @@ function addNewUser($username, $password, $full_name, $school = '') {
         $users_data = [];
     }
     
-    // Verifică dacă username-ul există deja
+    // Verifică dacă username-ul există deja în JSON
     if (isset($users_data[$username])) {
         return false; // Utilizatorul există deja
     }
     
     // Adaugă utilizatorul nou
     $users_data[$username] = [
-        'password' => $password, // Parola în text clar (va fi hash-uită)
+        'password' => $password,
         'full_name' => $full_name,
         'school' => $school,
         'created_at' => date('Y-m-d H:i:s')
@@ -72,62 +96,105 @@ function addNewUser($username, $password, $full_name, $school = '') {
     return false;
 }
 
-function regenerateUsersFile() {
+// Funcția pentru ștergerea unui utilizator
+function deleteUser($username) {
+    // Șterge din users_data.json
     $users_data_file = 'users_data.json';
+    $deleted_from_json = false;
     
-    // 1. Încarcă utilizatorii existenți din users_final.php (cei 102)
-    $existing_users = [];
+    if (file_exists($users_data_file)) {
+        $users_data = json_decode(file_get_contents($users_data_file), true) ?? [];
+        if (isset($users_data[$username])) {
+            unset($users_data[$username]);
+            file_put_contents($users_data_file, json_encode($users_data, JSON_PRETTY_PRINT));
+            $deleted_from_json = true;
+        }
+    }
+    
+    // Șterge din users_final.php și user_names.php
+    $deleted_from_main = false;
+    
     if (file_exists('includes/users_final.php')) {
-        // Citește fișierul ca string și extrage array-ul
         $content = file_get_contents('includes/users_final.php');
-        
-        // Evaluează conținutul pentru a obține array-ul $users
         eval(str_replace('<?php', '', $content));
         $existing_users = $users ?? [];
         
-        echo "<p>DEBUG: Utilizatori existenți din users_final.php: " . count($existing_users) . "</p>";
+        if (isset($existing_users[$username])) {
+            unset($existing_users[$username]);
+            $deleted_from_main = true;
+            
+            // Încarcă și numele
+            $existing_names = [];
+            if (file_exists('includes/user_names.php')) {
+                $names_content = file_get_contents('includes/user_names.php');
+                eval(str_replace('<?php', '', $names_content));
+                $existing_names = $user_full_names ?? [];
+                unset($existing_names[$username]);
+            }
+            
+            // Salvează fișierele actualizate
+            $users_content = "<?php\n";
+            $users_content .= "// Hash-uri pre-generate pentru utilizatori\n";
+            $users_content .= "// Generat pe: " . date('Y-m-d H:i:s') . "\n";
+            $users_content .= "// Total utilizatori: " . count($existing_users) . "\n\n";
+            $users_content .= '$users = ' . var_export($existing_users, true) . ";\n";
+            $users_content .= "?>";
+            
+            $names_content = "<?php\n";
+            $names_content .= "// Maparea numelor complete\n";
+            $names_content .= "// Generat pe: " . date('Y-m-d H:i:s') . "\n\n";
+            $names_content .= '$user_full_names = ' . var_export($existing_names, true) . ";\n";
+            $names_content .= "?>";
+            
+            file_put_contents('includes/users_final.php', $users_content);
+            file_put_contents('includes/user_names.php', $names_content);
+        }
     }
     
-    // 2. Încarcă numele existente din user_names.php
+    return $deleted_from_json || $deleted_from_main;
+}
+
+function regenerateUsersFile() {
+    $users_data_file = 'users_data.json';
+    
+    // Încarcă utilizatorii existenți din users_final.php
+    $existing_users = [];
+    if (file_exists('includes/users_final.php')) {
+        $content = file_get_contents('includes/users_final.php');
+        eval(str_replace('<?php', '', $content));
+        $existing_users = $users ?? [];
+    }
+    
+    // Încarcă numele existente din user_names.php
     $existing_names = [];
     if (file_exists('includes/user_names.php')) {
         $names_content = file_get_contents('includes/user_names.php');
         eval(str_replace('<?php', '', $names_content));
         $existing_names = $user_full_names ?? [];
-        
-        echo "<p>DEBUG: Nume existente din user_names.php: " . count($existing_names) . "</p>";
     }
     
-    // 3. Încarcă utilizatorii NOI din users_data.json
+    // Încarcă utilizatorii NOI din users_data.json
     $new_users_data = [];
     if (file_exists($users_data_file)) {
         $new_users_data = json_decode(file_get_contents($users_data_file), true) ?? [];
-        echo "<p>DEBUG: Utilizatori noi din JSON: " . count($new_users_data) . "</p>";
     }
     
-    // 4. COMBINĂ: păstrează utilizatorii vechi + adaugă cei noi
-    $all_users_hash = $existing_users; // ÎNCEPE cu toți cei 102
-    $all_names = $existing_names;      // ÎNCEPE cu toate numele
+    // COMBINĂ: păstrează utilizatorii vechi + adaugă cei noi
+    $all_users_hash = $existing_users;
+    $all_names = $existing_names;
     
     $added_count = 0;
     
-    // 5. Adaugă doar utilizatorii NOI care nu existau
+    // Adaugă doar utilizatorii NOI care nu existau
     foreach ($new_users_data as $username => $data) {
         if (!isset($all_users_hash[$username])) {
-            // Utilizator nou - generează hash
             $all_users_hash[$username] = password_hash($data['password'], PASSWORD_DEFAULT);
             $all_names[$username] = $data['full_name'];
             $added_count++;
-            echo "<p>DEBUG: Adăugat utilizator nou: $username</p>";
-        } else {
-            echo "<p>DEBUG: Utilizator existent păstrat: $username</p>";
         }
     }
     
-    echo "<p>DEBUG: Total utilizatori finali: " . count($all_users_hash) . "</p>";
-    echo "<p>DEBUG: Utilizatori adăugați: $added_count</p>";
-    
-    // 6. Salvează fișierele cu toți utilizatorii (vechi + noi)
+    // Salvează fișierele cu toți utilizatorii (vechi + noi)
     $users_content = "<?php\n";
     $users_content .= "// Hash-uri pre-generate pentru utilizatori\n";
     $users_content .= "// Generat pe: " . date('Y-m-d H:i:s') . "\n";
@@ -144,14 +211,12 @@ function regenerateUsersFile() {
     $success1 = file_put_contents('includes/users_final.php', $users_content);
     $success2 = file_put_contents('includes/user_names.php', $names_content);
     
-    echo "<p>DEBUG: Salvare users_final.php: " . ($success1 ? 'SUCCES (' . number_format($success1) . ' bytes)' : 'EROARE') . "</p>";
-    echo "<p>DEBUG: Salvare user_names.php: " . ($success2 ? 'SUCCES (' . number_format($success2) . ' bytes)' : 'EROARE') . "</p>";
-    
     return $success1 !== false && $success2 !== false;
 }
 
 // Încarcă utilizatorii existenți pentru afișare
 $current_users = [];
+$available_schools = ['smardioasa', 'cozmesti', 'perisoru', 'petresti', 'roman']; // Pentru dropdown
 
 // Încarcă din users_final.php
 if (file_exists('includes/users_final.php')) {
@@ -165,9 +230,17 @@ if (file_exists('includes/users_final.php')) {
     }
     
     foreach ($all_users as $username => $hash) {
+        $school = 'unknown';
+        if (strpos($username, '.') !== false) {
+            $school = explode('.', $username)[1];
+            if (!in_array($school, $available_schools)) {
+                $available_schools[] = $school; // Adaugă școala nouă în dropdown
+            }
+        }
+        
         $current_users[$username] = [
             'full_name' => $all_names[$username] ?? $username,
-            'school' => (strpos($username, '.') !== false) ? explode('.', $username)[1] : 'unknown',
+            'school' => $school,
             'created_at' => '2025-01-01 00:00:00'
         ];
     }
@@ -188,12 +261,15 @@ if (file_exists('includes/users_final.php')) {
         input, select { width: 100%; padding: 8px; border: 1px solid #ddd; border-radius: 4px; }
         button { background: #007cba; color: white; padding: 10px 20px; border: none; border-radius: 4px; cursor: pointer; }
         button:hover { background: #005a8b; }
+        .btn-danger { background: #dc3545; }
+        .btn-danger:hover { background: #c82333; }
         .message { background: #d4edda; color: #155724; padding: 10px; border-radius: 4px; margin-bottom: 20px; }
         .error { background: #f8d7da; color: #721c24; padding: 10px; border-radius: 4px; margin-bottom: 20px; }
         table { width: 100%; border-collapse: collapse; margin-top: 20px; }
         th, td { padding: 12px; text-align: left; border-bottom: 1px solid #ddd; }
         th { background-color: #f2f2f2; }
         .school-badge { background: #e3f2fd; color: #1976d2; padding: 4px 8px; border-radius: 12px; font-size: 12px; }
+        .actions { white-space: nowrap; }
     </style>
 </head>
 <body>
@@ -232,14 +308,14 @@ if (file_exists('includes/users_final.php')) {
             </div>
             
             <div class="form-group">
-                <label for="school">Școala (opțional):</label>
+                <label for="school">Școala:</label>
                 <select id="school" name="school">
                     <option value="">Selectează școala...</option>
-                    <option value="smardioasa">Școala Gimnazială Smardioasa</option>
-                    <option value="cozmesti">Școala Profesională Cozmești</option>
-                    <option value="perisoru">Școala Gimnazială Perisoru</option>
-                    <option value="petresti">Școala Gimnazială Petrești</option>
-                    <option value="roman">Liceul cu Program Sportiv Roman</option>
+                    <?php foreach ($available_schools as $school): ?>
+                        <option value="<?= htmlspecialchars($school) ?>">
+                            <?= ucfirst(htmlspecialchars($school)) ?>
+                        </option>
+                    <?php endforeach; ?>
                     <option value="alta">Altă școală</option>
                 </select>
             </div>
@@ -258,12 +334,16 @@ if (file_exists('includes/users_final.php')) {
             </button>
         </form>
         
-        <a href="admin_logs.php" style="margin-left: 10px;">
-            <button type="button">📊 Vezi Loguri</button>
+        <a href="school_generator.php" style="margin-left: 10px;">
+            <button type="button">🏫 Generator Școli</button>
         </a>
         
-        <a href="dashboard.php" style="margin-left: 10px;">
-            <button type="button">🏠 Înapoi la Dashboard</button>
+        <a href="csv_import.php" style="margin-left: 10px;">
+            <button type="button">📊 Import CSV</button>
+        </a>
+        
+        <a href="admin_logs.php" style="margin-left: 10px;">
+            <button type="button">📋 Vezi Loguri</button>
         </a>
     </div>
     
@@ -281,6 +361,7 @@ if (file_exists('includes/users_final.php')) {
                         <th>Nume Complet</th>
                         <th>Școala</th>
                         <th>Data Creării</th>
+                        <th>Acțiuni</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -289,13 +370,23 @@ if (file_exists('includes/users_final.php')) {
                             <td><strong><?= htmlspecialchars($username) ?></strong></td>
                             <td><?= htmlspecialchars($data['full_name']) ?></td>
                             <td>
-                                <?php if (!empty($data['school'])): ?>
-                                    <span class="school-badge"><?= htmlspecialchars($data['school']) ?></span>
-                                <?php else: ?>
-                                    <em>Nespecificat</em>
-                                <?php endif; ?>
+                                <span class="school-badge"><?= htmlspecialchars($data['school']) ?></span>
                             </td>
                             <td><?= htmlspecialchars($data['created_at'] ?? 'Necunoscut') ?></td>
+                            <td class="actions">
+                                <?php if ($username !== 'admin'): ?>
+                                    <form method="POST" style="display: inline;" 
+                                          onsubmit="return confirm('Ești sigur că vrei să ștergi utilizatorul <?= htmlspecialchars($username) ?>?')">
+                                        <input type="hidden" name="action" value="delete_user">
+                                        <input type="hidden" name="username_to_delete" value="<?= htmlspecialchars($username) ?>">
+                                        <button type="submit" class="btn-danger" style="padding: 4px 8px; font-size: 12px;">
+                                            🗑️ Șterge
+                                        </button>
+                                    </form>
+                                <?php else: ?>
+                                    <em style="color: #666;">Protejat</em>
+                                <?php endif; ?>
+                            </td>
                         </tr>
                     <?php endforeach; ?>
                 </tbody>

@@ -75,62 +75,34 @@ if ($_POST['action'] ?? '' === 'import_csv') {
     }
 }
 
-function regenerateUsersFile() {
-    $users_data_file = 'users_data.json';
-    
-    // 1. Încarcă utilizatorii existenți din users_final.php (cei 102)
+function regenerateFromData($users_data) {
+    // Încarcă utilizatorii existenți din users_final.php
     $existing_users = [];
     if (file_exists('includes/users_final.php')) {
-        // Citește fișierul ca string și extrage array-ul
         $content = file_get_contents('includes/users_final.php');
-        
-        // Evaluează conținutul pentru a obține array-ul $users
         eval(str_replace('<?php', '', $content));
         $existing_users = $users ?? [];
-        
-        echo "<p>DEBUG: Utilizatori existenți din users_final.php: " . count($existing_users) . "</p>";
     }
     
-    // 2. Încarcă numele existente din user_names.php
     $existing_names = [];
     if (file_exists('includes/user_names.php')) {
         $names_content = file_get_contents('includes/user_names.php');
         eval(str_replace('<?php', '', $names_content));
         $existing_names = $user_full_names ?? [];
-        
-        echo "<p>DEBUG: Nume existente din user_names.php: " . count($existing_names) . "</p>";
     }
     
-    // 3. Încarcă utilizatorii NOI din users_data.json
-    $new_users_data = [];
-    if (file_exists($users_data_file)) {
-        $new_users_data = json_decode(file_get_contents($users_data_file), true) ?? [];
-        echo "<p>DEBUG: Utilizatori noi din JSON: " . count($new_users_data) . "</p>";
-    }
+    // Combină: păstrează vechi + adaugă noi
+    $all_users_hash = $existing_users;
+    $all_names = $existing_names;
     
-    // 4. COMBINĂ: păstrează utilizatorii vechi + adaugă cei noi
-    $all_users_hash = $existing_users; // ÎNCEPE cu toți cei 102
-    $all_names = $existing_names;      // ÎNCEPE cu toate numele
-    
-    $added_count = 0;
-    
-    // 5. Adaugă doar utilizatorii NOI care nu existau
-    foreach ($new_users_data as $username => $data) {
+    foreach ($users_data as $username => $data) {
         if (!isset($all_users_hash[$username])) {
-            // Utilizator nou - generează hash
             $all_users_hash[$username] = password_hash($data['password'], PASSWORD_DEFAULT);
             $all_names[$username] = $data['full_name'];
-            $added_count++;
-            echo "<p>DEBUG: Adăugat utilizator nou: $username</p>";
-        } else {
-            echo "<p>DEBUG: Utilizator existent păstrat: $username</p>";
         }
     }
     
-    echo "<p>DEBUG: Total utilizatori finali: " . count($all_users_hash) . "</p>";
-    echo "<p>DEBUG: Utilizatori adăugați: $added_count</p>";
-    
-    // 6. Salvează fișierele cu toți utilizatorii (vechi + noi)
+    // Salvează fișierele
     $users_content = "<?php\n";
     $users_content .= "// Hash-uri pre-generate pentru utilizatori\n";
     $users_content .= "// Generat pe: " . date('Y-m-d H:i:s') . "\n";
@@ -146,9 +118,6 @@ function regenerateUsersFile() {
     
     $success1 = file_put_contents('includes/users_final.php', $users_content);
     $success2 = file_put_contents('includes/user_names.php', $names_content);
-    
-    echo "<p>DEBUG: Salvare users_final.php: " . ($success1 ? 'SUCCES (' . number_format($success1) . ' bytes)' : 'EROARE') . "</p>";
-    echo "<p>DEBUG: Salvare user_names.php: " . ($success2 ? 'SUCCES (' . number_format($success2) . ' bytes)' : 'EROARE') . "</p>";
     
     return $success1 !== false && $success2 !== false;
 }
@@ -230,6 +199,7 @@ function regenerateUsersFile() {
     <div class="container">
         <h2>🔗 Link-uri utile</h2>
         <a href="user_manager.php"><button type="button">👥 User Manager</button></a>
+        <a href="school_generator.php"><button type="button">🏫 Generator Școli</button></a>
         <a href="admin_logs.php"><button type="button">📊 Loguri</button></a>
         <a href="dashboard.php"><button type="button">🏠 Dashboard</button></a>
     </div>
